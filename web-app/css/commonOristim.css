@@ -1,0 +1,173 @@
+html, body {
+    font-family: "Helvetica","Arial",sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.row .col.m7 {
+    /*width: 25.333%;*/
+    /*width: 33.333%;*/
+    width:  24.333%;
+    margin-left: 0px;
+    float: left;
+} 
+
+.white {
+		background-color:#7E7E7E !important;
+}
+
+nav .nav-wrapper {
+    position: relative;
+    height: 100%;
+    background-color: #313131;
+}
+
+.col .s12 .m5 {
+	float:left;
+}
+
+footer.page-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    background-color:  #313131;
+}
+
+.dropdown-content{
+    /*background-color: rgb(65, 65, 65);*/
+    background-color:  rgba(65, 65, 65, 0.88);
+    margin-top: 64px;
+}
+
+.dropdown-content li > a {
+    color: white;
+}
+
+nav ul a {
+    color: white;
+}
+
+.btn, .btn-large {
+    background-color: #424242;
+}
+
+.dropdown-content li a:hover{
+    -webkit-transition-property:color, text;
+    -webkit-transition-duration: 0.3s, 0.3s;
+    -webkit-transition-timing-function: linear, ease-in;
+
+    -moz-transition-property:color, text;
+    -moz-transition-duration:0.3s;
+    -moz-transition-timing-function: linear, ease-in;
+
+    color: black;
+}
+
+.btn:hover {
+    background-color: #656666;
+     
+}
+
+nav ,.nav-wrapper , .navbar-fixed{
+    /*height: 50px;*/
+}
+
+.slider{
+    margin-bottom: -40px;
+}
+.slider .indicators{
+    margin: 63px;
+    z-index: 100;    
+}
+
+.row {
+    margin-left: 15px;
+    margin-bottom: 20px;
+    width: 98%;
+}
+
+.card.medium {
+    height: 360px;
+}
+
+
+.modal .modal-footer {
+    background-color: #303030;
+}
+
+.modal-footer-white {
+    background-color: white !important;
+    color: black !important;
+}
+
+.modal-close-white {
+    color: black !important;
+}
+
+.modal .modal-close {
+    color: white;
+}
+
+.grey-text.text-darken-4 {
+    color : #626262 !important;
+}
+
+.card-reveal p{
+    color: #626262;
+}
+
+.show-frame{
+    background-color: rgb(49, 49, 49);
+    width:100%;
+    height: 35px;
+    /*color: white;*/
+}
+
+.show-frame h4{
+    color: #909090;
+    margin-left: 27px;
+    font-family: fantasy;
+    font-size: 24px;
+}
+
+.toast , .rounded{
+    /*background-color: green;*/
+    /*background-color: #5F95B7;*/
+    background-color: #11A2FE;
+    /*background-color: #445453;*/
+    /*background-color: #445453;*/
+}
+
+.slider {
+    height: 424px !important;
+}
+
+.slider .indicators {
+    margin: 40px;
+}
+/*Color mas ciruja*/
+.card.medium {
+    height: 360px;
+    background-color: #445453;
+}
+
+.grey-text.text-darken-4 {
+    color: #FFF !important;
+}
+
+.card .card-reveal {
+    background-color: #485756;
+}
+
+.card-reveal p{
+    color: rgb(164, 164, 164);;
+}
+
+.card-content a{
+   color: rgb(164, 164, 164);
+}
+
+footer.page-footer {
+    margin-top: 0px;
+    /*background-color: #485756;*/
+}

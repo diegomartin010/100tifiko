@@ -1,0 +1,40 @@
+{
+	"nombre":"Ingenieria Quimica",
+	
+	"plan":"2008",
+	
+	"materiasObligatorias":[
+	
+		"Integración I",
+		"Ingeniería y Sociedad",
+		"Algebra y Geometría Analítica",
+		"Análisis Matemático",
+		"Física I",
+		"Química General",
+		"Fundamentos de Informática",
+		"Inglés I",
+		"Integración II",
+		"Análisis Matemático II",
+		"Física II",
+		"Química Inorgánica",
+		"Química Orgánica",
+		"Probabilidad y Estadística",
+		"Sistemas de Representación",
+		"Inglés II",
+		"Integración III",
+		"Química Avanzada",
+		"Química Analítica Aplicada",
+		"Termodinámica",
+		"Fisicoquímica"
+		
+	],
+	
+	"materiasElectivas": [
+	
+		"Electiva 1",
+		"Electiva 2",
+		"Electiva 3",
+		"Electiva n"
+		
+	]
+}

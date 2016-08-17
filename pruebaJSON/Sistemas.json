@@ -1,0 +1,29 @@
+{
+	"nombre":"Ingenieria en Sistemas",
+	
+	"plan":2008,
+	
+	"materiasObligatorias":[
+	
+		"Algebra y Geometria Analitica",
+		"Analisis Matematico 1",
+		"Fisica 1",
+		"Fisica 2",
+		"Analisis Matematico 2",
+		"Matematica Superior",
+		"Comunicaciones",
+		"Sistemas Operativos",
+		"Gestion de Datos",
+		"Ingenieria de software"
+		
+	],
+	
+	"materiasElectivas": [
+	
+		"Metodos Numericos",
+		"Estadistica Aplicada",
+		"Electronica Aplicada",
+		"Redes de Fibra Optica"
+		
+	]
+}

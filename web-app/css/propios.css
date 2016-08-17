@@ -1,0 +1,27 @@
+.price{
+	text-align: center;
+	margin-top: 25%;
+	margin-left: 63%;
+	background-color: #936262;
+	width: 35%;
+	height: 30px;
+	position: absolute;
+	border-radius: 15px;
+	color: white;
+}
+.price p{
+	margin-top: 4px;
+}
+
+
+.errorMsg{
+	/*background-color:  #9E3D3D;*/
+	/*background-color:  #FF6565;*/
+	background-color: red;
+}
+
+.successMsg{
+	/*background-color:  #9E3D3D;*/
+	/*background-color:  #FF6565;*/
+	background-color: green;
+}
