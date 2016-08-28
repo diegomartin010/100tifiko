@@ -16,3 +16,5 @@ stacktrace.log
 /target-eclipse/
 .project
 .classpath
+*.db
+100tifikoDB.h2.db
