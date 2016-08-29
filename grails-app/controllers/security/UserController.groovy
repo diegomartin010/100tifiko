@@ -24,26 +24,17 @@ class UserController {
     }
 
     @Transactional
-    def save(User userInstance) {
-        if (userInstance == null) {
-            notFound()
-            return
-        }
+    def save() {
 
-        if (userInstance.hasErrors()) {
-            respond userInstance.errors, view:'create'
-            return
-        }
+        // params RECIBE TODOS LOS DATOS DEL FORMULARIO 
+        println("ewfews")
+        def user = new User(params)
+        println("yaaaaaaa se creo el usuarioooo")
+        println(user.nombre)
 
-        userInstance.save flush:true
+        render(view: "index")
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-                redirect userInstance
-            }
-            '*' { respond userInstance, [status: CREATED] }
-        }
+ 
     }
 
     def edit(User userInstance) {

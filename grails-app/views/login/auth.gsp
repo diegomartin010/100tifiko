@@ -54,9 +54,6 @@
 			padding-right: 10px;
 		}
 
-		#login #remember_me_holder {
-			padding-left: 120px;
-		}
 
 		#login #submit {
 			margin-left: 15px;
@@ -118,6 +115,7 @@
 <script type='text/javascript'>
 (function() {
 	document.forms['loginForm'].elements['j_username'].focus();
+	$("#status").hide()
 })();
 </script>
 </body>
