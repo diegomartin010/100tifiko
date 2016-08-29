@@ -14,8 +14,8 @@
 		
 	%{-- Barra de navegacion pagina --}%
 	<div class="nav" role="navigation">
-		<ul><li><a class="home" href="/"><g:message code="default.home.label"/></a></li></ul>
-	</div>
+
+	
 
 	
 	%{-- Estilo body de la pagina --}%
@@ -26,7 +26,7 @@
 	
 			%{-- Formulario de creacion de nueva carrera --}%
 			<div class="content scaffold-edit" role="main">
-				<h1>Crear una carrera:</h1>
+				<h1> Nueva carrera</h1>
 				<ol class="property-list user">
 				<div id ="result"></div>
 				%{-- Inicio del formulario --}%
@@ -34,16 +34,26 @@
 					<div class="fieldcontain required">
 						<div class="alert alert-info" role="alert">
 							<label>Archivo de nueva carrera:</label>
+							<span>Cargar archivo json con nueva carrera
+							  <a style="display: inline-block;" target="_blank" href="https://es.wikipedia.org/wiki/JSON">Cómo es el formato?</a> 
+							 </span>
 							<input type="file" id="nuevaCarrera">
+
 						</div>
 					</div>
 					<div class="fieldcontain required">
-						<label>Carreras cargadas:</label>
+						<label>Carreras en el sistema:</label>
+						<br>
 						<ul class="list-group">
 		  					<g:each var="carrera" in="${Carrera.list()}">
-    							<li class="list-group-item">
-		  							<label>${carrera.id}: </label> ${carrera.nombre}
+    							<li class="list-carreras">
+		  							<span> <label>${carrera.id}: </label> ${carrera.nombre} </span>
+		  							    <select name=${carrera.id} id=${carrera.id}>
+		  								<option selected disabled>Acciones</option>
+		  								<option value="1">Eliminar</option>
+		  								</select>
 		  						</li>
+		  					<br><br><br>
     						</g:each>
 		  					
 						</ul>					
@@ -55,10 +65,8 @@
 
 			
   		
-			<fieldset class="buttons">
-				<input type="submit" class="delete" id="eliminar-carrera" value="Desvincular">
-			</fieldset>
 		
+	</div>
 	</div>
 
 </body>

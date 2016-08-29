@@ -105,7 +105,7 @@
 				<input type='checkbox' class='chk' name='${rememberMeParameter}' id='remember_me' <g:if test='${hasCookie}'>checked='checked'</g:if>/>
 				<label for='remember_me'><g:message code="springSecurity.login.remember.me.label"/></label>
 			</p>
-			<a class="reg-btn" href="/user/create">Registrarte</a>
+			<a class="reg-btn" href="/user/create">Registrarse</a>
 			<p>
 				<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
 			</p>

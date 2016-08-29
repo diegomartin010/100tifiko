@@ -65,6 +65,11 @@ body {
 .ie6 body {
 	height: 100%;
 }
+.list-carreras {
+	width:55%;
+	background-color: #fff;
+    border: 1px solid #ddd;
+}
 
 a:link, a:visited, a:hover {
 	color: #000000;
@@ -134,6 +139,10 @@ img {
     right: 0;
 	top: 0;
 	text-indent: -9999px;
+}
+li span {
+	width: 60%;
+    display: inline-block;
 }
 
 /* NAVIGATION MENU */
