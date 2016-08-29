@@ -40,7 +40,7 @@
 	
 	<body>
 		<div id="grailsLogo" role="banner">
-			<a href="/"><asset:image src="logos/logo_12.png" alt="Grails"/></a>
+			<a href="/"><asset:image src="logos/logo.png" alt="Grails"/></a>
 
 			<sec:ifLoggedIn>
 				<span class="logout-btn" >
