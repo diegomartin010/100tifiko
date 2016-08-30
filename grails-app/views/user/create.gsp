@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+			%{-- Incluir logica javascript --}%
+			<g:javascript src="user/create.js" />
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'user.label', default: 'Usuario')}" />
 		<title><g:message code="default.name.label" args="['Registrarse']"  /></title>
@@ -35,7 +37,7 @@
             <input  TYPE="password" id = "password" name="password" /></div><br/>
               <div class="fieldcontain"><label>Repetir contraseña: </label>
             <input  TYPE="password" id = "repass" name="repass" />
-        	<span class = "errors" style="display:none" >Las contraseñas no coinciden</span></div><br/>
+        	<span class = "pass errors" style="display:none" >Las contraseñas no coinciden</span></div><br/>
 
 
 
@@ -54,7 +56,8 @@
             <div class="fieldcontain"><label>Apellido: </label>
             <g:textField name="apellido"/></div><br/>
             <div class="fieldcontain"><label>Mail: </label>
-            <g:textField name="email"/></div><br/>
+            <g:textField name="email"/>
+            <span class = "em errors" style="display:none" >El email no es válido</span></div><br/>
             </fieldset> 
 
 		<fieldset class="buttons">
@@ -62,29 +65,6 @@
 		</fieldset>
 		</g:form>
 		</div>
-
-<script type="text/javascript">
-	(function() {
-		$("#status").hide()
-	}) ();
-
-	$(document).ready(function () {
-
-		// VALIDO SI LAS CONTRASEÑAS SON IGUALES
-	$("#repass").focusout(function(e) {
-		if ($("#password").val() != $("#repass").val())
-			$(".errors").show()
-		else
-			$(".errors").hide()
-		})
-
-	/*$("#create").bind('onclick',
-		window.location.href='/login/auth')*/
-
-
-
-})
-</script>
 	</body>
 
 </html>

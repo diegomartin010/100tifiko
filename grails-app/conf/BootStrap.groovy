@@ -11,6 +11,7 @@ class BootStrap {
 	 
 	   def usuario = new User('mrios', 'mrios1')
 	   def usuario2 = new User('dcol', 'dcol1')
+	   def usuario3 = new User('usuario', 'usuario123')
 	  
 	  //def userrole = new UserRole(usuario,alumno)
 	  
@@ -18,6 +19,7 @@ class BootStrap {
 	  usuario2.save()
 	  
 	  new UserRole(usuario,alumno).save()
+	  new UserRole(usuario2,alumno).save()
 	  new UserRole(usuario2,alumno).save()
 	  
 	  // movida carreras
