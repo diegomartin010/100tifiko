@@ -37,7 +37,7 @@
 		<div class="content"><h1>Agenda</h1></div>
 			<form>
 				<div class="container">
-					<div class="col-md-4">	
+					<div class="col-md-8">	
 						<div id="calendar" class="fc fc-unthemed fc-ltr"></div>
 					</div>
 				</div>
