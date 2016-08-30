@@ -35,7 +35,7 @@
 						<select class = "form-control" id ="carrera" placeholder="Legajo...">
 							<option>Elija una carrera...</option>
 						</select>
-						<br><input type="submit" class="btn btn-primary" id="asociar-carrera" value="Vincular">
+						<br><input type="submit" class="btn btn-default" id="asociar-carrera" value="Vincular">
 					</div>				
 				</div>
 			</form>	
