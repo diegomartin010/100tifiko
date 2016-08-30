@@ -1,4 +1,4 @@
-var sys = arbor.ParticleSystem({
+	var sys = arbor.ParticleSystem({
 				repulsion:100,
 				stiffness:0,
 				friction:0,

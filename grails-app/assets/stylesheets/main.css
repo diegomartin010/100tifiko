@@ -42,7 +42,7 @@ body {
 	margin: 0 auto !important;
 	margin-bottom: 0 auto !important;
 	/*max-width: 960px;*/
-	max-width: 1500px;
+	/*max-width: 1500px;*/
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
 	   -moz-box-shadow: 0 0 0.3em #000000;
 	-webkit-box-shadow: 0 0 0.3em #000000;
@@ -54,6 +54,7 @@ body {
 	position: fixed;
 	width: 100%;
 	 z-index:99999;
+	/*margin-left: -42px;*/
 }
 
 /* replace with .no-boxshadow body if you have modernizr available */
@@ -679,7 +680,7 @@ li{
 			#page-body {
 				margin: 2em 1em 1.25em 18em;
 				    margin-top: 67px;
-    margin-left: 251px;
+    		/*margin-left: 251px;*/
 			}
 			#container{
 				width:10%;
