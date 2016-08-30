@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
+ <html lang="en" class="no-js">
 	<head>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,20 +12,13 @@
 		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
   		
-  		%{-- Carga de hojas de estilos predenterminadas --}%
   		<asset:stylesheet src="application.css"/>
-  		%{-- Js de aplicacion --}%
 		<asset:javascript src="application.js"/>
-
-		%{-- Css Bootstrap --}%
 		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css">
-		
-		%{-- Scripts --}%
+		<link rel="stylesheet" href="/css/simple-sidebar.css">
 
-		%{-- Jquery --}%
 		<script src="/jquery/jquery.js"></script>
-		%{-- Js Bootstrap --}%
 		<script src="/bootstrap/js/bootstrap.min.js"></script>
 
 			%{-- Aca va el head de la pagina --}%
@@ -58,7 +47,7 @@
 		</div>
 		
 		%{-- Movida login logout --}%
-			<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+%{-- 			<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="status" role="complementary">
 			<h1>MENU</h1>
 			<ul>
@@ -67,10 +56,35 @@
 				<li><a href="/nofunciona">Estadisticas</a></li>
 				<li><a href="/nofunciona">Examenes</a></li>
 				<li><a href="/nofunciona">Agenda</a></li>
-				<li><a href="/nofunciona">Simulador</a></li>
+				<li><a href="/simulacion">Simulacion</a></li>
 				<li><a href="/carrera">Administrar carreras</a></li>
 			</ul>
-		</div>
+		</div> --}%
+
+<div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="/">Index</a></li>
+                <li><a href="/nofunciona">Tutoriales</a></li>
+				<li><a href="/estadoAcademico">Carreras</a></li>
+				<li><a href="/nofunciona">Estadisticas</a></li>
+				<li><a href="/nofunciona">Examenes</a></li>
+				<li><a href="/nofunciona">Agenda</a></li>
+				<li><a href="/simulacion">Simulacion</a></li>
+				<li><a href="/carrera">Administrar carreras</a></li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+
+
+
+
+
 			%{-- Contenido de la pagina --}%
 			<g:layoutBody/>
 

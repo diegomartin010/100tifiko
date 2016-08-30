@@ -51,6 +51,8 @@ body {
 
 #grailsLogo {
 	background-color: #DE2600;
+	position: fixed;
+	width: 100%;
 }
 
 /* replace with .no-boxshadow body if you have modernizr available */
@@ -666,6 +668,8 @@ li{
 
 			#page-body {
 				margin: 2em 1em 1.25em 18em;
+				    margin-top: 67px;
+    margin-left: 251px;
 			}
 			#container{
 				width:10%;
@@ -687,3 +691,7 @@ li{
 					margin-top: 0;
 				}
 			}}
+
+body {
+	background-color: #e7e7e7 !important;
+}

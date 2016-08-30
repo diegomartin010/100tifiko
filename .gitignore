@@ -18,3 +18,8 @@ stacktrace.log
 .classpath
 *.db
 100tifikoDB.h2.db
+100tifikoDB.h2.db
+100tifikoDB.lock.db
+100tifikoDB.trace.db
+100tifikoDB.h2.db
+100tifikoDB.trace.db

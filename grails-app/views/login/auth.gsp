@@ -1,6 +1,20 @@
 <html>
 <head>
-	<meta name='layout' content='main'/>
+	%{-- Carga de hojas de estilos predenterminadas --}%
+  		%{-- <asset:stylesheet src="application.css"/> --}%
+  		%{-- Js de aplicacion --}%
+		%{-- <asset:javascript src="application.js"/> --}%
+
+		%{-- Css Bootstrap --}%
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css">
+		
+		%{-- Scripts --}%
+
+		%{-- Jquery --}%
+		<script src="/jquery/jquery.js"></script>
+		%{-- Js Bootstrap --}%
+		<script src="/bootstrap/js/bootstrap.min.js"></script>
 	<title><g:message code="springSecurity.login.title"/></title>
 	<style type="text/css" media="screen">
 		#login {
