@@ -46,11 +46,9 @@
 		<g:else>
     		<div class="container">
 				<div class="col-md-6">	
-	    			<ul class="list-group">
-	  					<li class="list-group-item">Nombre: ${usuario.estadoAcademico.carrera.nombre}</li>
-						<li class="list-group-item">Legajo: ${usuario.estadoAcademico.legajo}</li>
-	  					<li class="list-group-item">Nombre y apellido:${usuario.nombre} ${usuario.apellido}</li>
-					</ul>
+					<p>Nombre: ${usuario.estadoAcademico.carrera.nombre}</p>
+					<p>Legajo: ${usuario.estadoAcademico.legajo}</p>
+					<p>Nombre y apellido:${usuario.nombre} ${usuario.apellido}</p>
 					<input type="submit" class="btn btn-danger" id="eliminar-carrera" value="Desvincular">
 				</div>				
 			</div>

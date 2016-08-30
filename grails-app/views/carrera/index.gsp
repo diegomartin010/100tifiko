@@ -4,7 +4,7 @@
 <html>
 <head>
 	%{-- Incluir logica javascript --}%
-	<g:javascript src="carrera.js" />
+	<g:javascript src="carrera/manejoArchivos.js" />
 	%{-- Incluir cabeceras de estilos --}%
 	<meta name="layout" content="main">
 	%{-- Titulo de la pagina --}%
@@ -42,7 +42,7 @@
   						%{-- <li class="list-group-item"> --}%
   						<p>
   							${carrera.id}:${carrera.nombre}
-  							<input type="submit" class="btn btn-xs btn-danger pull-right" id="eliminar-carrera" value="Eliminar">
+  							<input type="submit" class="btn btn-xs btn-danger pull-right eliminar" id="eliminar" value="Eliminar">
   						%{-- </li> --}%
   						</p>
   					</g:each>
@@ -52,5 +52,7 @@
 
 	</div>
 
+	%{-- Logica Javascript --}%
+	<g:javascript src="carrera/carrera.js" />
 </body>
 </html>
