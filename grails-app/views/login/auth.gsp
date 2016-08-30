@@ -17,85 +17,10 @@
 		<script src="/bootstrap/js/bootstrap.min.js"></script>
 	<title><g:message code="springSecurity.login.title"/></title>
 	<style type="text/css" media="screen">
-		#login {
-			margin: 15px 0px;
-			padding: 0px;
-			text-align: center;
-			height: 80%;
-		}
-
-		#login .inner {
-			width: 340px;
-			height: 50%;
-			padding-bottom: 6px;
-			margin: 60px auto;
-			text-align: left;
-			border: 1px solid #aab;
-			background-color: #f0f0fa;
-			-moz-box-shadow: 2px 2px 2px #eee;
-			-webkit-box-shadow: 2px 2px 2px #eee;
-			-khtml-box-shadow: 2px 2px 2px #eee;
-			box-shadow: 2px 2px 2px #eee;
-		}
-
-		#login .inner .fheader {
-			padding: 18px 26px 14px 26px;
-			background-color: #f7f7ff;
-			margin: 0px 0 14px 0;
-			color: #2e3741;
-			font-size: 18px;
-			font-weight: bold;
-		}
-
-		#login .inner .cssform p {
-			clear: left;
-			margin: 0;
-			padding: 4px 0 3px 0;
-			padding-left: 105px;
-			margin-bottom: 20px;
-			height: 1%;
-		}
-
-		#login .inner .cssform input[type='text'] {
-			width: 120px;
-		}
+		
 
 
-		#login .inner .cssform label {
-			font-weight: bold;
-			float: left;
-			text-align: right;
-			margin-left: -105px;
-			width: 110px;
-			padding-top: 3px;
-			padding-right: 10px;
-		}
-
-
-		#login #submit {
-			margin-left: 15px;
-		}
-
-		#login #remember_me_holder label {
-			float: none;
-			margin-left: 0;
-			text-align: left;
-			width: 200px
-		}
-
-		#login .inner .login_message {
-			padding: 6px 25px 20px 25px;
-			color: #c33;
-			text-align:center ;
-		}
-
-		#login .inner .text_ {
-			width: 120px;
-		}
-
-		#login .inner .chk {
-			height: 12px;
-		}
+		
 		#restablecer a {
 			cursor:pointer;
 		    color: #0c2561;
@@ -138,6 +63,137 @@
     background-color: #fb885d;
     color: white;
 }
+/* form */
+body{
+    background: #e7e7e7;
+}
+.form-body{
+    background:#fff;
+    padding:20px;
+}
+.login-form{
+    background:rgba(255,255,255,0.8);
+	padding:20px;
+	border-top:3px solid#3e4043;
+}
+.innter-form{
+	padding-top:20px;
+}
+.final-login li{
+	width:50%;
+}
+
+.nav-tabs {
+    border-bottom: none !important;
+}
+
+.nav-tabs>li{
+	color:#222 !important;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color: #fff;
+    background-color: #d14d42;
+    border: none !important;
+    border-bottom-color: transparent;
+	border-radius:none !important;
+}
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.428571429;
+    border: none !important;
+    border-radius:none !important;
+	text-transform:uppercase;
+	font-size:16px;
+}
+
+.social-login{
+	text-align:center;
+	font-size:12px;
+}
+.social-login p{
+	margin:15px 0;
+}
+.social-login ul{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+.social-login ul li{
+	width:33%;
+	float:left;
+    clear:fix;
+}
+.social-login ul li a{
+	font-size:13px;
+	color:#fff;
+	text-decoration:none;
+	padding:10px 0;
+	display:block;
+}
+.social-login ul li:nth-child(1) a{
+	background:#3b5998;
+}
+.social-login ul li:nth-child(2) a{
+	background:#e74c3d;
+}
+.social-login ul li:nth-child(3) a{
+	background:#3698d9;
+}
+.sa-innate-form input[type=text], input[type=password], input[type=file], textarea, select, email{
+    font-size:13px;
+	padding:10px;
+	border:1px solid#ccc;
+	outline:none;
+	width:100%;
+	margin:8px 0;
+	
+}
+.sa-innate-form input[type=submit]{
+    border:1px solid#e64b3b;
+	background:#e64b3b;
+	color:#fff;
+	padding:10px 25px;
+	font-size:14px;
+	margin-top:5px;
+	}
+	.sa-innate-form input[type=submit]:hover{
+	border:1px solid#db3b2b;
+	background:#db3b2b;
+	color:#fff;
+	}
+	
+	.sa-innate-form button{
+	border:1px solid#e64b3b;
+	background:#e64b3b;
+	color:#fff;
+	padding:10px 25px;
+	font-size:14px;
+	margin-top:5px;
+	}
+	.sa-innate-form button:hover{
+	border:1px solid#db3b2b;
+	background:#db3b2b;
+	color:#fff;
+	}
+    .sa-innate-form p{
+        font-size:13px;
+        padding-top:10px;
+    }
+    .errors {
+    background: #fff3f3;
+    border: 1px solid #ffaaaa;
+    color: #cc0000;
+    -moz-box-shadow: 0 0 0.25em #ff8888;
+    -webkit-box-shadow: 0 0 0.25em #ff8888;
+    box-shadow: 0 0 0.25em #ff8888;
+    width:70%;
+}
+	.register{
+
+	}
+	.register-button button{
+		background-color: lightblue;
+	}
 	</style>
 </head>
 
@@ -167,17 +223,31 @@ Email:<br>
   </div>
 
 </div>
+<div class="container">
 
-<div id='login'>
-	<div class='inner'>
-		<div class='fheader'><g:message code="springSecurity.login.header"/></div>
+</div>
+<br>
+<br>
+<div class="container">
+<div class="row">
+<div class="col-md-4 col-md-offset-4">
+<div class="form-body">
+    <ul class="nav nav-tabs final-login">
+        <li class="active"><a data-toggle="tab" href="#sectionA">Iniciar sesion</a></li>
+        <!-- <li><a data-toggle="tab" href="#sectionB">Join us!</a></li> -->
+    </ul>
+    <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade in active">
+        <div class="innter-form">
 
-		<g:if test='${flash.message}'>
-			<div class='login_message'>${flash.message}</div>
-		</g:if>
 
-		<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
-			<p>
+</div>
+<g:if test='${flash.message}'>
+ 		<div class='errors'>${flash.message}</div><br>
+ 		</g:if>
+
+		<form action='${postUrl}' method='POST' id='loginForm' class='sa-innate-form' autocomplete='off'>
+			<!-- <p>
 				<label for='username'><g:message code="springSecurity.login.username.label"/>:</label>
 				<input type='text' class='text_' name='j_username' id='username'/>
 			</p>
@@ -185,9 +255,14 @@ Email:<br>
 			<p>
 				<label for='password'><g:message code="springSecurity.login.password.label"/>:</label>
 				<input type='password' class='text_' name='j_password' id='password'/>
-			</p>
-
-		
+			</p> -->
+			<label>Usuario</label>
+            <input type='text'  name='j_username' id='username'/>
+			
+            <label>Contraseña</label>
+            <input type='password'  name='j_password' id='password'/>
+            
+  		
 			<p id="restablecer" >
 				
 					<a>Restablecer contraseña</a>
@@ -201,10 +276,11 @@ Email:<br>
 			
 			<p>
 				<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
+				<button style="background:#678fa7;     border-color: #678fa7;"><a style="color:white"  href="/user/create">Registrarse</a></button>
 
 			</p>
-			<p style="text-align:right; margin-right:1em;">
-				<a   class = "buttons" href="/user/create"><b>Registrarse</b></a>
+			<p >
+				
 			</p>
 
 		</form>
