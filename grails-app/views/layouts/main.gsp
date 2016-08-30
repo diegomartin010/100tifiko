@@ -43,7 +43,7 @@
 				<li><a href="/estadoAcademico">Estado Academico</a></li>
 				<li><a href="/nofunciona">Estadisticas</a></li>
 				<li><a href="/nofunciona">Examenes</a></li>
-				<li><a href="/nofunciona">Agenda</a></li>
+				<li><a href="/agenda">Agenda</a></li>
 				<li><a href="/simulacion">Simulacion</a></li>
 				<li><a href="/carrera">Administrar carreras</a></li>
             </ul>
