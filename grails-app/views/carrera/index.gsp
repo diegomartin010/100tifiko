@@ -35,16 +35,18 @@
 		
 		
 		<div class="container">
-			<div class="col-md-6">	
+			<div class="col-md-5">	
     			<br><label>Carreras en el sistema:</label>
-    			<ul class="list-group">
+    			%{-- <ul class="list-group"> --}%
   					<g:each var="carrera" in="${Carrera.list()}">
-  						<li class="list-group-item">
+  						%{-- <li class="list-group-item"> --}%
+  						<p>
   							${carrera.id}:${carrera.nombre}
   							<input type="submit" class="btn btn-xs btn-danger pull-right" id="eliminar-carrera" value="Eliminar">
-  						</li>
+  						%{-- </li> --}%
+  						</p>
   					</g:each>
-				</ul>
+				%{-- </ul> --}%
 			</div>				
 		</div>
 
