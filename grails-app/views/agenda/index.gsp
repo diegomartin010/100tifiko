@@ -2,6 +2,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="js/librerias/fullcalendar/fullcalendar.css">
+	<g:javascript src="jquery/jquery.min.js"/>
+	<g:javascript src="librerias/fullcalendar/moment.min.js"/>
+	<g:javascript src="librerias/fullcalendar/dist/fullcalendar.js"/>
+	<script>$(document).ready(function() {
+
+    // page is now ready, initialize the calendar...
+
+	   	$('#calendar').fullCalendar({
+	   	//tamaño
+	    //opciones al clickear
+	       dayClick: function(date, jsEvent, view) {
+
+        alert('Seleccionaste la fecha : ' + date.format() + ' próximamente la funcionalidad para añadir un evento será añadida');
+
+        // change the day's background color just for fun
+
+			}// put your options and callbacks here
+   		 }) 
+	});
+	</script>
 	<meta name="layout" content="main">
 	<title><g:message code="Carrera"/></title>
 </head>
@@ -17,8 +38,8 @@
 			<form>
 				<div class="container">
 					<div class="col-md-4">	
-						<p> Para martin que no sabe usar grails</p>
-					</div>				
+						<div id="calendar" class="fc fc-unthemed fc-ltr"></div>
+					</div>
 				</div>
 			</form>	
 	</div>

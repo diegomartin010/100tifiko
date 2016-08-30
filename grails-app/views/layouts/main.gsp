@@ -28,11 +28,25 @@
 		<a href="/"><asset:image src="logos/logo.png" alt="Grails"/></a>
 		<sec:ifLoggedIn>
 			<span class="logout-btn" >
-				%{-- Usuario --}%
+				%{-- Notificaciones --}%
+				<div class="dropdown">
+    			<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+        		Notificaciones <b class="caret"></b>
+    			</a>
+    			<ul class="dropdown-menu">
+        			<li><a href="#">Notificación #1</a></li>
+        			<li class="divider"></li>
+        			<li><a href="#">Notificación #2</a></li>
+        			<li class="divider"></li>
+        			<li><a href="#">Notificación #3</a></li>
+    				</ul>
+  				%{-- Usuario --}%
 				<g:link controller="user" action="show" id="${sec.loggedInUserInfo(field:"id")}"><sec:username/></g:link>
-				|<g:link controller='logout' >Salir</g:link>
+				<g:link controller='logout' >Salir</g:link>
 			</span>
+		</div>
 		</sec:ifLoggedIn>
+
 	</div>
 	<div id="wrapper">
         <!-- Sidebar -->
