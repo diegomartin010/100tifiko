@@ -53,6 +53,7 @@ body {
 	background-color: #DE2600;
 	position: fixed;
 	width: 100%;
+	 z-index:99999;
 }
 
 /* replace with .no-boxshadow body if you have modernizr available */

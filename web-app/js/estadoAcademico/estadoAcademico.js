@@ -3,15 +3,6 @@
 // "/views/estadoAcademico/index.gsp"
 
 
-// Algunas cosas iniciales
-$( document ).ready(function() {
-	$("#warning").hide();
-});
-
-
-
-
-
 // Cargar select del formulario.
 $( document ).ready(function() {
 	$.post( "/estadoAcademico/getAllCarreras", function( data ) {
@@ -65,49 +56,26 @@ $( document ).ready(function() {
 // Advertencia eliminar carrera.
 $( document ).ready(function() {
 	$( "#eliminar-carrera" ).click(function() {
-		$("#warning").fadeIn('fast');
-		$("#eliminar-carrera").hide();
-		$(".buttons").hide();
-	});
-});
-
-
-// Confirmar eliminacion.
-$( document ).ready(function() {
-	$( "#agree" ).click(function() {
-		
-		// Ejecutamos el controlador
-		$.post("/estadoAcademico/eliminar").done(function( resp ) {
+		statement = "";
+  		var pregunta = prompt(
+	  			"AVISO:\n"+
+	  			"----------------------------------------------\n\n"+	
+	  			"Esta accion es IRREVERSIBLE."+
+	  			"\nAl desvincular borraremos tu informacion asociada a la carrera.\n\n"+
+	  			"ESCRIBE la palabra 'yes' para confirmar.\n"+
+	  			"----------------------------------------------"
+  			);
+  		if ( pregunta == "yes"){
+  			
+  			$.post("/estadoAcademico/eliminar").done(function( resp ) {
             if(resp.result){
-            	alert("Hubo un problema. Pruebe mas tarde.");
-            	
+            	alert("Hubo un problema. Pruebe mas tarde."); 	
             }else{
             	alert("Te has desvinculado de tu carrera.");
             	location.reload();
         	}
                    	
         });
-
-
+  		}
 	});
 });
-
-
-
-// Leer un archivo.
-$( document ).ready(function() {
-		// display file contents
-		$('#basicamente').change(function(event) {
- 			var file = event.target.files[0];
-  			var reader = new FileReader();
-  			reader.readAsText(file);
-
-  			reader.onload = function(event) {
-    			// The file's text will be printed here
-    			console.log(event.target.result)
-  			};
-
-			
-		});
-});
-	
