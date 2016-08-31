@@ -209,7 +209,7 @@ body{
     <div class="modal-body">
       <p>Coloque el correo elecrónico y le enviaremos un link para restablecer su contraseña</p>
     </div>
-<form style="margin-left:2em" action="restablecer.gsp">
+<form style="margin-left:2em" action="/restablecer">
 Email:<br>
 <input type="text" name="email">
 <br>
