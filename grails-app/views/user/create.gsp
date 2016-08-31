@@ -34,10 +34,13 @@
 					<div class="fieldcontain"><label>Usuario: </label>
             <g:textField name="username"/></div><br/>
             		<div class="fieldcontain"><label>Contraseña: </label>
-            <input  TYPE="password" id = "password" name="password" /></div><br/>
+            <input  TYPE="password" id = "password" name="password" />
+             <span class = "size errors" style="display:none" >La contraseña debe tener al menos 6 caracteres</span>
+         			</div><br/></div><br/>
               <div class="fieldcontain"><label>Repetir contraseña: </label>
             <input  TYPE="password" id = "repass" name="repass" />
-        	<span class = "pass errors" style="display:none" >Las contraseñas no coinciden</span></div><br/>
+        	<span class = "pass errors" style="display:none" >Las contraseñas no coinciden</span>
+      		</div><br/>
 
 
 

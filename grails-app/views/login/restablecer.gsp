@@ -39,12 +39,13 @@
 
       <div class="fieldcontain"><label>Contraseña: </label>
         <input  TYPE="password" id = "password" name="password" />
-      </div><br/>
+        <span class = "size errors" style="display:none" >La contraseña debe tener al menos 6 caracteres</span>
+      </div>
          <div class="fieldcontain"><label>Repetir contraseña: </label>
           <input  TYPE="password" id = "repass" name="repass" />
             <span class = "pass errors" style="display:none" >Las contraseñas no coinciden
             </span>
-          </div><br/>
+          </div><br/><br/><br/>
               <fieldset class="buttons">
                  <g:submitButton name="create" class="save" value="Restablecer"  />
               </fieldset>
@@ -56,15 +57,15 @@
 $(document).ready(function () {
   $("#sidebar-wrapper").hide() //OCULTO LA BARRA LATERAL
 
+  importarScript("/js/user/create.js") //REUTILIZO CODIGO
+
 })
 
-
-    $("#repass").focusout(function(e) {
-      if ($("#password").val() != $("#repass").val())
-        $(".pass.errors").show()
-      else
-        $(".pass.errors").hide()
-    })
+function importarScript(nombre) {
+    var s = document.createElement("script");
+    s.src = nombre;
+    document.querySelector("head").appendChild(s);
+}
 
 
 </script>

@@ -5,6 +5,7 @@
 	$("#sidebar-wrapper").hide() //OCULTO LA BARRA LATERAL
 
 	validatePass();
+	validateLengthPass()
 	validateEmail();
 
 
@@ -17,6 +18,17 @@ function validatePass(){
 				$(".pass.errors").show()
 			else
 				$(".pass.errors").hide()
+		})
+}
+
+function validateLengthPass(){
+
+		$("#password").focusout(function(e) {
+			if ($("#password").val().length < 6)
+				$(".size.errors").show()
+			else
+				$(".size.errors").hide()
+
 		})
 }
 
