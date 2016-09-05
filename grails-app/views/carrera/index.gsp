@@ -1,8 +1,10 @@
 <%@ page import="estats.SessionManager" %>
 <%@ page import="modelo.Carrera" %>
+<%@ page import="modelo.Materia" %>
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="/css/carrera/carrera.css">
 	%{-- Incluir logica javascript --}%
 	<g:javascript src="carrera/manejoArchivos.js" />
 	%{-- Incluir cabeceras de estilos --}%
@@ -11,6 +13,34 @@
 	<title><g:message code="Carrera"/></title>
 </head>
 <body>
+	<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">×</span>
+      <h2>Materias </h2>
+    </div>
+
+
+  					<g:each var="materia" in="${Materia.list()}">
+  						%{-- <li class="list-group-item"> --}%
+  	
+  						<p  class="list-group-item"> 						
+  							<span style="margin-left:2em" class="alert-danger">${materia.nombre}</span>  <span  class="alert-warning">TIPO</span>
+  		
+  						</p>
+  						
+  					
+  					</g:each>
+
+    <div id="cerrar" style="cursor:pointer " class="modal-footer">
+      <button>Cerrar</button>
+    </div>
+  </div>
+
+</div>
+
 		
 	%{-- Barra de navegacion pagina --}%
 	<div class="nav" role="navigation">
@@ -40,11 +70,17 @@
     			%{-- <ul class="list-group"> --}%
   					<g:each var="carrera" in="${Carrera.list()}">
   						%{-- <li class="list-group-item"> --}%
-  						<p>
+  					
+  						<p class="list-group-item" >
+  						
   							${carrera.id}:${carrera.nombre}
-  							<input type="submit" class="btn btn-xs btn-danger pull-right eliminar" id="eliminar" value="Eliminar">
-  						%{-- </li> --}%
+  							<input type="submit" class="btn btn-xs btn-danger pull-right eliminar" name="${carrera.nombre}" id="eliminar" value="Eliminar">
+  							<input type="submit" class="btn btn-xs btn-primary pull-right " name="${carrera.nombre}" id="verMaterias" value="Ver Materias">
+
+  		
   						</p>
+  						
+  						
   					</g:each>
 				%{-- </ul> --}%
 			</div>				
@@ -54,5 +90,6 @@
 
 	%{-- Logica Javascript --}%
 	<g:javascript src="carrera/carrera.js" />
+
 </body>
 </html>
