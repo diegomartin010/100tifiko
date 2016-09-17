@@ -18,11 +18,4 @@ class EstadoAcademico {
 		legajo unique: true, blank: false		
     }
 
-    EstadoAcademico(Integer leg, Integer idCarrera){
-    	this.legajo = leg	
-		def carrera = Carrera.get(idCarrera)
-		println("estado Academico Carrerra" + carrera)
-		this.carrera = carrera	
-    }
-
 }

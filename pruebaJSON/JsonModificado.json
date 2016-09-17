@@ -23,11 +23,10 @@
 		}
 	],
 	"correlatividades":[
-		//holamundo
-		{"criterio":"C", "codigoMateria":"AM2", "requisito":"R", "codigoCorrelativa":"AM1"},
-		{"criterio":"C", "codigoMateria":"MP3", "requisito":"A", "codigoCorrelativa":"AM1"},
-		{"criterio":"C", "codigoMateria":"MP3", "requisito":"R", "codigoCorrelativa":"AM2"}
-		{"criterio":"F", "codigoMateria":"MP3", "requisito":"A", "codigoCorrelativa":"AM1"}
-		{"criterio":"F", "codigoMateria":"MP3", "requisito":"A", "codigoCorrelativa":"AM2"}
+		{"criterio":"C", "codigoMateria":"AM2", "requisito":"R", "codigoCorrelativa":"AM1"}
+		,{"criterio":"C", "codigoMateria":"MP3", "requisito":"A", "codigoCorrelativa":"AM1"}
+		,{"criterio":"C", "codigoMateria":"MP3", "requisito":"R", "codigoCorrelativa":"AM2"}
+		,{"criterio":"F", "codigoMateria":"MP3", "requisito":"A", "codigoCorrelativa":"AM1"}
+		,{"criterio":"F", "codigoMateria":"MP3", "requisito":"A", "codigoCorrelativa":"AM2"}
 	]
 }

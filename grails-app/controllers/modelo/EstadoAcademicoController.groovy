@@ -14,26 +14,25 @@ class EstadoAcademicoController {
         try {
         
             // Se captura el legajo y el id del formulario y se parse a Integer.
-            def legajo =    request.getParameter("legajo").toInteger()
+            def legajo    =    request.getParameter("legajo").toInteger()
             def idCarrera = request.getParameter("carrera").toInteger()
             
             // Se captura el usuario actual en sesion.
-    		def usuario = SessionManager.getCurrentUser()
+    		def u = SessionManager.getCurrentUser()         
+
+            // Se crea el estado academico y se lo setea al estado del usuario
+            u.estadoAcademico = new EstadoAcademico (
+               legajo  : legajo,
+               carrera : Carrera.get(idCarrera)
+            ).save()
             
-            // Asociamos el estado academico al usuario y lo guardamos.
-            usuario.setEstadoAcademico(new EstadoAcademico(legajo, idCarrera).save())
-            usuario.save(flush: true)
+            u.save(flush: true)
             
-            render(contentType: 'text/json') { 
-                result = false
-            }
+            render(contentType: 'text/json') { result = false }
 
 
         }catch(Exception e){
-            render(contentType: 'text/json') { 
-                result = true
-            }
-
+            render(contentType: 'text/json') { result = true }
         }
 
     }
