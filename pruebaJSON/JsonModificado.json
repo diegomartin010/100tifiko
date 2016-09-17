@@ -1,0 +1,33 @@
+{
+	"nombre":"Carrera",
+	"codigo":"M",		
+	"plan":2016,	
+	"materias":[
+		{
+			"nombre": "Analisis 1",
+			"tipo": "O",
+			"codigo": "AM1",
+			"nivel": 1
+		},
+		{
+			"nombre": "Analisis 2",
+			"tipo": "O",
+			"codigo": "AM2",
+			"nivel": 2
+		},
+		{
+			"nombre": "MateriaPrueba 3",
+			"tipo": "O",
+			"codigo": "MP3",
+			"nivel": 5
+		}
+	],
+	"correlatividades":[
+		{
+			"codigoMateria": "AM2",
+			"criterio": "C",
+			"codigoMateriaCorrelativa":"AM1",
+			"requisito":"R"
+		}
+	]
+}

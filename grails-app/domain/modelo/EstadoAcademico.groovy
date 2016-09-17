@@ -11,7 +11,6 @@ class EstadoAcademico {
 		examenes: Examen,
 		estadoMaterias: EstadoMateria,
 	]
-	//static hasOne = [usuario:User]
 	
 	static constraints = {
 		examenes nullable: true
@@ -23,7 +22,7 @@ class EstadoAcademico {
     	this.legajo = leg	
 		def carrera = Carrera.get(idCarrera)
 		println("estado Academico Carrerra" + carrera)
-		this.carrera = carrera 	
+		this.carrera = carrera	
     }
 
 }

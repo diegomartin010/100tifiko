@@ -83,10 +83,10 @@ Email:<br>
 				<input type='password' class='text_' name='j_password' id='password'/>
 			</p> -->
 			<label>Usuario</label>
-            <input type='text'  name='j_username' id='username'/>
+            <input type='text' value="mrios" name='j_username' id='username'/>
 			
             <label>Contraseña</label>
-            <input type='password'  name='j_password' id='password'/>
+            <input type='password' value="mrios1" name='j_password' id='password'/>
             
   		
 			<p id="restablecer" >
