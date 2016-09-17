@@ -17,19 +17,37 @@ class CarreraController {
             )
             
             // Iteracion sobre las materias del json
-            carreraJSON.materias.each { unaMat ->
+            carreraJSON.materias.each { m ->
                 
                 // Se lee del json y se crea 1x1 las materias. Se guarda.
                 def nuevaMateria = new Materia(
-                    nombre: unaMat.nombre,
-                    tipo:   unaMat.tipo,
+                    nombre: m.nombre,
+                    tipo:   m.tipo,
                     // K2016AM2 -> Analisis 2, sistemas, plan 2016.
-                    codigo: nuevaCarrera.codigo + unaMat.codigo,
-                    nivel:  unaMat.nivel
+                    codigo: nuevaCarrera.codigo + m.codigo,
+                    nivel:  m.nivel
                 ).save()
-                
+
                 // Se asignan las materias la carrera nueva.
                 nuevaCarrera.materias.push(nuevaMateria)
+
+            }
+
+            def codigoCarrera = carreraJSON.codigo + carreraJSON.plan
+            
+            // Creamos y guardamos correlatividades
+            carreraJSON.correlatividades.each { c ->
+               
+                def nuevaCorrelatividad = new Correlatividad(
+                    // Se busca la materia en la db.
+                    materia: Materia
+                        .findByCodigo(codigoCarrera + c.codigoMateria)
+                    , criterio: c.criterio
+                    // Se busca la correlativa en la db.
+                    , materiaCorrelativa: Materia.
+                        findByCodigo(codigoCarrera + c.codigoCorrelativa)
+                    , requisito: c.requisito
+                ).save()
 
             }
 

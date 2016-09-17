@@ -1,33 +1,33 @@
 {
-	"nombre":"Carrera",
-	"codigo":"M",		
-	"plan":2016,	
-	"materias":[
+	"nombre"   :"Carrera",
+	"codigo"   :"M",		
+	"plan"	   :2016,	
+	"materias" :[
 		{
 			"nombre": "Analisis 1",
-			"tipo": "O",
+			"tipo"	: "O",
 			"codigo": "AM1",
-			"nivel": 1
+			"nivel"	: 1
 		},
 		{
 			"nombre": "Analisis 2",
-			"tipo": "O",
+			"tipo"	: "O",
 			"codigo": "AM2",
-			"nivel": 2
+			"nivel"	: 2
 		},
 		{
 			"nombre": "MateriaPrueba 3",
-			"tipo": "O",
+			"tipo"	: "O",
 			"codigo": "MP3",
-			"nivel": 5
+			"nivel"	: 5
 		}
 	],
 	"correlatividades":[
-		{
-			"codigoMateria": "AM2",
-			"criterio": "C",
-			"codigoMateriaCorrelativa":"AM1",
-			"requisito":"R"
-		}
+		//holamundo
+		{"criterio":"C", "codigoMateria":"AM2", "requisito":"R", "codigoCorrelativa":"AM1"},
+		{"criterio":"C", "codigoMateria":"MP3", "requisito":"A", "codigoCorrelativa":"AM1"},
+		{"criterio":"C", "codigoMateria":"MP3", "requisito":"R", "codigoCorrelativa":"AM2"}
+		{"criterio":"F", "codigoMateria":"MP3", "requisito":"A", "codigoCorrelativa":"AM1"}
+		{"criterio":"F", "codigoMateria":"MP3", "requisito":"A", "codigoCorrelativa":"AM2"}
 	]
 }
