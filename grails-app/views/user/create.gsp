@@ -53,7 +53,7 @@
 
 
 			
-			<h1>Datos de Perfil</h1>
+			<div class="content scaffold-create"><h1>Datos de Perfil</h1></div>
 			<div class="fieldcontain"><label>Nombre: </label>
             <g:textField name="nombre"/></div><br/>
             <div class="fieldcontain"><label>Apellido: </label>
