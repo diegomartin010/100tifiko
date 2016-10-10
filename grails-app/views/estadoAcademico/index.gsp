@@ -22,7 +22,7 @@
 
 		%{-- Se captura el usuario actual en sesion --}%
 		<% def usuario = SessionManager.getCurrentUser() %>
-		<div class="content"><h1>Estado academico</h1></div>
+		<div class="content"><h1>Carrera</h1></div>
 		%{-- Si el usuario no tiene estado academico, lanzar formulario de creacion --}%
 		<g:if test="${usuario.estadoAcademico == null}">		
 			

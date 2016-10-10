@@ -9,6 +9,10 @@ class EstadoAcademicoController {
 	   render(view: "index")
 	}
 	
+    def verEstado() { 
+       render(view: "estadoAcademico")
+    }
+
     def crear() { 
         
         try {
@@ -69,12 +73,10 @@ class EstadoAcademicoController {
     }
 
     // Devuelve el conjunto de las carreras en el sistema
-    def getAllCarreras(){
-    	
+    def getAllCarreras(){ 	
     	render(contentType: 'text/json') {
     		Carrera.list()
     	}
-
     }
 
 }
