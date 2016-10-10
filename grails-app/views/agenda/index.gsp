@@ -6,23 +6,36 @@
 	<g:javascript src="jquery/jquery.min.js"/>
 	<g:javascript src="librerias/fullcalendar/moment.min.js"/>
 	<g:javascript src="librerias/fullcalendar/dist/fullcalendar.js"/>
-	<script>$(document).ready(function() {
-
-    // page is now ready, initialize the calendar...
-
-	   	$('#calendar').fullCalendar({
-	   	//tamaño
-	    //opciones al clickear
-	       dayClick: function(date, jsEvent, view) {
-
-        alert('Seleccionaste la fecha : ' + date.format() + ' próximamente la funcionalidad para añadir un evento será añadida');
-
-        // change the day's background color just for fun
-
-			}// put your options and callbacks here
-   		 }) 
+	%{-- Incluir logica javascript 
+	<g:javascript src="agenda/agenda222.js" />--}%
+	<g:javascript>
+	$(document).ready(function() {
+		$('#calendar').fullCalendar({
+	    	dayClick: function(date, jsEvent, view) {
+	    		var myCalendar = $('#calendar');
+				myCalendar.fullCalendar();
+				var eventname = prompt("Ingrese el nombre del evento a añadir", "");
+				var myEvent = {
+					title: eventname,
+					allDay: true,
+					start: date,
+					end: date
+				};
+				myCalendar.fullCalendar('renderEvent', myEvent);
+			}
+		});
+	})
+	$(document).ready(function(){
+		var myCalendar = $('#calendar');
+		$('#calendar').fullCalendar({
+   			eventClick: function(event){
+  				$('.closon').click(function() {
+     				myCalendar.fullCalendar('removeEvents'[event._id]);
+     			});
+   		 	}
+   		}) 
 	});
-	</script>
+ 	</g:javascript>
 	<meta name="layout" content="main">
 	<title><g:message code="Carrera"/></title>
 </head>
@@ -39,6 +52,7 @@
 				<div class="container">
 					<div class="col-md-8">	
 						<div id="calendar" class="fc fc-unthemed fc-ltr"></div>
+						<div id="datepicker"></div>
 					</div>
 				</div>
 			</form>	
