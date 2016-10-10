@@ -45,22 +45,29 @@ class BootStrap {
 				new Materia(
 					nombre:"Bulling1",
 					codigo:"V2016BU1",
-					nivel :5,
+					nivel :1,
 					tipo  :"O"
 				).save()
 
 				, new Materia(
 					nombre:"Bulling2",
 					codigo:"V2016BU2",
-					nivel :5,
+					nivel :2,
 					tipo  :"O"
 				).save()
 
 				, new Materia(
 					nombre:"Bulling3",
 					codigo:"V2016BU3",
-					nivel :5,
+					nivel :3,
 					tipo  :"O"
+				).save()
+
+				, new Materia(
+					nombre:"BullingElectivo",
+					codigo:"V2016BU3",
+					nivel :0,
+					tipo  :"E"
 				).save()
 			]
 		).save()
