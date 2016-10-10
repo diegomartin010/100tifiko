@@ -51,8 +51,8 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"><a href="/">Index</a></li>
-                <li><a href="/nofunciona">Tutoriales</a></li>
-				<li><a href="/estadoAcademico">Estado Academico</a></li>
+				<li><a href="/estadoAcademico">Carrera</a></li>
+				<li><a href="/estadoAcademico/verEstado">Estado Academico</a></li>
 				<li><a href="/nofunciona">Estadisticas</a></li>
 				<li><a href="/examen">Examenes</a></li>
 				<li><a href="/agenda">Agenda</a></li>
