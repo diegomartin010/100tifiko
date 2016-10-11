@@ -5,8 +5,37 @@
 	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="/css/simple-sidebar.css">
-  	<script src="/jquery/jquery.js"></script>
-	<script src="/bootstrap/js/bootstrap.min.js"></script>
+  	<g:javascript src="jquery/jquery.js"/>
+	<g:javascript src="bootstrap/js/bootstrap.min.js"/>
+	<g:javascript src="jquery/jquery-ui.js"/>
+	<g:javascript src="jquery/jquery-ui.css"/>
+	<g:javascript>
+		function guardarexamen(){
+				var examen = {
+					fecha: $("#datepicker").val(),
+					materia: $("#idmateria").val(),
+					nota: $("#idnota").val()
+				};				
+
+				    var table = document.getElementById("letable");
+				    var row = table.insertRow(-1);
+				    var cell1 = row.insertCell(0);
+				    var cell2 = row.insertCell(1);
+				    var cell3 = row.insertCell(2);
+				    cell1.innerHTML = examen.fecha;
+				    cell2.innerHTML = examen.materia;
+				    cell3.innerHTML = examen.nota;
+
+		}
+	</g:javascript>
+	<g:javascript>
+  	 $( function() {
+    $( "#datepicker" ).datepicker();
+    $( "#anim" ).on( "change", function() {
+      $( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
+    });
+  } );
+  </g:javascript>
     <meta name="layout" content="main">
 	<title><g:message code="Exámenes"/></title>
 </head>
@@ -26,31 +55,29 @@
 						<div class="panel-body">
 							<table class="table">
     						<tr>
-    							<th>Fecha</th>
-	    							<th><li class="dropdown">
-	          							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Materia  <span class="caret"></span></a>
-	         				 			<ul class="dropdown-menu">
-	            					<li><a href="#">Algebra</a></li>
-	            					<li><a href="#">Fisica I</a></li>
-	          						</ul>
-		      							</li></th>  
-		    							<th><li class="dropdown">
-		          						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nota  <span class="caret"></span></a>
-		          						<ul class="dropdown-menu">
-							            <li><a href="#">1</a></li>
-							            <li><a href="#">2</a></li>
-							            <li><a href="#">3</a></li>
-							            <li><a href="#">3</a></li>
-							            <li><a href="#">4</a></li>
-							            <li><a href="#">5</a></li>
-							            <li><a href="#">6</a></li>
-							            <li><a href="#">7</a></li>
-							            <li><a href="#">8</a></li>
-							            <li><a href="#">9</a></li>
-							            <li><a href="#">10</a></li>
-						          	</ul>
+    							<th><p>Date: <input type="text" id="datepicker"></p>
+									</th>
+	    						<th><select id="idmateria" class="selectpicker" Materia> 
+										  <option>AM I</option>
+										  <option>FISICA II</option>
+										  <option>INGLÉS</option>
+										</select>
+										</th>  
+		    							<th>
+		          						<select id="idnota" class="selectpicker">
+							            <option value = "1" >1</option>
+							            <option value = "2" >2</option>
+							            <option value = "3" >3</option>
+							            <option value = "4" >4</option>
+							            <option value = "5" >5</option>
+							            <option value = "6" >6</option>
+							            <option value = "7" >7</option>
+							            <option value = "8" >8</option>
+							            <option value = "9" >9</option>
+							            <option value = "10" >10</option>
+						          	</select>
 						      		</li></th>  
-    							<th> <button type="button" class="btn btn-default">Agregar</button></th>  
+    							<th> <button type="button" class="btn btn-default" onclick="guardarexamen()">Agregar</button></th>  
  						 	</table>
     					</div>
   					</div>			
@@ -65,34 +92,15 @@
   	%{--</div>--}%
 
   <!-- Table -->
-  <table class="table">
+  <table id="letable" class="table">
     <tr>
     <th>Fecha</th>
     <th>Materia</th>
     <th>Nota</th>
-    %{-- Comento esto para poner el boton adentro de la tabla en lugar de encima
-    	<th><li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones  <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">modificar</a></li>
-            <li><a href="#">eliminar examen</a></li>
-          </ul>
-			</li></th>
-			--}%
-  </tr>
-  <tr>
-    <td>27/02/2016</td>
-    <td>Ingeniería y sociedad</td>
-    <td>9</td>
-    <td><li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones  <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">modificar</a></li>
-            <li><a href="#">eliminar examen</a></li>
-          </ul>
-			</li></td>
   </tr>
       </table>
+  
+  
 </div>
 </body>
 </html>
