@@ -10,6 +10,21 @@
 	<g:javascript src="jquery/jquery-ui.js"/>
 	<g:javascript src="jquery/jquery-ui.css"/>
 	<g:javascript>
+	$(document).ready(function() {
+		//$.post( "/examen/getNombreMaterias", function( data ){
+		//$.each( data, function( index, carrera ) {
+			var listamaterias = ["ALGEBRA","MAT SUP","FISICA","SIS Y ORG","ING Y SOC"];     
+			var sel = document.getElementById("idmateria");
+			for(var i = 0; i < listamaterias.length; i++) {
+		    var opt = document.createElement("option");
+		    opt.innerHTML = listamaterias[i];
+		    opt.value = listamaterias[i];
+		    sel.appendChild(opt);
+		}
+	});	
+	//});
+	</g:javascript>
+	<g:javascript>
 		function guardarexamen(){
 				var examen = {
 					fecha: $("#datepicker").val(),
@@ -57,10 +72,7 @@
     						<tr>
     							<th><p>Date: <input type="text" id="datepicker"></p>
 									</th>
-	    						<th><select id="idmateria" class="selectpicker" Materia> 
-										  <option>AM I</option>
-										  <option>FISICA II</option>
-										  <option>INGLÉS</option>
+	    						<th><select id="idmateria" class="selectpicker"> 
 										</select>
 										</th>  
 		    							<th>
