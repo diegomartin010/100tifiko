@@ -17,14 +17,12 @@ $( document ).ready(function() {
 	 					+ carrera.nombre +
 	 				'</option>'
 	 			); 
-				// Mostramos boludeces en la consola
-	 			console.log( id );
+
 			});
 
 	}, "json");
 
 });
-
 
 
 
@@ -79,3 +77,97 @@ $( document ).ready(function() {
   		}
 	});
 });
+
+$( document ).ready(function() {
+	$.post( "/estadoAcademico/getMateriasByEstado", {
+                estado: "P"
+            }).done(function(d) {
+
+            if (d.length > 0){
+                $.each( d, function( index, materia ) {
+                	//console.log(materia)
+                	$("#pendientes").append(
+	 				'<p class="list-group-item col-md-7" value="'+ materia.id +'">'
+	 					+ materia.nombre +
+	 					'<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Pendiente </span>' +
+	 					'<input type="submit" class="btn btn-xs btn-primary pull-right r" name="'+materia.id+'" id="cambiar_a_cursando" value="Cambiar a cursando"> </p>'
+	 			); 
+
+                })} else {
+                	$("#pendientes").append("No hay materias para mostrar")
+                }
+
+
+
+      $.post( "/estadoAcademico/getMateriasByEstado", {
+                estado: "C"
+            }).done(function(d) {
+
+            if (d.length > 0){
+                $.each( d, function( index, materia ) {
+                	//console.log(materia)
+                	$("#en_curso").append(
+	 				'<p class="list-group-item col-md-7" value="'+ materia.id +'">'
+	 					+ materia.nombre +
+	 					'<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> En curso </span>' +
+	 					'<input type="submit" class="btn btn-xs btn-primary pull-right r" name="'+materia.id+'" id="cambiar_a_cursando" value="Cambiar a cursando"> </p>'
+	 			); 
+
+                })} else {
+                	$("#en_curso").append("<p>No hay materias para mostrar</p>")
+                }})
+
+
+
+    $.post( "/estadoAcademico/getMateriasByEstado", {
+                estado: "R"
+            }).done(function(d) {
+
+            if (d.length > 0){
+                $.each( d, function( index, materia ) {
+                	//console.log(materia)
+                	$("#regularizadas").append(
+	 				'<p class="list-group-item col-md-7" value="'+ materia.id +'">'
+	 					+ materia.nombre +
+	 					'<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Regularizada </span>' +
+	 					'<input type="submit" class="btn btn-xs btn-primary pull-right r" name="'+materia.id+'" id="cambiar_a_cursando" value="Cambiar a cursando"> </p>'
+	 			); 
+
+                })} else {
+                	$("#regularizadas").append("<p>No hay materias para mostrar</p>")
+                }})
+            
+
+      $.post( "/estadoAcademico/getMateriasByEstado", {
+                estado: "A"
+            }).done(function(d) {
+
+            if (d.length > 0){
+                $.each( d, function( index, materia ) {
+                	//console.log(materia)
+                	$("#aprobadas").append(
+	 				'<p class="list-group-item col-md-7" value="'+ materia.id +'">'
+	 					+ materia.nombre +
+	 					'<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Aprobadas </span>' +
+	 					'<input type="submit" class="btn btn-xs btn-primary pull-right r" name="'+materia.id+'" id="cambiar_a_cursando" value="Cambiar a cursando"> </p>'
+	 			); 
+
+                })} else {
+                	$("#aprobadas").append("<p>No hay materias para mostrar</p>")
+                }})
+             $("#cambiar_a_cursando").click( function(e){
+ 	$.post("/estadoAcademico/cambiarEstadoMateria",{
+ 		materia:this.name
+ 	}).done(function( resu ) {
+ 		console.log(resu.result)
+ 	})
+ });
+
+
+  });
+
+
+
+
+});
+

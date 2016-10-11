@@ -3,6 +3,7 @@ package modelo
 import estats.SessionManager
 import security.User;
 
+
 class EstadoAcademicoController {
 
     def index() { 
@@ -101,7 +102,8 @@ class EstadoAcademicoController {
         // Hacer un collect a lo paradigmas.
         def result = user.estadoAcademico.estadoMaterias.findAll{ it.estado == e }.collect{em->
             [
-                  nombre : em.materia.nombre
+                  id: em.materia.id
+                , nombre : em.materia.nombre
                 , estadoActual : em.estado
                 , codigo : em.materia.codigo
                 , tipo : em.materia.tipo
@@ -120,6 +122,34 @@ class EstadoAcademicoController {
     	render(contentType: 'text/json') {
     		Carrera.list()
     	}
+    }
+
+    def cambiarEstadoMateria(){
+
+        // Parametro estado. Captura por post.
+        def materia = request.getParameter("materia")
+        def m = Materia.findById(materia)
+//println(">>>>>>>>>>>>>>>>>")
+//println(materia)
+        // Usuario actual en sesion.
+        def user = SessionManager.getCurrentUser()
+
+        def estadoAcademico=user.getEstadoAcademico()
+      
+
+        //println(m)
+
+        def estadoMateria=estadoAcademico.estadoMaterias.findAll{it.materia == m}
+
+          estadoMateria.estado = "C"
+          // estadoMateria.estadoAcademico=estadoAcademico
+         // estadoMateria.materia=m
+          estadoMateria.update();
+
+                render(contentType: 'text/json') {
+            result=materia
+        }
+
     }
 
 }
