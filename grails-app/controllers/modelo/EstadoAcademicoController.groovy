@@ -87,32 +87,30 @@ class EstadoAcademicoController {
 
     def getMateriasByEstado( ){
         /*Como probar ...
-            $.post( "http://localhost:8080/estadoAcademico/getMateriasByEstado?e=P", {
+            $.post( "http://localhost:8080/estadoAcademico/getMateriasByEstado", {
                 estado: "P"
             }).done(function(d) {
                 console.log(d)
             });
         */
-
+        
         // Parametro estado. Captura por post.
         def e = request.getParameter("estado")
-
+        // Usuario actual en sesion.
         def user = SessionManager.getCurrentUser()
-        
-        def result = []
-        user.estadoAcademico.estadoMaterias.findAll{ it.estado == e }.each{em->
-            result.push([
+        // Hacer un collect a lo paradigmas.
+        def result = user.estadoAcademico.estadoMaterias.findAll{ it.estado == e }.collect{em->
+            [
                   nombre : em.materia.nombre
                 , estadoActual : em.estado
                 , codigo : em.materia.codigo
                 , tipo : em.materia.tipo
                 , nivel : em.materia.nivel
-            ])
-        }
-        
-        // Renderiza el json.
-        render(contentType: 'text/json') {
-            result
+            ]
+        }  
+        // Renderizar el json
+        render(contentType: 'text/json'){
+           result 
         }
 
     }
