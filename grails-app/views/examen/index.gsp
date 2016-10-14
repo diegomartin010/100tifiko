@@ -10,19 +10,43 @@
 	<g:javascript src="jquery/jquery-ui.js"/>
 	<g:javascript src="jquery/jquery-ui.css"/>
 	<g:javascript>
+	//genero la lista de exámenes rendidos para poner en la tabla
+	$(document).ready(function(){
+		$post("examen/getExamenes", function (data){
+			$each( data, function(index,ex){
+				notaExamen = ex.calificacion;
+				fechaExamen = ex.fecha;
+				nombreExamen = ex.materia.nombre;
+				//listaFechas.appendChild(fechaExamen);
+				//listaMaterias.appendChild(nombreExamen);
+				//listaNotas.appendChild(notaExamen);
+				var table = document.getElementById("letable");
+				var row = table.insertRow(-1);
+				var cell1 = row.insertCell(0);
+				var cell2 = row.insertCell(1);
+				var cell3 = row.insertCell(2);
+				cell1.innerHTML = fechaExamen;
+				cell2.innerHTML = nombreExamen;
+				cell3.innerHTML = notaExamen;
+
+
+			});
+		});
+	});
+	</g:javascript> 
+	<g:javascript>
+	//genero la lista del dropdown de materias
 	$(document).ready(function() {
-		//$.post( "/examen/getNombreMaterias", function( data ){
-		//$.each( data, function( index, carrera ) {
-			var listamaterias = ["ALGEBRA","MAT SUP","FISICA","SIS Y ORG","ING Y SOC"];     
-			var sel = document.getElementById("idmateria");
-			for(var i = 0; i < listamaterias.length; i++) {
-		    var opt = document.createElement("option");
-		    opt.innerHTML = listamaterias[i];
-		    opt.value = listamaterias[i];
-		    sel.appendChild(opt);
-		}
-	});	
-	//});
+		$.post( "/examen/getNombreMaterias", function( data ){
+			$.each( data, function( index, nombremateria ) {    
+				var sel = document.getElementById("idmateria");
+			    var opt = document.createElement("option");
+			    opt.innerHTML = nombremateria.nombre;
+			    opt.value = nombremateria.nombre;
+			    sel.appendChild(opt);
+			});
+		});	
+	});
 	</g:javascript>
 	<g:javascript>
 		function guardarexamen(){
@@ -31,15 +55,23 @@
 					materia: $("#idmateria").val(),
 					nota: $("#idnota").val()
 				};				
-
-				    var table = document.getElementById("letable");
+				//puse esto en doc ready al cargar la pagina con la lista desde el backend
+				 /*   var table = document.getElementById("letable");
 				    var row = table.insertRow(-1);
 				    var cell1 = row.insertCell(0);
 				    var cell2 = row.insertCell(1);
 				    var cell3 = row.insertCell(2);
 				    cell1.innerHTML = examen.fecha;
 				    cell2.innerHTML = examen.materia;
-				    cell3.innerHTML = examen.nota;
+				    cell3.innerHTML = examen.nota; */
+
+				    //agrego funcionalidad para almacenar el examen.
+				    $.post( "/examen/guardar",{
+					    fecha: $("#datepicker").val(),
+						materia: $("#idmateria").val(),
+						nota: $("#idnota").val()
+				    });
+
 
 		}
 	</g:javascript>
@@ -106,10 +138,11 @@
   <!-- Table -->
   <table id="letable" class="table">
     <tr>
-    <th>Fecha</th>
-    <th>Materia</th>
-    <th>Nota</th>
-  </tr>
+    	<th>Fecha</th>
+    	<th>Materia</th>
+    	<th>Nota</th>
+  	</tr>
+  		%{-- acá debería poner para cargar la tabla desde los arrays --}%
       </table>
   
   
