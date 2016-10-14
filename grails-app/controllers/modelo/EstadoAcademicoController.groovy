@@ -19,8 +19,11 @@ class EstadoAcademicoController {
         try {
         
             // Se captura el legajo y el id del formulario y se parse a Integer.
-            def legajo    =    request.getParameter("legajo").toInteger()
-            def idCarrera =    request.getParameter("carrera").toInteger()
+            // def legajo    =    request.getParameter("legajo").toInteger()
+            // def idCarrera =    request.getParameter("carrera").toInteger()
+            
+            def legajo    =    params.legajo.toInteger()
+            def idCarrera =    params.carrera.toInteger()
             
             // Se captura el usuario actual en sesion.
     		def u = SessionManager.getCurrentUser()         
@@ -96,7 +99,7 @@ class EstadoAcademicoController {
         */
         
         // Parametro estado. Captura por post.
-        def e = request.getParameter("estado")
+        def e = params.estado
         // Usuario actual en sesion.
         def user = SessionManager.getCurrentUser()
         // Hacer un collect a lo paradigmas.
@@ -126,29 +129,36 @@ class EstadoAcademicoController {
 
     def cambiarEstadoMateria(){
 
-        // Parametro estado. Captura por post.
-        def materia = request.getParameter("materia")
-        def m = Materia.findById(materia)
-//println(">>>>>>>>>>>>>>>>>")
-//println(materia)
+        /*Como probar ...
+            $.post( "http://localhost:8080/estadoAcademico/cambiarEstadoMateria", {
+                idMateria: 1,
+                nuevoEstado: "C"
+            }).done(function(d) {
+                console.log(d)
+            });
+        */
+
         // Usuario actual en sesion.
         def user = SessionManager.getCurrentUser()
+        
+        // Parametro estado. Captura por post.
+        def idMateriaParam = params.idMateria.toInteger()
+        def nuevoEstadoParam = params.nuevoEstado     
 
-        def estadoAcademico=user.getEstadoAcademico()
-      
+        // Traemos una materia cuyo id sea el pasado como parametro.
+        def m = Materia.get(idMateriaParam)
+        
+        // Se ebusca en el estado acdemico del flaco, un estado cuya materia sea la elegida "m".
+        def em = user.estadoAcademico.estadoMaterias.find{ it.materia == m }       
+            // Cambiamos el estado academico
+            em.estado = nuevoEstadoParam  
+            em.save(flush:true)
+            // println("estado Elegido"+em.id+em.materia.nombre+em.estado+" nuevo param"+nuevoEstadoParam)
 
-        //println(m)
-
-        def estadoMateria=estadoAcademico.estadoMaterias.findAll{it.materia == m}
-
-          estadoMateria.estado = "C"
-          // estadoMateria.estadoAcademico=estadoAcademico
-         // estadoMateria.materia=m
-          estadoMateria.update();
-
-                render(contentType: 'text/json') {
-            result=materia
-        }
+            // Renderizar resultado operacion
+            render(contentType: 'text/json') {
+                result = false
+            }
 
     }
 
