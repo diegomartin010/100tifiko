@@ -8,21 +8,17 @@ import org.springframework.security.core.userdetails.UserDetails
 import grails.plugin.springsecurity.SpringSecurityService;
 import modelo.Examen;
 import modelo.Materia
-
+import estats.SessionManager
 class ControladorPruebaController {
 
     def index() {
-		
-		def materia = new Materia("analisi1", "obligatoria")
-		def examen = new Examen(materia,new Date(),10,"Ninguno")
-		
-		println(examen.materia.nombre)
-		println(examen.calificacion)
 
-		// Asi es como se captura el usuario en sesion actual
-		def loggedUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal()
-		println(loggedUser.id)
-		
+		def mc = SessionManager.getCurrentUser().estadoAcademico.getCursables()
+		mc.each{
+			println("PUEDE CURSAR")
+			println("nombre: "+it.nombre+" cod: "+it.codigo)
+		}
+					
 	}
 }
 

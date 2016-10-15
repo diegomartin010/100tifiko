@@ -10,12 +10,13 @@ class Correlatividad {
     	criterio inList: ["C", "F"]
     	// Requisito = R: regularizada A:aprobada
     	requisito inList: ["R", "A"]
-    	// Ejemplo: Para cursar AM2 hay que haber regularizado AM1. Setear de esta forma
-    	// materia: am2
-    	// criterio: "c"
-    	// materiaCorrelativa: am1
-    	// requisito: "r"
+        	// Ejemplo: Para cursar AM2 hay que haber regularizado AM1. Setear de esta forma
+        	// materia: am2
+        	// criterio: "c"
+        	// materiaCorrelativa: am1
+        	// requisito: "r"
 	    materia nullable: false
 	    materiaCorrelativa nullable: false
     }
+
 }

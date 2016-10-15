@@ -18,41 +18,46 @@ class EstadoAcademicoController {
         
         try {
         
-            // Se captura el legajo y el id del formulario y se parse a Integer.
-            // def legajo    =    request.getParameter("legajo").toInteger()
-            // def idCarrera =    request.getParameter("carrera").toInteger()
-            
-            def legajo    =    params.legajo.toInteger()
-            def idCarrera =    params.carrera.toInteger()
-            
+            // Se captura el legajo y el id del formulario y se parse a Integer.            
+            def legajo = params.legajo.toInteger()
+            def idCarrera = params.carrera.toInteger()    
+            // Se trae de la db la carrera elgida.
+            def carrera = 
+                Carrera.get( idCarrera )
             // Se captura el usuario actual en sesion.
-    		def u = SessionManager.getCurrentUser()         
-
-            def carrera = Carrera.get(idCarrera)
-
-            // Se crea el estado academico y se lo setea al estado del usuario
-            u.estadoAcademico = new EstadoAcademico (
-               legajo  : legajo,
-               carrera : carrera
-            ).save()
+    		def usuario = 
+                SessionManager.getCurrentUser()         
             
-            // Creamos los estados de materias pendientes para la primera vez.
-            def nuevoEstadoMaterias = []
-            carrera.materias.findAll{it.tipo == "O"}.each{ unaMateria->
-                // Creamos estados de materias
-                nuevoEstadoMaterias.push(
-                    new EstadoMateria(
-                        // Los asignamos la eacad previamente creado.
-                        estadoAcademico: u.estadoAcademico,
-                        materia: unaMateria,
-                        estado: "P"
-                    ).save()
+            // Se crea el estado academico y se lo setea al estado del usuario
+            usuario
+                .setEstadoAcademico(
+                    new EstadoAcademico (
+                          legajo  : legajo
+                        , carrera : carrera
+                    ).save( flush:true )
                 )
-            }
-
-            // Asinamos al conjunto estado de Materias, los estados  de materias.
-            u.estadoAcademico.estadoMaterias = nuevoEstadoMaterias
-            u.save(flush: true)
+            
+            // Por cada materia de la carrera
+            carrera
+                .getMaterias()
+                // Que son obligatorias ...
+                .findAll{ it.tipo == "O" }
+                .each{ unaMateria->   
+                    usuario
+                        .estadoAcademico
+                        .estadoMaterias
+                        .push(
+                            // Se crea un estado Materia con la materia, y se la vincula al usuario.
+                            new EstadoMateria(
+                                  estadoAcademico: usuario.estadoAcademico
+                                , materia: unaMateria
+                                , estado: "P"
+                            ).save( )  
+                        )
+                }
+            
+            // Guardar el usuario
+            usuario.save( flush:true )
             
             render(contentType: 'text/json') { result = false }
 

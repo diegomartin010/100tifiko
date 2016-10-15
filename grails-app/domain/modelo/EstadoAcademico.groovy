@@ -22,4 +22,16 @@ class EstadoAcademico {
 		legajo unique: true, blank: false		
     }
 
+    def getCursables(){
+    	return estadoMaterias.findAll{ it.getMateria().puedeCursar() }.collect{ it.materia }
+    }
+
+    def getRendibles(){    	
+    }
+
+    def getObligatorias(){
+    }
+
+    def getElectivas(){
+    }
 }
