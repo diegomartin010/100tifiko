@@ -98,21 +98,23 @@ class EstadoAcademicoController {
             });
         */
         
-        // Parametro estado. Captura por post.
-        def e = params.estado
-        // Usuario actual en sesion.
-        def user = SessionManager.getCurrentUser()
         // Hacer un collect a lo paradigmas.
-        def result = user.estadoAcademico.estadoMaterias.findAll{ it.estado == e }.collect{em->
-            [
-                  id: em.materia.id
-                , nombre : em.materia.nombre
-                , estadoActual : em.estado
-                , codigo : em.materia.codigo
-                , tipo : em.materia.tipo
-                , nivel : em.materia.nivel
-            ]
-        }  
+        def result = 
+            SessionManager
+                .getCurrentUser()
+                .estadoAcademico
+                .estadoMaterias
+                .findAll{ it.estado == params.estado }
+                .collect{ em->
+                    [
+                          id: em.materia.id
+                        , nombre : em.materia.nombre
+                        , estadoActual : em.estado
+                        , codigo : em.materia.codigo
+                        , tipo : em.materia.tipo
+                        , nivel : em.materia.nivel
+                    ]
+                }  
         // Renderizar el json
         render(contentType: 'text/json'){
            result 
