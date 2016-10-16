@@ -11,12 +11,30 @@
 	<g:javascript src="jquery/jquery-ui.css"/>
 	<g:javascript>
 	//genero la lista de exámenes rendidos para poner en la tabla
-	$(document).ready(function(){
-		$post("examen/getExamenes", function (data){
-			$each( data, function(index,ex){
+	$(document).ready(function() {
+		$.post("examen/getExamenes", function (data){
+			$.each( data, function(index,ex){
+				/*var ex = {
+					calificacion : '1',
+					fecha : '222',
+					nombre : "asarasaa"
+				} */
+
+
+
+
+				//alert(ex.calificacion);
+				//alert(ex.fecha);
+				//alert(ex.materia.nombre);
 				notaExamen = ex.calificacion;
 				fechaExamen = ex.fecha;
 				nombreExamen = ex.materia.nombre;
+
+
+
+
+
+
 				//listaFechas.appendChild(fechaExamen);
 				//listaMaterias.appendChild(nombreExamen);
 				//listaNotas.appendChild(notaExamen);
@@ -30,9 +48,10 @@
 				cell3.innerHTML = notaExamen;
 
 
-			});
+		});
 		});
 	});
+
 	</g:javascript> 
 	<g:javascript>
 	//genero la lista del dropdown de materias
@@ -50,36 +69,19 @@
 	</g:javascript>
 	<g:javascript>
 		function guardarexamen(){
-				var examen = {
-					fecha: $("#datepicker").val(),
-					materia: $("#idmateria").val(),
-					nota: $("#idnota").val()
-				};				
-				//puse esto en doc ready al cargar la pagina con la lista desde el backend
-				 /*   var table = document.getElementById("letable");
-				    var row = table.insertRow(-1);
-				    var cell1 = row.insertCell(0);
-				    var cell2 = row.insertCell(1);
-				    var cell3 = row.insertCell(2);
-				    cell1.innerHTML = examen.fecha;
-				    cell2.innerHTML = examen.materia;
-				    cell3.innerHTML = examen.nota; */
-
-				    //agrego funcionalidad para almacenar el examen.
-				    $.post( "/examen/guardar",{
-					    fecha: $("#datepicker").val(),
-						materia: $("#idmateria").val(),
-						nota: $("#idnota").val()
-				    });
-
-
-		}
+			//agrego funcionalidad para almacenar el examen.
+			$.post( "/examen/guardar",{	
+				fecha: $("#datepicker").val(),	
+			 	materia: $("#idmateria").val(),	
+			 	nota: $("#idnota").val()
+			});
+		};
 	</g:javascript>
 	<g:javascript>
   	 $( function() {
     $( "#datepicker" ).datepicker();
     $( "#anim" ).on( "change", function() {
-      $( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
+    $( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
     });
   } );
   </g:javascript>
@@ -143,9 +145,9 @@
     	<th>Nota</th>
   	</tr>
   		%{-- acá debería poner para cargar la tabla desde los arrays --}%
-      </table>
+    </table>
   
-  
+    <button  id="btn-update">Update List</button>
 </div>
 </body>
 </html>
