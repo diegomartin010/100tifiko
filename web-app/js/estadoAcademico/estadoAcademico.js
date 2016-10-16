@@ -180,9 +180,7 @@ function getMaterias(){
                     //console.log(materia)
                     $("#aprobadas").append(
                     '<p class="list-group-item col-md-7" id="'+ materia.id +'">'
-                        + materia.nombre +
-                        '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Aprobada </span>' +
-                        '<input type="submit" class="btn btn-xs btn-primary pull-right r" materia="'+materia.nombre+'" name="'+materia.id+'" id="cambiar_a_cursando" > </p>'
+                        + materia.nombre + '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Aprobada </span> </p>'
                 ); 
 
                 })} 
@@ -231,8 +229,7 @@ function updateTable(materiaId,estado,materiaNombre){
             $("#aprobadas").append(
                     '<p class="list-group-item col-md-7" id="'+ materiaId +'">'
                         + materiaNombre +
-                        '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Aprobada </span>' +
-                        '<input type="submit" class="btn btn-xs btn-primary pull-right r" materia="'+materiaNombre+'" name="'+materiaId+'" id="cambiar_a_cursando" > </p>'
+                        '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Aprobada </span> </p>'
                 ); 
     break;
 }
