@@ -1,11 +1,11 @@
 package prueba
 
-import java.security.Security;
+// import java.security.Security;
 
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails
+// import org.springframework.security.core.context.SecurityContextHolder;
+// import org.springframework.security.core.userdetails.UserDetails
 
-import grails.plugin.springsecurity.SpringSecurityService;
+// import grails.plugin.springsecurity.SpringSecurityService;
 import modelo.Examen;
 import modelo.Materia
 import modelo.EstadoAcademico

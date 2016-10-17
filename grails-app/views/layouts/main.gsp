@@ -39,7 +39,9 @@
         			<li><a href="#">Notificación #3</a></li>
     				</ul>
   				%{-- Usuario --}%
-				<g:link controller="user" action="show" id="${sec.loggedInUserInfo(field:"id")}"><sec:username/></g:link>
+					%{-- No borrar ese Glink Cuando Ande Security hacerlo funcionar--}%
+					%{-- <g:link controller="user" action="show" id="${sec.loggedInUserInfo(field:"id")}"><sec:username/></g:link> --}%
+				<g:link controller="user" action="show" id="1">HARDCODEADO</g:link>
 				<g:link controller='logout' >Salir</g:link>
 			</span>
 		</div>
