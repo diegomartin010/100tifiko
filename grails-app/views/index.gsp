@@ -20,7 +20,7 @@
 		<div class="content"><h1>Index</h1></div>
 		<div class="container">
 			<div class="col-md-6">	
-				<a class = "btn btn-default" href="./controladorPrueba">Controlador de Prueba</a>
+				<a class = "btn btn-default" href="./controladorPrueba">ENOJARME CON LA VIDA !!!!!!</a>
 			</div>		
 		</div>
 	</div>

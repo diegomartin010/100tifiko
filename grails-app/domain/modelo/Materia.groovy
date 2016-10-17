@@ -43,7 +43,7 @@ class Materia {
         return c.first().goal4all(s)
     }
 
-    def knIcursar(){
+    def knIcurse(){
         def s = this.getEstado()
         // def isntApr = ( s != "A" && s != "R" && s == "P")
     	// return this.matchea("C") && isntApr
@@ -57,5 +57,34 @@ class Materia {
         return this.matchea("C") 
     }
 
-   
+    // si me Regularizas ESTA!, dame el nodo siguiente, para cursar.
+    def ifR_GetNodeS2C(){
+        
+        def materiasHabilitadas = 
+            Correlatividad
+            .getAll()
+            .findAll{ 
+                it.materiaCorrelativa == this &&
+                it.requisito == "R"
+            }
+            .collect{ it.materia }
+
+    }
+
+    // si me aprobas ESTA!, dame el nodo siguiente, para cursar.
+    def ifA_GetNodeS2C(){
+        
+        def materiasHabilitadas = 
+            Correlatividad
+            .getAll()
+            .findAll{ 
+                it.materiaCorrelativa == this &&
+                it.requisito == "A"
+             }
+             // Elimino de la lista las materias que ya fueron habilitadas regularizando.
+            .collect{ it.materia } - this.ifR_GetNodeS2C()
+           
+    }
+
+
 }

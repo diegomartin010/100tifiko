@@ -22,36 +22,29 @@ class EstadoAcademico {
 		legajo unique: true, blank: false		
     }
 
-    def getCursables(){
+    // Dame todas las materias que puedo cursar, y estan en pendiente.
+    def getAll4Curse(){
         def cursables = 
             this
             .carrera
             .materias
-            .findAll{ it.knIcursar() }
+            .findAll{ 
+                it.knIcurse() &&
+                it.getEstado() == "P"
+            }
+    }
+
+    // Dame las materias que tengo PERMISO para cursar ---> Cumplo las correlatividades.
+    def getPerm2Curse(){
+
+        def cursables = 
+            this
+            .carrera
+            .materias
+            .findAll{ 
+                it.knIcurse() 
+            }
         
-        return cursables
     }
 
-    def getRendibles(){  
-        def cursables = 
-            this
-            .carrera
-            .materias
-            .findAll{ it.knIcursar() }
-        return cursables  	
-    }
-
-    def getObligatorias(){
-    }
-
-    def getElectivas(){
-    }
-
-    def getCursando(){
-    	
-    }
-
-    def getSiguienteNivel(){
-    	
-    }
 }
