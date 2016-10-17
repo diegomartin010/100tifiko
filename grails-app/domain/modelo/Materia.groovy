@@ -13,50 +13,49 @@ class Materia {
 		codigo unique: true, blank: false, nullable:true
 		nivel nullable:true, blank:true
 		// o: obligatoria, e:electiva
-		tipo blank: false, nullable:true, inList: ["O","E"]
+		tipo blank: false, nullable:false, inList: ["O","E"]
     }
 
-    def puedeCursar(){
-    	return this.matchea("C")
-    }
-
-    def puedeFinal(){
-    	return this.matchea("F")
-    }
-
-    def matchea(String param){
-	
-    	// Traemos el estado actual de materias....
-    	def estMateriasAct = SessionManager.getCurrentUser().getEstadoAcademico().getEstadoMaterias()
+    def getEstado(){
         
-        // Esto va a determinar si cursa o no...
-    	def result = true
-    	
-    	// Traemos todas las correlativas con el criterio deseado, de la materia This.
-    	def correlativas = Correlatividad.getAll().findAll{ it.materia == this && it.criterio == param }
+        def usuario = 
+            SessionManager
+            .getCurrentUser()
+        
+        def estadoMaterias = 
+            usuario
+            .estadoAcademico
+            .estadoMaterias
 
-    	// vemos si todas las condiciones correlativas, machean contra el estado actual.
-    	correlativas.each{ corr ->	
+        return estadoMaterias.find{ it.materia == this }.estado
 
-    		// Si la materia del estado academico machea todas correlativas
-    		def op = estMateriasAct.findAll{ em ->
-		    	corr.materiaCorrelativa == em.materia && corr.requisito == em.estado
-	    	}.size() > 0
-   	
-    		result = result && op   		
-    			
-			// movida para verificar resultado, nomas...
-			if(!result) println(
-				"Error. Queres Cursar: "
-				+ corr.materia.nombre
-				+ "Pero ..."
-				+ corr.materiaCorrelativa.nombre 
-				+ ": no cumple "
-				+ corr.requisito
-			)
-
-	    } 
-
-    	return result
     }
+
+    def matchea(String s){
+
+        def c = 
+            Correlatividad
+            .getAll()
+            .findAll{ it.materia == this}
+
+        if( c.size() == 0 ) return true
+        
+        return c.first().goal4all(s)
+    }
+
+    def knIcursar(){
+        def s = this.getEstado()
+        // def isntApr = ( s != "A" && s != "R" && s == "P")
+    	// return this.matchea("C") && isntApr
+        return this.matchea("C") 
+    }
+
+    def knIfinal(){
+        def s = this.getEstado()
+        // def isntApr = ( s != "A" && s == "R")
+        // return this.matchea("F") && isntApr
+        return this.matchea("C") 
+    }
+
+   
 }

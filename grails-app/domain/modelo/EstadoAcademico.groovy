@@ -23,15 +23,35 @@ class EstadoAcademico {
     }
 
     def getCursables(){
-    	return estadoMaterias.findAll{ it.getMateria().puedeCursar() }.collect{ it.materia }
+        def cursables = 
+            this
+            .carrera
+            .materias
+            .findAll{ it.knIcursar() }
+        
+        return cursables
     }
 
-    def getRendibles(){    	
+    def getRendibles(){  
+        def cursables = 
+            this
+            .carrera
+            .materias
+            .findAll{ it.knIcursar() }
+        return cursables  	
     }
 
     def getObligatorias(){
     }
 
     def getElectivas(){
+    }
+
+    def getCursando(){
+    	
+    }
+
+    def getSiguienteNivel(){
+    	
     }
 }
