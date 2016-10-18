@@ -1,6 +1,8 @@
 import modelo.Carrera
 import modelo.Correlatividad
 import modelo.Materia
+import modelo.EstadoAcademico
+import modelo.EstadoMateria
 import security.Role
 import security.User
 import security.UserRole
@@ -13,7 +15,7 @@ class BootStrap {
       	def alumno = new Role('ROLE_ALUMNO').save()	
 	
       	// Hardcodeando usuarios
-		new UserRole(	
+		def user = 
 			new User(
 				  nombre: "Matias"
 				, apellido: "Rios"
@@ -21,7 +23,10 @@ class BootStrap {
 				, username: "mrios"
 				, password: "mrios1"
 			).save() 
-			, alumno
+		
+		new UserRole(	
+			user,
+			alumno
 		).save()
 
 		new UserRole(	
@@ -35,9 +40,8 @@ class BootStrap {
 			, alumno
 		).save()
 
-
 		// Se crea una carrera hardcode
-		new Carrera(
+		def nuevaCarrera = new Carrera(
 		  	nombre: "CarreraVillera0",
 			codigo: "C2016",
 			materias: [
@@ -66,11 +70,40 @@ class BootStrap {
 				, new Materia(
 					nombre:"BullingElectivo",
 					codigo:"V2016BU3",
-					nivel :0,
+					nivel :2,
 					tipo  :"E"
 				).save()
 			]
 		).save()
+
+		// Seteamos un estado academico a mrios
+		user.setEstadoAcademico(
+            new EstadoAcademico (
+                  legajo  : 9158
+                , carrera : nuevaCarrera
+            ).save()
+        )
+		user.save()
+
+		// println("lista de materias: ${nuevaCarrera.materias}")
+		nuevaCarrera.materias.findAll{ it != null }.findAll{ it.tipo == "O" }.each{ unaMateria->   
+
+			user.estadoAcademico.estadoMaterias.push(
+				new EstadoMateria(
+					estadoAcademico: user.estadoAcademico ,
+					materia: unaMateria ,
+					estado: "P"
+				).save()
+			)
+			
+		}
+
+		// nuevaCarrera.materias.each{
+		// 	println("Materias: ${it}")
+		// }
+		user.save(flush:true)
+
+		
 
 		// Correlatividades hardcode
 		// Para cursar Bulling 2 tengo que tener regular bulling 1.
@@ -88,12 +121,29 @@ class BootStrap {
 			, materiaCorrelativa:  Materia.findByCodigo("V2016BU1")
 			, requisito:"A"
 		).save()
+		
 		// ... y regular bulling 2.
 		new Correlatividad(
 			  criterio: "C"
 			, materia: 			 Materia.findByCodigo("V2016BU3")
 			, materiaCorrelativa:  Materia.findByCodigo("V2016BU2")
 			, requisito:"R"
+		).save()
+
+		// para final bulling 2.
+		new Correlatividad(
+			  criterio: "F"
+			, materia: 			 Materia.findByCodigo("V2016BU2")
+			, materiaCorrelativa:  Materia.findByCodigo("V2016BU1")
+			, requisito:"A"
+		).save()
+
+		// para final bulling 3.
+		new Correlatividad(
+			  criterio: "F"
+			, materia: 			 Materia.findByCodigo("V2016BU3")
+			, materiaCorrelativa:  Materia.findByCodigo("V2016BU2")
+			, requisito:"A"
 		).save()
 
 	   

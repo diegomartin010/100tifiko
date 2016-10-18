@@ -14,15 +14,15 @@
 		<ul><li><a class="home" href="/"><g:message code="default.home.label"/></a></li></ul>
 	</div>
 
-	
+
 	%{-- Estilo body de la pagina --}%
-	<div id="page-body" role="main">	
-			%{-- Formulario de creacion de nueva carrera --}%
-			<div class="content scaffold-edit" role="main">
-				<h1>Index</h1>
-				<ol class="property-list user">
-				<div id ="result"></div>
+	<div id="page-body" role="main">
+		<div class="content"><h1>Index</h1></div>
+		<div class="container">
+			<div class="col-md-6">	
+				<a class = "btn btn-default" href="./controladorPrueba">ENOJARME CON LA VIDA !!!!!!</a>
 			</div>		
+		</div>
 	</div>
-	</body>
+</body>
 </html>

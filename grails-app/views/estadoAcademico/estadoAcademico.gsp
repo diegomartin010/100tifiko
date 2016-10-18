@@ -19,18 +19,17 @@
 		<% def usuario = SessionManager.getCurrentUser() %>
 		<div class="content"><h1>Estado academico</h1></div>			
 		
-	<div id="aprobadas" >
-		<div class="content"><h3>Materias Aprobadas</h3></div>
-	</div>
-	<div id="regularizadas" >
-		<div class="content"><h3>Materias Regularizadas</h3></div>	
-	</div>
-	<div id="en_curso" >
-		<div class="content"><h3>Materias en curso</h3></div>	
-	</div>
-
-		<div id="pendientes" >
-		<div class="content"><h3>Materias Pendientes</h3></div>	
+		<div id="aprobadas" class="col-md-12">
+			<div class="content"><h3>Materias Aprobadas</h3></div>
+		</div>
+		<div id="regularizadas" class="col-md-12" >
+			<div class="content"><h3>Materias Regularizadas</h3></div>	
+		</div>
+		<div id="en_curso" class="col-md-12" >
+			<div class="content"><h3>Materias en curso</h3></div>	
+		</div>
+		<div id="pendientes" class="col-md-12">
+			<div class="content"><h3>Materias Pendientes</h3></div>	
 		</div>
 	</div>
 

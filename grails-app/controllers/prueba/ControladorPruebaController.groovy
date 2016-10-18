@@ -1,28 +1,36 @@
 package prueba
 
-import java.security.Security;
+// import java.security.Security;
 
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails
+// import org.springframework.security.core.context.SecurityContextHolder;
+// import org.springframework.security.core.userdetails.UserDetails
 
-import grails.plugin.springsecurity.SpringSecurityService;
+// import grails.plugin.springsecurity.SpringSecurityService;
 import modelo.Examen;
 import modelo.Materia
-
+import modelo.EstadoAcademico
+import modelo.Correlatividad
+import estats.SessionManager
 class ControladorPruebaController {
 
     def index() {
-		
-		def materia = new Materia("analisi1", "obligatoria")
-		def examen = new Examen(materia,new Date(),10,"Ninguno")
-		
-		println(examen.materia.nombre)
-		println(examen.calificacion)
+    	println("------------------------ control VILLERO de prueba.")
+    	Materia.getAll().each{
+    		println("Regularizando: ${it.nombre}")
+    		it.ifR_GetNodeS2C().each{ m->
+    			println("Habilito cursar ${m.nombre}")	
+    		}
+    		println("Aprobando: ${it.nombre}")
+    		it.ifA_GetNodeS2C().each{ m->
+    			println("Habilito cursar ${m.nombre}")	
+    		}
 
-		// Asi es como se captura el usuario en sesion actual
-		def loggedUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal()
-		println(loggedUser.id)
+    	}
+    	// def list = ["caca","gil","hola","mundo","culo","culo","culo","culo","culo"]
+
+    	// render(list - ["hola","culo"])
 		
+
 	}
 }
 

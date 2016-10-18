@@ -8,15 +8,15 @@ class Examen {
     static constraints = {
 		fecha nullable:false
 		calificacion blank:false
-		observaciones blank:true
+		observaciones blank:true, nullable: true
 		materia nullable:false		
     }
 	
-	Examen(Materia mat, Date fech, Integer cal, String obs) {
-		this()
-		this.materia = mat 
-		this.fecha = fech
-		this.calificacion = cal
-		this.observaciones = obs
-	}
+	// Examen(Materia mat, Date fech, Integer cal, String obs) {
+	// 	this()
+	// 	this.materia = mat 
+	// 	this.fecha = fech
+	// 	this.calificacion = cal
+	// 	this.observaciones = obs
+	// }
 }
