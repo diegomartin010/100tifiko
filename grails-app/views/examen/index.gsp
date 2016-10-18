@@ -12,7 +12,7 @@
 	<g:javascript>
 	//genero la lista de exámenes rendidos para poner en la tabla
 	$(document).ready(function(){
-		$post("examen/getExamenes", function (data){
+		$.post("examen/getExamenes", function (data){
 			$each( data, function(index,ex){
 				notaExamen = ex.calificacion;
 				fechaExamen = ex.fecha;
@@ -65,12 +65,18 @@
 				    cell2.innerHTML = examen.materia;
 				    cell3.innerHTML = examen.nota; */
 
+				    console.log(examen)
 				    //agrego funcionalidad para almacenar el examen.
 				    $.post( "/examen/guardar",{
 					    fecha: $("#datepicker").val(),
 						materia: $("#idmateria").val(),
 						nota: $("#idnota").val()
-				    });
+				    }).done(function( resp ){
+				    	if(resp.result){
+	   					 	alert("El examen se cargo! Ver JSON Resultante en consola !!!");
+	   					 	console.log(resp.examen);
+				    	}
+  					});
 
 
 		}
