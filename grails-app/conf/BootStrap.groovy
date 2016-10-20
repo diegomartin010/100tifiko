@@ -47,28 +47,28 @@ class BootStrap {
 			materias: [
 				
 				new Materia(
-					nombre:"Bulling1",
+					nombre:"bulling1",
 					codigo:"V2016BU1",
 					nivel :1,
 					tipo  :"O"
 				).save()
 
 				, new Materia(
-					nombre:"Bulling2",
+					nombre:"bulling2",
 					codigo:"V2016BU2",
 					nivel :2,
 					tipo  :"O"
 				).save()
 
 				, new Materia(
-					nombre:"Bulling3",
+					nombre:"bulling3",
 					codigo:"V2016BU3",
 					nivel :3,
 					tipo  :"O"
 				).save()
 
 				, new Materia(
-					nombre:"BullingElectivo",
+					nombre:"bullingElectivo",
 					codigo:"V2016BU3",
 					nivel :2,
 					tipo  :"E"
@@ -106,7 +106,7 @@ class BootStrap {
 		
 
 		// Correlatividades hardcode
-		// Para cursar Bulling 2 tengo que tener regular bulling 1.
+		// Para cursar bulling 2 tengo que tener regular bulling 1.
 		new Correlatividad(
 			  criterio: "C"
 			, materia:             Materia.findByCodigo("V2016BU2")
@@ -114,7 +114,7 @@ class BootStrap {
 			, requisito: "R"
 		).save()
 
-		// Para cursar Bulling 3 tengo que tener aprobada bulling 1
+		// Para cursar bulling 3 tengo que tener aprobada bulling 1
 		new Correlatividad(
 			  criterio: "C"
 			, materia: 			   Materia.findByCodigo("V2016BU3")

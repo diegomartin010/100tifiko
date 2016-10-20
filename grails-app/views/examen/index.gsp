@@ -11,36 +11,17 @@
 	<g:javascript src="jquery/jquery-ui.css"/>
 	<g:javascript>
 	//genero la lista de exámenes rendidos para poner en la tabla
-<<<<<<< HEAD
-	$(document).ready(function() {
+	
+	//$(document).ready(function(){
+		function cargarlacomitiva(){
+		//table.innerHTML = "";
 		$.post("examen/getExamenes", function (data){
 			$.each( data, function(index,ex){
-				/*var ex = {
-					calificacion : '1',
-					fecha : '222',
-					nombre : "asarasaa"
-				} */
-
-
-
-
-				//alert(ex.calificacion);
-				//alert(ex.fecha);
-				//alert(ex.materia.nombre);
-=======
-	$(document).ready(function(){
-		$.post("examen/getExamenes", function (data){
-			$each( data, function(index,ex){
->>>>>>> 6c89c4757f9bc21cef0e01a960973ef8d9bab9d4
-				notaExamen = ex.calificacion;
-				fechaExamen = ex.fecha;
-				nombreExamen = ex.materia.nombre;
-
-
-
-
-
-
+				console.log(ex);
+				notaExamen = ex.nota;
+				fechaExamen = ex.fecha.slice(0,10);
+				//id = ex.materia.codigo;
+				nombreExamen = ex.nombre;
 				//listaFechas.appendChild(fechaExamen);
 				//listaMaterias.appendChild(nombreExamen);
 				//listaNotas.appendChild(notaExamen);
@@ -52,11 +33,11 @@
 				cell1.innerHTML = fechaExamen;
 				cell2.innerHTML = nombreExamen;
 				cell3.innerHTML = notaExamen;
-
+			});
 
 		});
-		});
-	});
+		
+	};
 
 	</g:javascript> 
 	<g:javascript>
@@ -74,21 +55,7 @@
 	});
 	</g:javascript>
 	<g:javascript>
-		function guardarexamen(){
-<<<<<<< HEAD
-			//agrego funcionalidad para almacenar el examen.
-			$.post( "/examen/guardar",{	
-				fecha: $("#datepicker").val(),	
-			 	materia: $("#idmateria").val(),	
-			 	nota: $("#idnota").val()
-			});
-		};
-=======
-				var examen = {
-					fecha: $("#datepicker").val(),
-					materia: $("#idmateria").val(),
-					nota: $("#idnota").val()
-				};				
+		function guardarexamen(){						
 				//puse esto en doc ready al cargar la pagina con la lista desde el backend
 				 /*   var table = document.getElementById("letable");
 				    var row = table.insertRow(-1);
@@ -99,7 +66,6 @@
 				    cell2.innerHTML = examen.materia;
 				    cell3.innerHTML = examen.nota; */
 
-				    console.log(examen)
 				    //agrego funcionalidad para almacenar el examen.
 				    $.post( "/examen/guardar",{
 					    fecha: $("#datepicker").val(),
@@ -107,14 +73,13 @@
 						nota: $("#idnota").val()
 				    }).done(function( resp ){
 				    	if(resp.result){
-	   					 	alert("El examen se cargo! Ver JSON Resultante en consola !!!");
+	   					 //	alert("El examen se cargo! Ver JSON Resultante en consola !!!");
 	   					 	console.log(resp.examen);
 				    	}
   					});
 
 
-		}
->>>>>>> 6c89c4757f9bc21cef0e01a960973ef8d9bab9d4
+		};
 	</g:javascript>
 	<g:javascript>
   	 $( function() {
@@ -186,7 +151,7 @@
   		%{-- acá debería poner para cargar la tabla desde los arrays --}%
     </table>
   
-    <button  id="btn-update">Update List</button>
+    <button onclick="cargarlacomitiva()" id="btn-update">Update List</button>
 </div>
 </body>
 </html>
