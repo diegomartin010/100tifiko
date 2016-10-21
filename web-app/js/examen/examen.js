@@ -3,9 +3,8 @@
 
 function eliminar(idmovida){
 	$.post("examen/eliminarExamen",{id: idmovida});
+	window.location.reload();
 }
-
-
 
 	//genero la lista de exámenes rendidos para poner en la tabla
 	$(document).ready(function(){
@@ -59,7 +58,7 @@ function eliminar(idmovida){
 				    	}
   					});
 
-
+				    window.location.reload();
 		};
 $( function() {
     $( "#datepicker" ).datepicker();

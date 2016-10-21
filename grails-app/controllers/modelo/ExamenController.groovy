@@ -6,6 +6,7 @@ class ExamenController {
     def index() { 
     	render(view:'index')
     }
+
     def eliminarExamen(){
         def user = SessionManager.getCurrentUser()
         def paramid = params.id
@@ -16,7 +17,7 @@ class ExamenController {
         if (examenEnCuestion.calificacion > 3){
             def laMateria = user.estadoAcademico.estadoMaterias.find{ it.materia.nombre == nombreMateria }
             laMateria.estado = "R"
-            println("la materia "+laMateria.materia.nombre+" está ahora en estado regular, porque si examen fue eliminado")    
+            println("la materia "+laMateria.materia.nombre+" está ahora en estado regular, porque su examen fue eliminado")    
         }
         println(examenEnCuestion.materia.nombre)
         println("antes de eliminar: "+user.estadoAcademico.examenes.size())
