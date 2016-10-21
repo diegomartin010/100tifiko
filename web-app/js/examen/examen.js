@@ -3,7 +3,6 @@
 
 function eliminar(idmovida){
 	$.post("examen/eliminarExamen",{id: idmovida});
-	alert("caca: "+idmovida);
 }
 
 
