@@ -6,36 +6,8 @@
 	<g:javascript src="jquery/jquery.min.js"/>
 	<g:javascript src="librerias/fullcalendar/moment.min.js"/>
 	<g:javascript src="librerias/fullcalendar/dist/fullcalendar.js"/>
-	%{-- Incluir logica javascript 
-	<g:javascript src="agenda/agenda222.js" />--}%
-	<g:javascript>
-	$(document).ready(function() {
-		$('#calendar').fullCalendar({
-	    	dayClick: function(date, jsEvent, view) {
-	    		var myCalendar = $('#calendar');
-				myCalendar.fullCalendar();
-				var eventname = prompt("Ingrese el nombre del evento a añadir", "");
-				var myEvent = {
-					title: eventname,
-					allDay: true,
-					start: date,
-					end: date
-				};
-				myCalendar.fullCalendar('renderEvent', myEvent);
-			}
-		});
-	})
-	$(document).ready(function(){
-		var myCalendar = $('#calendar');
-		$('#calendar').fullCalendar({
-   			eventClick: function(event){
-  				$('.closon').click(function() {
-     				myCalendar.fullCalendar('removeEvents'[event._id]);
-     			});
-   		 	}
-   		}) 
-	});
- 	</g:javascript>
+	%{-- Incluir logica javascript  --}%
+	<g:javascript src="agenda/agenda222.js" />
 	<meta name="layout" content="main">
 	<title><g:message code="Carrera"/></title>
 </head>

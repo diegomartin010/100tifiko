@@ -54,11 +54,11 @@ function eliminar(idmovida){
 						nota: $("#idnota").val()
 				    }).done(function( resp ){
 				    	if(resp.result){
-	   					 console.log(resp.examen);
+	   					 console.log(resp.examen.fecha);
 				    	}
   					});
-
-				    window.location.reload();
+  					window.location.reload();
+				    console.log("fecha en que se agrega el examen: "+$("#datepicker").val());
 		};
 $( function() {
     $( "#datepicker" ).datepicker();
