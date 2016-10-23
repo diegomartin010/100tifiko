@@ -37,7 +37,7 @@
 						<div id="4" class="panel-body"> 3 (hardcode)</div>
 					</div>
 					<div class="panel panel-default">
-						<div class="panel-heading">Cantidad de materias regularizadas</div>
+						<div class="panel-heading">Cantidad de materias en estado regular</div>
 						<div id="5" class="panel-body"> 3 (hardcode)</div>
 					</div>
 					<div class="panel panel-default">

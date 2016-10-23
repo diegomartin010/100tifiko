@@ -82,7 +82,10 @@ function cargarEventos(){
 		$.each(data, function(index, evento){
 			fechadecente = fechaDecente(evento.fecha);
 			var unixtime = Date.parse(fechadecente).getTime();
-			console.log("intento de fecha unix: "+unixtime);
+			console.log("intento cargar un evento con fecha input: "+evento.fecha);
+			console.log("intento cargar un evento con fechadecente: "+fechadecente);
+			console.log("intento cargar un evento con fecha: "+unixtime);
+			console.log("intento cargar un evento con titulo: "+evento.descripcion);
 			var myEvent = {
 				//id: uid,
 				title: evento.descripcion,
