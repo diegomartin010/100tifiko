@@ -10,19 +10,23 @@
 	%{-- Incluir cabeceras de estilos --}%
 	<meta name="layout" content="main">
 	%{-- Titulo de la pagina --}%
-	<title><g:message code="Carrera"/></title>
+	<title><g:message code="Simulación"/></title>
 </head>
 <body>
 
 	%{-- Barra de navegacion pagina --}%
 	<div class="nav" role="navigation">
-		<ul><li><a class="home" href="/"><g:message code="default.home.label"/></a></li></ul>
 	</div>
 
 	
 	%{-- Estilo body de la pagina --}%
 	<div id="page-body" role="main">	
-		<div class="content"><h1>Simulacion</h1></div>
+		%{-- Titulo de la pagina --}%
+		<div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Simulación</h1>
+            </div>
+        </div>
 		<div class="col-md-2">	
 			<select class = "form-control" id ="materia">
 				<option>Filtrar por ...</option>

@@ -16,11 +16,15 @@
 
 	%{-- navegacion? --}%
 	<div class="nav" role="navigation">
-		<ul><li><a class="home" href="/"><g:message code="default.home.label"/></a></li></ul>
 	</div>
 	%{-- Body --}%
 	<div id="page-body" role="main">
-		<div class="content"><h1>Agenda</h1></div>
+	%{-- Titulo de la pagina --}%
+		<div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Agenda</h1>
+            </div>
+        </div>
 			<form>
 				<div class="container">
 					<div class="col-md-8">	

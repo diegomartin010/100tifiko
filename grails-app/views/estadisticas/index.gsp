@@ -11,15 +11,15 @@
 
 	%{-- navegacion? --}%
 	<div class="nav" role="navigation">
-		<ul><li><a class="home" href="/"><g:message code="default.home.label"/></a></li></ul>
 	</div>
 	%{-- Body --}%
 	<div id="page-body" role="main">
-		<div class="content">
-			<h1>Estadísticas</h1>
-	</div>
-				<form>
-				<div class="container">
+		%{-- Titulo de la pagina --}%
+		<div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Estadísticas</h1>
+            </div>
+        </div>
 					<div class="panel panel-default">
 						<div class="panel-heading">Promedio con aplazos</div>
 						<div id="1" class="panel-body"> </div>
@@ -60,8 +60,6 @@
 						<div class="panel-heading">Tiempo hasta próximo examen</div>
 						<div id="10" class="panel-body"> 3 dias (hardcode)</div>
 					</div>
-				</div>
-				</form>
 	</div>
 </body>
 </html>

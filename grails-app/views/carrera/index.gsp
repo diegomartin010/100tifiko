@@ -44,31 +44,30 @@
 		
 	%{-- Barra de navegacion pagina --}%
 	<div class="nav" role="navigation">
-		<ul><li><a class="home" href="/"><g:message code="default.home.label"/></a></li></ul>
 	</div>
 
 	%{-- Estilo body de la pagina --}%
 	<div id="page-body" role="main">
 		<% def usuario = SessionManager.getCurrentUser() %>
-		
-		<div class="content"><h1>Nueva carrera</h1></div>			
+		%{-- Titulo de la pagina --}%
+		<div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Administrar Carreras</h1>
+            </div>
+        </div>		
 		<form>
-			<div class="container">
-				<div class="col-md-6">	
-					<label>Nueva carrera:</label>
+			<div class="panel panel-default">
+						<div class="panel-heading"> <br><label>Nueva carrera:</label>
 					Cargar archivo json con nueva carrera
-					<a class="label label-info" href="https://es.wikipedia.org/wiki/JSON" target="_blank">Cómo es el formato?</a>				 
-					<input type="file" id="nuevaCarrera">
-				</div>				
-			</div>
+					<a class="label label-info" href="https://es.wikipedia.org/wiki/JSON" target="_blank">Cómo es el formato?</a></div>
+						<div id="1" class="panel-body"> <input type="file" id="nuevaCarrera"> </div>
+					</div>
+			
 		</form>	
 		
-		
-		<div class="container">
-			<div class="col-md-5">	
-    			<br><label>Carreras en el sistema:</label>
-    			%{-- <ul class="list-group"> --}%
-  					<g:each var="carrera" in="${Carrera.list()}">
+		<div class="panel panel-default">
+						<div class="panel-heading"> <label>Carreras en el sistema:</label> </div>
+						<div id="1" class="panel-body"> <g:each var="carrera" in="${Carrera.list()}">
   						%{-- <li class="list-group-item"> --}%
   					
   						<p class="list-group-item" >
@@ -81,10 +80,32 @@
   						</p>
   						
   						
+  					</g:each> </div>
+					</div>
+
+		
+		%{-- dejo esto comentado, por si copié algo mal --}%
+		%{--<div class="container">
+			<div class="col-md-5">	
+    			<br><label>Carreras en el sistema:</label>
+    			%{-- <ul class="list-group"> --}%
+  					%{--<g:each var="carrera" in="${Carrera.list()}">
+  						%{-- <li class="list-group-item"> --}%
+  					
+  						%{--<p class="list-group-item" >
+  						
+  							${carrera.id}:${carrera.nombre}
+  							<input type="submit" class="btn btn-xs btn-danger pull-right eliminar" name="${carrera.nombre}" id="eliminar" value="Eliminar">
+  							<input type="submit" class="btn btn-xs btn-primary pull-right " name="${carrera.nombre}" id="verMaterias" value="Ver Materias">
+
+  		
+  						</p>
+  						
+  						
   					</g:each>
-				%{-- </ul> --}%
+				%{-- </ul> 
 			</div>				
-		</div>
+		</div> --}%
 
 	</div>
 
