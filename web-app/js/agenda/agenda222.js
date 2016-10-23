@@ -22,15 +22,23 @@ $(document).ready(function() {
 			console.log("fecha: "+fecha);
 			guardarevento(myEvent, fecha);
 		}
-   		//eventClick: function(event){
-  		//	$('.closon').click(function(event) {
-     	//		myCalendar.fullCalendar('removeEvents'[event._id]);
-     	//	});
+   		
    	});
 });
 $(document).ready(function() {
 	cargarEventos();
 });
+
+/* FALTA ELIMINAR / MODIFICAR EVENTOS
+$(document).ready(function(){
+	var myCalendar = $('#calendar');
+	eventClick: function(event){
+  		$('.closon').click(function(event) {
+     		myCalendar.fullCalendar('removeEvents'[event._id]);
+     	});
+	}
+});
+*/
 
 //guardo el evento en la DB
 function guardarevento(myEvent, fecha){
@@ -46,7 +54,7 @@ function guardarevento(myEvent, fecha){
 	});
 };
 
-
+//cambio el formato de la fecha para enviarlo en el json con el método post("agenda/gardarEvento")
 function timeConverter(UNIX_timestamp){
 	var a = new Date(UNIX_timestamp);
 	var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
@@ -56,7 +64,8 @@ function timeConverter(UNIX_timestamp){
 	var time = date + "/" + month + "/" + year;
 	return time;
 };
-
+//cambio el formato de la fecha para desde el Post en que recibo un Json post("agenda/getEventos")
+//pueda conseguir un formato de fecha adecuado para cargar el evento en FullCalendar (Unix Timestamp)
 function fechaDecente(tiempo){
 	var a = new Date(tiempo);
 	var month = tiempo.slice(5,7);
@@ -66,6 +75,7 @@ function fechaDecente(tiempo){
 	return time;
 }
 
+//cargo eventos desde la DB a la agenda - FullCalendar
 function cargarEventos(){
 	var myCalendar = $('#calendar');
 	$.post("agenda/getEventos",function(data){
@@ -79,9 +89,6 @@ function cargarEventos(){
 				allDay: true,
 				start: unixtime,
 				end: unixtime
-				//hardcodeo fecha 24/10/2016 formato unix
-				//start: 1477267200000,
-				//end: 1477267200000
 			};
 		myCalendar.fullCalendar('renderEvent', myEvent);
 		});
