@@ -10,19 +10,19 @@
 	<title><g:message code="Carrera"/></title>
 </head>
 <body>
-		
-	%{-- Barra de navegacion pagina --}%
-	<div class="nav" role="navigation">
-		<ul><li><a class="home" href="/"><g:message code="default.home.label"/></a></li></ul>
-	</div>
 
-	
 	%{-- Estilo body de la pagina --}%
 	<div id="page-body" role="main">
 
 		%{-- Se captura el usuario actual en sesion --}%
 		<% def usuario = SessionManager.getCurrentUser() %>
-		<div class="content"><h1>Carrera</h1></div>
+		%{-- Titulo de la pagina --}%
+		<div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Carrera</h1>
+            </div>
+        </div>
+        %{-- ./row --}%
 		%{-- Si el usuario no tiene estado academico, lanzar formulario de creacion --}%
 		<g:if test="${usuario.estadoAcademico == null}">		
 			

@@ -10,14 +10,17 @@
 
 	</head>
 	<body>
-		<div class="nav" role="navigation">
-		<ul><li><a class="home" href="/"><g:message code="default.home.label"/></a></li></ul>
-	</div>
-
 
 	%{-- Estilo body de la pagina --}%
 	<div id="page-body" role="main">
-		<div class="content"><h1>Index</h1></div>
+		%{-- Titulo de la pagina --}%
+		<div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Index</h1>
+            </div>
+        </div>
+        %{-- ./row --}%
+
 		<div class="container">
 			<div class="col-md-6">	
 				<a class = "btn btn-default" href="./controladorPrueba">ENOJARME CON LA VIDA !!!!!!</a>
