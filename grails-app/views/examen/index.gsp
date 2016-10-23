@@ -2,12 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="/css/simple-sidebar.css">
 	<g:javascript src="examen/examen.js" /> 
-  	<g:javascript src="jquery/jquery.js"/>
-	<g:javascript src="bootstrap/js/bootstrap.min.js"/>
 	<g:javascript src="jquery/jquery-ui.js"/>
 	<g:javascript src="jquery/jquery-ui.css"/>
 %{--
@@ -85,14 +80,15 @@ $( function() {
 	<title><g:message code="Exámenes"/></title>
 </head>
 <body>
-
-	%{-- navegacion? --}%
-	<div class="nav" role="navigation">
-		<ul><li><a class="home" href="/"><g:message code="default.home.label"/></a></li></ul>
-	</div>
 	%{-- Body --}%
 	<div id="page-body" role="main">
-		<div class="content"><h1>Examenes</h1></div>
+		%{-- Titulo de la pagina --}%
+		<div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Examenes</h1>
+            </div>
+        </div>
+        %{-- ./row --}%
 			<form>
 				<div class="container">
 					<div class="panel panel-default">
