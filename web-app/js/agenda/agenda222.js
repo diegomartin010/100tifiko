@@ -16,7 +16,11 @@ $(document).ready(function() {
 			};
 			console.log("ID: "+myEvent.id);
 			myCalendar.fullCalendar('renderEvent', myEvent);
-			guardarevento(myEvent);
+			//convierto el formato de la fecha
+			console.log("fecha UNIX: "+date);
+			fecha = timeConverter(date);
+			console.log("fecha: "+fecha);
+			guardarevento(myEvent, fecha);
 		}
    		//eventClick: function(event){
   		//	$('.closon').click(function(event) {
@@ -24,17 +28,63 @@ $(document).ready(function() {
      	//	});
    	});
 });
+$(document).ready(function() {
+	cargarEventos();
+});
 
-
-function guardarevento(myEvent){
+//guardo el evento en la DB
+function guardarevento(myEvent, fecha){
 	console.log("Enviando EVENTO mediante POST:");
 	var i = myEvent.id;
 	var t = myEvent.title;
 	var f = myEvent.start.toString();
-	console.log("fecha: "+myEvent.start);
+	console.log(myEvent);
 	$.post("agenda/guardarEvento",{
 		//id : i,
-		titulo : t
-		//fecha : f
+		titulo : t,
+		fecha : fecha
 	});
 };
+
+
+function timeConverter(UNIX_timestamp){
+	var a = new Date(UNIX_timestamp);
+	var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+	var year = a.getFullYear();
+	var month = months[a.getMonth()];
+	var date = (a.getDate())+1;
+	var time = date + "/" + month + "/" + year;
+	return time;
+};
+
+function fechaDecente(tiempo){
+	var a = new Date(tiempo);
+	var month = tiempo.slice(5,7);
+	var year = tiempo.slice(0,4);
+	var date = tiempo.slice(8,10);
+	var time = date + "/" + month + "/" + year;
+	return time;
+}
+
+function cargarEventos(){
+	var myCalendar = $('#calendar');
+	$.post("agenda/getEventos",function(data){
+		$.each(data, function(index, evento){
+			fechadecente = fechaDecente(evento.fecha);
+			var unixtime = Date.parse(fechadecente).getTime();
+			console.log("intento de fecha unix: "+unixtime);
+			var myEvent = {
+				//id: uid,
+				title: evento.descripcion,
+				allDay: true,
+				start: unixtime,
+				end: unixtime
+				//hardcodeo fecha 24/10/2016 formato unix
+				//start: 1477267200000,
+				//end: 1477267200000
+			};
+		myCalendar.fullCalendar('renderEvent', myEvent);
+		});
+	});
+}
+

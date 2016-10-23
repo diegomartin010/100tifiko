@@ -1,6 +1,6 @@
 package modelo
 import estats.SessionManager
-//import security.User;
+import security.User;
 
 class AgendaController {
 
@@ -21,18 +21,17 @@ class AgendaController {
         */
 
         def user = SessionManager.getCurrentUser()
-        println("Nombre: "+user.nombre)
         // Obtenemos usuario en sesion
         println("imprimo cantidad de eventos PRE guardado: "+user.estadoAcademico.eventos.size())
     		// Le seteamos un nuevo evento a y guaramos evento
     	def nevento = new Evento(
-		        //fecha : new Date().parse("dd/MM/yy" , params.fecha),
+		        fecha : new Date().parse("dd/MM/yy" , params.fecha),
 				tipo : "E",
                 //id : params.id,
 				descripcion : params.titulo
     		).save(flush : true)
         user.estadoAcademico.eventos.push(nevento)
-       // println("se procede a guardar el Evento: Título: ${descripcion}")
+        println("se procede a guardar el Evento: Título: "+params.titulo+" Fecha: "+params.fecha)
     	
     	// Guardamos usuario
     	user.save(flush:true)
@@ -41,4 +40,18 @@ class AgendaController {
     
     render(view:'index')
     } 
+
+    def getEventos(){
+        def user = SessionManager.getCurrentUser()
+        def result = []
+        result = user.estadoAcademico.eventos.findAll().collect{ev->
+            [   fecha : ev.fecha,
+                tipo : ev.tipo,
+                descripcion : ev.descripcion
+            ]
+        }
+        render(contentType: 'text/json'){
+           result 
+        }
+    }
 }

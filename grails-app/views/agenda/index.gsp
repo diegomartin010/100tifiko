@@ -6,10 +6,11 @@
 	<g:javascript src="jquery/jquery.min.js"/>
 	<g:javascript src="librerias/fullcalendar/moment.min.js"/>
 	<g:javascript src="librerias/fullcalendar/dist/fullcalendar.js"/>
+	<g:javascript src="librerias/datejs/date.js" />
 	%{-- Incluir logica javascript  --}%
 	<g:javascript src="agenda/agenda222.js" />
 	<meta name="layout" content="main">
-	<title><g:message code="Carrera"/></title>
+	<title><g:message code="Agenda"/></title>
 </head>
 <body>
 

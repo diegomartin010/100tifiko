@@ -91,7 +91,7 @@ class ExamenController {
         //Básicamente es el formato de la fehca ES HORRIBLE usa este FORMATO: Sun Jul 10 00:00:00 ART 2016
         //Por defecto es: 10/06/2016 , mucho mejor. Pero no funciona :C
         //Convertimos fecha ingresado como string, en una fecha piola.
-        def fecha           = new Date().parse("dd/MM/yy" , params.fecha)
+        def fecha           = new Date().parse( 'dd/MM/yyyy' , params.fecha)
         //def fecha = params.fecha
         // Este queda como esta ...
         def nombreMateria   = params.materia
