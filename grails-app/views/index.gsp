@@ -24,6 +24,7 @@
 		<div class="container">
 			<div class="col-md-6">	
 				<a class = "btn btn-default" href="./controladorPrueba">ENOJARME CON LA VIDA !!!!!!</a>
+				<img src="http://www.aceroymagia.com/Images/articulo/cuadro-canvas-patan-muttley-autos-locos/01-cuadro-canvas-patan-muttley-autos-locos.jpg">
 			</div>		
 		</div>
 	</div>
