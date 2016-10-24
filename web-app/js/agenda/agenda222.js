@@ -21,7 +21,12 @@ $(document).ready(function() {
 			fecha = timeConverter(date);
 			console.log("fecha: "+fecha);
 			guardarevento(myEvent, fecha);
-		}
+		},
+		//Clickeando eventos se los elimina
+		eventClick: function(calEvent, jsEvent, view) {
+     		myCalendar.fullCalendar('removeEvents',[calEvent._id]);
+     		eliminarEvento(calEvent.id);
+        }
    		
    	});
 });
@@ -40,6 +45,15 @@ $(document).ready(function(){
 });
 */
 
+/*
+$(document).ready(function(){
+	$('#calendar').fullCalendar({
+		eventClick: function(calEvent, jsEvent, view) {
+        	alert("probando");
+        }
+    });
+});
+*/
 //guardo el evento en la DB
 function guardarevento(myEvent, fecha){
 	console.log("Enviando EVENTO mediante POST:");
@@ -50,7 +64,8 @@ function guardarevento(myEvent, fecha){
 	$.post("agenda/guardarEvento",{
 		//id : i,
 		titulo : t,
-		fecha : fecha
+		fecha : fecha,
+		resourceEditable: true
 	});
 };
 
@@ -91,10 +106,17 @@ function cargarEventos(){
 				title: evento.descripcion,
 				allDay: true,
 				start: unixtime,
-				end: unixtime
+				end: unixtime,
+				resourceEditable: true
 			};
 		myCalendar.fullCalendar('renderEvent', myEvent);
 		});
 	});
 }
 
+function eliminarEvento(idEvento){
+	var myCalendar = $('#calendar');
+	$.post("agenda/eliminarEvento",{
+		id : idEvento
+	});
+}

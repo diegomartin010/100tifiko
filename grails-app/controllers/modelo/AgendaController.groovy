@@ -54,4 +54,16 @@ class AgendaController {
            result 
         }
     }
+
+
+    def eliminarEvento(){
+        def user = SessionManager.getCurrentUser()
+        def eventoAEliminar = Evento.get(params.id)
+        println("imprimo evento y su id: "+eventoAEliminar+" "+params.id)
+        println("cantidad de eventos antes de eliminar: "+user.estadoAcademico.eventos.size())
+        user.estadoAcademico.eventos.remove(eventoAEliminar)
+        user.estadoAcademico.save(flush:true)
+        user.save(flush:true)
+        println("cantidad de eventos desp de eliminar: "+user.estadoAcademico.eventos.size())
+    }
 }
