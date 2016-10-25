@@ -10,7 +10,6 @@ class ExamenController {
     def eliminarExamen(){
         def user = SessionManager.getCurrentUser()
         def paramid = params.id
-        println("imprimo el id desde el controlador ${paramid}")
         def examenEnCuestion = Examen.get(paramid)
         def nombreMateria= examenEnCuestion.materia.nombre
         //cambio el estado de la materia Aprobada a Regular, si es que el examen estaba aprobado
@@ -91,7 +90,7 @@ class ExamenController {
         //Básicamente es el formato de la fehca ES HORRIBLE usa este FORMATO: Sun Jul 10 00:00:00 ART 2016
         //Por defecto es: 10/06/2016 , mucho mejor. Pero no funciona :C
         //Convertimos fecha ingresado como string, en una fecha piola.
-        def fecha           = new Date().parse( 'dd/MM/yyyy' , params.fecha)
+        def fecha           = new Date().parse( "M/d/yyyy" , params.fecha)
         //def fecha = params.fecha
         // Este queda como esta ...
         def nombreMateria   = params.materia
@@ -120,7 +119,7 @@ class ExamenController {
         ea.examenes.push(nex)
         if (nota > 3){
             def estadoMateriaAModificarEstado = ea.estadoMaterias.find{it.materia.nombre == nombreMateria}
-            estadoMateriaAModificarEstado.estado = "A";
+            estadoMateriaAModificarEstado.estado = "A";7
             println("se aprobó la materia: "+estadoMateriaAModificarEstado.materia.nombre)
         }
         user.save( flush:true )

@@ -2,7 +2,9 @@
 
 
 function eliminar(idmovida){
-	$.post("examen/eliminarExamen",{id: idmovida});
+	$.post("examen/eliminarExamen",{
+		id: idmovida
+	});
 	window.location.reload();
 }
 
