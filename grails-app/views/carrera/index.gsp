@@ -46,27 +46,35 @@
 	<div class="nav" role="navigation">
 	</div>
 
-	%{-- Estilo body de la pagina --}%
-	<div id="page-body" role="main">
+
 		<% def usuario = SessionManager.getCurrentUser() %>
 		%{-- Titulo de la pagina --}%
 		<div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Administrar Carreras</h1>
-            </div>
-        </div>		
-		<form>
-			<div class="panel panel-default">
-						<div class="panel-heading"> <br><label>Nueva carrera:</label>
-					Cargar archivo json con nueva carrera
-					<a class="label label-info" href="https://es.wikipedia.org/wiki/JSON" target="_blank">Cómo es el formato?</a></div>
-						<div id="1" class="panel-body"> <input type="file" id="nuevaCarrera"> </div>
-					</div>
-			
-		</form>	
+      <div class="col-lg-12">
+        <h1 class="page-header">Administrar Carreras</h1>
+      </div>
+    </div>		
+	
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <label>Nueva carrera</label>
+      </div>
+      <div id="1" class="panel-body">
+        Cargar archivo json con nueva carrera
+        %{-- <span class="label label-warning"> --}%
+          <a href="https://es.wikipedia.org/wiki/JSON" target="_blank">
+            Cómo es el formato?
+          </a>
+        %{-- </span> --}%
+        <br><br>
+        <input type="file" id="nuevaCarrera"> 
+      </div>%{-- /panel body --}%
+    </div>%{-- /panel default --}%
+		
+	
 		
 		<div class="panel panel-default">
-						<div class="panel-heading"> <label>Carreras en el sistema:</label> </div>
+						<div class="panel-heading"> <label>Carreras en el sistema</label> </div>
 						<div id="1" class="panel-body"> <g:each var="carrera" in="${Carrera.list()}">
   						%{-- <li class="list-group-item"> --}%
   					
@@ -107,7 +115,6 @@
 			</div>				
 		</div> --}%
 
-	</div>
 
 	%{-- Logica Javascript --}%
 	<g:javascript src="carrera/carrera.js" />

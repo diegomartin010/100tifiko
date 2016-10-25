@@ -14,97 +14,96 @@
 </head>
 <body>
 
-	%{-- Barra de navegacion pagina --}%
-	<div class="nav" role="navigation">
-	</div>
+	%{-- Titulo de la pagina --}%
+	<div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Simulación</h1>
+        </div>
+    </div>
+
+	<div class="row">
+        <div class="col-lg-12">
+        	<div class="panel panel-default">
+      			<div class="panel-heading">
+      				Planificacion
+      			</div>
+				<div class="panel-body">
+					%{-- Eliminar eventos --}%
+					<div class="row">	
+						<div class="col-md-3">	
+							<input type="text" id="fecha" class="form-control" name="fecha" placeholder="Fecha">	
+						</div>
+						<div class="col-md-3">	
+							<select class = "form-control" id ="materia">
+								<option>Elija una materia...</option>
+							</select>
+						</div>
+						<div class="col-md-1">	
+							<input type="submit" class="btn btn-xs btn-danger pull-right" value="eliminar">
+						</div>
+					</div>
+					%{-- eliminar eventos --}%
+					<div class="row">	
+						<div class="col-md-3">	
+							<input type="text" id="fecha" class="form-control" name="fecha" placeholder="Fecha">	
+						</div>
+						<div class="col-md-3">	
+							<select class = "form-control" id ="materia">
+								<option>Elija una materia...</option>
+							</select>
+						</div>
+						<div class="col-md-1">	
+							<input type="submit" class="btn btn-xs btn-danger pull-right" value="eliminar">
+						</div>
+					</div>%{-- ./row --}%
+					
+					%{-- Agregar eventos --}%
+					<div class="row">	
+						<div class="col-md-3">	
+							<input type="text" id="fecha" class="form-control" name="fecha" placeholder="Fecha">	
+						</div>
+						<div class="col-md-3">	
+							<select class = "form-control" id ="materia">
+								<option>Elija una materia...</option>
+							</select>
+						</div>
+						<div class="col-md-1">	
+							<input type="submit" class="btn btn-xs btn-success pull-right" value="Agregar">
+						</div>
+					</div>
+					
+				</div>%{-- /panel body --}%
+				<div class="panel-footer">
+					<a href="" class="btn btn-default">Guardar Eventos</a>
+				</div>
+			</div>%{-- /panel panel-default --}%
+        </div>%{-- /col-lg-12 --}%
+    </div>%{-- /row --}%
+    
+    %{-- Panel del simulador --}%
+	<div class="row">
+        <div class="col-lg-12">
+        	<div class="panel panel-default">
+      			<div class="panel-heading">
+  					Simulador        
+                    <a data-toggle="collapse" class = "btn btn-xs btn-default pull-right" href="#collapseOne">
+                    	Mostrar / Ocultar
+                    </a>
+      			</div>
+      			<div id="collapseOne" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<p>Descripcion del grafico</p>
+						<canvas id="viewport" width="870" height="500"></canvas>
+					</div>
+				</div>%{-- /collapseOne --}%
+			</div>%{-- /panel default --}%
+        </div>%{-- /col-lg 12 --}%
+    </div>%{-- /row --}%
 
 	
-	%{-- Estilo body de la pagina --}%
-	<div id="page-body" role="main">	
-		%{-- Titulo de la pagina --}%
-		<div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Simulación</h1>
-            </div>
-        </div>
-		<div class="col-md-2">	
-			<select class = "form-control" id ="materia">
-				<option>Filtrar por ...</option>
-				<option>Correlatividad para cursar</option>
-				<option>Correlatividad para rendir</option>
-			</select>
-		</div>
-		<div class="container">
-			<div class="col-md-6">	
-				<ul class="list-group">
- 					<li class="list-group-item" style="width:710px; height:460px;"><canvas id="viewport" width="680" height="460"></canvas></li>
-				</ul>
-				
-			</div>				
-		</div>
-		<div class="content"><h1>Agenda</h1></div>
-		%{-- Contenedor nueva fecha --}%
-		
 
-		%{-- Fomulario nueva materia --}%
-		<div class="container">	
-			<div class="col-md-6">	
-				<input type="submit" class="btn  btn-default pull-right" value="Guardar agenda">
-				<br><br>
-			</div>
-		</div>	
-		<div class="container">
-			<label>Nueva fecha</label>
-		</div>
-		<div class="container">	
+	
 
-    		<div class="col-md-10">	
-				<div class="col-md-3">	
-					<input type="text" id="fecha" class="form-control" name="fecha" placeholder="Fecha">	
-				</div>
-				<div class="col-md-3">	
-					<select class = "form-control" id ="materia">
-						<option>Elija una materia...</option>
-					</select>
-				</div>
-				<div class="col-md-1">	
-					<input type="submit" class="btn btn-xs btn-success pull-right" value="Agregar">
-				</div>
-			</div>
-		</div>
-		%{-- Fomulario nueva materia --}%
-		<div class="container">
-			<label>Proximas fechas</label>
-		</div>
-		<div class="container">	
-    		<div class="col-md-10">	
-				<div class="col-md-3">	
-					<input type="text" id="legajo" class="form-control" name="legajo" placeholder="Fecha">	
-				</div>
-				<div class="col-md-3">	
-					<input type="text" id = "legajo" class = "form-control" name="legajo" placeholder="Materia">	
-				</div>
-				<div class="col-md-1">	
-					<input type="submit" class="btn btn-xs btn-danger pull-right" value="Eliminar">
-				</div>
-			</div>
-		</div>
-		%{-- Fomulario nueva materia --}%
-		<div class="container">	
-    		<div class="col-md-10">	
-				<div class="col-md-3">	
-					<input type="text" id="legajo" class="form-control" name="legajo" placeholder="Fecha">	
-				</div>
-				<div class="col-md-3">	
-					<input type="text" id = "legajo" class = "form-control" name="legajo" placeholder="Materia">	
-				</div>
-				<div class="col-md-1">	
-					<input type="submit" class="btn btn-xs btn-danger pull-right" value="Eliminar">
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<g:javascript src="simulacion/simulacion.js" />
+<g:javascript src="simulacion/simulacion.js" />
 </body>
 </html>
