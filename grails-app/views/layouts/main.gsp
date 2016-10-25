@@ -1,4 +1,5 @@
 <%@ page import="estats.SessionManager" %>
+<%@ page import="estats.AutoridadModulos" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -118,31 +119,13 @@
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
+                    %{-- Modulos de la barra lateral --}%
                     <ul class="nav" id="side-menu">
-                        <li>
-                        	<a href="/"><i class="fa fa-home fa-fw"></i> Index</a>
-                        </li>
-						<li>
-							<a href="/estadoAcademico"><i class="fa fa-road fa-fw"></i> Carrera</a>
-						</li>
-						<li>
-							<a href="/estadoAcademico/verEstado"><i class="fa fa-thumbs-o-down fa-fw"></i> Estado Academico</a>
-						</li>
-						<li>
-							<a href="/estadisticas"><i class="fa fa-bar-chart-o fa-fw"></i> Estadisticas</a>
-						</li>
-						<li>
-							<a href="/examen"><i class="fa fa-edit fa-fw"></i> Examenes</a>
-						</li>
-						<li>
-							<a href="/agenda"><i class="fa fa-th fa-fw"></i> Agenda</a>
-						</li>
-						<li>
-							<a href="/simulacion"><i class="fa fa-plane fa-fw"></i> Simulacion</a>
-						</li>
-						<li>
-							<a href="/carrera"><i class="fa fa-book fa-fw"></i> Administrar carreras</a>
-						</li>
+                        <g:each in="${AutoridadModulos.getByAuth()}">
+                           <li>
+                                <a href="${it.url}"><i class="${it.icono}"></i> ${it.titulo}</a>
+                            </li>
+                        </g:each>
                     </ul>
                     <!-- /#side-menu -->
                 </div>

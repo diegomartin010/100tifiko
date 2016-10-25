@@ -1,7 +1,12 @@
 <%@ page import="estats.SessionManager" %>
+<%@ page import="estats.AutoridadModulos" %>
+<%def modulo_nombre = "agenda"%>
+<%def modulo = AutoridadModulos.getByName(modulo_nombre)%>
 <!DOCTYPE html>
 <html>
 <head>
+	
+
 	<link rel="stylesheet" href="js/librerias/fullcalendar/fullcalendar.css">
 	<g:javascript src="jquery/jquery.min.js"/>
 	<g:javascript src="librerias/fullcalendar/moment.min.js"/>
@@ -13,16 +18,14 @@
 	<title><g:message code="Agenda"/></title>
 </head>
 <body>
+	
 
-	%{-- navegacion? --}%
-	<div class="nav" role="navigation">
-	</div>
 	%{-- Body --}%
 	<div id="page-body" role="main">
 	%{-- Titulo de la pagina --}%
 		<div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Agenda</h1>
+                <h1 class="page-header"><i class = "${modulo.icono}"></i> ${modulo.titulo}</h1>
             </div>
         </div>
 			<form>
