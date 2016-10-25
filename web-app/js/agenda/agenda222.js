@@ -5,6 +5,7 @@ $(document).ready(function() {
 	$('#calendar').fullCalendar({
 	    dayClick: function(date, jsEvent, view) {
 			myCalendar.fullCalendar();
+			//console.log("este es el formato fecha del FullCalendar: "+date);
 			var uid =  Math.floor(Math.random() *10000000);
 			var eventname = prompt("Ingrese el nombre del evento a añadir", "");
 			var myEvent = {
@@ -14,12 +15,12 @@ $(document).ready(function() {
 				start: date,
 				end: date
 			};
-			console.log("ID: "+myEvent.id);
+			//console.log("ID: "+myEvent.id);
 			myCalendar.fullCalendar('renderEvent', myEvent);
 			//convierto el formato de la fecha
-			console.log("fecha UNIX: "+date);
+			//console.log("fecha UNIX INGRESO: "+date);
 			fecha = timeConverter(date);
-			console.log("fecha: "+fecha);
+			//console.log("fecha: "+fecha);
 			guardarevento(myEvent, fecha);
 		},
 		//Clickeando eventos se los elimina
@@ -75,7 +76,7 @@ function timeConverter(UNIX_timestamp){
 	var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
 	var year = a.getFullYear();
 	var month = months[a.getMonth()];
-	var date = (a.getDate())+1;
+	var date = (a.getDate()+1);
 	var time = date + "/" + month + "/" + year;
 	return time;
 };
@@ -86,7 +87,7 @@ function fechaDecente(tiempo){
 	var month = tiempo.slice(5,7);
 	var year = tiempo.slice(0,4);
 	var date = tiempo.slice(8,10);
-	var time = date + "/" + month + "/" + year;
+	var time = month + "/" + date + "/" + year;
 	return time;
 }
 
@@ -97,10 +98,10 @@ function cargarEventos(){
 		$.each(data, function(index, evento){
 			fechadecente = fechaDecente(evento.fecha);
 			var unixtime = Date.parse(fechadecente).getTime();
-			console.log("intento cargar un evento con fecha input: "+evento.fecha);
-			console.log("intento cargar un evento con fechadecente: "+fechadecente);
-			console.log("intento cargar un evento con fecha: "+unixtime);
-			console.log("intento cargar un evento con titulo: "+evento.descripcion);
+			//console.log("intento cargar un evento con fecha input: "+evento.fecha);
+			//console.log("intento cargar un evento con fechadecente: "+fechadecente);
+			//console.log("fecha UNIX CARGA: "+unixtime);
+			//console.log("intento cargar un evento con titulo: "+evento.descripcion);
 			var myEvent = {
 				//id: uid,
 				title: evento.descripcion,

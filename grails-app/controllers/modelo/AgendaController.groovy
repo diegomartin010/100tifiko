@@ -25,7 +25,7 @@ class AgendaController {
         println("imprimo cantidad de eventos PRE guardado: "+user.estadoAcademico.eventos.size())
     		// Le seteamos un nuevo evento a y guaramos evento
     	def nevento = new Evento(
-		        fecha : new Date().parse("dd/MM/yy" , params.fecha),
+		        fecha : new Date().parse("d/M/yyyy" , params.fecha),
 				tipo : "E",
                 //id : params.id,
 				descripcion : params.titulo
