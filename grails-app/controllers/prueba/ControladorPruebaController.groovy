@@ -14,6 +14,8 @@ import estats.SessionManager
 class ControladorPruebaController {
 
     def index() {
+        SessionManager.permitirRoles(["ROLE_ASD","ROLE_ADMINISTRADOR"])
+
     	println("------------------------ control VILLERO de prueba.")
     	Materia.getAll().each{
     		println("Regularizando: ${it.nombre}")
@@ -26,11 +28,6 @@ class ControladorPruebaController {
     		}
 
     	}
-    	// def list = ["caca","gil","hola","mundo","culo","culo","culo","culo","culo"]
-
-    	// render(list - ["hola","culo"])
-		
-
 	}
 }
 
