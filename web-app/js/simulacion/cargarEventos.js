@@ -2,6 +2,16 @@ $( document ).ready(function() {
     mostrarLista();
 });
 
+function getStore(){
+	return JSON.parse(localStorage.nuevosEventos || "{}");
+}
+function setStore(storeArray){
+	localStorage.nuevosEventos = JSON.stringify(storeArray);	
+}
+function pushStore(value){
+	return $.merge(getStore(), value);
+}
+
 function nuevoEvento(){
 	iniciarStore();
 	storeArray = new Array();
@@ -10,14 +20,14 @@ function nuevoEvento(){
 		, descripcionNew: $( "#descripcion-new" ).val()
 		, tipoNew: $( "#tipo-new" ).val()
 	});
-	// sotoreArray.push(storeJson);
-	storeArray = $.merge(JSON.parse(localStorage.nuevosEventos), storeArray);
 
-	localStorage.nuevosEventos = JSON.stringify(storeArray);
-	// localStorage.nuevosEventos = [];
-	console.log(JSON.parse(localStorage.nuevosEventos || "{}"));
-	location.reload();
-	// mostrarLista();
+	storeArray = pushStore(storeArray);
+	setStore(storeArray);
+
+	console.log(getStore());
+	nuevoRegistro();
+	// location.reload();
+
 }
 
 console.log(JSON.parse(localStorage.nuevosEventos || "{}"));
@@ -42,15 +52,45 @@ function eliminarEvento(id){
 	console.log("eliminado");
 	console.log(arr);
 	localStorage.nuevosEventos = JSON.stringify(arr);
-	$("#cargados-"+id).fadeOut(300, function() { $(this).remove() });
+	$("#cargados-"+id).hide("fast", function() { $(this).remove() });
 	// location.reload();
+}
+
+function nuevoRegistro(){
+	
+	store = getStore().pop();
+	id = getStore().length;
+	$( "#cargados" )
+			.clone()
+			.attr('id', 'cargados-'+id)
+			.insertAfter( $(".cargar").last() );
+
+	$("#cargados-"+id).show("fast");
+	$("#cargados-"+id)
+		.find( "#fecha-load" )
+		.attr('id', 'fecha-load-'+id)
+		.attr('value', store.fechaNew);
+
+	$("#cargados-"+id)
+		.find( "#descripcion-load" )
+		.attr('id', 'descripcion-load-'+id)
+		.attr('value', store.descripcionNew);
+
+	$("#cargados-"+id)
+		.find( "#tipo-load" )
+		.attr('id', 'tipo-load-'+id)
+		.attr('value',store.tipoNew);
+
+	$("#cargados-"+id)
+		.find( "#eliminar-load" )
+		.attr('id', 'eliminar-load-'+id)
+		.attr('onclick', 'eliminarEvento('+id+')')
+		.attr('value', 'eliminar('+id+')');
 }
 
 function mostrarLista(){	
 	var local = JSON.parse(localStorage.nuevosEventos || "{}");
 	for (var i = 0 ; i <= local.length; i++) {
-		console.log("iteracion"+i);
-		console.log(local[i]);
 		if(!local[i]) continue;
 		
 		// Aca clonamos a lo negro
