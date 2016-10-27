@@ -114,7 +114,7 @@ function mostrarLista(){
 			.find( "#tipo-load" )
 			.attr('id', 'tipo-load-'+i)
 			.attr('value', local[i].tipoNew);
-
+		// commit
 		$("#cargados-"+i)
 			.find( "#eliminar-load" )
 			.attr('id', 'eliminar-load-'+i)
