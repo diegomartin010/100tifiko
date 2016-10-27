@@ -149,12 +149,22 @@
     <!-- /#wrapper -->
     <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
         <div class="container">
-            <p class="text-center" style="color:#337ab7">Copyrights <em>@100tifiko</em> - 2016 - HRD-C0D3 Solutions</p>
+            <p class="text-center" style="color:#337ab7">Copyrights <em>@100tifiko</em> - 2016 - <a onclick="hardCode()">HardCode Computacion.</a></p>
             <p class="text-center"></p>
         </div>
     </nav>
 
-
+<g:javascript>
+    function hardCode(){
+        text =  "HardCode Computacion® 2016.\n\n\n";
+        text += "Es una empresa Argentina, lider en desarrollo de software, y con bajos recursos.\n\n";
+        text += "---------------------------------------------------------------------\n";
+        text += "Nuestra filosofia:\n'El usuario debe adaptarse al software, y no al reves.'\n";
+        text += "---------------------------------------------------------------------\n";
+        alert(text);
+    }
+  
+</g:javascript>
 </body>
 
 </html>
