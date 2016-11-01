@@ -26,9 +26,9 @@ function inicializarEventos(){
                     self.cambiarEstado(e.target.name,'R',$( e.target ).attr('materia')); 
             });
 
-            $("#regularizadas").on('click','#cambiar_a_aprobada', function(e){ 
-                    self.cambiarEstado(e.target.name,'A',$( e.target ).attr('materia')); 
-            });
+            /*$("#regularizadas").on('click','#cambiar_a_aprobada', function(e){ 
+                    self.cargarExamen(e.target.name,$( e.target ).attr('materia')); 
+            });*/
 
     // FIN DEL BINDEO DE LOS CLICKS PARA CAMBIAR EL ESTADO DE LA MATERIA
 
@@ -159,7 +159,7 @@ function getMaterias(){
                     '<p class="list-group-item col-md-7" id="'+ materia.id +'">'
                         + materia.nombre +
                         '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Regularizada </span>' +
-                        '<input type="submit" class="btn btn-xs btn-primary pull-right r" materia="'+materia.nombre+'" name="'+materia.id+'" id="cambiar_a_aprobada" value="Cambiar a aprobada"> </p>'
+                        "<a href=/examen> <input type='submit' class='btn btn-xs btn-primary pull-right r' materia="+materia.nombre+" name="+materia.id+"  id='cambiar_a_aprobada' value='Cargar Examen'></a> </p>"
                 ); 
 
                 })} else {
@@ -222,20 +222,19 @@ function updateTable(materiaId,estado,materiaNombre){
                     '<p class="list-group-item col-md-7" id="'+ materiaId +'">'
                         + materiaNombre +
                         '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Regularizada </span>' +
-                        '<input type="submit" class="btn btn-xs btn-primary pull-right r" materia="'+materiaNombre+'" name="'+materiaId +'" id="cambiar_a_aprobada" value="Cambiar a aprobada"> </p>'
+                        "<a href=/examen> <input type='submit' class='btn btn-xs btn-primary pull-right r' materia="+materiaNombre+" name="+materiaId+"  id='cambiar_a_aprobada' value='Cargar Examen'></a> </p>"
                 );     
         break;
-    case 'A':
+    /*case 'A':
             $("#aprobadas").append(
                     '<p class="list-group-item col-md-7" id="'+ materiaId +'">'
                         + materiaNombre +
                         '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Aprobada </span> </p>'
                 ); 
-    break;
+    break;*/
+}
+
 }
 
 
-
-
-}
 
