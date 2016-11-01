@@ -34,7 +34,7 @@ class AutoridadModulos {
 				, titulo: "Estado Academico"
 				, permisos:null
 				, url: "/estadoAcademico/verEstado"
-				, icono:"fa fa-thumbs-o-down fa-fw"
+				, icono:"fa fa-thumbs-o-up fa-fw"
 			]
 			, [
 				modulo: "estadisticas"

@@ -14,7 +14,7 @@
 		%{-- Titulo de la pagina --}%
 		<div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"><i class="fa fa-thumbs-o-down fa-fw"></i>Estado Academico</h1>
+                <h1 class="page-header"><i class="fa fa-thumbs-o-up fa-fw"></i>Estado Academico</h1>
             </div>
         </div>
         %{-- ./row --}%		
