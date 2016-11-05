@@ -1,11 +1,6 @@
-import modelo.Carrera
-import modelo.Correlatividad
-import modelo.Materia
-import modelo.EstadoAcademico
-import modelo.EstadoMateria
-import security.Role
-import security.User
-import security.UserRole
+import modelo.*
+import security.*
+
 
 class BootStrap {
     def init = { servletContext ->
@@ -51,7 +46,14 @@ class BootStrap {
 					codigo:"V2016BU1",
 					nivel :1,
 					tipo  :"O"
-				).save()
+				).save(),
+				
+				new Materia(
+					nombre:"materiaLevel1",
+					codigo:"V2016ML1",
+					nivel :1,
+					tipo  :"O"
+				).save(),
 
 				, new Materia(
 					nombre:"bulling2",
@@ -114,6 +116,13 @@ class BootStrap {
 			, requisito: "R"
 		).save()
 
+		new Correlatividad(
+			  criterio: "C"
+			, materia:             Materia.findByCodigo("V2016BU2")
+			, materiaCorrelativa:  Materia.findByCodigo("V2016ML1")
+			, requisito: "R"
+		).save()
+		
 		// Para cursar bulling 3 tengo que tener aprobada bulling 1
 		new Correlatividad(
 			  criterio: "C"
