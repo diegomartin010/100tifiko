@@ -1,32 +1,278 @@
 {
-	"nombre"   :"Carrera",
-	"codigo"   :"M",		
+	"nombre"   :"Ingenieria en Sistemas de Informacion",
+	"codigo"   :"K",		
 	"plan"	   :2016,	
 	"materias" :[
 		{
-			"nombre": "Analisis 1",
+			"nombre": "Analisis Matematico 1",
 			"tipo"	: "O",
 			"codigo": "AM1",
 			"nivel"	: 1
 		},
 		{
-			"nombre": "Analisis 2",
+			"nombre": "Algebra y Geometria Analitica",
+			"tipo"	: "O",
+			"codigo": "AGA",
+			"nivel"	: 1
+		},
+		{
+			"nombre": "Algoritmos y estructuras de datos",
+			"tipo"	: "O",
+			"codigo": "AED",
+			"nivel"	: 1
+		},
+		{
+			"nombre": "Sistemas y Organizaciones",
+			"tipo"	: "O",
+			"codigo": "SYO",
+			"nivel"	: 1
+		},
+		{
+			"nombre": "Matematica Discreta",
+			"tipo"	: "O",
+			"codigo": "MDS",
+			"nivel"	: 1
+		},
+		{
+			"nombre": "Ingenieria y Sociedad",
+			"tipo"	: "O",
+			"codigo": "IYS",
+			"nivel"	: 1
+		},
+		{
+			"nombre": "Quimica General",
+			"tipo"	: "O",
+			"codigo": "QUG",
+			"nivel"	: 1
+		},
+		{
+			"nombre": "Fisica 1",
+			"tipo"	: "O",
+			"codigo": "FI1",
+			"nivel"	: 1
+		},
+		{
+			"nombre": "Analisis Matematico 2",
 			"tipo"	: "O",
 			"codigo": "AM2",
 			"nivel"	: 2
 		},
 		{
-			"nombre": "MateriaPrueba 3",
+			"nombre": "Fisica 2",
 			"tipo"	: "O",
-			"codigo": "MP3",
-			"nivel"	: 5
+			"codigo": "FI2",
+			"nivel"	: 2
+		},
+		{
+			"nombre": "Probabilidad y Estadistica",
+			"tipo"	: "O",
+			"codigo": "PYE",
+			"nivel"	: 2
+		},
+		{
+			"nombre": "Arquitectura de Computadoras",
+			"tipo"	: "O",
+			"codigo": "ADC",
+			"nivel"	: 2
+		},
+		{
+			"nombre": "Analisis de Sistemas",
+			"tipo"	: "O",
+			"codigo": "ADS",
+			"nivel"	: 2
+		},
+		{
+			"nombre": "Sintaxis y Semantica de los Lenguajes",
+			"tipo"	: "O",
+			"codigo": "SSL",
+			"nivel"	: 2
+		},
+		{
+			"nombre": "Sistemas de Representacion",
+			"tipo"	: "O",
+			"codigo": "SDR",
+			"nivel"	: 2
+		},
+		{
+			"nombre": "Paradigmas de Programacion",
+			"tipo"	: "O",
+			"codigo": "PDP",
+			"nivel"	: 2
+		},
+		{
+			"nombre": "Matematica Superior",
+			"tipo"	: "O",
+			"codigo": "MSA",
+			"nivel"	: 3
+		},
+		{
+			"nombre": "Comunicaciones",
+			"tipo"	: "O",
+			"codigo": "COM",
+			"nivel"	: 3
+		},
+		{
+			"nombre": "Disenio de Sistemas",
+			"tipo"	: "O",
+			"codigo": "DDS",
+			"nivel"	: 3
+		},
+		{
+			"nombre": "Sistemas Operativos",
+			"tipo"	: "O",
+			"codigo": "SOP",
+			"nivel"	: 3
+		},
+		{
+			"nombre": "Gestion de Datos (No se cursa)",
+			"tipo"	: "O",
+			"codigo": "GDD",
+			"nivel"	: 3
+		},
+		{
+			"nombre": "Economia",
+			"tipo"	: "O",
+			"codigo": "ECO",
+			"nivel"	: 3
+		},
+		{
+			"nombre": "Estadistica Aplicada",
+			"tipo"	: "O",
+			"codigo": "EAP",
+			"nivel"	: 3
+		},
+		{
+			"nombre": "Metodos Numericos",
+			"tipo"	: "O",
+			"codigo": "MNU",
+			"nivel"	: 3
+		},
+		{
+			"nombre": "Teoria de Control",
+			"tipo"	: "O",
+			"codigo": "TDC",
+			"nivel"	: 4
+		},
+		{
+			"nombre": "Investigacion Operativa",
+			"tipo"	: "O",
+			"codigo": "IOP",
+			"nivel"	: 4
+		},
+		{
+			"nombre": "Simulacion",
+			"tipo"	: "O",
+			"codigo": "SIM",
+			"nivel"	: 4
+		},
+		{
+			"nombre": "Ingenieria de Software",
+			"tipo"	: "O",
+			"codigo": "IDS",
+			"nivel"	: 4
+		},
+		{
+			"nombre": "Legislacion",
+			"tipo"	: "O",
+			"codigo": "LEG",
+			"nivel"	: 4
+		},
+		{
+			"nombre": "Administracion de Recursos",
+			"tipo"	: "O",
+			"codigo": "ADR",
+			"nivel"	: 4
+		},
+		{
+			"nombre": "Electronica Aplicada",
+			"tipo"	: "O",
+			"codigo": "ELA",
+			"nivel"	: 4
+		},
+		{
+			"nombre": "Fisica Acustica",
+			"tipo"	: "O",
+			"codigo": "FIA",
+			"nivel"	: 4
 		}
 	],
 	"correlatividades":[
-		{"criterio":"C", "codigoMateria":"AM2", "requisito":"R", "codigoCorrelativa":"AM1"}
-		,{"criterio":"C", "codigoMateria":"MP3", "requisito":"A", "codigoCorrelativa":"AM1"}
-		,{"criterio":"C", "codigoMateria":"MP3", "requisito":"R", "codigoCorrelativa":"AM2"}
-		,{"criterio":"F", "codigoMateria":"MP3", "requisito":"A", "codigoCorrelativa":"AM1"}
-		,{"criterio":"F", "codigoMateria":"MP3", "requisito":"A", "codigoCorrelativa":"AM2"}
+	
+		 {"criterio":"C", "codigoMateria":"AM2", "requisito":"R", "codigoCorrelativa":"AM1"}
+		,{"criterio":"C", "codigoMateria":"AM2", "requisito":"R", "codigoCorrelativa":"AM1"}
+
+		,{"criterio":"C", "codigoMateria":"FI2", "requisito":"R", "codigoCorrelativa":"AM1"}
+		,{"criterio":"C", "codigoMateria":"FI2", "requisito":"R", "codigoCorrelativa":"FI1"}
+
+		,{"criterio":"C", "codigoMateria":"SSL", "requisito":"R", "codigoCorrelativa":"MDS"}
+	
+		,{"criterio":"C", "codigoMateria":"PDP", "requisito":"R", "codigoCorrelativa":"MDS"}
+		,{"criterio":"C", "codigoMateria":"PDP", "requisito":"R", "codigoCorrelativa":"AED"}
+
+		,{"criterio":"C", "codigoMateria":"ADS", "requisito":"R", "codigoCorrelativa":"SYO"}
+
+		,{"criterio":"C", "codigoMateria":"PYE", "requisito":"R", "codigoCorrelativa":"AM1"}
+		,{"criterio":"C", "codigoMateria":"PYE", "requisito":"R", "codigoCorrelativa":"AGA"}
+
+
+
+		,{"criterio":"C", "codigoMateria":"COM", "requisito":"R", "codigoCorrelativa":"FI2"}
+		,{"criterio":"C", "codigoMateria":"COM", "requisito":"R", "codigoCorrelativa":"AM2"}
+		,{"criterio":"C", "codigoMateria":"COM", "requisito":"R", "codigoCorrelativa":"PYE"}
+		,{"criterio":"C", "codigoMateria":"COM", "requisito":"A", "codigoCorrelativa":"AGA"}
+		,{"criterio":"C", "codigoMateria":"COM", "requisito":"A", "codigoCorrelativa":"AM1"}
+		,{"criterio":"C", "codigoMateria":"COM", "requisito":"A", "codigoCorrelativa":"FI1"}
+		
+		,{"criterio":"C", "codigoMateria":"MSA", "requisito":"R", "codigoCorrelativa":"AM2"}
+		,{"criterio":"C", "codigoMateria":"MSA", "requisito":"A", "codigoCorrelativa":"AM1"}
+		,{"criterio":"C", "codigoMateria":"MSA", "requisito":"A", "codigoCorrelativa":"AGA"}
+		,{"criterio":"C", "codigoMateria":"MSA", "requisito":"A", "codigoCorrelativa":"FI1"}
+
+		,{"criterio":"C", "codigoMateria":"GDD", "requisito":"R", "codigoCorrelativa":"SSL"}
+		,{"criterio":"C", "codigoMateria":"GDD", "requisito":"A", "codigoCorrelativa":"MDS"}
+		,{"criterio":"C", "codigoMateria":"GDD", "requisito":"A", "codigoCorrelativa":"AED"}
+		,{"criterio":"C", "codigoMateria":"GDD", "requisito":"A", "codigoCorrelativa":"SYO"}
+
+		,{"criterio":"C", "codigoMateria":"DDS", "requisito":"R", "codigoCorrelativa":"PDP"}
+		,{"criterio":"C", "codigoMateria":"DDS", "requisito":"R", "codigoCorrelativa":"ADS"}
+		,{"criterio":"C", "codigoMateria":"DDS", "requisito":"A", "codigoCorrelativa":"MDS"}
+		,{"criterio":"C", "codigoMateria":"DDS", "requisito":"A", "codigoCorrelativa":"AED"}
+		,{"criterio":"C", "codigoMateria":"DDS", "requisito":"A", "codigoCorrelativa":"SYO"}
+
+		,{"criterio":"C", "codigoMateria":"ECO", "requisito":"R", "codigoCorrelativa":"ADS"}
+		,{"criterio":"C", "codigoMateria":"ECO", "requisito":"R", "codigoCorrelativa":"AM2"}
+		,{"criterio":"C", "codigoMateria":"ECO", "requisito":"A", "codigoCorrelativa":"AM1"}
+		,{"criterio":"C", "codigoMateria":"ECO", "requisito":"A", "codigoCorrelativa":"IYS"}
+		,{"criterio":"C", "codigoMateria":"ECO", "requisito":"A", "codigoCorrelativa":"SYO"}
+
+		,{"criterio":"C", "codigoMateria":"SOP", "requisito":"R", "codigoCorrelativa":"ADC"}
+		,{"criterio":"C", "codigoMateria":"SOP", "requisito":"A", "codigoCorrelativa":"MDS"}
+		,{"criterio":"C", "codigoMateria":"SOP", "requisito":"R", "codigoCorrelativa":"PDP"}
+
+
+
+
+		,{"criterio":"C", "codigoMateria":"ADR", "requisito":"R", "codigoCorrelativa":"ECO"}
+		,{"criterio":"C", "codigoMateria":"ADR", "requisito":"A", "codigoCorrelativa":"ADS"}
+
+		,{"criterio":"C", "codigoMateria":"TDC", "requisito":"R", "codigoCorrelativa":"MSA"}
+		,{"criterio":"C", "codigoMateria":"TDC", "requisito":"A", "codigoCorrelativa":"FI2"}
+		,{"criterio":"C", "codigoMateria":"TDC", "requisito":"A", "codigoCorrelativa":"AM2"}
+
+		,{"criterio":"C", "codigoMateria":"SIM", "requisito":"R", "codigoCorrelativa":"MSA"}
+		,{"criterio":"C", "codigoMateria":"SIM", "requisito":"A", "codigoCorrelativa":"FI2"}
+		,{"criterio":"C", "codigoMateria":"SIM", "requisito":"A", "codigoCorrelativa":"AM2"}
+		,{"criterio":"C", "codigoMateria":"SIM", "requisito":"A", "codigoCorrelativa":"PYE"}
+
+		,{"criterio":"C", "codigoMateria":"IOP", "requisito":"R", "codigoCorrelativa":"ECO"}
+		,{"criterio":"C", "codigoMateria":"IOP", "requisito":"A", "codigoCorrelativa":"AM2"}
+		,{"criterio":"C", "codigoMateria":"IOP", "requisito":"A", "codigoCorrelativa":"PYE"}
+
+		,{"criterio":"C", "codigoMateria":"LEG", "requisito":"A", "codigoCorrelativa":"IYS"}
+		,{"criterio":"C", "codigoMateria":"LEG", "requisito":"A", "codigoCorrelativa":"IYS"}
+
+
+	
+
 	]
 }

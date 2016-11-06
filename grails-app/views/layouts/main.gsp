@@ -147,12 +147,12 @@
 
     </div>
     <!-- /#wrapper -->
-    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <!-- <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
         <div class="container">
             <p class="text-center" style="color:#337ab7">Copyrights <em>@100tifiko</em> - 2016 - <a onclick="hardCode()">HardCode Computacion.</a></p>
             <p class="text-center"></p>
         </div>
-    </nav>
+    </nav> -->
 
 <g:javascript>
     function hardCode(){
