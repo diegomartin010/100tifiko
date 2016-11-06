@@ -5,19 +5,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	%{-- Librerias javascript --}%
-	<g:javascript src="librerias/arborjs/arbor.js" />
-	<g:javascript src="librerias/arborjs/graphics.js" />
-	<g:javascript src="librerias/arborjs/renderer.js" />
-	
+
 	%{-- Incluir cabeceras de estilos --}%
 	<meta name="layout" content="main">
-	%{-- Titulo de la pagina --}%
+	<!-- Titulo de la pagina -->
 	<title><g:message code="Simulación"/></title>
+	<!-- hoja de estilos de la movida de grafos -->
+	<style type="text/css">
+        #mynetwork {
+            width: 100%;
+            height: 400px;
+            border: 1px solid lightgray;
+        }
+    </style>
 </head>
 <body>
 
-	%{-- Titulo de la pagina --}%
+	<!-- Titulo de la pagina -->
 	<div class="row">
         <div class="col-lg-12">
             <h1 class="page-header"><i class="${modulo.icono}"></i>${modulo.titulo}</h1>
@@ -44,18 +48,20 @@
             <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="simulador">
-                	%{-- <h4>Profile Tab</h4> --}%
+                	<!-- <h4>Profile Tab</h4> -->
                     <p>Descripcion del simulador</p>
-                	<canvas id="viewport" width="870" height="500"></canvas>
+                	<!-- <canvas id="viewport" width="870" height="500"></canvas> -->
+                	<!-- La movida del simulador -->
+                	<div id="mynetwork"></div>
                 </div>
                 <div class="tab-pane fade" id="planificacion">
                 	<div class="panel panel-default">
-		      			%{-- <div class="panel-heading">
+		      			<!-- <div class="panel-heading">
 		      				Planificacion
-		      			</div> --}%
+		      			</div> -->
 						<div class="panel-body">
 							
-							%{-- Agregar eventos --}%
+							<!-- Agregar eventos -->
 							<div class="row">	
 								<div class="col-md-2">	
 									<input type="text" id="fecha-new" class="form-control" name="fecha" placeholder="Fecha">	
@@ -74,7 +80,7 @@
 								</div>
 							</div>
 
-							%{-- Eliminar eventos --}%
+							<!-- Eliminar eventos  -->
 							<div class="row cargar" id="cargados" hidden>	
 								<div class="col-md-2">	
 									<input type="text" id="fecha-load" class="form-control" name="fecha-load" placeholder="Fecha"disabled>	
@@ -95,11 +101,11 @@
 							</div>	
 
 									
-						</div>%{-- /panel body --}%
+						</div><!-- /panel body -->
 						<div class="panel-footer">
 							<a href="" class="btn btn-primary" onclick="guardarEventos()">Guardar Eventos</a>
 						</div>
-					</div>%{-- /panel panel-default --}%
+					</div><!-- /panel panel-default-->
                 </div>
             </div>
         </div>
@@ -109,14 +115,17 @@
 	<div class="row">
         <div class="col-lg-12">
         	
-        </div>%{-- /col-lg-12 --}%
-    </div>%{-- /row --}%
-    
-    %{-- Panel del simulador --}%
+        </div><!-- /col-lg-12 -->
+    </div><!-- /row -->
+    <!-- Panel del simulador -->
 	
 
-%{-- Javascript --}%
-<g:javascript src="simulacion/simulacion.js" />
+<!-- Librerias javascript -->
+<!-- Vis grafos -->
+<g:javascript src="librerias/vis/dist/vis.js" />
+
+<!-- Javascript -->
+<g:javascript src="simulacion/grafos.js" />
 <g:javascript src="simulacion/cargarEventos.js" />
 </body>
 </html>

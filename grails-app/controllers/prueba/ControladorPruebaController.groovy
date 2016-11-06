@@ -30,7 +30,7 @@ class ControladorPruebaController {
     	// }
         // redirect(url:"/")
 
-        render(GraphManager.getNombres())
+        render(GraphManager.getNiveles())
 
 	}
 }

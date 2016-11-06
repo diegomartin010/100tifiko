@@ -1,5 +1,6 @@
 package modelo
-import estats.SessionManager
+import estats.*
+import security.*
 class SimulacionController {
 
     def index() { 
@@ -17,5 +18,9 @@ class SimulacionController {
     	]
 
     	render(contentType: 'text/json') { result }
+    }
+
+    def getGraph(){
+        render(contentType: 'text/json') { GraphManager.getDataNodes() }
     }
 }

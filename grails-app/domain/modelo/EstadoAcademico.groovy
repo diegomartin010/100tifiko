@@ -47,4 +47,18 @@ class EstadoAcademico {
         
     }
 
+    def getByEstado(String e){
+        def cursando = 
+            this
+            .carrera
+            .materias
+            .findAll{ 
+                it.getEstado() == e
+            }
+    }
+
+    def isEstado(Materia m , String estado){
+       return( m in this.getByEstado(estado) )
+    }
+
 }
