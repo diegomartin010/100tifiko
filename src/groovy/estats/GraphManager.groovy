@@ -5,121 +5,189 @@ import estats.*;
 
 class GraphManager {
 
-	static def getByNivel(){
-		def m = SessionManager
-			.getCurrentUser()
-			.getEstadoAcademico()
-			.getCarrera()
-			.getMaterias()
-
-		def arrayMaterias = []
-		for(elem in m) {
-			arrayMaterias[elem.nivel] =	m.findAll{ it.nivel == elem.nivel }
-			// Borrar repetidos
-			arrayMaterias[elem.nivel].unique()
-		}
-		// arrayMaterias - null
-		return (arrayMaterias - null)
+	// Metodo para configurar cosas raras
+	static def configuracion(){
+		def config = [
+			colores:[
+				pendiente: "#E2E1E1",
+				cursando: "#FFF7D5" ,
+				regular: "#B1E6FF",
+				aprobada: "#C5FADF",
+				finalAlerta: "#B1E6FF",
+				finalBloqueado: "#E2E1E1",
+				defecto: "#E2E1E1"
+			]
+			, shape:[
+				materias:"box",
+				examenes:"dot"
+			]
+			, fontSize: 24
+			, fixed: [
+				x: true,
+				y: true
+			]
+			, shadow:[
+				nodosMaterias: true,
+				nodosExamenes: false,
+				aristasMaterias: true,
+				aristasExamenes: false
+			]
+			, arrows: [ to:true ]
+			, escX: 500
+			, escY: 150
+		]
 
 	}
 
+	static def getColorByEstado(String estado){
+		def color = null
+		switch(estado) {
+			case "P":
+				color = configuracion().colores.pendiente
+			break
+			case "C":
+				color = configuracion().colores.cursando
+			break
+			case "R":
+				color = configuracion().colores.regular
+			break
+			case "A":
+				color = configuracion().colores.aprobada
+			break
+			default:
+				color = configuracion().colores.defecto
+			break
+		}
+	}
+
+	static def getShapes(){
+		configuracion().shapes
+	}
+
+	static def getX(){
+		configuracion().escX
+	}
+
+	static def getY(){
+		configuracion().escY
+	}
+
+	static def materias(){
+		SessionManager
+		.getCurrentUser()
+		.getEstadoAcademico()
+		.getCarrera()
+		.getMaterias()
+		
+	}
+
+	static def estadoAcademico(){
+		SessionManager
+		.getCurrentUser()
+		.getEstadoAcademico()
+
+	}
+
+	// Devuelve el Json con nodos
 	static def getDataNodes(){
 		
-		def array_grafo = [ nodos:[], dependencias:[] ]
-
-		def colores = [
-			pendiente: "#E2E1E1",
-			cursando: "#FFF7D5" ,
-			regular: "#B1E6FF",
-			aprobada: "#BEFFAD"
-		]
-
-		def m = SessionManager
-			.getCurrentUser()
-			.getEstadoAcademico()
-			.getCarrera()
-			.getMaterias()
-
-		def ea = SessionManager
-			.getCurrentUser()
-			.getEstadoAcademico()
-			def escX = 500;
-			def escY = 150;
-			def i = 0
-			def nivelact = 0
+		// Objeto json a devolver
+		def array_grafo = [ nodos:[], dependencias:[] ]	
+		def m = materias()
+		def ea = estadoAcademico()
+		
+		// variable de control. No dar bola.
+		def nivelact = 0
+		// Nodo con el que se labura.
+		def i = 0
+		
+		// Iteramos sobre las materias de la carrera del flaco.
 		m.each{
 			
+			// Cuando terminamos de recorrer todas las materias de un nivel
+			// Reiniciamos el contador.
 			if(nivelact != it.nivel) i = 0
-			def elColor
-			if(ea.isEstado(it, "P")) elColor = colores.pendiente
-			if(ea.isEstado(it, "C")) elColor = colores.cursando
-			if(ea.isEstado(it, "R")) elColor = colores.regular
-			if(ea.isEstado(it, "A")) elColor = colores.aprobada
+			
+			// Segun el estado de la materia, seteamos los colores
+			def colorMateria = getColorByEstado(it.getEstado())
+			def colorFinal = configuracion().colores.finalBloqueado
+			if(it.knIfinal()){
+				colorFinal = configuracion().colores.finalAlerta	
+			}
+			
 			
 			array_grafo.nodos.push([
 				  id : it.codigo
-				, label : "${it.nombre} (Nivel:${it.nivel})"
-				, shape : "box"
-				, shadow : true
-				, color : elColor
-				, font: [ size: 24 ]
-				// ,size:50
-				, x:escX*it.nivel , y:escY*(i)
-				, fixed : [ x : true, y : true ]
+				, label :/* "(nivel: ${it.nivel})"+*/"${it.nombre}"
+				, shape :  configuracion().shape.materias
+				, shadow : configuracion().shadow.nodosMaterias
+				, color : colorMateria
+				, font: [ size: configuracion().fontSize ]
+				, x:getX()*it.nivel , y:getY()*(i)
+				, fixed : configuracion().fixed
 				, level : it.nivel
 
 			])
-			println("Esto cursando ${it.nombre}?" + ea.isEstado(it, "C"))
+
+			// Si la materia no fue aprobada, agregamos un nodo
+			// Que representa que todavia tengo que rendir final.
 			if(!ea.isEstado(it, "A")){
 				array_grafo.nodos.push([
 					  id : "${it.codigo}F"
-					, label : "${it.nombre}(Final)"
-					, shape : "dot"
-					, shadow : true
-					, color : "#FFAAAA"
-					, font: [ size: 24 ]
-					, x:escX*(it.nivel+1) , y:(escY*i+70)
-					, fixed : [ x : true, y : true ]
+					, label : "(final) ${it.nombre}"
+					, shape : configuracion().shape.examenes
+					, shadow : configuracion().shadow.nodosExamenes
+					, color : colorFinal
+					, font: [ size: configuracion().fontSize ]
+					, x:getX()*(it.nivel+1) , y:(getY()*i+70)
+					, fixed : configuracion().fixed
 					, level : (it.nivel + 1)
 
 				])
 			}
-			i++;
+			
+			// Eliminamos los repetidos.
 			array_grafo.nodos.unique()
 
-			// Creamos las dependencias R --> C
+			// Dependencias de la materia, hacia la materia siguiente.
 			it.ifR_GetNodeS2C().each{ matSig->
 				array_grafo.dependencias.push([
 					  from: it.codigo
 					, to: matSig.codigo
-					// , arrows:[to:'disabled']
-					,shadow:"enabled"
+					, arrows: configuracion().arrows
+					,shadow: configuracion().shadow.aristasMaterias
 				])
 			}
 			
-			// Creamos las dependencias A --> C
+			// Creamos las dependencias finales -> materias siguientes.
 			it.ifA_GetNodeS2C().each{ matSig->
 				array_grafo.dependencias.push([
 					  from: "${it.codigo}F"
 					, to: "${matSig.codigo}"
-					// , arrows:[to:'enabled']
-					// ,shadow:"enabled"
+					, arrows: configuracion().arrows
+					,shadow: configuracion().shadow.aristasExamenes
 				])
 			}
 
+			// Creamos las dependencias Materias --> Finales.
 			array_grafo.dependencias.push([
-					  from: "${it.codigo}"
-					, to: "${it.codigo}F"
-					// , arrows:[to:'enabled']
-					// ,shadow:"enabled"
-				])
+				  from: "${it.codigo}"
+				, to: "${it.codigo}F"
+				, arrows: configuracion().arrows
+				, shadow: configuracion().shadow.aristasExamenes
+			])
 
+			// Eliminamos elementos repetidos
 			array_grafo.dependencias.unique()
 			
+			// cuadramos el nivel sobre el cual estamos tratando
 			nivelact = it.nivel
+			// Aumentamos el item con el que laburamos.
+			i++;
 
 		}/*m.each{}*/	
-						
+		
+		// Eliminamos los que son nulos.
 		array_grafo.nodos = array_grafo.nodos - null
 		return(array_grafo)
 	

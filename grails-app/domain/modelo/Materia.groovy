@@ -54,7 +54,7 @@ class Materia {
         def s = this.getEstado()
         // def isntApr = ( s != "A" && s == "R")
         // return this.matchea("F") && isntApr
-        return this.matchea("C") 
+        return this.getEstado() == "R"
     }
 
     // si me Regularizas ESTA!, dame el nodo siguiente, para cursar.
