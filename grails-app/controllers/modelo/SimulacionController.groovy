@@ -7,6 +7,10 @@ class SimulacionController {
     	render(view: "index")
     }
 
+    def grafo() {
+        render(view: "grafo")
+    }
+
     def getSim2Curse(){
     	def eA = SessionManager.getCurrentUser().estadoAcademico
     	def permitidas = eA.getPerm2Curse();

@@ -43,8 +43,13 @@ class GraphManager {
 		def ea = SessionManager
 			.getCurrentUser()
 			.getEstadoAcademico()
-
+			def escX = 300;
+			def escY = 150;
+			def i = 0
+			def nivelact = 0
 		m.each{
+			
+			if(nivelact != it.nivel) i = 0
 			def elColor
 			if(ea.isEstado(it, "P")) elColor = colores.pendiente
 			if(ea.isEstado(it, "C")) elColor = colores.cursando
@@ -54,11 +59,12 @@ class GraphManager {
 			array_grafo.nodos.push([
 				  id : it.codigo
 				, label : "${it.nombre} (Nivel:${it.nivel})"
-				, shape : "dot"
+				, shape : "box"
 				, shadow : true
 				, color : elColor
 				// ,size:50
-				// , fixed : [ x : true, y : false ]
+				, x:escX*it.nivel , y:escY*(i)
+				, fixed : [ x : true, y : true ]
 				, level : it.nivel
 
 			])
@@ -66,15 +72,17 @@ class GraphManager {
 			if(!ea.isEstado(it, "A")){
 				array_grafo.nodos.push([
 					  id : "${it.codigo}F"
-					, label : "${it.nombre}(F)"
+					, label : "${it.nombre}(Final)"
 					, shape : "dot"
 					, shadow : true
 					, color : "#FFAAAA"
-					// , fixed : [ x : true, y : false ]
+					, x:escX*(it.nivel+1) , y:(escY*i+70)
+					, fixed : [ x : true, y : true ]
 					, level : (it.nivel + 1)
 
 				])
 			}
+			i++;
 			array_grafo.nodos.unique()
 
 			// Creamos las dependencias R --> C
@@ -82,7 +90,8 @@ class GraphManager {
 				array_grafo.dependencias.push([
 					  from: it.codigo
 					, to: matSig.codigo
-					, arrows:[to:'enabled']
+					// , arrows:[to:'disabled']
+					,shadow:"enabled"
 				])
 			}
 			
@@ -91,17 +100,21 @@ class GraphManager {
 				array_grafo.dependencias.push([
 					  from: "${it.codigo}F"
 					, to: "${matSig.codigo}"
-					, arrows:[to:'enabled']
+					// , arrows:[to:'enabled']
+					// ,shadow:"enabled"
 				])
 			}
 
 			array_grafo.dependencias.push([
 					  from: "${it.codigo}"
 					, to: "${it.codigo}F"
-					, arrows:[to:'enabled']
+					// , arrows:[to:'enabled']
+					// ,shadow:"enabled"
 				])
 
 			array_grafo.dependencias.unique()
+			
+			nivelact = it.nivel
 
 		}/*m.each{}*/	
 						
