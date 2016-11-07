@@ -43,7 +43,7 @@ class GraphManager {
 		def ea = SessionManager
 			.getCurrentUser()
 			.getEstadoAcademico()
-			def escX = 300;
+			def escX = 500;
 			def escY = 150;
 			def i = 0
 			def nivelact = 0
@@ -62,6 +62,7 @@ class GraphManager {
 				, shape : "box"
 				, shadow : true
 				, color : elColor
+				, font: [ size: 24 ]
 				// ,size:50
 				, x:escX*it.nivel , y:escY*(i)
 				, fixed : [ x : true, y : true ]
@@ -76,6 +77,7 @@ class GraphManager {
 					, shape : "dot"
 					, shadow : true
 					, color : "#FFAAAA"
+					, font: [ size: 24 ]
 					, x:escX*(it.nivel+1) , y:(escY*i+70)
 					, fixed : [ x : true, y : true ]
 					, level : (it.nivel + 1)
