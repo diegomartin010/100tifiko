@@ -10,11 +10,11 @@ class GraphManager {
 		def config = [
 			colores:[
 				pendiente: "#B5B5B5",
-				permitida: "#5bc0de",
-				cursando: "#f0ad4e" ,
-				regular: "#337ab7",
-				aprobada: "#5cb85c",
-				finalAlerta: "#d9534f",
+				permitida: "#00e2ff",
+				cursando: "#ffb733" ,
+				regular: "#6995e4",
+				aprobada: "#46de83",
+				finalAlerta: "#933",
 				finalBloqueado: "#E2E1E1",
 				defecto: "#E2E1E1"
 			]
@@ -173,6 +173,7 @@ class GraphManager {
 					, to: "${matSig.codigo}"
 					, arrows: configuracion().arrows
 					,shadow: configuracion().shadow.aristasExamenes
+					, hoverWidth:0.5
 				])
 			}
 

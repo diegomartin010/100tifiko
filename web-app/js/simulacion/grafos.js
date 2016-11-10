@@ -15,7 +15,8 @@
                 // ,height: '100%'
                 // ,width: '100%'
                , physics : { enabled:false }
-
+               
+                  ,interaction: {hover:true,hoverConnectedEdges:true}
                   ,layout: {
                     randomSeed: undefined,
                     improvedLayout:false,
@@ -30,6 +31,9 @@
                       direction: 'LR',        // UD, DU, LR, RL
                       sortMethod: 'hubsize'   // hubsize, directed
                     }
+                  }
+                   , edges: {
+                    hoverWidth: 0.5
                   }
             }
             // initialize your network!

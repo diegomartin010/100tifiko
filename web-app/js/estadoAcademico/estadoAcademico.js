@@ -113,8 +113,8 @@ function getMaterias(){
                     $("#pendientes").append(
                     '<p class="list-group-item col-md-7" id="'+ materia.id +'">'
                         + materia.nombre +
-                        '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Pendiente </span>' +
-                        '<input type="submit" class="btn btn-xs btn-primary pull-right r" materia="'+materia.nombre+'" name="'+materia.id+'" id="cambiar_a_cursando" value="Cambiar a cursando"> </p>'
+                        '<span class="btn btn-xs m-l-15 btn-default" style="margin-left: 20px;"> Pendiente </span>' +
+                        '<input type="submit" class="btn btn-sm btn-success pull-right r" materia="'+materia.nombre+'" name="'+materia.id+'" id="cambiar_a_cursando" value="Cambiar a cursando"> </p>'
                 ); 
 
                 })} else {
@@ -136,8 +136,8 @@ function getMaterias(){
                     $("#en_curso").append(
                     '<p class="list-group-item col-md-7" id="'+ materia.id +'">'
                         + materia.nombre +
-                        '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> En curso </span>' +
-                        '<input type="submit" class="btn btn-xs btn-primary pull-right r" materia="'+materia.nombre+'" name="'+materia.id+'" id="cambiar_a_regular" value="Cambiar a regular"> </p>'
+                        '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Cursando </span>' +
+                        '<input type="submit" class="btn btn-sm btn-success pull-right r" materia="'+materia.nombre+'" name="'+materia.id+'" id="cambiar_a_regular" value="Cambiar a regular"> </p>'
                 ); 
 
                 })} else {
@@ -158,8 +158,8 @@ function getMaterias(){
                     $("#regularizadas").append(
                     '<p class="list-group-item col-md-7" id="'+ materia.id +'">'
                         + materia.nombre +
-                        '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Regularizada </span>' +
-                        "<a href=/examen> <input type='submit' class='btn btn-xs btn-primary pull-right r' materia="+materia.nombre+" name="+materia.id+"  id='cambiar_a_aprobada' value='Cargar Examen'></a> </p>"
+                        '<span class="btn btn-xs m-l-15 btn-primary" style="margin-left: 20px;"> Regularizada </span>' +
+                        "<a href=/examen> <input type='submit' class='btn btn-sm btn-success pull-right r' materia="+materia.nombre+" name="+materia.id+"  id='cambiar_a_aprobada' value='Cargar Examen'></a> </p>"
                 ); 
 
                 })} else {
@@ -180,7 +180,7 @@ function getMaterias(){
                     //console.log(materia)
                     $("#aprobadas").append(
                     '<p class="list-group-item col-md-7" id="'+ materia.id +'">'
-                        + materia.nombre + '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Aprobada </span> </p>'
+                        + materia.nombre + '<span class="btn btn-xs m-l-15 btn-success" style="margin-left: 20px;"> Aprobada </span> </p>'
                 ); 
 
                 })} 
@@ -205,15 +205,16 @@ function cambiarEstado(materiaId,estado,materiaNombre){
 
 function updateTable(materiaId,estado,materiaNombre){
 
-    $("#"+materiaId).remove()
-
+    // $("#"+materiaId).remove()
+    // $("#"+materiaId).hide("puff").delay(10).queue(function(){$(this).remove();});
+    $("#"+materiaId).slideUp("fast", function() { $(this).remove() });
     switch(estado) {
     case 'C':
                         $("#en_curso").append(
                     '<p class="list-group-item col-md-7" id="'+ materiaId +'">'
                         + materiaNombre +
-                        '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> En curso </span>' +
-                        '<input type="submit" class="btn btn-xs btn-primary pull-right r" materia="'+materiaNombre+'" name="'+materiaId+'" id="cambiar_a_regular" value="Cambiar a regular"> </p>'
+                        '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Cursando </span>' +
+                        '<input type="submit" class="btn btn-sm btn-success pull-right r" materia="'+materiaNombre+'" name="'+materiaId+'" id="cambiar_a_regular" value="Cambiar a regular"> </p>'
                 ); 
         
         break;
@@ -221,8 +222,8 @@ function updateTable(materiaId,estado,materiaNombre){
                                     $("#regularizadas").append(
                     '<p class="list-group-item col-md-7" id="'+ materiaId +'">'
                         + materiaNombre +
-                        '<span class="btn btn-xs m-l-15 btn-warning" style="margin-left: 20px;"> Regularizada </span>' +
-                        "<a href=/examen> <input type='submit' class='btn btn-xs btn-primary pull-right r' materia="+materiaNombre+" name="+materiaId+"  id='cambiar_a_aprobada' value='Cargar Examen'></a> </p>"
+                        '<span class="btn btn-xs m-l-15 btn-primary" style="margin-left: 20px;"> Regularizada </span>' +
+                        "<a href=/examen> <input type='submit' class='btn btn-sm btn-success pull-right r' materia="+materiaNombre+" name="+materiaId+"  id='cambiar_a_aprobada' value='Cargar Examen'></a> </p>"
                 );     
         break;
     /*case 'A':

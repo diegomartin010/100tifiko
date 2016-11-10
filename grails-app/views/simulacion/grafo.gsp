@@ -32,7 +32,35 @@
             color: white;
             background-color: #B5B5B5;
             border-color: #ccc;
-}       }
+        }       
+        .btn-primary {
+            color: white;
+            background-color: #6995e4;
+            border-color: #ccc;
+        }       
+        .btn-success {
+            color: white;
+            background-color: #46de83;
+            border-color: #ccc;
+        }       
+        .btn-warning {
+            color: white;
+            background-color:#ffb733;
+            border-color: #ccc;
+           
+        } 
+        .btn-info {
+            color: white;
+            background-color:  #00e2ff;
+            border-color: #ccc;
+        } 
+        .btn-danger {
+            color: white;
+            background-color:#933;
+            border-color: #ccc;
+            /*border-radius: 50%;*/
+        }                 
+    }
     </style>
     <!-- <h2>Referencia de colores</h2> -->
     <div class="panel panel-default">
@@ -42,12 +70,12 @@
         <div class="panel-body">
             Referencias de colores
              <p>
-                <button type="button" class="btn btn-default btn-xs">Pendientes</button>
-                <button type="button" class="btn btn-info btn-xs">Permitidas</button>
-                <button type="button" class="btn btn-primary btn-xs">Regularizadas</button>
-                <button type="button" class="btn btn-success btn-xs">Aprobadas</button>
-                <button type="button" class="btn btn-warning btn-xs">Cursando</button>
-                <button type="button" class="btn btn-danger btn-xs">Finales Pendientes</button>
+                <button type="button" class="btn btn-default btn-xm">Materias pendientes</button>
+                <button type="button" class="btn btn-info btn-xm">Materias permitidas</button>
+                <button type="button" class="btn btn-primary btn-xm">Materias regularizadas</button>
+                <button type="button" class="btn btn-success btn-xm">Materias aprobadas</button>
+                <button type="button" class="btn btn-warning btn-xm">Materias cursando</button>
+                <button type="button" class="btn btn-danger btn-xm">Finales pendientes</button>
                 
             </p>
             <div id="mynetwork"></div>

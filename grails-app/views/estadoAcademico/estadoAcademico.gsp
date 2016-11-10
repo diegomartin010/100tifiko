@@ -46,7 +46,8 @@
                 <ul class="nav nav-tabs">
                     <li class="active">
                     	%{-- Se aplica la negrada --}%
-                    	<a href="#pendientes-tab" data-toggle="tab">${mensajes.pendientes.titulo}</a>
+                    	
+                        <a href="#pendientes-tab" data-toggle="tab">${mensajes.pendientes.titulo}</a>
                     </li>
                     <li>
                     	<a href="#encurso-tab" data-toggle="tab">${mensajes.enCurso.titulo}</a>

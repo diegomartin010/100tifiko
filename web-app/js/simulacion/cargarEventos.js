@@ -52,7 +52,7 @@ function eliminarEvento(id){
 	console.log("eliminado");
 	console.log(arr);
 	localStorage.nuevosEventos = JSON.stringify(arr);
-	$("#cargados-"+id).hide("fast", function() { $(this).remove() });
+	$("#cargados-"+id).slideUp("fast", function() { $(this).remove() });
 	// location.reload();
 }
 
