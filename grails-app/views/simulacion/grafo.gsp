@@ -37,9 +37,10 @@
     <!-- <h2>Referencia de colores</h2> -->
     <div class="panel panel-default">
         <div class="panel-heading">
-           <h4>Referencia de colores</h4>
+           <h4>Grafo de Correlatividades</h4>
         </div>
         <div class="panel-body">
+            Referencias de colores
              <p>
                 <button type="button" class="btn btn-default btn-xs">Pendientes</button>
                 <button type="button" class="btn btn-info btn-xs">Permitidas</button>
@@ -49,9 +50,10 @@
                 <button type="button" class="btn btn-danger btn-xs">Finales Pendientes</button>
                 
             </p>
+            <div id="mynetwork"></div>
         </div>
     </div>
-   <div id="mynetwork"></div>
+   
 	<!-- <div id="mynetwork"></div> -->
 	<g:javascript src="librerias/vis/dist/vis.js" />
 	<g:javascript src="/simulacion/grafos.js" />
