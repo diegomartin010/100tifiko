@@ -9,11 +9,12 @@ class GraphManager {
 	static def configuracion(){
 		def config = [
 			colores:[
-				pendiente: "#E2E1E1",
-				cursando: "#FFF7D5" ,
-				regular: "#B1E6FF",
-				aprobada: "#C5FADF",
-				finalAlerta: "#B1E6FF",
+				pendiente: "#B5B5B5",
+				permitida: "#5bc0de",
+				cursando: "#f0ad4e" ,
+				regular: "#337ab7",
+				aprobada: "#5cb85c",
+				finalAlerta: "#d9534f",
 				finalBloqueado: "#E2E1E1",
 				defecto: "#E2E1E1"
 			]
@@ -110,6 +111,12 @@ class GraphManager {
 			
 			// Segun el estado de la materia, seteamos los colores
 			def colorMateria = getColorByEstado(it.getEstado())
+			if(
+				it.knIcurse() && 
+				it.getEstado() == "P"
+			){
+				colorMateria = configuracion().colores.permitida
+			}
 			def colorFinal = configuracion().colores.finalBloqueado
 			if(it.knIfinal()){
 				colorFinal = configuracion().colores.finalAlerta	
@@ -122,7 +129,7 @@ class GraphManager {
 				, shape :  configuracion().shape.materias
 				, shadow : configuracion().shadow.nodosMaterias
 				, color : colorMateria
-				, font: [ size: configuracion().fontSize ]
+				, font: [ size: configuracion().fontSize, color:"white" ]
 				, x:getX()*it.nivel , y:getY()*(i)
 				, fixed : configuracion().fixed
 				, level : it.nivel
