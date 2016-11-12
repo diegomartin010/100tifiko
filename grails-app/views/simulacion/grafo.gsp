@@ -59,7 +59,43 @@
             background-color:#933;
             border-color: #ccc;
             /*border-radius: 50%;*/
-        }                 
+        }
+        .btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle-lock {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  background-color: #B5B5B5;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+                 
     }
     </style>
     <!-- <h2>Referencia de colores</h2> -->
@@ -70,12 +106,15 @@
         <div class="panel-body">
             Referencias de colores
              <p>
-                <button type="button" class="btn btn-default btn-xm">Materias pendientes</button>
-                <button type="button" class="btn btn-info btn-xm">Materias permitidas</button>
-                <button type="button" class="btn btn-primary btn-xm">Materias regularizadas</button>
-                <button type="button" class="btn btn-success btn-xm">Materias aprobadas</button>
-                <button type="button" class="btn btn-warning btn-xm">Materias cursando</button>
-                <button type="button" class="btn btn-danger btn-xm">Finales pendientes</button>
+                <button type="button" class="btn btn-default btn-xm">No puedo cursar</button>
+                <button type="button" class="btn btn-info btn-xm">Puedo cursar</button>
+                <button type="button" class="btn btn-primary btn-xm">Regularizadas</button>
+                <button type="button" class="btn btn-success btn-xm">Aprobadas</button>
+                <button type="button" class="btn btn-warning btn-xm">Cursando actualmente</button>
+                <button type="button" class="btn btn-info btn-circle btn-xm"></button>
+                (Final) Puedo rendir.
+                <button type="button" class="btn btn-default btn-circle-lock btn-xm"data-toggle="tooltip" title="Basicamente estos son los examenes que yo no puedo rendir, porque no cumplo con las correlatividades necesarias para poder rendirlos." ></button>
+                (Final) No puedo rendir.
                 
             </p>
             <div id="mynetwork"></div>
@@ -85,5 +124,12 @@
 	<!-- <div id="mynetwork"></div> -->
 	<g:javascript src="librerias/vis/dist/vis.js" />
 	<g:javascript src="/simulacion/grafos.js" />
+    <g:javascript>
+
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip(); 
+        });
+
+    </g:javascript>
 </body>
 </html>

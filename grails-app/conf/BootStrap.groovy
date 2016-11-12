@@ -37,33 +37,33 @@ class BootStrap {
 
 		// Se crea una carrera hardcode
 		def nuevaCarrera = new Carrera(
-		  	nombre: "CarreraVillera0",
+		  	nombre: "Carrera BootStrap",
 			codigo: "C2016",
 			materias: [
 				
 				new Materia(
-					nombre:"bulling1",
+					nombre:"Algebra",
 					codigo:"V2016BU1",
 					nivel :1,
 					tipo  :"O"
 				).save(),
 				
 				new Materia(
-					nombre:"materiaLevel1",
+					nombre:"Discreta",
 					codigo:"V2016ML1",
 					nivel :1,
 					tipo  :"O"
 				).save(),
 
 				, new Materia(
-					nombre:"bulling2",
+					nombre:"Sintaxis",
 					codigo:"V2016BU2",
 					nivel :2,
 					tipo  :"O"
 				).save()
 
 				, new Materia(
-					nombre:"bulling3",
+					nombre:"Gestion de datos (No se cursa)",
 					codigo:"V2016BU3",
 					nivel :3,
 					tipo  :"O"

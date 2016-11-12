@@ -4,6 +4,7 @@ import security.*
 class SimulacionController {
 
     def index() { 
+        SessionManager.permitirRoles(["ROLE_ALUMNO"])
     	render(view: "index")
     }
 

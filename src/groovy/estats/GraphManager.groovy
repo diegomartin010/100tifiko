@@ -14,7 +14,8 @@ class GraphManager {
 				cursando: "#ffb733" ,
 				regular: "#6995e4",
 				aprobada: "#46de83",
-				finalAlerta: "#933",
+				finalAlerta: "#00e2ff",
+				// finalAlerta: "#933",
 				finalBloqueado: "#E2E1E1",
 				defecto: "#E2E1E1"
 			]

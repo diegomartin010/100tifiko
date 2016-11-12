@@ -18,6 +18,7 @@
             border: 1px solid lightgray;
         }
     </style>
+    	<!-- <g:javascript src="examen/examen.js" />  -->
 </head>
 <body>
 
@@ -33,7 +34,10 @@
             Panel de eventos
         </div>
 		<div class="panel-body">
-			<input type="submit" id = "agregar" onclick="window.open('/simulacion/grafo')" class="btn btn-default pull-right" value="Ver Grafo">
+			<input type="submit" id = "grafo" onclick="window.open('/simulacion/grafo')" class="btn btn-default pull-right" value="Ver Grafo">
+		
+
+
 			<!-- Agregar eventos -->
 			<div class="row">	
 				<div class="col-md-2">	
@@ -53,10 +57,13 @@
 				</div>
 			</div><!-- /row -->
 
+
+
+
 			<!-- Eliminar eventos  -->
 			<div class="row cargar" id="cargados" hidden>	
 				<div class="col-md-2">	
-					<input type="text" id="fecha-load" class="form-control" name="fecha-load" placeholder="Fecha"disabled>	
+					<input type="text" id="fecha-load" class="form-control date" name="fecha-load" placeholder="Fecha" disabled/>	
 					<div id="put"></div>
 				</div>
 				<div class="col-md-4">	
@@ -77,18 +84,19 @@
 		</div><!-- /panel body -->
 		
 		<div class="panel-footer">
-			<a href="" class="btn btn-primary" onclick="guardarEventos()">Guardar Eventos</a>
+			<a href="#" class="btn btn-primary" onclick="guardarEventos()">Guardar Eventos</a>
 		</div>
 	</div><!-- /panel panel-default-->
                 	
 	
 
-<!-- Librerias javascript -->
-<!-- Vis grafos -->
-<g:javascript src="librerias/vis/dist/vis.js" />
+
 
 <!-- Javascript -->
+<g:javascript src="jquery/jquery-ui.js"/>
+<g:javascript src="jquery/jquery-ui.css"/>
 <g:javascript src="simulacion/grafos.js" />
 <g:javascript src="simulacion/cargarEventos.js" />
+<g:javascript src="simulacion/nuevosEventos.js" />
 </body>
 </html>

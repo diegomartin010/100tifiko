@@ -124,9 +124,4 @@ function mostrarLista(){
 
 }
 
-function guardarEventos(){
-	confirm("Al aceptar, se guardara su planificacion en la agenda");
-	localStorage.nuevosEventos = null;
-}
-
 console.log(localStorage.nuevosEventos)

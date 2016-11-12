@@ -37,7 +37,7 @@ class SessionManager {
 		}
 		// NEGRADA MULTINACIONAL
 		// Abortar controlador --> divido por cero.
-		if(!result){1/0}
+		if(!result){0/0}
 		
 		return result
 	}

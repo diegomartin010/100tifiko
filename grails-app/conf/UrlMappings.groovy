@@ -13,6 +13,7 @@ class UrlMappings {
 		
 		
 	        "/"(view:"/index")
+	        "/auth"(view:"/login/auth")
 	        "500"(view:'/error')
 			// "/carrera"(view:"/estadoAcademico/index")
 			"/nofunciona"(view:"/noFunciona")
