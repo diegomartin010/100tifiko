@@ -1,5 +1,4 @@
-<%@ page import="estats.SessionManager" %>
-<%@ page import="estats.AutoridadModulos" %>
+<%@ page import="estats.*" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,32 +56,47 @@
             </div>
             <!-- /.navbar-header -->
 
+
             <ul class="nav navbar-top-links navbar-right">
 
                 <!-- /.dropdown -->
+                <!-- La parte de las notificaciones -->
+                <%def eventos = SessionManager
+                        .getCurrentUser()
+                        .estadoAcademico
+                        .eventos
+
+                    // tiramos una negrada piola
+                    eventos.each{
+                        switch(it.tipo) {
+                            case "E": 
+                                it.tipo = "Examen"
+                            break
+                            case "A": 
+                                it.tipo = "Alerta"
+                            break
+                        }
+                    }
+
+                %>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
+                        <g:each in="${eventos}">
+                                <li>
+                                    <a href="#">
+                                        <div>
+                                            <i class="fa fa-tasks fa-fw"></i>(${it.tipo}) ${it.descripcion}
+                                            <span class="pull-right text-muted small">
+                                                Fecha: <g:formatDate format="dd-MM-yy" date="${it.fecha}"/>
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                        </g:each>
                         <li>
                             <a class="text-center" href="#">
                                 <strong>See All Alerts</strong>
@@ -91,7 +105,39 @@
                         </li>
                     </ul>
                     <!-- /.dropdown-alerts -->
+                    <ul class="dropdown-menu dropdown-messages">
+                            <li>
+                                <p class="text-center">
+                                    <strong>Notificaciones y eventos</strong>
+                                    <!-- <i class="fa fa-angle-right"></i> -->
+                                </p>
+                            </li>
+                            <li class="divider"></li>
+                        <g:each in="${eventos}">
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <strong><i class="fa fa-mortar-board"></i> ${it.tipo}</strong>
+                                        <span class="pull-right text-muted">
+                                            <em><g:formatDate format="dd/MM/yyyy" date="${it.fecha}"/></em>
+                                        </span>
+                                    </div>
+                                    <div>${it.descripcion}</div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                        </g:each> 
+                            <li>
+                                <a class="text-center" href="#">
+                                    <strong>Ver todas</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
                 </li>
+                <!-- Fin notificaciones -->
+
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
