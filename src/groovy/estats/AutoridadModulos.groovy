@@ -55,7 +55,7 @@ class AutoridadModulos {
 				, titulo: "Agenda"
 				, permisos:null
 				, url: "/agenda"
-				, icono:"fa fa-th fa-fw"
+				, icono:"fa fa-calendar"
 			]
 			, [
 				modulo: "simulacion"

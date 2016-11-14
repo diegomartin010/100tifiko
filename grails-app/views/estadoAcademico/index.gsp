@@ -29,7 +29,7 @@
 			<form>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-	                    <i class="fa fa-chain fa-fw"></i> Vincular una carrera
+	                    <i class="fa fa-mortar-board"></i> Vincular una carrera
 	                </div>
                 	<div class="panel-body">
 						<div class="col-md-4">	
@@ -43,7 +43,7 @@
 						</div>	
 					</div>
 					<div class="panel-footer">
-	                    <input type="submit" class="btn btn-default" id="asociar-carrera" value="Vincular">
+	                    <input type="submit" class="btn btn-primary" id="asociar-carrera" value="Vincular">
 	                </div>	
 				</div>		
 				
@@ -55,7 +55,7 @@
 		<g:else>
     		<div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-database fa-fw"></i> Carrera actual
+                    <i class="fa fa-mortar-board"></i> Carrera actual
                 </div>
                 <div class="panel-body">
                 	<div class="row">

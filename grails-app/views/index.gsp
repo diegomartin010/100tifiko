@@ -10,25 +10,79 @@
 	</head>
 	<body>
 
-	%{-- Estilo body de la pagina --}%
-	<div id="page-body" role="main">
-		%{-- Titulo de la pagina --}%
+	 <!-- Estilo body de la pagina  -->
+	
+		<!-- Titulo de la pagina  -->
 		<div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header"><i class="${modulo.icono}"></i>${modulo.titulo}</h1>
             </div>
         </div>
-        %{-- ./row --}%
+       <!-- ./row  -->
 
-		<div class="container">
-			<div class="col-md-6">	
-				<a class = "btn btn-default" href="./controladorPrueba">ENOJARME CON LA VIDA !!!!!!</a>
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/bUlSjgbag8o?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
-				<img src="http://www.aceroymagia.com/Images/articulo/cuadro-canvas-patan-muttley-autos-locos/01-cuadro-canvas-patan-muttley-autos-locos.jpg">
-				
+		
+		<!-- Panel de examenes -->
+	    <div class="panel-group" id="accordion">
+            <div class="panel panel-primary">
+            	<!-- Cabecera panel -->
+                <div class="panel-heading">
+                	<i class="fa fa-edit fa-fw"></i> Proximos examenes
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="btn btn-default btn-xs pull-right">Ocultar / Mostrar</a>                 
+                </div><!-- Fin cabecera -->
+                <!-- Movida collapse -->
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <!-- Body del panel -->
+                    <div class="panel-body">
+                       <g:each in="${ (0..<3) }">
+	                		<!-- <div class="alert alert-info alert-dismissable">
+	                    		<button type="button" class="btn btn-danger btn-xs pull-right" data-dismiss="alert" aria-hidden="true">Ignorar</button>
+	                    		Notificacion # ${it}
+	                    		<a href="/examen" class="btn btn-default btn-xs ">Ir a examenes</a>
+	                		</div> -->
+	                		<div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-exclamation-circle"></i> Final de analisis mat1 <em>(01/01/01)</em>
+                                    <span class="pull-right text-muted small">Faltan: (3 dias)
+                                    </span>
+                                </a>
+                            </div>
+	            		</g:each>
+	            		<button class="btn btn-default">Ver todos</button>
+	            		<a href="/examen" class="btn btn-default">Cargar Examen</a>
+                    </div><!-- ./panel body -->
+                </div>
+         	</div><!-- ./panel default -->
+        </div><!-- ./panel de examenes -->
+               
+                  
+        <!-- Panel de notificaciones -->
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-info">
+                <!-- Heading -->
+                <div class="panel-heading">
+                    <i class="fa fa-bell fa-fw"></i> Otras alarmas
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="btn btn-default btn-xs pull-right">Ocultar / Mostrar</a>                 
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse in">
+                    <!-- Vamos con el body -->
+                    <div class="panel-body">
+                       <g:each in="${ (0..<3) }">
+	                		<div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-calendar"></i> Notificacion ${it} <em>(01/01/01)</em>
+                                    <span class="pull-right text-muted small">Faltan: (3 dias)
+                                    </span>
+                                </a>
+                            </div>
+	            		</g:each>
+	            		<button class="btn btn-default">Ver todos</button>
+                    </div>
+                </div>
+         	</div><!-- ./panel default -->
+        </div><!-- ./panel group acordion -->
+                                
+                           
 
-			</div>		
-		</div>
-	</div>
+
 </body>
 </html>

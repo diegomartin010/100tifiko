@@ -61,23 +61,37 @@
 
                 <!-- /.dropdown -->
                 <!-- La parte de las notificaciones -->
-                <%def eventos = SessionManager
+                <%      
+                    try {
+                        def eventos = SessionManager
                         .getCurrentUser()
                         .estadoAcademico
                         .eventos
 
-                    // tiramos una negrada piola
-                    eventos.each{
-                        switch(it.tipo) {
-                            case "E": 
-                                it.tipo = "Examen"
-                            break
-                            case "A": 
-                                it.tipo = "Alerta"
-                            break
+                        // tiramos una negrada piola
+                        if(!eventos){
+                            eventos = [
+                                [
+                                    tipo:null,
+                                    descripcion:null,
+                                    fecha:null
+                                ]
+                            ]
                         }
+                        eventos.each{
+                            switch(it.tipo) {
+                                case "E": 
+                                    it.tipo = "Examen"
+                                break
+                                case "A": 
+                                    it.tipo = "Alerta"
+                                break
+                            }
+                        }   
                     }
-
+                    catch(Exception e) {
+                        
+                    }
                 %>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">

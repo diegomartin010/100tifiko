@@ -24,17 +24,18 @@
 			%{--<form>--}%
 				%{--<div class="container">--}%
 					<div class="panel panel-default">
-						<div class="panel-heading">Nuevo examen</div>
+						<div class="panel-heading"><i class="fa fa-plus-square"></i> Nuevo examen</div>
 						<div class="panel-body">
 							<table class="table">
     						<tr>
-    							<th><p>Date: <input type="text" id="datepicker"></p>
-									</th>
-	    						<th><select id="idmateria" class="selectpicker"> 
-										</select>
-										</th>  
-		    							<th>
-		          						<select id="idnota" class="selectpicker">
+    							<th>
+    								<select id="idmateria" class="selectpicker form-control"> 
+	    								<option value = "">Materia</option>
+									</select>	
+								</th>
+    							<th>
+	          						<select id="idnota" class="selectpicker form-control">
+		          						<option value = "0" >Nota</option>
 							            <option value = "1" >1</option>
 							            <option value = "2" >2</option>
 							            <option value = "3" >3</option>
@@ -45,9 +46,12 @@
 							            <option value = "8" >8</option>
 							            <option value = "9" >9</option>
 							            <option value = "10" >10</option>
-						          	</select>
-						      		</li></th>  
-    							<th> <button type="button" class="btn btn-default" onclick="guardarexamen()">Agregar</button></th>  
+					          		</select>
+				      			</th>  
+				      			<th>
+	    							<input type="text" class="form-control" id="datepicker" placeholder="Fecha">
+								</th>  
+    							<th> <button type="button" class="btn btn-primary" onclick="guardarexamen()">Agregar</button></th>  
  						 	</table>
     					</div>
   					</div>			
@@ -57,7 +61,7 @@
 %{-- acá va la tabla con los examenes cargados --}%
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Exámenes rendidos</div>
+  <div class="panel-heading"><i class="fa fa-thumbs-o-down"></i> Exámenes rendidos</div>
   <div class="panel-body">
   	%{--</div>--}%
 

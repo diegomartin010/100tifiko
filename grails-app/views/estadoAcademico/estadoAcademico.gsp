@@ -39,7 +39,7 @@
         	]
         ]%>
         <div class="panel panel-default">
-            <div class="panel-heading">Estado Actual</div>
+            <div class="panel-heading"><i class="fa fa-th-list"></i> Estado Actual</div>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <!-- Nav tabs -->
