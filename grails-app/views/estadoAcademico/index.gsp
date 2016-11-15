@@ -29,7 +29,7 @@
 			<form>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-	                    <i class="fa fa-mortar-board"></i> Vincular una carrera
+	                    <i class="fa fa-mortar-board"></i> <label>Vincular una carrera</label>
 	                </div>
                 	<div class="panel-body">
 						<div class="col-md-4">	
@@ -55,13 +55,13 @@
 		<g:else>
     		<div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-mortar-board"></i> Carrera actual
+                    <i class="fa fa-mortar-board"></i> <label>Carrera actual</label>
                 </div>
                 <div class="panel-body">
                 	<div class="row">
 	                	<div class="col-lg-6">
 	                    	<div class="panel panel-default">
-	                			<div class="panel-heading">Datos del alumno</div>
+	                			<div class="panel-heading"><label>Datos del alumno</label></div>
 	                			<div class="panel-body">
 	                				<p>Legajo: ${usuario.estadoAcademico.legajo}</p>
 	                               	<p>Nombre: ${usuario.nombre}</p>
@@ -71,7 +71,7 @@
 	                    </div>
 	                	<div class="col-lg-6">
 	                		<div class="panel panel-default">
-	                			<div class="panel-heading">Datos de la carrera</div>
+	                			<div class="panel-heading"><label>Datos de la carrera</label></div>
 	                			<div class="panel-body">
 	                				<p>Nombre de carrera: ${usuario.estadoAcademico.carrera.nombre}</p>
 	                                <p>Codigo de carrera: ${usuario.estadoAcademico.carrera.codigo}</p>

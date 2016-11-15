@@ -24,7 +24,7 @@
 			%{--<form>--}%
 				%{--<div class="container">--}%
 					<div class="panel panel-default">
-						<div class="panel-heading"><i class="fa fa-plus-square"></i> Nuevo examen</div>
+						<div class="panel-heading"><i class="fa fa-plus-square"></i> <label>Nuevo examen</label></div>
 						<div class="panel-body">
 							<table class="table">
     						<tr>
@@ -61,7 +61,7 @@
 %{-- acá va la tabla con los examenes cargados --}%
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading"><i class="fa fa-thumbs-o-down"></i> Exámenes rendidos</div>
+  <div class="panel-heading"><i class="fa fa-thumbs-o-down"></i> <label>Exámenes rendidos</label></div>
   <div class="panel-body">
   	%{--</div>--}%
 

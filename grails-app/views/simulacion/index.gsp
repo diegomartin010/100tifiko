@@ -31,10 +31,10 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Panel de eventos
+           <i class="fa fa-file-text"></i> <label>Panel de eventos</label>
         </div>
 		<div class="panel-body">
-			<input type="submit" id = "grafo" onclick="window.open('/simulacion/grafo')" class="btn btn-default pull-right" value="Ver Grafo">
+			<a id = "grafo" onclick="window.open('/simulacion/grafo')" class="btn btn-info pull-right">Correlatividades <i class="fa fa-share-alt"></i> </a>
 		
 
 
