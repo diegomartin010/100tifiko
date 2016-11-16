@@ -11,7 +11,7 @@
             };
             var options = {};
             var options = {
-                 autoResize: false
+                 autoResize: true
                 // ,height: '100%'
                 // ,width: '100%'
                , physics : { enabled:false }
@@ -19,15 +19,15 @@
                   ,interaction: {hover:true,hoverConnectedEdges:true}
                   ,layout: {
                     randomSeed: undefined,
-                    improvedLayout:false,
+                    improvedLayout:true,
                     hierarchical: {
                       enabled:false,
                       levelSeparation: 1000,
                       nodeSpacing: 300,
                       treeSpacing: 1,
-                      blockShifting:false,
+                      blockShifting:true,
                       edgeMinimization: false,
-                      parentCentralization: false,
+                      parentCentralization: true,
                       direction: 'LR',        // UD, DU, LR, RL
                       sortMethod: 'hubsize'   // hubsize, directed
                     }
@@ -38,6 +38,14 @@
             }
             // initialize your network!
             var network = new vis.Network(container, data, options); 
+                    
+            network.moveTo(                      {
+                  position: {x:1400, y:500},
+                  scale: 0.70
+                 
+            })
+            console.log(network.getViewPosition())
+
     });
 
     

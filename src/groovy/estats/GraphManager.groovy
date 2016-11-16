@@ -29,14 +29,15 @@ class GraphManager {
 				y: true
 			]
 			, shadow:[
-				nodosMaterias: true,
+				nodosMaterias: false,
 				nodosExamenes: false,
-				aristasMaterias: true,
+				aristasMaterias: false,
 				aristasExamenes: false
 			]
 			, arrows: [ to:true ]
 			, escX: 500
-			, escY: 150
+			, escY: 300
+			, escYExam: 120
 		]
 
 	}
@@ -72,6 +73,10 @@ class GraphManager {
 
 	static def getY(){
 		configuracion().escY
+	}
+
+	static def getYExam(){
+		configuracion().escYExam
 	}
 
 	static def materias(){
@@ -126,7 +131,7 @@ class GraphManager {
 			
 			array_grafo.nodos.push([
 				  id : it.codigo
-				, label :/* "(nivel: ${it.nivel})"+*/"${it.nombre}"
+				, label :/* "(nivel: ${it.nivel})"+*/"${it.nombre}".take(30)
 				, shape :  configuracion().shape.materias
 				, shadow : configuracion().shadow.nodosMaterias
 				, color : colorMateria
@@ -142,12 +147,12 @@ class GraphManager {
 			if(!ea.isEstado(it, "A")){
 				array_grafo.nodos.push([
 					  id : "${it.codigo}F"
-					, label : "(final) ${it.nombre}"
+					, label : "(final) ${it.nombre}".take(30)
 					, shape : configuracion().shape.examenes
 					, shadow : configuracion().shadow.nodosExamenes
 					, color : colorFinal
 					, font: [ size: configuracion().fontSize ]
-					, x:getX()*(it.nivel+1) , y:(getY()*i+70)
+					, x:(getX())*(it.nivel+1) , y:(getY()*i+getYExam())
 					, fixed : configuracion().fixed
 					, level : (it.nivel + 1)
 

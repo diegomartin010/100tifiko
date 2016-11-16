@@ -99,7 +99,7 @@
     }
     </style>
     <!-- <h2>Referencia de colores</h2> -->
-    <div class="panel panel-default">
+    <div class="panel panel-default navbar navbar-fixed-top ">
         <div class="panel-heading">
            <h4>Grafo de Correlatividades</h4>
         </div>
