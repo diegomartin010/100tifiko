@@ -61,23 +61,14 @@
 
                 <!-- /.dropdown -->
                 <!-- La parte de las notificaciones -->
-                <%      
+                <%   
+                    def eventos = null   
                     try {
-                        def eventos = SessionManager
+                        eventos = SessionManager
                         .getCurrentUser()
                         .estadoAcademico
                         .eventos
 
-                        // tiramos una negrada piola
-                        if(!eventos){
-                            eventos = [
-                                [
-                                    tipo:null,
-                                    descripcion:null,
-                                    fecha:null
-                                ]
-                            ]
-                        }
                         eventos.each{
                             switch(it.tipo) {
                                 case "E": 
@@ -87,10 +78,13 @@
                                     it.tipo = "Alerta"
                                 break
                             }
-                        }   
-                    }
-                    catch(Exception e) {
+                        }  
                         
+                       System.out.println "Catch piola" 
+                    }
+                     
+                    catch(Exception e) {
+                        System.out.println "Excepcion" 
                     }
                 %>
                 <li class="dropdown">

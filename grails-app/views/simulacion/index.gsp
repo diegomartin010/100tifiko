@@ -32,12 +32,11 @@
     <div class="panel panel-default">
         <div class="panel-heading">
            <i class="fa fa-file-text"></i> <label>Panel de eventos</label>
+           <a id = "grafo" onclick="window.open('/simulacion/grafo')" class="btn btn-default pull-right">Correlatividades <i class="fa fa-share-alt"></i></a>
+           <br><br>
         </div>
 		<div class="panel-body">
-			<a id = "grafo" onclick="window.open('/simulacion/grafo')" class="btn btn-info pull-right">Correlatividades <i class="fa fa-share-alt"></i> </a>
 		
-
-
 			<!-- Agregar eventos -->
 			<div class="row">	
 				<div class="col-md-2">	
@@ -55,6 +54,7 @@
 				<div class="col-md-1">	
 					<input type="submit" id = "agregar" onclick="nuevoEvento()" class="btn btn-xs btn-success pull-right" value="Agregar">
 				</div>
+				<br><br>
 			</div><!-- /row -->
 
 
@@ -78,13 +78,16 @@
 					<input type="submit" class="btn btn-xs btn-danger pull-right" id="eliminar-load" value="Eliminar">
 					<div id="put"></div>
 				</div>
+				<br><br>
 			</div><!-- / id cargados -->
+
 
 				
 		</div><!-- /panel body -->
 		
 		<div class="panel-footer">
-			<a href="#" class="btn btn-primary" onclick="guardarEventos()">Guardar Eventos</a>
+			<a href="#" class="btn btn-primary pull-right" onclick="guardarEventos()">Agendar Eventos</a>
+			<br><br>
 		</div>
 	</div><!-- /panel panel-default-->
                 	

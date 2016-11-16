@@ -26,7 +26,7 @@
             <div class="panel panel-primary">
             	<!-- Cabecera panel -->
                 <div class="panel-heading">
-                	<i class="fa fa-edit fa-fw"></i> <label>Proximos examenes</label>
+                	<i class="fa fa-file-text-o"></i> <label>Próximos Exámenes (que debés rendir menos de 15 dias)</label>
 					<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="btn btn-default btn-xs pull-right">Ocultar / Mostrar</a>                 
                 </div><!-- Fin cabecera -->
                 <!-- Movida collapse -->
@@ -60,7 +60,7 @@
             <div class="panel panel-info">
                 <!-- Heading -->
                 <div class="panel-heading">
-                    <i class="fa fa-bell fa-fw"></i> <label>Otras alarmas</label>
+                    <i class="fa fa-bell fa-fw"></i> <label>Otras Alarmas</label>
 					<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="btn btn-default btn-xs pull-right">Ocultar / Mostrar</a>                 
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse in">

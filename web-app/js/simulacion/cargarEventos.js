@@ -85,7 +85,7 @@ function nuevoRegistro(){
 		.find( "#eliminar-load" )
 		.attr('id', 'eliminar-load-'+id)
 		.attr('onclick', 'eliminarEvento('+id+')')
-		.attr('value', 'eliminar('+id+')');
+		.attr('value', 'Eliminar');
 }
 
 function mostrarLista(){	
@@ -119,7 +119,7 @@ function mostrarLista(){
 			.find( "#eliminar-load" )
 			.attr('id', 'eliminar-load-'+i)
 			.attr('onclick', 'eliminarEvento('+i+')')
-			.attr('value', 'eliminar('+i+')');
+			.attr('value', 'Eliminar');
 	}
 
 }
