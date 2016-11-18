@@ -38,7 +38,7 @@
     <g:layoutHead/>
     <style type="text/css">
         .panel{
-           box-shadow: 0px 5px 19px #d6d6d6 !important;
+           box-shadow: 0px 5px 19px #e4e4e4 !important;
         }
     </style>
 </head>
