@@ -178,7 +178,7 @@
                     <ul class="nav" id="side-menu">
                         <g:each in="${AutoridadModulos.getByAuth()}">
                            <li>
-                                <a href="${it.url}"><i class="${it.icono}"></i> ${it.titulo}</a>
+                                <a href="${it.url}" target="${it.target}"><i class="${it.icono}"></i> ${it.titulo}</a>
                             </li>
                         </g:each>
                     </ul>
