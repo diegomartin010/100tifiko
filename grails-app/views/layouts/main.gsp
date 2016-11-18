@@ -36,6 +36,11 @@
     <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <g:layoutHead/>
+    <style type="text/css">
+        .panel{
+           box-shadow: 0px 5px 19px #d6d6d6 !important;
+        }
+    </style>
 </head>
 
 <body>
