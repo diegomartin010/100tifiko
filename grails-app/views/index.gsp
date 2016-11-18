@@ -33,22 +33,30 @@
                 <div id="collapseOne" class="panel-collapse collapse in">
                     <!-- Body del panel -->
                     <div class="panel-body">
-                       <g:each in="${ (0..<3) }">
-	                		<!-- <div class="alert alert-info alert-dismissable">
-	                    		<button type="button" class="btn btn-danger btn-xs pull-right" data-dismiss="alert" aria-hidden="true">Ignorar</button>
-	                    		Notificacion # ${it}
-	                    		<a href="/examen" class="btn btn-default btn-xs ">Ir a examenes</a>
-	                		</div> -->
+                        <g:each in="${ (0..<3) }">
 	                		<div class="list-group">
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-exclamation-circle"></i> Final de analisis mat1 <em>(01/01/01)</em>
-                                    <span class="pull-right text-muted small">Faltan: (3 dias)
-                                    </span>
+                                    <div class="row">
+                                        <div class="col-sm-10">
+                                            <i class="fa fa-exclamation-circle"></i> Final de Materia ${it} <em>(01/01/01)</em>
+                                            <span class=" text-muted small">
+                                                Faltan: (3 dias)
+                                            </span>
+                                            </div>
+                                        <div class="col-sm-1">
+                                            <button class="btn btn-default btn-xm pull-right" onclick="location.href='/examen'">
+                                                Calificacion
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
+                                        </div>
+                                    </div>  
                                 </a>
                             </div>
 	            		</g:each>
-	            		<button class="btn btn-default">Ver todos</button>
-	            		<a href="/examen" class="btn btn-default">Cargar Examen</a>
+	            		<button class="btn btn-default">Ver Todos</button>
+	            		<!-- <a href="/examen" class="btn btn-default pull-right">Cargar Examen</a> -->
                     </div><!-- ./panel body -->
                 </div>
          	</div><!-- ./panel default -->
@@ -67,15 +75,23 @@
                     <!-- Vamos con el body -->
                     <div class="panel-body">
                        <g:each in="${ (0..<3) }">
-	                		<div class="list-group">
+                            <div class="list-group">
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-calendar"></i> Notificacion ${it} <em>(01/01/01)</em>
-                                    <span class="pull-right text-muted small">Faltan: (3 dias)
-                                    </span>
+                                    <div class="row">
+                                        <div class="col-sm-11">
+                                            <i class="fa fa fa-calendar"></i> Notificacion ${it} <em>( 01/01/01 )</em>
+                                            <span class=" text-muted small">
+                                                Faltan: (${it} dias)
+                                            </span>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
+                                        </div>
+                                    </div>  
                                 </a>
                             </div>
-	            		</g:each>
-	            		<button class="btn btn-default">Ver todos</button>
+                        </g:each>
+	            		<button class="btn btn-default">Ver Todos</button>
                     </div>
                 </div>
          	</div><!-- ./panel default -->
