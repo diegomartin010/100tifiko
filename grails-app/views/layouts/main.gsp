@@ -40,6 +40,10 @@
         .panel{
            box-shadow: 0px 5px 19px #e4e4e4 !important;
         }
+        a {
+            color: #5c9bd5;;
+            font-weight: bold;
+        }
     </style>
 </head>
 
