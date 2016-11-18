@@ -32,7 +32,7 @@
 	                    <i class="fa fa-mortar-board"></i> <label>Vincular una carrera</label>
 	                </div>
                 	<div class="panel-body">
-						<div class="col-md-4">	
+						<div class="col-md-4" >	
 							<label>Legajo:</label>
 							<input type="text" id = "legajo" class = "form-control" name="legajo" placeholder="Legajo...">
 							<label>Carrera:</label>
