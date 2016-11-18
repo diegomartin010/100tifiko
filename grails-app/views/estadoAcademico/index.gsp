@@ -83,7 +83,8 @@
 				</div>
 				%{-- /panel body --}%
 				<div class="panel-footer">                
-					<input type="submit" class="btn btn-danger" id="eliminar-carrera" value="Desvincular">				
+					<input type="submit" class="btn btn-danger pull-right" id="eliminar-carrera" value="Desvincular">
+					<div class = "space"/>
  				</div>
  			</div>
  			%{-- /panel --}%

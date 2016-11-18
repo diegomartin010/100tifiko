@@ -44,6 +44,12 @@
             /*color: #777777;*/
             /*font-weight: bold;*/
         }
+        .space{
+            margin-bottom: 32px;
+        }
+        .btn{
+            margin-left: 3px;
+        }
     </style>
 </head>
 
