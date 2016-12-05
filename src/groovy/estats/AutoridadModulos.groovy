@@ -80,7 +80,7 @@ class AutoridadModulos {
 				, target:"_blank"
 			]
 			, [
-				modulo: ""
+				modulo: "usuarios"
 				, titulo: "Usuarios"
 				, permisos:null
 				, url: "/usuarios"
