@@ -17,6 +17,7 @@ class User implements Serializable {
 	String password
 	
 	boolean enabled = true
+	Integer codigoActivacion;
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
@@ -70,6 +71,7 @@ class User implements Serializable {
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+		codigoActivacion blank: true , nullable: true
 		estadoAcademico nullable: true
 	}
 
