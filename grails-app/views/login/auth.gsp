@@ -32,26 +32,15 @@
     <style type="text/css">
     	body{
     		background-repeat: no-repeat!important;
-    		   width:100%!important;
-    height:100%!important;
-    		  background-size: 100% 250%!important;
-
-
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a7cfdf+0,23538a+100;Blue+3d+%238 */
-background: rgb(167,207,223); /* Old browsers */
-background: -moz-linear-gradient(top,  rgba(167,207,223,1) 0%, rgba(35,83,138,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  rgba(167,207,223,1) 0%,rgba(35,83,138,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  rgba(167,207,223,1) 0%,rgba(35,83,138,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=0 ); /* IE6-9 */
-
-
-
-
-	
-
-
-
-
+    		width:100%!important;
+            height:100%!important;
+    		background-size: 100% 250%!important;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a7cfdf+0,23538a+100;Blue+3d+%238 */
+            background: rgb(167,207,223); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(167,207,223,1) 0%, rgba(35,83,138,1) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top,  rgba(167,207,223,1) 0%,rgba(35,83,138,1) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom,  rgba(167,207,223,1) 0%,rgba(35,83,138,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=0 ); /* IE6-9 */
     	}
     </style>
 </head>
@@ -78,7 +67,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', end
                                 </div>
                                 <div class="form-group">
                                     <a href="" >Olvide mi contraseña</a>
-                                    <a href=""class="pull-right">Registrarse</a><br>
+                                    <a href="/usuarios/newUser"class="pull-right">Nuevo Usuario</a><br>
                                 </div>
                                 <a href="#!" class="btn btn-lg btn-success btn-block" onclick="login()">Iniciar Sesion</a>
                             </fieldset>

@@ -20,9 +20,10 @@ class GestionCuentasController {
     	def baseURL =
     		 "http://${url[2]}/GestionCuentas/activarUsuario?usuarioId=${usuarioId}&codigoActivacion=${codigoActivacion}"
     	
+        def u = User.get(usuarioId) 
     	// Creamos los parametros que vamos a pasar a la vista del mail que se va a enviar.
     	def parametros = [
-    		  usuario : User.get(usuarioId)
+    		  usuario : u
     		, codigo : codigoActivacion
     		, url : "${baseURL}"
     	]
@@ -32,12 +33,15 @@ class GestionCuentasController {
     	
     	// Mangamos el mail
     	sendMail {     
-  			to "diegomartin010@gmail.com"
+  			to "${u.email}"
   			subject "100tifiko. Activacion de Cuenta"     
   			html g.render( template:"/mail/activarUsuario", model: [ parametros: parametros ] ) 
 		}
 
-		render("se ha enviado un mail a asd@gmail.com")
+	    render(contentType: 'text/json') {[
+              result: true
+            , mensaje: "Usted se ha registrado satisfactoriament.<br>La cuenta esta momentaneamente bloqueada.<br>Se ha enviado un e-mail a ${u.email}."
+        ]}
 
     }
 
