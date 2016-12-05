@@ -12,11 +12,12 @@ class UrlMappings {
 	        }
 		
 		
-	        "/"(view:"/index")
+	        "/"(controller: "session", action: "index")
 	        "/auth"(view:"/login/auth")
 	        "500"(view:'/error')
 			// "/carrera"(view:"/estadoAcademico/index")
 			"/nofunciona"(view:"/noFunciona")
-
+			"/mail"(view:"/mail/index")
+			
 	}
 }

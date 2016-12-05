@@ -14,7 +14,7 @@ class BootStrap {
 			new User(
 				  nombre: "Matias"
 				, apellido: "Rios"
-				, email: "mrios@hotmail.com"
+				, email: "diegomartin010@gmail.com"
 				, username: "mrios"
 				, password: "mrios1"
 			).save() 
@@ -28,7 +28,7 @@ class BootStrap {
 			new User(
 				  nombre: "Diego Martin"
 				, apellido: "Colussi"
-				, email: "dcol@hotmail.com"
+				, email: "diegomartin010@gmail.com"
 				, username: "dcol"
 				, password: "dcol1"
 			).save() 

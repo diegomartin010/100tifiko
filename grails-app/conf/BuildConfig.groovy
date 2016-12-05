@@ -62,7 +62,8 @@ grails.project.dependency.resolution = {
         compile ":scaffolding:2.1.2"
         compile ':cache:1.1.8'
         compile ":asset-pipeline:1.9.9"
-
+        // Mandar mails
+        compile "org.grails.plugins:mail:1.0.7"
 		// Plugin seguridad y sesiones.		
 		// compile ":spring-security-core:2.0-RC5"
 		// compile ":spring-security-ui:1.0-RC2"
