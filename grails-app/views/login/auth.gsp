@@ -63,24 +63,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', end
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title"><asset:image width="170" src="logos/logo.png" alt="Grails"/></h3>
                     </div>
                     <div class="panel-body">
                         <form role="form">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <label>Username</label>
+                                    <input class="form-control" placeholder="Username"name="username" id = "username" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <label>Password</label>
+                                    <input class="form-control" placeholder="Password" name="password" id = "password" type="password" value="">
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
+                                <div class="form-group">
+                                    <a href="" >Olvide mi contraseña</a>
+                                    <a href=""class="pull-right">Registrarse</a><br>
                                 </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <a href="/" class="btn btn-lg btn-info btn-block">Login</a>
+                                <a href="#!" class="btn btn-lg btn-success btn-block" onclick="login()">Iniciar Sesion</a>
                             </fieldset>
                         </form>
                     </div>
@@ -100,6 +100,34 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', end
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+
+    <g:javascript>
+        function login(){
+            // Codigo para logearme
+            $.post( "/session/setSession", 
+                {
+                    username: $("#username").val(),
+                    password: $("#password").val() 
+                }
+            )
+            .done(
+                function( data ) {
+                   if(data.result){
+                        if(!data.enabled){
+                            alert("El usuario con el que intenta acceder, se encuentra bloqueado.\n--------------------------------------------------------------------\n\nUsted debera contactarse con el administrador de la aplicacion.\n\nDisculpe las molestias.");  
+                        }else{
+                            alert("Usted se ha logeado satisfactoriamente.");
+                            window.location.href = "/";    
+                        }
+                        
+                   }else{
+                        alert("El usuario y la contraseña ingresados, son incorrectos.");
+                   }
+                }
+            );
+
+        }
+    </g:javascript>
 
 </body>
 

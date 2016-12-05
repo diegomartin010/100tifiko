@@ -173,7 +173,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="/session/destroySession"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -220,15 +220,7 @@
     </nav> -->
 
 <g:javascript>
-    function hardCode(){
-        text =  "HardCode Computacion® 2016.\n\n\n";
-        text += "Es una empresa Argentina, lider en desarrollo de software, y con bajos recursos.\n\n";
-        text += "---------------------------------------------------------------------\n";
-        text += "Nuestra filosofia:\n'El usuario debe adaptarse al software, y no al reves.'\n";
-        text += "---------------------------------------------------------------------\n";
-        alert(text);
-    }
-  
+    
 </g:javascript>
 </body>
 
