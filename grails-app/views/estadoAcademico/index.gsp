@@ -1,4 +1,6 @@
-<%@ page import="estats.SessionManager" %>
+<%@ page import="estats.*" %>
+<%@ page import="modelo.*" %>
+<%@ page import="security.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +9,7 @@
 	%{-- Incluir cabeceras de estilos --}%
 	<meta name="layout" content="main">
 	%{-- Titulo de la pagina --}%
-	<title><g:message code="Carrera"/></title>
+	<title>Carrera</title>
 </head>
 <body>
 
@@ -15,7 +17,7 @@
 	<div id="page-body" role="main">
 
 		%{-- Se captura el usuario actual en sesion --}%
-		<% def usuario = SessionManager.getCurrentUser() %>
+		<% def usuario = user %>
 		%{-- Titulo de la pagina --}%
 		<div class="row">
             <div class="col-lg-12">
@@ -43,7 +45,7 @@
 						</div>	
 					</div>
 					<div class="panel-footer">
-	                    <input type="submit" class="btn btn-primary" id="asociar-carrera" value="Vincular">
+	                    <button class="btn btn-primary pull-right" id="asociar-carrera"><i class="fa fa-save"></i> Vincular</button><br><br>
 	                </div>	
 				</div>		
 				
@@ -83,7 +85,8 @@
 				</div>
 				%{-- /panel body --}%
 				<div class="panel-footer">                
-					<input type="submit" class="btn btn-danger pull-right" id="eliminar-carrera" value="Desvincular">
+					<button class="btn btn-danger pull-right" id="eliminar-carrera"><i class="glyphicon glyphicon-trash"></i> Desvincular</button>
+					%{-- <input type="submit" class="btn btn-danger pull-right" id="eliminar-carrera" value="Desvincular"> --}%
 					<div class = "space"/>
  				</div>
  			</div>

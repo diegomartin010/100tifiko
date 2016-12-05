@@ -1,13 +1,16 @@
 package modelo
 
-import estats.SessionManager
+import estats.*
 import security.User;
 
 
 class EstadoAcademicoController {
 
     def index() { 
-	   render(view: "index")
+	   def u = SessionManager.getCurrentUser()
+       // println("Usuario actual en sesion: ${SessionManager.getCurrentUser().nombre}")
+       render( view: "index" , model:[user:u])
+       // render("Usuario: ${u} Nombre: ${u.nombre} Apellido: ${u.apellido}")
 	}
 	
     def verEstado() { 

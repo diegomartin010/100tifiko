@@ -13,24 +13,8 @@ import security.*
 class ControladorPruebaController {
 
     def index() {
-     //    SessionManager.permitirRoles(["ROLE_ALUMNO","ROLE_ADMINISTRADOR"])
-     //    def movida = "index"
-     //    render(AutoridadModulos.getFeatures().getProperties()[2])
-    	// println("------------------------ control VILLERO de prueba.")
-    	// Materia.getAll().each{
-    	// 	println("Regularizando: ${it.nombre}")
-    	// 	it.ifR_GetNodeS2C().each{ m->
-    	// 		println("Habilito cursar ${m.nombre}")	
-    	// 	}
-    	// 	println("Aprobando: ${it.nombre}")
-    	// 	it.ifA_GetNodeS2C().each{ m->
-    	// 		println("Habilito cursar ${m.nombre}")	
-    	// 	}
-
-    	// }
-        // redirect(url:"/")
-
-        render(GraphManager.getNiveles())
+        
+       	render(SessionManager.getCodigoActivacion())
 
 	}
 }
