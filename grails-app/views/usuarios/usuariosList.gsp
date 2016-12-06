@@ -21,7 +21,14 @@
         </div>
         <!-- ./row  -->
         <div class="panel panel-default">
-            <div class="panel-heading"><i class = "fa fa-th-list"></i> <label>Lista de Usuarios</label></div>
+            <div class="panel-heading">
+                <i class = "fa fa-th-list"></i>
+                <label>Lista de Usuarios</label>
+                <a href="/usuarios/usuarioNuevoAdmin" class="btn btn-default pull-right">
+                    <i class = "fa  fa-arrow-up"></i>
+                    Nuevo Usuario
+                </a><br><br>
+            </div>
             <div class="panel-body">
                 <table class="table">
                     <thead>
@@ -31,6 +38,7 @@
                             <th>Nombre y Apellido</th>
                             <th>e-mail</th>
                             <th>Legajo</th>
+                            <th>Roles / Permisos</th>
                             <th>Activo</th>
                             <th>Acciones</th>
                         </tr> 
@@ -43,6 +51,7 @@
                                 <td>${usuario.username}</td>
                                 <td>${usuario.nombre} ${usuario.apellido}</td>
                                 <td>${usuario.email}</td>
+                                <!-- Movida para el legajo. Si tiene, mostrarlo. -->
                                 <td>
                                     <g:if test="${usuario.estadoAcademico}">
                                        ${usuario.estadoAcademico.legajo}
@@ -52,21 +61,33 @@
                                     </g:else>
                                 </td>
                                 <td>
+                                    ${usuario.getAuthorities()}
+                                </td>
+                                <td>
+                                    <!-- Si el usuario esta bloqueado mostrar una cruz. -->
                                     <g:if test="${usuario.enabled==true}">
                                         <i class="fa fa-check "></i>
                                     </g:if>
                                     <g:else>
-                                         <i class="fa fa-times"></i>
+                                         <i class="fa fa-ban"></i>
                                     </g:else>
                                 </td>
                                 <td>
-                                    <a href="/Usuarios/editar?uid=${usuario.id}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editar</a>
+                                    <a href="/Usuarios/editar?uid=${usuario.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Editar</a>
                                 </td>
                             </tr>
                         </g:each>
                     </tbody> 
                 </table> 
-             </div>
+            </div>
+            <!-- ./Panel body -->
+            <div class="panel-footer">
+                <a href="/usuarios/usuarioNuevoAdmin" class="btn btn-default pull-right">
+                    <i class = "fa  fa-arrow-up"></i>
+                    Nuevo Usuario
+                </a>
+                <br><br>
+            </div>
         </div>
 
 </body>

@@ -1,6 +1,3 @@
-<%@ page import="estats.AutoridadModulos" %>
-<%@ page import="security.User" %>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,8 +14,9 @@
             <div class="col-lg-12">
                 <h1 class="page-header">
                     <!-- Icono -->
+                    <i class="fa fa-arrow-up"></i>
                     <i class="fa fa-user"></i>
-                    Editar Usuario                    
+                    Nuevo Usuario                  
                 </h1>
             </div>
         </div>
@@ -27,60 +25,52 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-database"></i>
-                <label> Formulario de Usuario</label>
-                 <a href="" onclick = "resetearPassword(${usuario.id})"class = "btn btn-primary btn-xm pull-right"><i class= "fa fa-unlock"></i> Reset Password</a><br><br>
+                <label> Formulario de Nuevo Usuario</label>
             </div>
             <div class="panel-body">
                 
                 <form role="form">
                     <div class = "row">
-                       
                         <div class="col-md-4">
-                            <div class = "row">
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <label>ID</label>
-                                    <input class="form-control" value="${usuario.id}" disabled>
-                                </div>
-                            </div>
+                            <div class="form-group">
+                                <label>Roles / Permisos</label>
+                                <select class="form-control" id="role">
+                                    <option value="">
+                                        Seleccione Permiso.
+                                    </option>
+                                    <option value="ROLE_ALUMNO">
+                                        Alumno
+                                    </option>
+                                    <option value="ROLE_ADMINISTRADOR">
+                                        Administrador
+                                    </option>
+                                </select> 
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        %{-- sacamos la partede usuario activo --}%
+                        %{-- <div class="col-md-2">
                             <div class="form-group">     
                                 <label>Estado</label>
                                 <div class="checkbox">
                                     <label>
-                                        <g:if test="${usuario.enabled == true}">
-                                            <input id = "enabled" type="checkbox" checked>Usuario Activo
-                                        </g:if>
-                                        <g:else>
-                                            <input id = "enabled" type="checkbox">Usuario Activo
-                                        </g:else>
+                                        <input id = "enabled" type="checkbox" checked>Usuario Activo
                                     </label>
                                 </div>            
                             </div>
-                        </div>
-                    </div>
-                    <div class = "row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Roles / Permisos</label>
-                                <input class="form-control" value="${usuario.getAuthorities()}" disabled>
-                            </div>
-                        </div>
+                        </div> --}%
                     </div>
                     <div class = "row">
                         
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Username</label>
-                                <input class="form-control" id="username" value="${usuario.username}">
+                                <input class="form-control" id="username" placeholder = "Username" value="">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Email</label>
-                                <input class="form-control" id="email" value="${usuario.email}">
+                                <input class="form-control" id="email" placeholder = "e-mail" value="">
                             </div>
                         </div>
                         <div class="col-md-1">
@@ -93,61 +83,53 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Nombre</label>
-                                <input class="form-control" id="nombre" value="${usuario.nombre}">
+                                <input class="form-control" id="nombre" placeholder = "Nombre" value="">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Apellido</label>
-                                <input class="form-control" id="apellido" value="${usuario.apellido}">
+                                <input class="form-control" id="apellido" placeholder = "Apellido" value="">
                             </div>
                         </div>
                         <div class="col-md-1">
                         </div>
                     </div>                    
                 </form>
-                                
+                %{-- Aca se va a mostrar el mensaje de error --}%
+                <div id="mensaje"></div>
             </div>
             <!-- ./panel body -->
             <div class="panel-footer">
-                <a href="#!" class="btn btn-primary pull-right" onclick="guardar(${usuario.id})"><i class="fa fa-save"></i> Guardar</a>
+                <a href="#!" class="btn btn-primary pull-right" onclick="guardar()"><i class="fa fa-save"></i> Guardar</a>
                 <a href="/usuarios" class="btn btn-warning pull-right" onclick=""><i class="fa fa-arrow-left"></i> Cancelar</a>
                 <br><br>
             </div>
         </div>
 
         <g:javascript>
-            // Ejecutamos la funcion guardar
-            function guardar(id){
-                // Lanzamos un post para guardar la movida
+             // Ejecutamos la funcion guardar
+            function guardar(){
                 
-                $.post( "/usuarios/saveEdited", 
+                alert($( "#role" ).val())
+                
+                $.post( "/usuarios/usuarioNuevoAdminGuardar", 
                     {
-                          id: id
-                        , nombre:  $( "#nombre" ).val()
+                          nombre:  $( "#nombre" ).val()
                         , apellido: $( "#apellido" ).val()
                         , username: $( "#username" ).val()
                         , email: $( "#email" ).val()
-                        , enabled: $( "#enabled" ).prop( "checked" )
+                        , role: $( "#role" ).val()
                     }
                 )
                 .done(function( data ) {
-                    alert("usuario guardado");
-                });  
+                    $("#mensaje").append("<div class='alert alert-"+data.claseAlerta+"'><p>"+data.mensaje+"</p></div>").hide().show('fast')
+                })  
 
 
             }
 
-            function resetearPassword(id){
-                $.post( "/gestionCuentas/resetearPassword", 
-                    {
-                        id: id
-                    }
-                )
-                .done(function( data ) {
-                    alert("Se ha reseteado la contraseña. Se enviara un mail al usuario");
-                });   
-            }
         </g:javascript>
+
 </body>
 </html>

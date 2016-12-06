@@ -40,7 +40,8 @@ class GestionCuentasController {
 
 	    render(contentType: 'text/json') {[
               result: true
-            , mensaje: "Usted se ha registrado satisfactoriament.<br>La cuenta esta momentaneamente bloqueada.<br>Se ha enviado un e-mail a ${u.email}."
+            , mensaje: "El usuario se ha registrado satisfactoriamente.<br>La cuenta esta momentaneamente bloqueada.<br>Se ha enviado un e-mail a ${u.email}."
+            , claseAlerta: "success"
         ]}
 
     }
