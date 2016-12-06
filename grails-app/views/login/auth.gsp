@@ -52,7 +52,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><asset:image width="170" src="logos/logo.png" alt="Grails"/></h3>
+                        <h3 class="panel-title"><a href="/"><asset:image width="170" src="logos/logo.png" alt="Grails"/></a></h3>
                     </div>
                     <div class="panel-body">
                         <form role="form">
@@ -66,7 +66,7 @@
                                     <input class="form-control" placeholder="Password" name="password" id = "password" type="password" value="">
                                 </div>
                                 <div class="form-group">
-                                    <a href="" >Olvide mi contraseña</a>
+                                    <a href="/usuarios/recuperar" >Olvide mi contraseña</a>
                                     <a href="/usuarios/newUser"class="pull-right">Nuevo Usuario</a><br>
                                 </div>
                                 <a href="#!" class="btn btn-lg btn-success btn-block" onclick="login()">Iniciar Sesion</a>

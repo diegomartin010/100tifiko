@@ -12,6 +12,10 @@ class UsuariosController {
         render(view:"/usuarios/usuarioNuevo")
     }
 
+    def recuperar(){
+        render(view:"/usuarios/usuariosRecuperarContrasenia")
+    }
+
     def saveNewUser(){
         try {
             def codigo = SessionManager.getCodigoActivacion() 
@@ -62,4 +66,30 @@ class UsuariosController {
 		render("hola")
 
     }
+
+    // Resetear el password del usuario, pasando como parametro el email.
+    def resetearPassword(){
+        def username = params.username
+        
+        try {
+            def u = User.findByUsername(username)   
+            // Ejecutamos el controlador que reinicia la contraseña de usuario y manda el mail.
+            redirect(
+                  controller: "gestionCuentas"
+                , action: "resetearPassword"
+                , params: [
+                      id : u.id
+                ]
+            )
+        }
+        catch(Exception e) {
+            
+            render(contentType: 'text/json') {[
+                  result: false
+                , mensaje: "ERROR!. No se ha podido resetear la contraseña. Verifique que el email ingresado, es correcto."
+            ]}  
+
+        }
+    }
+
 }

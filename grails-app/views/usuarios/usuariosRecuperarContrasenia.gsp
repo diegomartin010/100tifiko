@@ -45,7 +45,7 @@
                     <!-- Icono -->
                     %{-- <i class="fa fa-user"></i> --}%
                     <a href="/">
-                    <asset:image width="170" src="logos/logo.png" alt="Grails"/>          
+                        <asset:image width="170" src="logos/logo.png" alt="Grails"/>          
                     </a
                 </h1>
             </div>
@@ -54,7 +54,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-database"></i>
-                <label> Formulario de Nuevo Usuario</label>
+                <label> Recuperar Contraseña</label>
             </div>
             <div class="panel-body">
                 
@@ -62,91 +62,47 @@
                    
                     <div class = "row">
                         
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input class="form-control" id="username" value="">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input class="form-control" id="email" value="">
-                            </div>
-                        </div>
-                        <div class="col-md-1">
-                        </div>
-                    </div>
+                        <div class="col-md-12">
+                            <p>Para iniciar la recuperacion de su contraseña, escriba su nombre de usuario con el que se ha registrado en el sistema.</p>
+                            <p><b>Consideracion:</b> Si usted ha olvidado su nombre de usuario, va a tener que contactarse con un administrador para que reinicie su contraseña.</p>
 
-
-                    <div class = "row">
+                        </div>
                         
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Nombre</label>
-                                <input class="form-control" id="nombre" value="">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Apellido</label>
-                                <input class="form-control" id="apellido" value="">
-                            </div>
-                        </div>
-                        <div class="col-md-1">
-                        </div>
-                    </div>        
+                    </div>
                     <div class = "row">
-                        <div class="col-md-4">
+                           <div class="col-md-4">       
                             <div class="form-group">
-                                <label>Password</label>
-                                <input class="form-control" id="password" value="">
+                                <input class="form-control" id="username" placeholder="Username" value="">
                             </div>
-                       
-                            <div class="form-group">
-                                <label>Repetir Password</label>
-                                <input class="form-control" id="rePassword" value="">
                             </div>
-                        </div>
-                        <div class="col-md-1">
-                        </div>
-                    </div>                         
+                     </div> 
+                        
+                    
+                           
                 </form>
                 <div id="mensaje"></div>              
             </div>
             <!-- ./panel body -->
             <div class="panel-footer">
                 <a href="/" class="btn btn-info" onclick=""><i class="fa fa-arrow-left "></i> Volver a Login</a>
-                <a href="#!" class="btn btn-success pull-right" onclick="guardar()"><i class="fa fa-save"></i> Registrarse</a>
+                <a href="#!" class="btn btn-warning pull-right" onclick="recuperar()"><i class="fa fa-unlock"></i> Recuperar</a>
                 <br><br>
             </div>
         </div>
 
         <g:javascript>
             // Ejecutamos la funcion guardar
-            function guardar(){
-                // Lanzamos un post para guardar la movida
-                
-                if( $( "#password" ).val() ==  $( "#rePassword" ).val() ){
-                    
-                    $.post( "/usuarios/saveNewUser", 
-                        {
-                              nombre:  $( "#nombre" ).val()
-                            , apellido: $( "#apellido" ).val()
-                            , username: $( "#username" ).val()
-                            , email: $( "#email" ).val()
-                            , password: $( "#password" ).val()
-                        }
-                    )
-                    .done(function( data ) {
-                        $("#mensaje").append("<div class='alert alert-danger'><p>"+data.mensaje+"</p></div>").hide().show('fast')
-                    });  
-
-               
-
-                }else{
-                    alert("Las contrseñas no coinciden")
-                }
+            function recuperar(){
+                // Lanzamos post al controlador de usuarios para reiniciar la contraseña
+                // Pasamos como parametro el email.
+                $.post( "/usuarios/resetearPassword", 
+                    {
+                        username: $( "#username" ).val()
+                    }
+                )
+                .done(function( data ) {
+                    $("#mensaje").append("<div class='alert alert-danger'><p>"+data.mensaje+"</p></div>").hide().show('fast')
+                });  
             }
            
         </g:javascript>

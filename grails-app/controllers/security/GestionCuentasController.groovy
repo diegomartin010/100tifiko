@@ -57,9 +57,9 @@ class GestionCuentasController {
     	if( (usuario.enabled == false) && (usuario.codigoActivacion==codigo) ){
     		usuario.enabled = true
     		usuario.save(flush:true)
-    		render ("Se ha activado el usuario")
+    		render (view:"/login/passwordReseted")
     	}else{
-    		render("error")
+    		render("Error en Activacion de Usuario")
     	}
 
     }
@@ -68,11 +68,15 @@ class GestionCuentasController {
     // contraseña reseteada y active la cuenta.
     def resetearPassword(){
     	
-    	// Reseteamos el usuario.
+    	// Capturamos el usuario, pasado como parametro el id.
     	def usuario = User.get(params.id)
+        // Hacemos que la contraseña sea el username
     	usuario.password = usuario.username
+        // Bloqueamos el usuario.
     	usuario.enabled = false
+        // Seteamos un codigo de activacion
     	usuario.codigoActivacion = SessionManager.getCodigoActivacion()
+        // Actualizamos el usuario.
     	usuario.save(flush:true)
    		
    		// Puede devolver localhost:8080 o 100tifiko.net:8080 ...
@@ -86,14 +90,17 @@ class GestionCuentasController {
     		, url: "${baseURL}"
     	]
 
-    	// se manda el mail
+    	// Mandamos el email.
     	sendMail {     
   			to "${usuario.email}"
   			subject "100tifiko. Reinicio de Contraseña"     
   			html g.render( template:"/mail/resetearPassword", model: [ parametros: parametros ] ) 
 		}
 
-		render("se ha enviado un mail a asd@gmail.com")
+		render(contentType: 'text/json') {[
+              result: true
+            , mensaje: "La contraseña ha sido reiniciada. Por seguridad se ha bloqueado la cuenta. Se ha enviado un mail al email del usuario."
+        ]}  
 
 
 
