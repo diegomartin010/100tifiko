@@ -28,7 +28,7 @@
             <div class="panel-heading">
                 <i class="fa fa-database"></i>
                 <label> Formulario de Usuario</label>
-                 <a href="" onclick = "resetearPassword(${usuario.id})"class = "btn btn-primary btn-xm pull-right"><i class= "fa fa-unlock"></i> Reset Password</a><br><br>
+                 <a href="" onclick = "resetearPassword(${usuario.id})"class = "btn btn-success btn-xm pull-right"><i class= "fa fa-unlock"></i> Recuperar Clave</a><br><br>
             </div>
             <div class="panel-body">
                 

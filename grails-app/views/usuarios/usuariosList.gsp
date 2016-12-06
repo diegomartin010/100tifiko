@@ -33,7 +33,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>id</th>
+                            <th>ID</th>
                             <th>Username</th>
                             <th>Nombre y Apellido</th>
                             <th>e-mail</th>
@@ -61,7 +61,7 @@
                                     </g:else>
                                 </td>
                                 <td>
-                                    ${usuario.getAuthorities()}
+                                    ${usuario.getAuthoritiesAsString()}
                                 </td>
                                 <td>
                                     <!-- Si el usuario esta bloqueado mostrar una cruz. -->
