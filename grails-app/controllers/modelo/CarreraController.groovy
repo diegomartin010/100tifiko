@@ -65,7 +65,7 @@ class CarreraController {
     }
 
 
-    def gestionCarreras(){
+    def informacionCarreras(){
         def c = Carrera.findAll()
         render(view:'/carrera/carrerasList', model:[carreras:c] )
     }

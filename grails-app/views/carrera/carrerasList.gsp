@@ -1,6 +1,6 @@
 <%@ page import="estats.AutoridadModulos" %>
 <%@ page import="security.User" %>
-<%def modulo_nombre = "gestionCarreras"%>
+<%def modulo_nombre = "informacionCarreras"%>
 <%def modulo = AutoridadModulos.getByName(modulo_nombre)%>
 <!DOCTYPE html>
 <html>
@@ -16,7 +16,7 @@
 		<!-- Titulo de la pagina  -->
 		<div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"><i class="${modulo.icono}"></i>${modulo.titulo}</h1>
+                <h1 class="page-header"><i class="${modulo.icono}"></i> ${modulo.titulo}</h1>
             </div>
         </div>
         <!-- ./row  -->
@@ -34,8 +34,6 @@
                                 <th>Codigo</th>
                                 <th>Nombre</th>
                                 <th>Cantidad de Materias</th>
-                                <th>Version</th>
-                                <th>Acciones</th>
                             </tr> 
                         </thead>
                         <tbody> 
@@ -44,15 +42,15 @@
                                 <tr>
                                     <th scope="row">${carrera.id}</th>
                                     <td>${carrera.codigo}</td>
-                                    <td>${carrera.nombre}</td>
-                                    <td>${carrera.materias.size()}</td>
-                                    <td>${carrera.version}</td>
                                     <td>
-                                        <a href="/carrera/verCarrera?id=${carrera.id}" class="btn btn-default">
-                                            <i class="fa  fa-search"></i>
-                                             Ver Carrera
+                                        <a href="/carrera/verCarrera?id=${carrera.id}">
+                                            (<i class="fa  fa-search"></i> Ver)
+                                            ${carrera.nombre}
                                         </a>
+                                        
+                                        
                                     </td>
+                                    <td>${carrera.materias.size()}</td>
                                 </tr>
                             </g:each>
                         </tbody> 

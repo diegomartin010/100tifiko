@@ -63,12 +63,12 @@
                                     </div>
                                    
                                 </div>
-                                <div class="col-md-1">
+                               <!--  <div class="col-md-1">
                                     <div class="form-group">
                                         <label>ID</label>
                                         <input class="form-control" value="${materia.id}" disabled>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </form>
                     </div>
@@ -84,7 +84,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <p>
-                            <i class="fa fa-database"></i>
+                            <i class="fa fa-share-alt"></i>
                             <label> Correlatividades:</label>
                         </p>
                     </div>

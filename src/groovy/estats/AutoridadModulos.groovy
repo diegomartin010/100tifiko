@@ -96,10 +96,10 @@ class AutoridadModulos {
 				, target:""
 			]
 			, [
-				modulo: "gestionCarreras"
-				, titulo: "Gestion de Carreras"
+				modulo: "informacionCarreras"
+				, titulo: "Informacion de Carreras"
 				, permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
-				, url: "/carrera/gestionCarreras"
+				, url: "/carrera/informacionCarreras"
 				, icono:"fa fa-university"
 				, target:""
 			]

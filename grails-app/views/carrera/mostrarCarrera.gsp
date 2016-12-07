@@ -14,11 +14,15 @@
 		<!-- Titulo de la pagina  -->
 		<div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"><i class="fa fa-th-list"></i> Carrera</h1>
+                <h1 class="page-header"><i class="fa fa-university"></i> Carrera</h1>
             </div>
         </div>
         <!-- ./row  -->
-        <a href="/carrera/gestionCarreras" class="btn btn-info"><i class = "fa fa-university"></i> Lista de Carreras</a><br><br>
+        <a href="/carrera/informacionCarreras" class="btn btn-info">
+            <i class = "fa  fa-arrow-left "></i> 
+            Lista de Carreras
+        </a>
+        <br><br>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <p>
@@ -33,14 +37,14 @@
                                 <th>ID</th>
                                 <th>Codigo</th>
                                 <th>Tipo</th>
-                                <th>[nivel] Materia</th>
-                                <th>Regularizando.<br>Habilita a cursar:<br>[nivel] Materia.</th>
-                                <th>Aprobando.<br>Habilita a cursar:<br>[nivel] Materia.</th>                            
+                                <th>Materia</th>
+                                <th>Regularizando.<br>Habilita a cursar <br>las Materias ...</th>
+                                <th>Aprobando.<br>Habilita a cursar <br>las Materias ...</th>                            
                             </tr> 
                         </thead>
                         <tbody> 
                             <!-- Listamos los usuarios en el sistema -->
-                            <g:each var="materia" in="${carrera.materias}">
+                            <g:each var="materia" in="${carrera.materias.sort{it.nivel}}">
                                 <tr>
                                     <th scope="row">${materia.id}</th>
                                     <td>${materia.codigo}</td>
