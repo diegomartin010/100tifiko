@@ -28,7 +28,7 @@
             <div class="panel-heading">
                 <i class="fa fa-database"></i>
                 <label> Formulario de Usuario</label>
-                 <a href="" onclick = "resetearPassword(${usuario.id})"class = "btn btn-success btn-xm pull-right"><i class= "fa fa-unlock"></i> Recuperar Clave</a><br><br>
+                 <a href="#!" onclick = "resetearPassword(${usuario.id})"class = "btn btn-success btn-xm pull-right"><i class= "fa fa-unlock"></i> Recuperar Clave</a><br><br>
             </div>
             <div class="panel-body">
                 
@@ -106,7 +106,8 @@
                         </div>
                     </div>                    
                 </form>
-                                
+            %{-- Aca es donde tiramos la movida --}%
+            <div id="mensaje"></div>                        
             </div>
             <!-- ./panel body -->
             <div class="panel-footer">
@@ -117,6 +118,7 @@
         </div>
 
         <g:javascript>
+            
             // Ejecutamos la funcion guardar
             function guardar(id){
                 // Lanzamos un post para guardar la movida
@@ -131,22 +133,30 @@
                         , enabled: $( "#enabled" ).prop( "checked" )
                     }
                 )
-                .done(function( data ) {
-                    alert("usuario guardado");
-                });  
+                // .done(function( data ) {
+                //     alert("usuario guardado");
+                // }); 
+                $(location).attr('href', '/usuarios') 
 
 
             }
 
+            // Funcion para resetear el password.
             function resetearPassword(id){
-                $.post( "/gestionCuentas/resetearPassword", 
-                    {
-                        id: id
-                    }
-                )
-                .done(function( data ) {
-                    alert("Se ha reseteado la contraseña. Se enviara un mail al usuario");
-                });   
+                
+                if(confirm("Reinicio de contraseña.\n---------------------------------\nSe cambiara la contraseña del usuario, y se enviara un mail al mismo para activar la cuenta.")){
+                    
+                    $.post( "/gestionCuentas/resetearPassword", 
+                        {
+                            id: id
+                        }
+                    )
+                    .done(function( data ) {
+                        alert("La contraseña ha sido reiniciada. Por seguridad se ha bloqueado la cuenta.")
+                        // $("#mensaje").append("<div class='alert alert-success'><p>"+data.mensaje+"</p></div>").hide().show('fast')
+                    });
+                }
+               
             }
         </g:javascript>
 </body>

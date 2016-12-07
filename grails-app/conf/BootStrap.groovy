@@ -35,6 +35,17 @@ class BootStrap {
 			, alumno
 		).save()
 
+		new UserRole(	
+			new User(
+				  nombre: "Antonio"
+				, apellido: "Moretti"
+				, email: "diegomartin010@gmail.com"
+				, username: "admin"
+				, password: "admin"
+			).save() 
+			, admin
+		).save()
+
 		// Se crea una carrera hardcode
 		def nuevaCarrera = new Carrera(
 		  	nombre: "Carrera BootStrap",

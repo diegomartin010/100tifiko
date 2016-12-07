@@ -2,7 +2,7 @@
 <%@ page import="modelo.Carrera" %>
 <%@ page import="modelo.Materia" %>
 <%@ page import="estats.AutoridadModulos" %>
-<%def modulo_nombre = "administrarCarreras"%>
+<%def modulo_nombre = "nuevaCarrera"%>
 <%def modulo = AutoridadModulos.getByName(modulo_nombre)%>
 <!DOCTYPE html>
 <html>

@@ -63,4 +63,16 @@ class CarreraController {
         }
 
     }
+
+
+    def gestionCarreras(){
+        def c = Carrera.findAll()
+        render(view:'/carrera/carrerasList', model:[carreras:c] )
+    }
+
+    def verCarrera(Integer id){
+        def c = Carrera.get(id)
+        render(view:'/carrera/mostrarCarrera', model:[carrera:c] )
+    }
+
 }

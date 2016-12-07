@@ -26,7 +26,7 @@ class SessionManager {
 		}else{
 			return null
 		}
-		return User.get(1)
+		// return User.get(1)
 		
 	}
 	
@@ -58,6 +58,27 @@ class SessionManager {
 		if(!result){0/0}
 		
 		return result
+	}
+
+	static def currentUserIsRole(String role){
+		def auth = getCurrentUser().getAuthorities()
+		
+		def result = false		
+		auth.each{
+			result = 
+				(it.authority.toString() == role)||result
+		}
+						
+		return result
+	}
+
+	static def getCurrentUserRoles(){
+		def auth = 
+			 getCurrentUser()
+			.getAuthorities()
+			.collect{
+				it.authority.toString()
+			}
 	}
 
 	static def setUser(User usuario){

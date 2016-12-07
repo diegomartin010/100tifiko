@@ -14,7 +14,10 @@ class ControladorPruebaController {
 
     def index() {
         
-       	render(SessionManager.getCodigoActivacion())
+       	render(SessionManager.getCurrentUserRoles().intersect([
+					"ROLE_ALUMNO"
+				]).size() > 0)
+       	// render(["hola","chau"].intersect(["chau","basicamente"]))
 
 	}
 }
