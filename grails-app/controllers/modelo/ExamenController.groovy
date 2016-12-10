@@ -1,12 +1,24 @@
 package modelo
 import estats.SessionManager
-
+/**
+*
+* Maneja todo lo relacionado a los examenes.
+*/
 class ExamenController {
-
+    /**
+    * Renderiza la vista index de examenes.
+    */
     def index() { 
     	render(view:'index')
     }
 
+    /**
+    * Elimina un examen de un usuario. Recibe como parametro
+    * el id del examen que quiero borrar.
+    * la carrera que se captura al recibir el id
+    * @url localhost:8080/carrera/verCarrera?id='1'
+    * @param id Integer debe pasarse por URL.
+    */
     def eliminarExamen(){
         def user = SessionManager.getCurrentUser()
         def paramid = params.id

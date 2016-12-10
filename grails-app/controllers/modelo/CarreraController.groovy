@@ -1,9 +1,21 @@
 package modelo
-
+/**
+* Maneja todo el tema relacionado con la creacion de carreras.
+*/
 class CarreraController {
-
+      /**
+    * Renderiza la pagina principal Actualmente no se usa.
+    */
     def index() { }
 
+
+      /**
+    * Crea una nueva carrera en el sistema. Este metodo
+    * esta hecho muy a lo negro.
+    * @url localhost:8080/agenda/nuevaCarrera
+    * @param JSON. Recibe un JSON.
+    * @see Ver /web-app/js/carrera/manejoArchivos.js
+    */
     def nuevaCarrera(){
         try {
             // Captura del json
@@ -65,11 +77,23 @@ class CarreraController {
     }
 
 
+    /**
+    * devuelve todas las carreras del sistema.
+    * Las renderiza en la vista carrerasList.gsp
+    * @url localhost:8080/carrera/infomacionCarreras
+    */
     def informacionCarreras(){
         def c = Carrera.findAll()
         render(view:'/carrera/carrerasList', model:[carreras:c] )
     }
 
+
+    /**
+    * Renderiza la vista mostrarCarrera, pasando como parametro
+    * la carrera que se captura al recibir el id
+    * @url localhost:8080/carrera/verCarrera?id='1'
+    * @param id Integer debe pasarse por URL.
+    */
     def verCarrera(Integer id){
         def c = Carrera.get(id)
         render(view:'/carrera/mostrarCarrera', model:[carrera:c] )

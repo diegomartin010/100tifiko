@@ -1,5 +1,7 @@
 package modelo
-
+ /**
+* Carrera que forma parte de un estado academico.
+*/
 class Carrera {
 	String nombre
 	String codigo
