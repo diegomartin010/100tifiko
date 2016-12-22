@@ -9,7 +9,6 @@
                 nodes: resp.nodos,
                 edges: resp.dependencias
             };
-            var options = {};
             var options = {
                  autoResize: true
                 // ,height: '100%'

@@ -9,14 +9,14 @@ class GraphManager {
 	static def configuracion(){
 		def config = [
 			colores:[
-				pendiente: "#B5B5B5",
-				permitida: "#00e2ff",
+				pendiente: "#d9534f",
+				permitida: "#5cb85c",
 				cursando: "#ffb733" ,
-				regular: "#6995e4",
-				aprobada: "#46de83",
-				finalAlerta: "#00e2ff",
+				regular: "#2e9fff",
+				aprobada: "#ddd",
+				finalAlerta: "#5cb85c",
 				// finalAlerta: "#933",
-				finalBloqueado: "#E2E1E1",
+				finalBloqueado: "#d9534f",
 				defecto: "#E2E1E1"
 			]
 			, shape:[
@@ -168,7 +168,8 @@ class GraphManager {
 					  from: it.codigo
 					, to: matSig.codigo
 					, arrows: configuracion().arrows
-					,shadow: configuracion().shadow.aristasMaterias
+					, shadow: configuracion().shadow.aristasMaterias
+					, width: 3
 				])
 			}
 			
@@ -180,6 +181,7 @@ class GraphManager {
 					, arrows: configuracion().arrows
 					,shadow: configuracion().shadow.aristasExamenes
 					, hoverWidth:0.5
+					, width: 3
 				])
 			}
 
@@ -189,6 +191,7 @@ class GraphManager {
 				, to: "${it.codigo}F"
 				, arrows: configuracion().arrows
 				, shadow: configuracion().shadow.aristasExamenes
+				, width: 3
 			])
 
 			// Eliminamos elementos repetidos
