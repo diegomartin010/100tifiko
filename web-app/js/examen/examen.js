@@ -63,7 +63,13 @@ function eliminar(idmovida){
 				    console.log("fecha en que se agrega el examen: "+$("#datepicker").val());
 		};
 $( function() {
-    $( "#datepicker" ).datepicker();
+   	
+	// Se bloquean las fechas posteriores al dia de la fecha.
+    $( "#datepicker" ).datepicker({
+    	maxDate: new Date() 
+    });
+
+
     $( "#anim" ).on( "change", function() {
     	$( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
     });

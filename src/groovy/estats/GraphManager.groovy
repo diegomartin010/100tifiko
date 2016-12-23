@@ -13,7 +13,7 @@ class GraphManager {
 				permitida: "#5cb85c",
 				cursando: "#ffb733" ,
 				regular: "#2e9fff",
-				aprobada: "#ddd",
+				aprobada: "#B5B5B5",
 				finalAlerta: "#5cb85c",
 				// finalAlerta: "#933",
 				finalBloqueado: "#d9534f",
@@ -169,7 +169,7 @@ class GraphManager {
 					, to: matSig.codigo
 					, arrows: configuracion().arrows
 					, shadow: configuracion().shadow.aristasMaterias
-					, width: 3
+					// , width: 3
 				])
 			}
 			
@@ -181,7 +181,7 @@ class GraphManager {
 					, arrows: configuracion().arrows
 					,shadow: configuracion().shadow.aristasExamenes
 					, hoverWidth:0.5
-					, width: 3
+					// , width: 3
 				])
 			}
 
@@ -191,7 +191,7 @@ class GraphManager {
 				, to: "${it.codigo}F"
 				, arrows: configuracion().arrows
 				, shadow: configuracion().shadow.aristasExamenes
-				, width: 3
+				// , width: 3
 			])
 
 			// Eliminamos elementos repetidos
