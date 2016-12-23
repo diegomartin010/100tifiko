@@ -109,8 +109,15 @@
             Referencias de colores
              <p>
                 <h4>
+                  <span class="label label-danger label-xm">No puedo cursar / No puedo Rendir</span>
+                  %{-- <span class="btn btn-danger btn-circle btn-xm"></span> No puedo rendir. --}%
 
+                  <span class="label label-success label-xm">Puedo cursar / Puedo Rendir</span>
+                  %{-- <span class="btn btn-success btn-circle btn-xm"></span> Puedo rendir. --}%
 
+                  <span class="label label-info label-xm">Regularizadas</span>
+                  <span class="label label-default label-xm">Aprobadas</span>
+                  <span class="label label-warning label-xm">Cursando</span>
                 </h4>
             </p>
             <div id="mynetwork"></div>
