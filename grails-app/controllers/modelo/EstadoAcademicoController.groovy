@@ -158,7 +158,7 @@ class EstadoAcademicoController {
                 .getCurrentUser()
                 .estadoAcademico
                 .estadoMaterias
-                .findAll{ it.estado == params.estado }
+                .findAll{ it.estado == params.estado && it.materia.knIcurse()}
                 .collect{ em->
                     [
                           id: em.materia.id
@@ -168,7 +168,8 @@ class EstadoAcademicoController {
                         , tipo : em.materia.tipo
                         , nivel : em.materia.nivel
                     ]
-                }  
+                } 
+        println(result) 
         // Renderizar el json
         render(contentType: 'text/json'){
            result 
