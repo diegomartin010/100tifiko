@@ -28,73 +28,75 @@
         body{
         	background-color: #f8f8f8
         }
-        .btn-default {
+        .label-default {
             color: white;
             background-color: #B5B5B5;
             border-color: #ccc;
         }       
-        .btn-primary {
+        .label-primary {
             color: white;
             background-color: #6995e4;
             border-color: #ccc;
-        }       
-        .btn-success {
+        }    
+        /*puedo cursar*/
+        .label-success {
             color: white;
-            background-color: #46de83;
+            background-color: #5cb85c;
             border-color: #ccc;
         }       
-        .btn-warning {
+        .label-warning {
             color: white;
             background-color:#ffb733;
             border-color: #ccc;
            
         } 
-        .btn-info {
+        /*regularizada*/
+        .label-info {
             color: white;
-            background-color:  #00e2ff;
+            background-color: #2e9fff;
             border-color: #ccc;
         } 
-        .btn-danger {
+        .label-danger {
             color: white;
-            background-color:#933;
+            background-color:#d9534f;
             border-color: #ccc;
             /*border-radius: 50%;*/
         }
         .btn-circle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.428571429;
-  border-radius: 15px;
-}
-.btn-circle-lock {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  background-color: #B5B5B5;
-  line-height: 1.428571429;
-  border-radius: 15px;
-}
-.btn-circle.btn-lg {
-  width: 50px;
-  height: 50px;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 25px;
-}
-.btn-circle.btn-xl {
-  width: 70px;
-  height: 70px;
-  padding: 10px 16px;
-  font-size: 24px;
-  line-height: 1.33;
-  border-radius: 35px;
-}
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          padding: 6px 0;
+          font-size: 12px;
+          line-height: 1.428571429;
+          border-radius: 15px;
+        }
+        .btn-circle-lock {
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          padding: 6px 0;
+          font-size: 12px;
+          background-color: #B5B5B5;
+          line-height: 1.428571429;
+          border-radius: 15px;
+        }
+        .btn-circle.btn-lg {
+          width: 50px;
+          height: 50px;
+          padding: 10px 16px;
+          font-size: 18px;
+          line-height: 1.33;
+          border-radius: 25px;
+        }
+        .btn-circle.btn-xl {
+          width: 70px;
+          height: 70px;
+          padding: 10px 16px;
+          font-size: 24px;
+          line-height: 1.33;
+          border-radius: 35px;
+        }
                  
     }
     </style>
@@ -106,16 +108,10 @@
         <div class="panel-body">
             Referencias de colores
              <p>
-                <button type="button" class="btn btn-default btn-xm">No puedo cursar</button>
-                <button type="button" class="btn btn-info btn-xm">Puedo cursar</button>
-                <button type="button" class="btn btn-primary btn-xm">Regularizadas</button>
-                <button type="button" class="btn btn-success btn-xm">Aprobadas</button>
-                <button type="button" class="btn btn-warning btn-xm">Cursando actualmente</button>
-                <button type="button" class="btn btn-info btn-circle btn-xm"></button>
-                (Final) Puedo rendir.
-                <button type="button" class="btn btn-default btn-circle-lock btn-xm"data-toggle="tooltip" title="Basicamente estos son los examenes que yo no puedo rendir, porque no cumplo con las correlatividades necesarias para poder rendirlos." ></button>
-                (Final) No puedo rendir.
-                
+                <h4>
+
+
+                </h4>
             </p>
             <div id="mynetwork"></div>
         </div>
