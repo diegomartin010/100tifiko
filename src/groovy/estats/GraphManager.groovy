@@ -181,7 +181,7 @@ class GraphManager {
 					, arrows: configuracion().arrows
 					,shadow: configuracion().shadow.aristasExamenes
 					, hoverWidth:0.5
-					// , width: 3
+					, width: 3
 				])
 			}
 
@@ -191,7 +191,7 @@ class GraphManager {
 				, to: "${it.codigo}F"
 				, arrows: configuracion().arrows
 				, shadow: configuracion().shadow.aristasExamenes
-				// , width: 3
+				, width: 3
 			])
 
 			// Eliminamos elementos repetidos
