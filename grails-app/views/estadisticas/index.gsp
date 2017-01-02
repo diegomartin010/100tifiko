@@ -1,5 +1,4 @@
-<%@ page import="estats.SessionManager" %>
-<%@ page import="estats.AutoridadModulos" %>
+<%@ page import="estats.*" %>
 <%def modulo_nombre = "estadisticas"%>
 <%def modulo = AutoridadModulos.getByName(modulo_nombre)%>
 <!DOCTYPE html>
@@ -22,46 +21,36 @@
                 <h1 class="page-header"><i class="${modulo.icono}"> </i>${modulo.titulo}</h1>
             </div>
         </div>
-					<div class="panel panel-default">
-						<div class="panel-heading">Promedio con aplazos</div>
-						<div id="1" class="panel-body"> </div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">Promedio sin aplazos</div>
-						<div id="2" class="panel-body"> 4 (hardcode)</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">Cantidad de materias aprobadas</div>
-						<div id="3" class="panel-body"> 1 (hardcode)</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">Cantidad de finales desaprobados</div>
-						<div id="4" class="panel-body"> 3 (hardcode)</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">Cantidad de materias en estado regular</div>
-						<div id="5" class="panel-body"> 3 (hardcode)</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">Cantidad de materias que cursa actualmente</div>
-						<div id="6" class="panel-body"> 5 (hardcode)</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">Cantidad de materias pendientes</div>
-						<div id="7" class="panel-body"> 35 (hardcode)</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">Tiempo que le está tomando la carrera</div>
-						<div id="8" class="panel-body"> 8 años (hardcode)</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">Porcentaje de realización de la carrera</div>
-						<div id="9" class="panel-body"> 4.5%(hardcode)</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading">Tiempo hasta próximo examen</div>
-						<div id="10" class="panel-body"> 3 dias (hardcode)</div>
-					</div>
+
+
+        	%{-- Estadisticas --}%
+        	<div class="row">
+        		<% def indicadores = EstadisticasManager.getEstadisticas() %>
+        		%{-- Indicador 1 --}%
+        		<g:each in="${indicadores}" var="indicador">
+	                <div class="col-lg-6 col-md-6">
+	                    <div class="panel panel-${indicador.color}">
+	                        <div class="panel-heading">
+	                            <div class="row">
+	                                <div class="col-xs-12">
+	                                    <div class="text-left">${indicador.descripcion}:</div>
+	                                    
+	                                    <div class="huge text-center">${indicador.valor}</div>
+	                                </div>
+	                            </div>
+	                            <div class="row">
+	                            	<div class="col-xs-12 text-center">
+	                                    <div>${indicador.unidad}</div>
+		                            </div>
+								</div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </g:each>
+                %{-- fin indicador --}%
+            </div>
+            %{-- Fin estadisticas --}%
+
 	</div>
 </body>
 </html>
