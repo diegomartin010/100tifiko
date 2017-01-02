@@ -3,6 +3,7 @@ package estats
 import modelo.*;
 import security.*;
 import estats.*;
+import groovy.time.*
 
 class EstadisticasManager {
 
@@ -13,73 +14,73 @@ class EstadisticasManager {
 
 		return([
 			[
-				descripcion: getPromedioConAplazos().descripcion
-				, valor: getPromedioConAplazos().valor
-				, unidad: getPromedioConAplazos().unidad
+				descripcion: 'Promedio Con Aplazos'
+				, valor: getPromedioConAplazos()
+				, unidad: ""
 				, color: getColor(i++)
 
 			],
 
 			[
-				descripcion: getPromedioSinAplazos().descripcion
-				, valor: getPromedioSinAplazos().valor
-				, unidad: getPromedioSinAplazos().unidad
+				descripcion: "Promedio Sin Aplazos"
+				, valor: getPromedioSinAplazos()
+				, unidad: ""
 				, color: getColor(i++)
 			],
 
 			[
-				descripcion: getCantidadMateriasAprobadas().descripcion
-				, valor: getCantidadMateriasAprobadas().valor
-				, unidad: getCantidadMateriasAprobadas().unidad
+				descripcion: "# Materias Aprobadas"
+				, valor: getCantidadMateriasAprobadas()
+				, unidad: "Materias"
 				, color: getColor(i++)
 			],
 
 			[
-				descripcion: getCantidadFinalesDesaprobados().descripcion
-				, valor: getCantidadFinalesDesaprobados().valor
-				, unidad: getCantidadFinalesDesaprobados().unidad
+				descripcion: "# Finales Desaprobados"
+				, valor: getCantidadFinalesDesaprobados()
+				, unidad: "Finales"
 				, color: getColor(i++)
 			],
 
 			[
-				descripcion: getCantidadMateriasEstadoRegular().descripcion
-				, valor: getCantidadMateriasEstadoRegular().valor
-				, unidad: getCantidadMateriasEstadoRegular().unidad
+				descripcion: "Materias Regularizadas"
+				, valor: getCantidadMateriasEstadoRegular()
+				, unidad: "Materias"
 				, color: getColor(i++)
 			],
 
 			[
-				descripcion: getCantidadMateriasCursaActualmente().descripcion
-				, valor: getCantidadMateriasCursaActualmente().valor
-				, unidad: getCantidadMateriasCursaActualmente().unidad
+				descripcion: "# Materias Cursando"
+				, valor: getCantidadMateriasCursaActualmente()
+				, unidad: "Materias"
 				, color: getColor(i++)
 			],
 
 			[
-				descripcion: getCantidadMateriasPendientes().descripcion
-				, valor: getCantidadMateriasPendientes().valor
-				, unidad: getCantidadMateriasPendientes().unidad
+				descripcion: "# Materias Pendientes"
+				, valor: getCantidadMateriasPendientes()
+				, unidad: "Materias"
 				, color: getColor(i++)
 			],
 
 			[
-				descripcion: getTiempoCarrera().descripcion
-				, valor: getTiempoCarrera().valor
-				, unidad: getTiempoCarrera().unidad
+				descripcion: "NO FUNCA Tiempo de Carrera"
+				, valor: getTiempoCarrera()
+				, unidad: "Anios"
 				, color: getColor(i++)
 			],
 
 			[
-				descripcion: getPorcentajeCarrera().descripcion
-				, valor: getPorcentajeCarrera().valor
-				, unidad: getPorcentajeCarrera().unidad
+				descripcion: "Porcentaje de Realizacion"
+				, valor: getPorcentajeCarrera()
+				, unidad: "%"
 				, color: getColor(i++)
 			],
 
 			[
-				descripcion: getTiempoProximoExamen().descripcion
-				, valor: getTiempoProximoExamen().valor
-				, unidad: getTiempoProximoExamen().unidad
+				descripcion: "NO FUNCA Tiempo Hasta Proximo Examen"
+				, valor: getTiempoProximoExamen()
+				, unidad: "Dias"
 				, color: getColor(i++)
 			]
 			
@@ -91,6 +92,14 @@ class EstadisticasManager {
 		// Paleta de colores.
 		def colores = [
 			'primary'
+			// ,'green'
+			// ,'yellow'
+			// ,'red'
+			// ,'success'
+			// ,'warning'
+			// ,'info'
+			// ,'default'
+			// ,'danger'
 		]
 		return colores[(i%colores.size())]
 	}
@@ -106,20 +115,22 @@ class EstadisticasManager {
 			prom = e.sum{it.calificacion} / e.size()
 		}		
 		
-		return([
-			descripcion: "Promedio Con Aplazos"
-			,valor: prom
-			,unidad:''
-		])
+		return prom.toDouble().round(2)
 	}
 
 	// Calcula el promedio sin aplazos
 	static def getPromedioSinAplazos(){
-		return [
-			descripcion: "Promedio Sin Aplazos"
-			,valor: 9.5
-			,unidad:''
-		]
+		
+		def u = SessionManager.getCurrentUser()
+		def e = u.estadoAcademico.examenes
+
+		def aprobados = e.findAll{it.calificacion >= 4 }
+		def prom = 0
+		if(e.size()){
+			prom = aprobados.sum{it.calificacion} / aprobados.size()
+		}		
+		
+		return prom.toDouble().round(2)
 	}
 
 	// Calcula la cantidad de materias aprobadas
@@ -130,11 +141,7 @@ class EstadisticasManager {
 
 		def cap = e.count{it.estado == "A"}
 
-		return([
-			descripcion: "# Materias Aprobadas"
-			,valor: cap
-			,unidad:'Materias'
-		])
+		return cap
 	}
 
 	// calcula la cantidad de finales desaprobados
@@ -145,12 +152,7 @@ class EstadisticasManager {
 
 		def car = e.count{it.calificacion < 4}
 
-
-		return([
-			descripcion: "# Finales Desaprobados"
-			,valor: 0
-			,unidad:'Finales'
-		])
+		return car
 	}
 
 	// Calcula la cantidad de materias en estado regular
@@ -161,11 +163,7 @@ class EstadisticasManager {
 
 		def car = e.count{it.estado == "R"}
 
-		return([
-			descripcion: "# Materias Regularizadas"
-			,valor: car
-			,unidad:'Materias'
-		])
+		return car
 	}
 
 	// calcula la cantidad de materias que esta cursando
@@ -176,47 +174,39 @@ class EstadisticasManager {
 
 		def car = e.count{it.estado == "C"}
 
-		return([
-			descripcion: "# Materias Cursando"
-			,valor: car
-			,unidad:'Materias'
-		])
+		return car
 	}
 
 	// calcula la cantidad de materias pendientes
 	static def getCantidadMateriasPendientes(){
-		return([
-			descripcion: "# Materias Pendientes"
-			,valor: 50
-			,unidad:'Materias'
-		])
+		
+		def u = SessionManager.getCurrentUser()
+		def ea = u.estadoAcademico
+		def aprob = ea.examenes.findAll{it.calificacion >= 4 }.size()
+		def totalMat = ea.carrera.materias.size()
+		
+		return (totalMat - aprob)
+
 	}
 
 	// Devuelve el tiempo que le esta tomando la carrera en anios
 	static def getTiempoCarrera(){
-		return([
-			descripcion: "Tiempo Total de Carrera"
-			,valor: 4.5
-			,unidad:'Anhos'
-		])
+		return 5
 	}
 
 	// Devuelve el porcentaje de la carrera.
 	static def getPorcentajeCarrera(){
-		return([
-			descripcion: "Porcentaje de Carrera"
-			,valor: 70
-			,unidad:'%'
-		])
+		// Se copypastea codigo a lo negro. Nada de reutilizar.
+		def u = SessionManager.getCurrentUser()
+		def ea = u.estadoAcademico
+		def aprob = ea.examenes.findAll{it.calificacion >= 4 }.size()
+		def totalMat = ea.carrera.materias.size()
+		return (aprob/totalMat*100)
 	}
 
 	// Devuelve el tiempo que tenes hasta el proximo examen
 	static def getTiempoProximoExamen(){
-		return([
-			descripcion: "Tiempo Proximo Examen"
-			,valor: 9.5
-			,unidad:'Dias'
-		])
+		return 9.5
 	}
 
 }
