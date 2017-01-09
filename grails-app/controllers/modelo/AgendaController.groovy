@@ -90,6 +90,7 @@ class AgendaController {
         user.estadoAcademico.save(flush:true)
         user.save(flush:true)
         println("cantidad de eventos desp de eliminar: "+user.estadoAcademico.eventos.size())
+        render("ok")
     }
 
 
@@ -111,13 +112,13 @@ class AgendaController {
 
         def user = SessionManager.getCurrentUser()
         // Obtenemos usuario en sesion
-        println("imprimo cantidad de eventos PRE guardado: "+user.estadoAcademico.eventos.size())
         // Le seteamos un nuevo evento a y guaramos evento
+        println(params)
         def nevento = new Evento(
-            fecha : new Date().parse("d/M/yyyy" , params.fecha),
+            fecha : new Date().parse("M/d/yyyy" , params.fecha),
             tipo : params.tipo,
             descripcion : params.descripcion
-        ).save(flush : true)
+        ).save()
         
         user.estadoAcademico.eventos.push(nevento)
         println("se procede a guardar el Evento: Título: "+params.titulo+" Fecha: "+params.fecha)
@@ -125,5 +126,86 @@ class AgendaController {
         // Guardamos usuario
         user.save(flush:true)
         println("imprimo cantidad de eventos Post guardado: "+user.estadoAcademico.eventos.size())
+
+        render("ok")
+
+    }
+
+      /**
+    * Devuelve los eventos proximos a ocurrir. Es decir
+    * todos aquellos que van a ocurrir en menos de 14 dias.
+    * @url localhost:8080/agenda/eventosProximos
+    */
+    def eventosProximos(){
+    
+        def e = 
+            SessionManager
+                .getCurrentUser()
+                .estadoAcademico
+                .eventos
+
+
+        def eventosProximos =
+        e.findAll{(
+            ((it.fecha - new Date())< 14)
+            &&
+            ((it.fecha - new Date()) > 0)
+            &&it.activo
+        )}
+
+        def eventosPasados =
+        e.findAll{(
+            ((it.fecha - new Date())< 0)
+            &&it.activo
+        )}
+
+        def examenesProximos = 
+        eventosProximos.findAll{
+            it.tipo == "E"
+        }.collect{[
+            evento: it
+            ,diasRestantes: it.fecha - new Date()
+        ]}
+
+        def examenesPasados =  
+        eventosPasados.findAll{
+            it.tipo == "E"
+        }.collect{[
+            evento: it
+            ,diasRestantes: 0
+        ]}
+
+
+        def alertasProximas =
+        eventosProximos.findAll{
+            it.tipo=="A"
+        }.collect{[
+            evento: it
+            ,diasRestantes: it.fecha - new Date()
+        ]}
+
+        // println(alertasProximas)
+        render(
+            view:'/index',
+            model:[
+                examenesProximos: examenesProximos,
+                examenesPasados: examenesPasados,
+                alertasProximas: alertasProximas
+            ]
+        )
+    
+    }
+
+    /**
+    * Cambia el estado de un evento. Si esta activo lo pasa a inactivo.
+    * si esta inactivo lo pasa a activo.
+    * @url localhost:8080/agenda/cambiarEstado.
+    */
+    def cambiarEstado(){
+        def e = Evento.get(params.id)
+        println(e)
+        if(e.activo){e.activo = false}else{e.activo = true}
+        e.save(flush:true)
+        render('ok')
     }
 }

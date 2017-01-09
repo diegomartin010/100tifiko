@@ -184,11 +184,14 @@ class EstadisticasManager {
 	// Devuelve el tiempo que le esta tomando la carrera en anios
 	static def getTiempoCarrera(){
 		// fecha hardcode.
-		Date dateFrom = Date.parse("yyyy-MM-dd", "2012-01-01")
+		// Date dateFrom = Date.parse("yyyy-MM-dd", "2012-01-01")
+		def u = SessionManager.getCurrentUser()
+		def ea = u.estadoAcademico
+		Date dateFrom = ea.fechaInicio
 		// fecha actual hardcode 2.
 		Date dateTo = new Date()
 		// Date dateTo = Date.parse("yyyy-MM-dd", "2013-01-01")
-		return ((dateTo - dateFrom)/365).toDouble().round(0)
+		return (int)((dateTo - dateFrom)/365).toDouble().round(0) +1
 	}
 
 	// Devuelve el porcentaje de la carrera.

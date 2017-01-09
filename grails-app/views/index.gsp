@@ -33,28 +33,50 @@
                 <div id="collapseOne" class="panel-collapse collapse in">
                     <!-- Body del panel -->
                     <div class="panel-body">
-                        <g:each in="${ (0..<3) }">
+                        <g:each var="examen" in="${examenesProximos}">
 	                		<div class="list-group">
                                 <a href="#" class="list-group-item">
                                     <div class="row">
                                         <div class="col-sm-10">
-                                            <i class="fa fa-exclamation-circle"></i> Final de Materia ${it} <em>(01/01/01)</em>
+                                            <i class="fa fa-exclamation-circle"></i> ${examen.evento.descripcion} <em>(${examen.evento.fecha})</em>
                                             <span class=" text-muted small">
-                                                Faltan: (3 dias)
+                                                Faltan: (${examen.diasRestantes} dias)
                                             </span>
                                             </div>
                                         <div class="col-sm-1">
-                                            <button class="btn btn-default btn-xm pull-right" onclick="location.href='/examen'">
-                                                Calificacion
-                                            </button>
+                                           
                                         </div>
                                         <div class="col-sm-1">
-                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
+                                            <button type="button" onclick='cambiarEstado(${examen.evento.id})' class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
                                         </div>
                                     </div>  
                                 </a>
                             </div>
 	            		</g:each>
+
+                        %{-- Examenes pasados. --}%
+                        <g:each var="examenPasado" in="${examenesPasados}">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-danger">
+                                    <div class="row">
+                                        <div class="col-sm-10">
+                                            <i class="fa fa-exclamation-circle"></i> ${examenPasado.evento.descripcion}
+                                            <span class=" text-muted small">
+                                                -- Rendido el Dia: (${examenPasado.evento.fecha}))
+                                            </span>
+                                            </div>
+                                        <div class="col-sm-1">
+                                            <button class="btn btn-primary btn-xm pull-right" onclick="location.href='/examen'">
+                                               Calificacion
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <button type="button" onclick='cambiarEstado(${examenPasado.evento.id})' class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
+                                        </div>
+                                    </div>  
+                                </a>
+                            </div>
+                        </g:each>
 	            		<button class="btn btn-default">Ver Todos</button>
 	            		<!-- <a href="/examen" class="btn btn-default pull-right">Cargar Examen</a> -->
                     </div><!-- ./panel body -->
@@ -74,18 +96,18 @@
                 <div id="collapseTwo" class="panel-collapse collapse in">
                     <!-- Vamos con el body -->
                     <div class="panel-body">
-                       <g:each in="${ (0..<3) }">
+                       <g:each var="alerta" in="${alertasProximas}">
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
                                     <div class="row">
                                         <div class="col-sm-11">
-                                            <i class="fa fa fa-calendar"></i> Notificacion ${it} <em>( 01/01/01 )</em>
+                                            <i class="fa fa fa-calendar"></i> ${alerta.evento.descripcion} <em>(${alerta.evento.fecha})
                                             <span class=" text-muted small">
-                                                Faltan: (${it} dias)
+                                                Faltan: (${alerta.diasRestantes} dias)
                                             </span>
                                         </div>
                                         <div class="col-sm-1">
-                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
+                                            <button type="button" onclick='cambiarEstado(${alerta.evento.id})' class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
                                         </div>
                                     </div>  
                                 </a>
@@ -97,7 +119,17 @@
          	</div><!-- ./panel default -->
         </div><!-- ./panel group acordion -->
                                 
-                           
+<g:javascript>
+    function cambiarEstado(id){
+        
+        $.post( "/agenda/cambiarEstado", {
+            id: id
+        }).done(function() {
+            location.reload()
+        })
+
+    }
+</g:javascript>                          
 
 
 </body>

@@ -1,5 +1,4 @@
-<%@ page import="estats.SessionManager" %>
-<%@ page import="estats.AutoridadModulos" %>
+<%@ page import="estats.*" %>
 <%def modulo_nombre = "simulacion"%>
 <%def modulo = AutoridadModulos.getByName(modulo_nombre)%>
 <!DOCTYPE html>
@@ -36,22 +35,26 @@
            <br><br>
         </div>
 		<div class="panel-body">
-		
+
 			<!-- Agregar eventos -->
 			<div class="row">	
-				<div class="col-md-2">	
+				<div class="col-md-2">
+					<label>Fecha</label>	
 					<input type="text" id="fecha-new" class="form-control" name="fecha" placeholder="Fecha">	
 				</div>
 				<div class="col-md-4">	
+					<label>Descripcion</label>
 					<input type="text" id="descripcion-new" class="form-control" name="descripcion" placeholder="Descripcion del evento">	
 				</div>
 				<div class="col-md-2">	
+					<label>Tipo</label>
 					<select class = "form-control" id ="tipo-new" >
-						<option>Examen</option>
-						<option>Alarma</option>
+						<option value = "E">Examen</option>
+						<option value = "A">Alarma</option>
 					</select>
 				</div>
 				<div class="col-md-1">	
+					<br>
 					<input type="submit" id = "agregar" onclick="nuevoEvento()" class="btn btn-xs btn-success pull-right" value="Agregar">
 				</div>
 				<br><br>
@@ -61,24 +64,29 @@
 
 
 			<!-- Eliminar eventos  -->
-			<div class="row cargar" id="cargados" hidden>	
-				<div class="col-md-2">	
-					<input type="text" id="fecha-load" class="form-control date" name="fecha-load" placeholder="Fecha" disabled/>	
-					<div id="put"></div>
-				</div>
-				<div class="col-md-4">	
-					<input type="text" id="descripcion-load" class="form-control" name="descripcion-load" placeholder="Descripcion del evento"disabled>	
-					<div id="put"></div>
-				</div>
-				<div class="col-md-2">	
-					<input type="text" id="tipo-load" class="form-control" name="tipo-load" placeholder="Tipo"disabled>	
-					<div id="put"></div>
-				</div>
-				<div class="col-md-1">	
-					<input type="submit" class="btn btn-xs btn-danger pull-right" id="eliminar-load" value="Eliminar">
-					<div id="put"></div>
-				</div>
-				<br><br>
+			<% def eventos = SessionManager.getCurrentUser().estadoAcademico.eventos %>
+			<div class="row cargar" id="cargados">	
+				<g:each var="evento" in="${eventos}">
+					<div class="col-md-2">	
+						<input type="text" id="fecha-load" class="form-control date" name="fecha-load" placeholder="${evento.fecha}" disabled/>	
+						<div id="put"></div>
+					</div>
+					<div class="col-md-4">	
+						<input type="text" id="descripcion-load" class="form-control" name="descripcion-load" placeholder="${evento.descripcion}"disabled>	
+						<div id="put"></div>
+					</div>
+					<div class="col-md-2">	
+						<input type="text" id="tipo-load" class="form-control" name="tipo-load" placeholder="${evento.tipo}"disabled>	
+						<div id="put"></div>
+					</div>
+					<div class="col-md-1">	
+						%{-- <input type="submit" class="btn btn-xs btn-danger pull-right" id="eliminar-load" name="tipo-load" value="Eliminar"> --}%
+						<button class="btn btn-xs btn-danger pull-right" id="eliminar-load" onclick="eliminarEvento(${evento.id})">
+							Eliminar
+						</button>
+					</div>
+					<br><br>
+				</g:each>
 			</div><!-- / id cargados -->
 
 
@@ -86,20 +94,45 @@
 		</div><!-- /panel body -->
 		
 		<div class="panel-footer">
-			<a href="#" class="btn btn-primary pull-right" onclick="guardarEventos()">Agendar Eventos</a>
 			<br><br>
 		</div>
 	</div><!-- /panel panel-default-->
                 	
 	
 
-
-
 <!-- Javascript -->
 <g:javascript src="jquery/jquery-ui.js"/>
 <g:javascript src="jquery/jquery-ui.css"/>
-<g:javascript src="simulacion/grafos.js" />
-<g:javascript src="simulacion/cargarEventos.js" />
-<g:javascript src="simulacion/nuevosEventos.js" />
+
+<g:javascript>
+	// Setear datepicker
+	$( "#fecha-new" ).datepicker();
+	
+	function nuevoEvento(){
+		$.post( "/agenda/guardarEventoSimulacion", {
+	    
+	          fecha: $('#fecha-new').val()
+	        , tipo: $('#tipo-new').val()
+	        , descripcion: $('#descripcion-new').val()
+    	
+    	}).done(function(){ location.reload() })
+
+		
+
+	}	
+
+	function eliminarEvento(id){
+		
+		$.post( "/agenda/eliminarEvento", {
+	          id: id
+    	}).done(function() {
+    		location.reload()
+  		})
+
+		
+
+	}	
+
+</g:javascript>
 </body>
 </html>

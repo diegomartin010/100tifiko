@@ -6,7 +6,8 @@ class SessionController {
     def index() { 
     	def s = SessionManager.getCurrentUser()
     	if(s){
-    		render(view:"/index")
+    		// render(view:"/index")
+            redirect(uri: "/agenda/eventosProximos")
     	}
     	else{
     		render(view:"/login/auth")

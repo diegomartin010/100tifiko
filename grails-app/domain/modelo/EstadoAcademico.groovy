@@ -8,6 +8,7 @@ class EstadoAcademico {
 	List examenes = []
 	List estadoMaterias = []
 	List eventos = []
+    Date fechaInicio = new Date()
 	
 	static hasMany = [
 		examenes: Examen,
