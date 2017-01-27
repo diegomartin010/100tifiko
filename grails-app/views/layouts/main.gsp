@@ -168,9 +168,9 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <%def u = SessionManager.getCurrentUser()%>
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i>${u.nombre} ${u.apellido}</a>
+                        <li><a href="/usuarios/modificarDatos"><i class="fa fa-user fa-fw"></i>${u.nombre} ${u.apellido}</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="/usuarios/modificarDatos"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="/session/destroySession"><i class="fa fa-sign-out fa-fw"></i> Logout</a>

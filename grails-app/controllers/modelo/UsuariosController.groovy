@@ -33,7 +33,7 @@ class UsuariosController {
             new UserRole(   
                 nu ,
                 Role.findByAuthority('ROLE_ALUMNO')
-            ).save()
+            ).save(flush:true)
 
             redirect(controller: "gestionCuentas", action: "activarUsuarioMail", params: [usuarioId : nu.id , codigoActivacion: codigo])
 
@@ -141,6 +141,29 @@ class UsuariosController {
             ]}  
 
         }
+    }
+
+
+    // Modificar datos propios del usuario.
+    def modificarDatos(){
+        def u = SessionManager.getCurrentUser()
+        render( 
+            view: '/usuarios/usuariosModificarDatos',
+            model: [ currentUser: u ] 
+        )
+    }
+
+    def guardarDatosUsuario(){
+        
+        def u = SessionManager.getCurrentUser()
+        u.username = params.username
+        u.nombre = params.nombre
+        u.apellido = params.apellido
+        u.email = params.email
+        u.password = params.password
+
+        u.save(flush:true)  
+
     }
 
 }
