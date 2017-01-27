@@ -100,12 +100,12 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Password</label>
-                                <input class="form-control" id="password" value="">
+                                <input class="form-control" type='password' id="password" value="">
                             </div>
                        
                             <div class="form-group">
                                 <label>Repetir Password</label>
-                                <input class="form-control" id="rePassword" value="">
+                                <input class="form-control" type='password' id="rePassword" value="">
                             </div>
                         </div>
                         <div class="col-md-1">
