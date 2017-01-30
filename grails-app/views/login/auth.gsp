@@ -91,6 +91,16 @@
     <script src="../dist/js/sb-admin-2.js"></script>
 
     <g:javascript>
+
+        // Logearse automaticamente cuando apretamos enter.
+        $(document).keypress(
+            function(e) {
+                if(e.which == 13) {
+                    login()
+                }
+            }
+        );
+
         function login(){
             // Codigo para logearme
             $.post( "/session/setSession", 
@@ -105,7 +115,6 @@
                         if(!data.enabled){
                             alert("El usuario con el que intenta acceder, se encuentra bloqueado.\n--------------------------------------------------------------------\n\nUsted debera contactarse con el administrador de la aplicacion.\n\nDisculpe las molestias.");  
                         }else{
-                            alert("Usted se ha logeado satisfactoriamente.");
                             window.location.href = "/";    
                         }
                         

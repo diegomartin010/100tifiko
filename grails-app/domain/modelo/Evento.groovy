@@ -9,7 +9,7 @@ class Evento {
 
     static constraints = {
     	fecha nullable:true
-    	// E: Examen. N: Notificacion.
+    	// E: Examen. A: Alerta.
 		tipo nullable:true, inList: ["E","A"]
 		descripcion nullable:true
     }

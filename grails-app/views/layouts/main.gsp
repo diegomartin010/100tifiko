@@ -74,7 +74,7 @@
 
             <ul class="nav navbar-top-links navbar-right">
 
-                <!-- /.dropdown -->
+                
                 <!-- La parte de las notificaciones -->
                 <%   
                     def eventos = null   
@@ -103,31 +103,13 @@
                     }
                 %>
                 <li class="dropdown">
+                    
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <g:each in="${eventos}">
-                                <li>
-                                    <a href="#">
-                                        <div>
-                                            <i class="fa fa-tasks fa-fw"></i>(${it.tipo}) ${it.descripcion}
-                                            <span class="pull-right text-muted small">
-                                                Fecha: <g:formatDate format="dd-MM-yy" date="${it.fecha}"/>
-                                            </span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                        </g:each>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
+                    
+                    
+                    %{-- Notificaciones. Dropdown esquina superior Derecha --}%
                     <ul class="dropdown-menu dropdown-messages">
                             <li>
                                 <p class="text-center">
@@ -136,7 +118,8 @@
                                 </p>
                             </li>
                             <li class="divider"></li>
-                        <g:each in="${eventos}">
+                            %{-- Mostramos todos los eventos --}%
+                            <g:each in="${eventos}">
                             <li>
                                 <a href="#">
                                     <div>
@@ -149,7 +132,7 @@
                                 </a>
                             </li>
                             <li class="divider"></li>
-                        </g:each> 
+                            </g:each> 
                             <li>
                                 <a class="text-center" href="#">
                                     <strong>Ver todas</strong>
@@ -157,11 +140,11 @@
                                 </a>
                             </li>
                     </ul>
-                    <!-- /.dropdown-messages -->
+                    %{-- ./barra dropdown --}%
                 </li>
                 <!-- Fin notificaciones -->
 
-                <!-- /.dropdown -->
+                %{-- Dropdown de datos del usuario. Esquina superior derecha --}%
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
