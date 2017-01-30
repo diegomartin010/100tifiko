@@ -1,5 +1,6 @@
 package modelo
 
+import grails.test.GrailsUnitTestCase
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
@@ -15,6 +16,19 @@ class AgendaControllerSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void testIndex() {
+        assert view == "/agenda"
+        assert model.title == "ad"
     }
 }
+
+/*
+@TestFor(SimpleController)
+class SimpleControllerTests  {
+    void testIndex() {
+        controller.home()
+
+        assert view == "/simple/homePage"
+        assert model.title == "Hello World"
+    }
+} */
