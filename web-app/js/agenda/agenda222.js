@@ -1,13 +1,17 @@
 //js Usado en "/views/agenda/index.gsp"
 
 $(document).ready(function() {
+	//$('#myModal').modal('show');
 	var myCalendar = $('#calendar');
 	$('#calendar').fullCalendar({
 	    dayClick: function(date, jsEvent, view) {
 			myCalendar.fullCalendar();
+			//ejecuto la modal
+			//var lacomitiva = fechaDecente(date);
+			saracho(date, jsEvent, view);
+			//$('#myModal').modal('show'); 
 			//console.log("este es el formato fecha del FullCalendar: "+date);
-			var uid =  Math.floor(Math.random() *10000000);
-			var eventname = prompt("Ingrese el nombre del evento a añadir", "");
+		/*	var uid =  Math.floor(Math.random() *10000000);
 			var myEvent = {
 				id: uid,
 				title: eventname,
@@ -21,7 +25,7 @@ $(document).ready(function() {
 			//console.log("fecha UNIX INGRESO: "+date);
 			fecha = timeConverter(date);
 			//console.log("fecha: "+fecha);
-			guardarevento(myEvent, fecha);
+			guardarevento(myEvent, fecha); */
 		},
 		//Clickeando eventos se los elimina
 		eventClick: function(calEvent, jsEvent, view) {
@@ -55,6 +59,34 @@ $(document).ready(function(){
     });
 });
 */
+//con esto lanzo la modal
+function saracho(fecha, jsEvent, view){
+	jQuery.noConflict();
+	$('#myModal').modal('show');
+	var vhorno = timeConverter(fecha);
+	$("#idfecha").val(vhorno);
+}
+//con esta función lanzo desde el modal "guardar evento"
+function saracho2(){
+	
+	var auxfecha = $("#idfecha").val();
+	var unixtime = Date.parse(auxfecha).getTime();
+
+	var uid =  Math.floor(Math.random() *10000000);
+	var myEvent = {
+		id: uid,
+		title: $("#nombre").val(), 
+		allDay: true,
+		start: unixtime,
+		end: unixtime
+	};
+
+	//myCalendar.fullCalendar('renderEvent', myEvent);
+	//fecha = vhorno;
+	guardarevento(myEvent, auxfecha);
+	location.href = "/agenda"
+
+}
 //guardo el evento en la DB
 function guardarevento(myEvent, fecha){
 	console.log("Enviando EVENTO mediante POST:");
@@ -98,10 +130,6 @@ function cargarEventos(){
 		$.each(data, function(index, evento){
 			fechadecente = fechaDecente(evento.fecha);
 			var unixtime = Date.parse(fechadecente).getTime();
-			//console.log("intento cargar un evento con fecha input: "+evento.fecha);
-			//console.log("intento cargar un evento con fechadecente: "+fechadecente);
-			//console.log("fecha UNIX CARGA: "+unixtime);
-			//console.log("intento cargar un evento con titulo: "+evento.descripcion);
 			var myEvent = {
 				//id: uid,
 				title: evento.descripcion,
