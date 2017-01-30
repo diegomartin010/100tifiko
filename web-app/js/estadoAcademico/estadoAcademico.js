@@ -6,7 +6,6 @@
 $(document).ready(function() {
 
 
-
 self.getMaterias()
 self.inicializarEventos()           
 
@@ -60,7 +59,8 @@ function inicializarEventos(){
 
     // Asociar una nueva carrera.
 
-    $( "#asociar-carrera" ).click(function() {
+    $( "#asociar-carrera" ).click(function(e) {
+        e.preventDefault();
         console.log( "Elegiste:"+ $( "#legajo" ).val() + " " +$( "#carrera option:selected" ).val()  );
 
         $.post("/estadoAcademico/crear",{
