@@ -67,7 +67,8 @@ class AgendaController {
         result = user.estadoAcademico.eventos.findAll().collect{ev->
             [   fecha : ev.fecha,
                 tipo : ev.tipo,
-                descripcion : ev.descripcion
+                descripcion : ev.descripcion,
+                id:ev.id
             ]
         }
         render(contentType: 'text/json'){

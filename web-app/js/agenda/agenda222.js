@@ -29,8 +29,17 @@ $(document).ready(function() {
 		},
 		//Clickeando eventos se los elimina
 		eventClick: function(calEvent, jsEvent, view) {
-     		myCalendar.fullCalendar('removeEvents',[calEvent._id]);
-     		eliminarEvento(calEvent.id);
+			console.log("eventClick linea 31");
+			console.log(calEvent.id);
+			jQuery.noConflict();
+			$('#modalModif').modal('show');
+
+			$("#params3").val(calEvent.id);
+			
+
+			//elimino eventos del calendario y DB	
+     		//myCalendar.fullCalendar('removeEvents',[calEvent._id]);
+     		//eliminarEvento(calEvent.id);
         }
    		
    	});
@@ -68,7 +77,7 @@ function saracho(fecha, jsEvent, view){
 }
 //con esta función lanzo desde el modal "guardar evento"
 function saracho2(){
-	
+
 	var auxfecha = $("#idfecha").val();
 	var unixtime = Date.parse(auxfecha).getTime();
 
@@ -85,8 +94,52 @@ function saracho2(){
 	//fecha = vhorno;
 	guardarevento(myEvent, auxfecha);
 	location.href = "/agenda"
+};
+//esta función modifica, eliminando un evento y creando otro
+//por ahora no anda xq no puedo capturar el id del evento p/ eliminarlo
+function saracho3(){
+	//eliminarEvento(idEvento);
+	//básicamente acá se ejecuta saracho2
+	var auxfecha = $("#datepicker2").val();
+	console.log("fecha datepicker");
+	console.log(auxfecha);
+	/*var unixt = Date.parse(auxfecha).getTime();
+	console.log("fecha unixt");
+	console.log(unixt);
+	var fechadecente = timeConverter(unixt);
+	console.log("fecha decente");
+	console.log(fechadecente);
+	var fechabien = cambiarMesPorDia(fechadecente);
+	console.log("fecha bien");
+	console.log(fechabien);
+	var unixtime = Date.parse(fechabien).getTime();
+	console.log("fecha unixtime");
+	console.log(unixtime);*/
+	var fechabien = cambiarMesPorDia(auxfecha);
+	console.log("fecha bien");
+	console.log(fechabien);
+	var unixtime = Date.parse(fechabien).getTime();
+	console.log("fecha unixtime");
+	console.log(unixtime);
+	var uid =  Math.floor(Math.random() *10000000);
+	var myEvent = {
+		id: uid,
+		title: $("#nombre2").val(), 
+		allDay: true,
+		//posiblemente haya que cambiar y poner esta fecha en unix
+		start: unixtime,
+		end: unixtime
+	};
 
-}
+	//myCalendar.fullCalendar('renderEvent', myEvent);
+	//fecha = vhorno;
+	guardarevento(myEvent, fechabien);
+	location.href = "/agenda"
+};
+
+function saracho4(){
+	console.log("patan.mp3");
+};
 //guardo el evento en la DB
 function guardarevento(myEvent, fecha){
 	console.log("Enviando EVENTO mediante POST:");
@@ -94,6 +147,7 @@ function guardarevento(myEvent, fecha){
 	var t = myEvent.title;
 	var f = myEvent.start.toString();
 	console.log(myEvent);
+	myCalendar.fullCalendar('renderEvent', myEvent);
 	$.post("agenda/guardarEvento",{
 		//id : i,
 		titulo : t,
@@ -123,6 +177,15 @@ function fechaDecente(tiempo){
 	return time;
 }
 
+function cambiarMesPorDia(tiempo){
+	var a = new Date(tiempo);
+	var month = tiempo.slice(3,5);
+	var year = tiempo.slice(6,10);
+	var date = tiempo.slice(0,2);
+	var time = date + "/" + month + "/" + year;
+	return time;
+}
+
 //cargo eventos desde la DB a la agenda - FullCalendar
 function cargarEventos(){
 	var myCalendar = $('#calendar');
@@ -131,7 +194,7 @@ function cargarEventos(){
 			fechadecente = fechaDecente(evento.fecha);
 			var unixtime = Date.parse(fechadecente).getTime();
 			var myEvent = {
-				//id: uid,
+				id: evento.id,
 				title: evento.descripcion,
 				allDay: true,
 				start: unixtime,
@@ -148,4 +211,19 @@ function eliminarEvento(idEvento){
 	$.post("agenda/eliminarEvento",{
 		id : idEvento
 	});
+
+	location.href = "/agenda"
 }
+
+
+
+
+
+//esto es para el datepicker
+$( function() {
+	$( "#datepicker2" ).datepicker({
+    });
+    $( "#anim" ).on( "change", function() {
+    	$( "#datepicker2" ).datepicker( "option", "showAnim", $( this ).val() );
+    });
+ });

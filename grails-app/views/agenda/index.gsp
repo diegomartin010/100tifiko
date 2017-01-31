@@ -6,6 +6,7 @@
 <html>
 <head>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.js"></script>
+	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 
 	<link rel="stylesheet" href="js/librerias/fullcalendar/fullcalendar.css">
 	<g:javascript src="jquery/jquery.min.js"/>
@@ -41,7 +42,7 @@
 <!--MODAL MODAL MODAL MODAL -->
 
 
-<!-- Modal -->
+<!-- Modal Crear-->
 <div id="myModal" class="modal" role="dialog">
   <div class="modal-dialog">
 
@@ -59,7 +60,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="nombre">Nombre del evento:</label>
+							<label for="nombre">Clase del evento:</label>
 							<select id="idnota" class="selectpicker form-control">
 		          						<option value = "E" >Examen</option>
 							            <option value = "A" >Alerta</option>
@@ -78,6 +79,57 @@
 
   </div>
 </div>
+
+<!-- Modal Modificar o Eliminar-->
+<div id="modalModif" class="modal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modificar evento seleccionado</h4>
+      </div>
+      <div class="modal-body">
+			         <form>
+			  			<div class="form-group">
+						    <label for="nombre">Nombre del evento:</label>
+						    <input type="text" class="form-control" id="nombre2">
+						</div>
+
+						<div class="form-group">
+							<label for="nombre">Clase del evento:</label>
+							<select id="idnota" class="selectpicker form-control">
+		          						<option value = "E" >Examen</option>
+							            <option value = "A" >Alerta</option>
+							</select>
+						</div>
+						<div class="form-group">
+						    <label for="fecha">Fecha:</label>
+						    <input type="date" class="form-control" id="idfecha" disabled>
+						  </div>
+						<div class="form-group">
+						    <label for="fecha">Nueva Fecha:</label>
+						    <input type="text" class="form-control" id="datepicker2" placeholder="Fecha">
+						  </div>
+					</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" onClick="saracho3()" class="btn btn-default" data-dismiss="modal">Modificar Evento</button>
+        <button type="button" onClick="saracho4()" class="btn btn-default" data-dismiss="modal">Eliminar Evento </button>
+        <input type="text" id="params3">
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Javascript -->
+
+<g:javascript src="jquery/jquery-ui.js"/>
+<g:javascript src="jquery/jquery-ui.css"/>
+<g:javascript>
+	
+</g:javascript>
 
 </body>
 </html>
