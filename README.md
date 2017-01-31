@@ -5,10 +5,10 @@
 
 ![alt tag](https://s-media-cache-ak0.pinimg.com/originals/8b/aa/00/8baa0000cf5f5533219a9364b4c39101.jpg)
 
-CodeNarc
+##CodeNarc
 
 grails compile (solo la primera vez)
 
 grails codenarc
 
-ver el archivo generado en ::  target/CodeNarcReport.html
+ver el archivo generado en :  target/CodeNarcReport.html
