@@ -70,17 +70,21 @@ $(document).ready(function(){
 */
 //con esto lanzo la modal
 function saracho(fecha, jsEvent, view){
+	var myCalendar = $('#calendar');
 	jQuery.noConflict();
 	$('#myModal').modal('show');
 	var vhorno = timeConverter(fecha);
+	console.log("fecha sin convertir:");
+	console.log(fecha);
+	console.log("fecha convertida");
+	console.log(vhorno);
 	$("#idfecha").val(vhorno);
 }
 //con esta función lanzo desde el modal "guardar evento"
 function saracho2(){
-
+	var myCalendar = $('#calendar');
 	var auxfecha = $("#idfecha").val();
-	var unixtime = Date.parse(auxfecha).getTime();
-
+	var unixtime = Date.parse(auxfecha).getTime()
 	var uid =  Math.floor(Math.random() *10000000);
 	var myEvent = {
 		id: uid,
@@ -98,6 +102,7 @@ function saracho2(){
 //esta función modifica, eliminando un evento y creando otro
 //por ahora no anda xq no puedo capturar el id del evento p/ eliminarlo
 function saracho3(){
+	var myCalendar = $('#calendar');
 	//eliminarEvento(idEvento);
 	//básicamente acá se ejecuta saracho2
 	var auxfecha = $("#datepicker2").val();
@@ -117,10 +122,11 @@ function saracho3(){
 	console.log(unixtime);*/
 	var fechabien = cambiarMesPorDia(auxfecha);
 	console.log("fecha bien");
-	console.log(fechabien);
-	var unixtime = Date.parse(fechabien).getTime();
+	alert(auxfecha);
+	alert(fechabien);
+	var unixtime = Date.parse(auxfecha).getTime();
 	console.log("fecha unixtime");
-	console.log(unixtime);
+	alert(unixtime);
 	var uid =  Math.floor(Math.random() *10000000);
 	var myEvent = {
 		id: uid,
@@ -147,7 +153,7 @@ function guardarevento(myEvent, fecha){
 	var t = myEvent.title;
 	var f = myEvent.start.toString();
 	console.log(myEvent);
-	myCalendar.fullCalendar('renderEvent', myEvent);
+	//myCalendar.fullCalendar('renderEvent', myEvent);
 	$.post("agenda/guardarEvento",{
 		//id : i,
 		titulo : t,
@@ -179,9 +185,9 @@ function fechaDecente(tiempo){
 
 function cambiarMesPorDia(tiempo){
 	var a = new Date(tiempo);
-	var month = tiempo.slice(3,5);
+	var month = tiempo.slice(0,2);
 	var year = tiempo.slice(6,10);
-	var date = tiempo.slice(0,2);
+	var date = tiempo.slice(3,5);
 	var time = date + "/" + month + "/" + year;
 	return time;
 }
