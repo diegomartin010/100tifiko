@@ -1,6 +1,5 @@
 package modelo
 import estats.SessionManager
-import security.User;
  /**
 * Controlador que se encarga de manejar la agenda
 * del usuario.
