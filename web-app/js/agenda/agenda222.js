@@ -213,9 +213,14 @@ function cargarEventos(){
 }
 
 function eliminarEvento(idEvento){
+	var idE = parseInt(idEvento);
 	var myCalendar = $('#calendar');
+	console.log(idE);
+	alert(idE);
+	//myCalendar.fullCalendar('removeEvents',[calEvent._id]);
+	//myCalendar.fullCalendar('removeEvents',[1]);
 	$.post("agenda/eliminarEvento",{
-		id : idEvento
+		id : 1
 	});
 
 	location.href = "/agenda"

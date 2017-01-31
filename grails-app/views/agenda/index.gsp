@@ -5,13 +5,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js'></script>
+	<script src="http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery-ui.custom.min.js"></script>
+	<script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
+	<!-- ojo estos 3 -->
+
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.js"></script>
 	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-
-	<link rel="stylesheet" href="js/librerias/fullcalendar/fullcalendar.css">
-	<g:javascript src="jquery/jquery.min.js"/>
+	<!-- ya está arriba
 	<g:javascript src="librerias/fullcalendar/moment.min.js"/>
+	-->
+	<g:javascript src="jquery/jquery.min.js"/>
 	<g:javascript src="librerias/fullcalendar/dist/fullcalendar.js"/>
+	<link rel="stylesheet" href="js/librerias/fullcalendar/fullcalendar.css">
 	<g:javascript src="librerias/datejs/date.js" />
 	%{-- Incluir logica javascript  --}%
 	<g:javascript src="agenda/agenda222.js" />
@@ -116,8 +122,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" onClick="saracho3()" class="btn btn-default" data-dismiss="modal">Modificar Evento</button>
-        <button type="button" onClick="saracho4()" class="btn btn-default" data-dismiss="modal">Eliminar Evento </button>
-        <input type="text" id="params3">
+        <button type="button" onClick="eliminarEvento($(params3.id))" class="btn btn-default" data-dismiss="modal">Eliminar Evento </button>
+        <input type="hidden" id="params3">
       </div>
     </div>
 
@@ -125,11 +131,8 @@
 </div>
 <!-- Javascript -->
 
-<g:javascript src="jquery/jquery-ui.js"/>
+<g:javascript src="jquery/jquery-ui.js"/> 
 <g:javascript src="jquery/jquery-ui.css"/>
-<g:javascript>
-	
-</g:javascript>
 
 </body>
 </html>
