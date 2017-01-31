@@ -103,23 +103,10 @@ function saracho2(){
 //por ahora no anda xq no puedo capturar el id del evento p/ eliminarlo
 function saracho3(){
 	var myCalendar = $('#calendar');
-	//eliminarEvento(idEvento);
-	//básicamente acá se ejecuta saracho2
+	//básicamente acá se ejecuta saracho2 , osea CREO
 	var auxfecha = $("#datepicker2").val();
 	console.log("fecha datepicker");
 	console.log(auxfecha);
-	/*var unixt = Date.parse(auxfecha).getTime();
-	console.log("fecha unixt");
-	console.log(unixt);
-	var fechadecente = timeConverter(unixt);
-	console.log("fecha decente");
-	console.log(fechadecente);
-	var fechabien = cambiarMesPorDia(fechadecente);
-	console.log("fecha bien");
-	console.log(fechabien);
-	var unixtime = Date.parse(fechabien).getTime();
-	console.log("fecha unixtime");
-	console.log(unixtime);*/
 	var fechabien = cambiarMesPorDia(auxfecha);
 	console.log("fecha bien");
 	alert(auxfecha);
@@ -140,11 +127,13 @@ function saracho3(){
 	//myCalendar.fullCalendar('renderEvent', myEvent);
 	//fecha = vhorno;
 	guardarevento(myEvent, fechabien);
+	//elimino
+	saracho4();
 	location.href = "/agenda"
 };
 
 function saracho4(){
-	console.log("patan.mp3");
+	eliminarEvento(1);
 };
 //guardo el evento en la DB
 function guardarevento(myEvent, fecha){
@@ -213,22 +202,16 @@ function cargarEventos(){
 }
 
 function eliminarEvento(idEvento){
-	var idE = parseInt(idEvento);
+	
 	var myCalendar = $('#calendar');
-	console.log(idE);
-	alert(idE);
 	//myCalendar.fullCalendar('removeEvents',[calEvent._id]);
 	//myCalendar.fullCalendar('removeEvents',[1]);
 	$.post("agenda/eliminarEvento",{
-		id : 1
+		id : $("#params3").val()
 	});
 
 	location.href = "/agenda"
 }
-
-
-
-
 
 //esto es para el datepicker
 $( function() {

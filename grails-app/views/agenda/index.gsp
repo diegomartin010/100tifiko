@@ -122,7 +122,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" onClick="saracho3()" class="btn btn-default" data-dismiss="modal">Modificar Evento</button>
-        <button type="button" onClick="eliminarEvento($(params3.id))" class="btn btn-default" data-dismiss="modal">Eliminar Evento </button>
+        <button type="button" onClick="saracho4()" class="btn btn-default" data-dismiss="modal">Eliminar Evento </button>
         <input type="hidden" id="params3">
       </div>
     </div>
