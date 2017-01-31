@@ -78,11 +78,21 @@
                 <!-- La parte de las notificaciones -->
                 <%   
                     def eventos = null   
+                    
                     try {
                         eventos = SessionManager
                         .getCurrentUser()
                         .estadoAcademico
                         .eventos
+
+                        .findAll{(
+                            ((it.fecha - new Date())< 14)
+                            &&
+                            ((it.fecha - new Date()) > 0)
+                            &&it.activo
+                        )}
+
+
 
                         eventos.each{
                             switch(it.tipo) {
