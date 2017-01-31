@@ -5,9 +5,20 @@ class SessionController {
 
     def index() { 
     	def s = SessionManager.getCurrentUser()
+        def user_admin = ["nuevousuario.png","hola"]
+        def user_default = ["vincularse.png"]
     	if(s){
-    		// render(view:"/index")
-            redirect(uri: "/agenda/eventosProximos")
+            def admin = SessionManager.currentUserIsRole('ROLE_ADMINISTRADOR')
+                if (admin)
+                     render(view:"/usuarios/tutoriales"
+                        , model: [imagenes: user_admin])
+                else {
+                    if (!s.getEstadoAcademico())
+                        render(view:"/usuarios/tutoriales"
+                        , model: [imagenes: user_default])
+                    else
+                        redirect(uri: "/agenda/eventosProximos")
+                }
     	}
     	else{
     		render(view:"/login/auth")
