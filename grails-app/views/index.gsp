@@ -77,6 +77,9 @@
                                 </a>
                             </div>
                         </g:each>
+                        <g:if test="${examenesProximos.size()==0}">
+                            <p>Usted no registra proximos examenes.</p>
+                        </g:if>
 	            		<button class="btn btn-default">Ver Todos</button>
 	            		<!-- <a href="/examen" class="btn btn-default pull-right">Cargar Examen</a> -->
                     </div><!-- ./panel body -->
@@ -113,7 +116,10 @@
                                 </a>
                             </div>
                         </g:each>
-	            		<button class="btn btn-default">Ver Todos</button>
+	            		<g:if test="${alertasProximas.size()==0}">
+                            <p>Usted no registra proximas alertas.</p>
+                        </g:if>
+                        <button class="btn btn-default">Ver Todos</button>
                     </div>
                 </div>
          	</div><!-- ./panel default -->
