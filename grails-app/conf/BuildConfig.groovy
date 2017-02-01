@@ -69,7 +69,7 @@ grails.project.dependency.resolution = {
 		// compile ":spring-security-ui:1.0-RC2"
 		
 		// Analisis estatico de codigo?.		
-		// compile ":codenarc:0.24.1" 
+		build ":codenarc:0.24.1" 
 		
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"
