@@ -26,7 +26,8 @@ class AutoridadModulos {
 			, [
 				modulo: "carrera"
 				, titulo: "Mi Carrera"
-				, permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				// , permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				, permisos:["ROLE_ALUMNO"]
 				, url: "/estadoAcademico"
 				, icono:"fa fa-road fa-fw"
 				, target:""
@@ -34,7 +35,8 @@ class AutoridadModulos {
 			, [
 				modulo: "estadoAcademico"
 				, titulo: "Estado Academico"
-				, permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				// , permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				, permisos:["ROLE_ALUMNO"]
 				, url: "/estadoAcademico/verEstado"
 				, icono:"fa fa-thumbs-o-up fa-fw"
 				, target:""
@@ -42,7 +44,8 @@ class AutoridadModulos {
 			, [
 				modulo: "estadisticas"
 				, titulo: "Estadisticas"
-				, permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				// , permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				, permisos:["ROLE_ALUMNO"]
 				, url:"/estadisticas"
 				, icono:"fa fa-bar-chart-o fa-fw"
 				, target:""
@@ -50,7 +53,8 @@ class AutoridadModulos {
 			, [
 				modulo: "examenes"
 				, titulo: "Examenes"
-				, permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				// , permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				, permisos:["ROLE_ALUMNO"]
 				, url:"/examen"
 				, icono:"fa fa-edit fa-fw"
 				, target:""
@@ -58,7 +62,8 @@ class AutoridadModulos {
 			, [
 				modulo: "agenda"
 				, titulo: "Agenda"
-				, permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				// , permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				, permisos:["ROLE_ALUMNO"]
 				, url: "/agenda"
 				, icono:"fa fa-calendar"
 				, target:""
@@ -66,7 +71,8 @@ class AutoridadModulos {
 			, [
 				modulo: "simulacion"
 				, titulo: "Simulacion"
-				, permisos: ["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				// , permisos: ["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				, permisos: ["ROLE_ALUMNO"]
 				, url: "/simulacion"
 				, icono:"fa fa-plane fa-fw"
 				, target:""
@@ -74,7 +80,8 @@ class AutoridadModulos {
 			, [
 				modulo: "simulacion"
 				, titulo: "Correlatividades"
-				, permisos: ["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				// , permisos: ["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				, permisos: ["ROLE_ALUMNO"]
 				, url: "/simulacion/grafo"
 				, icono:"fa fa-share-alt fa-fw"
 				, target:"_blank"
@@ -82,7 +89,8 @@ class AutoridadModulos {
 			, [
 				modulo: "usuarios"
 				, titulo: "Usuarios"
-				, permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				// , permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				, permisos: ["ROLE_ADMINISTRADOR"]
 				, url: "/usuarios"
 				, icono:"fa fa-users fa-fw"
 				, target:""
@@ -90,7 +98,8 @@ class AutoridadModulos {
 			, [
 				modulo: "nuevaCarrera"
 				, titulo: "Nueva Carrera"
-				, permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				// , permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				, permisos: ["ROLE_ADMINISTRADOR"]
 				, url: "/carrera"
 				, icono:"fa fa-book fa-fw"
 				, target:""
@@ -101,6 +110,14 @@ class AutoridadModulos {
 				, permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
 				, url: "/carrera/informacionCarreras"
 				, icono:"fa fa-university"
+				, target:""
+			]
+			, [
+				modulo: "tutoriales"
+				, titulo: "Tutoriales"
+				, permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				, url: "/session/renderTutorials"
+				, icono:"fa fa-question-circle "
 				, target:""
 			]
 		]
