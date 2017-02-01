@@ -38,7 +38,7 @@
                                 <a href="#" class="list-group-item">
                                     <div class="row">
                                         <div class="col-sm-10">
-                                            <i class="fa fa-exclamation-circle"></i> ${examen.evento.descripcion} <em>(${examen.evento.fecha})</em>
+                                            <i class="fa fa-exclamation-circle"></i> ${examen.evento.descripcion} <em>(${examen.evento.fecha.format( 'dd/MM/yyy' )})</em>
                                             <span class=" text-muted small">
                                                 Faltan: (${examen.diasRestantes} dias)
                                             </span>
@@ -62,7 +62,7 @@
                                         <div class="col-sm-10">
                                             <i class="fa fa-exclamation-circle"></i> ${examenPasado.evento.descripcion}
                                             <span class=" text-muted small">
-                                                -- Rendido el Dia: (${examenPasado.evento.fecha}))
+                                                -- Rendido el Dia: (${examenPasado.evento.fecha.format( 'dd/MM/yyy' )}))
                                             </span>
                                             </div>
                                         <div class="col-sm-1">
@@ -101,7 +101,7 @@
                                 <a href="#" class="list-group-item">
                                     <div class="row">
                                         <div class="col-sm-11">
-                                            <i class="fa fa fa-calendar"></i> ${alerta.evento.descripcion} <em>(${alerta.evento.fecha})
+                                            <i class="fa fa fa-calendar"></i> ${alerta.evento.descripcion} <em>(${alerta.evento.fecha.format( 'dd/MM/yyy' )})
                                             <span class=" text-muted small">
                                                 Faltan: (${alerta.diasRestantes} dias)
                                             </span>
