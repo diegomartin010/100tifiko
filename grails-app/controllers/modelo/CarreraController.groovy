@@ -47,12 +47,17 @@ class CarreraController {
 
             def codigoCarrera = carreraJSON.codigo + carreraJSON.plan
             
+            // Guardamos la carrera.
+            def nc = nuevaCarrera.save(flush:true)
+
             // Creamos y guardamos correlatividades
             carreraJSON.correlatividades.each { c ->
                
                 def nuevaCorrelatividad = new Correlatividad(
+                   carreraId: nc.id
+                    , carreraCodigo: nc.codigo
                     // Se busca la materia en la db.
-                    materia: Materia
+                    , materia: Materia
                         .findByCodigo(codigoCarrera + c.codigoMateria)
                     , criterio: c.criterio
                     // Se busca la correlativa en la db.
@@ -63,8 +68,7 @@ class CarreraController {
 
             }
 
-            // Guardamos la carrera.
-            nuevaCarrera.save(flush:true)
+            
 
             // El controlador devuelve el resultado de la operacion en json
             render(contentType: 'text/json') {result = false}
@@ -97,6 +101,32 @@ class CarreraController {
     def verCarrera(Integer id){
         def c = Carrera.get(id)
         render(view:'/carrera/mostrarCarrera', model:[carrera:c] )
+    }
+
+     /**
+    * Renderiza la vista editarCarrera, pasando como parametro
+    * la carrera que se captura al recibir el id
+    * @url localhost:8080/carrera/editarCarrera?id='1'
+    * @param id Integer debe pasarse por URL.
+    */
+    def editarCarrera(Integer id){
+        
+        render(
+            view: "/carrera/editCarrera",
+            model:[
+                carrera: Carrera.get(id)
+            ]
+        )
+    }
+
+    def guardarCarrera(){
+        
+        def c = Carrera.get(params.id)
+
+        c.nombre = params.nombre
+        c.activa = params.activa.toBoolean()
+        c.save(flush:true)
+        render(true)
     }
 
 }

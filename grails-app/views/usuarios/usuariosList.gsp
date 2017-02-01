@@ -73,7 +73,7 @@
                                     </g:else>
                                 </td>
                                 <td>
-                                    <a href="/Usuarios/editar?uid=${usuario.id}" class="btn btn-primary btn-xm"><i class="fa fa-pencil"></i> Editar</a>
+                                    <a href="/Usuarios/editar?uid=${usuario.id}" class="btn btn-default btn-xm"><i class="fa fa-pencil"></i> Editar</a>
                                 </td>
                             </tr>
                         </g:each>

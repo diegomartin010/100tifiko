@@ -5,6 +5,7 @@ package modelo
 class Carrera {
 	String nombre
 	String codigo
+	Boolean activa = true
 	List materias = []
 	static hasMany = [
 		materias: Materia

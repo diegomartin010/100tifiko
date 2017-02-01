@@ -125,6 +125,9 @@ class BootStrap {
 			, materia:             Materia.findByCodigo("V2016BU2")
 			, materiaCorrelativa:  Materia.findByCodigo("V2016BU1")
 			, requisito: "R"
+			// Basicamente
+			, carreraId: 1
+           	, carreraCodigo: "C2016"
 		).save()
 
 		new Correlatividad(
@@ -132,6 +135,9 @@ class BootStrap {
 			, materia:             Materia.findByCodigo("V2016BU2")
 			, materiaCorrelativa:  Materia.findByCodigo("V2016ML1")
 			, requisito: "R"
+			// Basicamente
+			, carreraId: 1
+           	, carreraCodigo: "C2016"
 		).save()
 		
 		// Para cursar bulling 3 tengo que tener aprobada bulling 1
@@ -140,6 +146,9 @@ class BootStrap {
 			, materia: 			   Materia.findByCodigo("V2016BU3")
 			, materiaCorrelativa:  Materia.findByCodigo("V2016BU1")
 			, requisito:"A"
+			// Basicamente
+			, carreraId: 1
+           	, carreraCodigo: "C2016"
 		).save()
 		
 		// ... y regular bulling 2.
@@ -148,6 +157,9 @@ class BootStrap {
 			, materia: 			 Materia.findByCodigo("V2016BU3")
 			, materiaCorrelativa:  Materia.findByCodigo("V2016BU2")
 			, requisito:"R"
+			// Basicamente
+			, carreraId: 1
+           	, carreraCodigo: "C2016"
 		).save()
 
 		// para final bulling 2.
@@ -156,6 +168,9 @@ class BootStrap {
 			, materia: 			 Materia.findByCodigo("V2016BU2")
 			, materiaCorrelativa:  Materia.findByCodigo("V2016BU1")
 			, requisito:"A"
+			// Basicamente
+			, carreraId: 1
+           	, carreraCodigo: "C2016"
 		).save()
 
 		// para final bulling 3.
@@ -164,6 +179,9 @@ class BootStrap {
 			, materia: 			 Materia.findByCodigo("V2016BU3")
 			, materiaCorrelativa:  Materia.findByCodigo("V2016BU2")
 			, requisito:"A"
+			// Basicamente
+			, carreraId: 1
+           	, carreraCodigo: "C2016"
 		).save()
 
 	   

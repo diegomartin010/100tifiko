@@ -185,7 +185,7 @@ class EstadoAcademicoController {
     */
     def getAllCarreras(){ 	
     	render(contentType: 'text/json') {
-    		Carrera.list()
+    		Carrera.list().findAll{it.activa}
     	}
     }
 

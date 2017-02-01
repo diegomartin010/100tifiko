@@ -95,21 +95,22 @@ class AutoridadModulos {
 				, icono:"fa fa-users fa-fw"
 				, target:""
 			]
-			, [
-				modulo: "nuevaCarrera"
-				, titulo: "Nueva Carrera"
-				// , permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
-				, permisos: ["ROLE_ADMINISTRADOR"]
-				, url: "/carrera"
-				, icono:"fa fa-book fa-fw"
-				, target:""
-			]
+			
 			, [
 				modulo: "informacionCarreras"
 				, titulo: "Informacion de Carreras"
 				, permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
 				, url: "/carrera/informacionCarreras"
 				, icono:"fa fa-university"
+				, target:""
+			]
+			, [
+				modulo: "nuevaCarrera"
+				, titulo: "Carreras Del Sistema"
+				// , permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+				, permisos: ["ROLE_ADMINISTRADOR"]
+				, url: "/carrera"
+				, icono:"fa fa-book fa-fw"
 				, target:""
 			]
 			, [

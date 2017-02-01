@@ -7,50 +7,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="/css/carrera/carrera.css">
 	%{-- Incluir logica javascript --}%
 	<g:javascript src="carrera/manejoArchivos.js" />
 	%{-- Incluir cabeceras de estilos --}%
 	<meta name="layout" content="main">
 	%{-- Titulo de la pagina --}%
-	<title><g:message code="Carrera"/></title>
+	<title>Carrera</title>
 </head>
 <body>
-	<div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">×</span>
-      <h2>Materias </h2>
-    </div>
-
-
-  					<g:each var="materia" in="${Materia.list()}">
-  						%{-- <li class="list-group-item"> --}%
-  	
-  						<p  class="list-group-item"> 						
-  							<span style="margin-left:2em" class="alert-danger">${materia.nombre}</span>  <span  class="alert-warning">TIPO</span>
-  		
-  						</p>
-  						
-  					
-  					</g:each>
-
-    <div id="cerrar" style="cursor:pointer " class="modal-footer">
-      <button>Cerrar</button>
-    </div>
-  </div>
-
-</div>
-
-		
-	%{-- Barra de navegacion pagina --}%
-	<div class="nav" role="navigation">
-	</div>
-
-
-		<% def usuario = SessionManager.getCurrentUser() %>
 		%{-- Titulo de la pagina --}%
 		<div class="row">
       <div class="col-lg-12">
@@ -74,53 +39,69 @@
       </div>%{-- /panel body --}%
     </div>%{-- /panel default --}%
 		
-	
-		
 		<div class="panel panel-default">
-						<div class="panel-heading"> <label>Carreras en el sistema</label> </div>
-						<div id="1" class="panel-body"> <g:each var="carrera" in="${Carrera.list()}">
-  						%{-- <li class="list-group-item"> --}%
-  					
-  						<p class="list-group-item" >
-  						
-  							${carrera.id}:${carrera.nombre}
-  							<input type="submit" class="btn btn-xs btn-danger pull-right eliminar" name="${carrera.nombre}" id="eliminar" value="Eliminar">
-  							<input type="submit" class="btn btn-xs btn-primary pull-right " name="${carrera.nombre}" id="verMaterias" value="Ver Materias">
-
-  		
-  						</p>
-  						
-  						
-  					</g:each> </div>
-					</div>
+				<div class="panel-heading"> <label>Carreras en el sistema</label> </div>
+				<div id="1" class="panel-body">
+           <table class="table">
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Codigo</th>
+                      <th>Nombre de Carrera</th>
+                      <th>Cantidad de Materias</th>
+                      <th>Carrera Activa</th>
+                      <th>Acciones</th>
+                  </tr> 
+              </thead>
+              <tbody> 
+                  <!-- Listamos los usuarios en el sistema -->
+                  <g:each var="carrera" in="${Carrera.list()}">
+                      <tr>
+                          <th scope="row">
+                              ${carrera.id}
+                          </th>
+                          <td>
+                              ${carrera.codigo}
+                          </td>
+                          <td>
+                              ${carrera.nombre}
+                          </td>
+                          <td>
+                              ${carrera.materias.size()}
+                          </td>
+                          <td>
+                              <g:if test="${carrera.activa}">
+                                <i class="fa fa-check">
+                              </g:if>
+                              <g:else>
+                                <i class="fa fa-times">
+                              </g:else>
+                          </td>
+                          <td>
+                              <a href="/carrera/editarCarrera?id=${carrera.id}" class="btn btn-default">
+                                <i class="fa fa-pencil"></i> Editar
+                              </a>
+                          </td>
+                      </tr>
+                  </g:each>
+              </tbody> 
+          </table> 
+        
+        </div>
+        <div class="panel-footer">
+          <br><br>
+        </body>
+		</div>
 
 		
-		%{-- dejo esto comentado, por si copié algo mal --}%
-		%{--<div class="container">
-			<div class="col-md-5">	
-    			<br><label>Carreras en el sistema:</label>
-    			%{-- <ul class="list-group"> --}%
-  					%{--<g:each var="carrera" in="${Carrera.list()}">
-  						%{-- <li class="list-group-item"> --}%
-  					
-  						%{--<p class="list-group-item" >
-  						
-  							${carrera.id}:${carrera.nombre}
-  							<input type="submit" class="btn btn-xs btn-danger pull-right eliminar" name="${carrera.nombre}" id="eliminar" value="Eliminar">
-  							<input type="submit" class="btn btn-xs btn-primary pull-right " name="${carrera.nombre}" id="verMaterias" value="Ver Materias">
-
-  		
-  						</p>
-  						
-  						
-  					</g:each>
-				%{-- </ul> 
-			</div>				
-		</div> --}%
-
-
 	%{-- Logica Javascript --}%
 	<g:javascript src="carrera/carrera.js" />
+  <g:javascript>
+    // Logica para editar una carrera
+    function editarCarrera(id){
+
+    }
+  </g:javascript>
 
 </body>
 </html>

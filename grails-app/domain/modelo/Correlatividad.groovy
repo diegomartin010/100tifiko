@@ -4,7 +4,9 @@ import security.User
 import estats.SessionManager
 
 class Correlatividad {
-	String criterio
+	Integer carreraId
+    String carreraCodigo
+    String criterio
 	Materia materia
 	Materia materiaCorrelativa
 	String requisito
@@ -19,6 +21,7 @@ class Correlatividad {
         	// materiaCorrelativa: am1
         	// requisito: "r"
 	    materia nullable: false
+        carreraId nullable: false, blank: false
 	    materiaCorrelativa nullable: false
     }
 
