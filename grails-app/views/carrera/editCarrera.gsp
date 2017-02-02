@@ -51,7 +51,7 @@
                         <input id="activa" type="checkbox" >Carrera Activa
                       </g:else>
             </div>
-          <table class="table">
+          <table class="table table-hover">
               <thead>
                   <tr>
                       <th>ID</th>
@@ -59,13 +59,13 @@
                       <th>Nivel</th>
                       <th>Nombre de Materia</th>
                       <th>Tipo</th>
-                      <th>Acciones</th>
+                      %{-- <th>Acciones</th> --}%
                   </tr> 
               </thead>
               <tbody> 
                   <!-- Listamos los usuarios en el sistema -->
                   <g:each var="materia" in="${carrera.materias}">
-                      <tr>
+                      <tr onclick="editar(${materia.id},${carrera.id})">
                           <th scope="row">
                               ${materia.id}
                           </th>
@@ -81,11 +81,11 @@
                           <td>
                               ${materia.tipo}
                           </td>
-                          <td>
+                          %{-- <td>
                               <a href="/materia/editarMateria?id=${materia.id}&cid=${carrera.id}" class="btn btn-default">
                                  <i class="fa fa-pencil"></i> Editar
                               </a>
-                          </td>
+                          </td> --}%
                       </tr>
                   </g:each>
               </tbody> 
@@ -100,6 +100,13 @@
 		</div>
 		
     <g:javascript>
+      
+      $("tr").css("cursor","pointer")
+
+      function editar(idmateria,idcarrera){
+        location.href = "/materia/editarMateria?id="+idmateria+"&cid="+idcarrera
+      }
+
       function guardarCarrera(id){
         var carreraEdit = {
             id: id,

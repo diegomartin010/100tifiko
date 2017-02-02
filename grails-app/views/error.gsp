@@ -23,7 +23,7 @@
 	    						<!--<br>
 	    						<p>La pagina se encuentra fuera de servicio, y no va a solucionarse <b>a corto plazo</b>. Que tenga un buen dia, y <b>no vuelva a molestarnos</b>.</p>
 	    						<p class="pull-right">Atte. 100tifiko</p>-->
-	    						<img src="https://fab404.com/wp-content/uploads/2011/12/mintcom404.jpg" style= "max-width:100%; max-height:100%;">
+	    						%{-- <img src="https://fab404.com/wp-content/uploads/2011/12/mintcom404.jpg" style= "max-width:100%; max-height:100%;"> --}%
 
 	         				</div>
 	         				<!-- <div class="panel-footer">

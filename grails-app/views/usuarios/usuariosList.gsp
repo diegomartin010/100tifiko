@@ -30,7 +30,7 @@
                 </a><br><br>
             </div>
             <div class="panel-body">
-                <table class="table">
+                <table class="table table-hover">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -40,13 +40,13 @@
                             <th>Legajo</th>
                             <th>Roles / Permisos</th>
                             <th>Activo</th>
-                            <th>Acciones</th>
+                            %{-- <th>Acciones</th> --}%
                         </tr> 
                     </thead>
                     <tbody> 
                         <!-- Listamos los usuarios en el sistema -->
                         <g:each var="usuario" in="${User.getAll()}">
-                            <tr>
+                            <tr onclick="editar(${usuario.id})">
                                 <th scope="row">${usuario.id}</th>
                                 <td>${usuario.username}</td>
                                 <td>${usuario.nombre} ${usuario.apellido}</td>
@@ -72,9 +72,9 @@
                                          <i class="fa fa-ban"></i>
                                     </g:else>
                                 </td>
-                                <td>
+                                %{-- <td>
                                     <a href="/Usuarios/editar?uid=${usuario.id}" class="btn btn-default btn-xm"><i class="fa fa-pencil"></i> Editar</a>
-                                </td>
+                                </td> --}%
                             </tr>
                         </g:each>
                     </tbody> 
@@ -89,6 +89,13 @@
                 <br><br>
             </div>
         </div>
+    
+    <g:javascript>
+        $("tr").css("cursor","pointer")
+        function editar(id){
+            location.href = "/Usuarios/editar?uid="+id
+        }
+    </g:javascript>
 
 </body>
 </html>

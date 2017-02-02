@@ -1,3 +1,6 @@
+<%@ page import="estats.*" %>
+<%@ page import="modelo.*" %>
+<%@ page import="security.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,22 +27,12 @@
           <label>Correlatividades de : </label> ${carrera.nombre}
         </div>
 				<div class="panel-body">
-          %{-- Iteracion sobre todas las correlatividades --}%
-            %{-- Criterio para materia 1 --}%
-            <div class="col-md-2">
-              <div class="form-group">
-              <label>Carrera ID</label>
-              <input value = "${carrera.id}" class="form-control" placeholder="Enter text" disabled>
-              </div>  
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-              <label>Carrera Codigo</label>
-              <input class="form-control" value = "${carrera.codigo}" placeholder="Enter text" disabled="">
-              </div>  
-            </div>
-
+           
             <%
+              /*Basicamente esta porqueria que estoy haciendo aca me sirve para
+              laburar con todo el tema de los textos y demas.
+              Cristina nos va a meter una patada en el orto si muestro cosas como
+              C F R A .... */
               def criterios = [
                 [ caracter:"C", texto:"Para cursar..."],
                 [ caracter:"F", texto:"Para rendir final..."]
@@ -49,9 +42,11 @@
                 [ caracter:"A", texto:"Haber aprobado..."]
               ]
             %>
-           <table class="table">
+
+            <table class="table table-hover">
               <thead>
                   <tr>
+                      <th>ID</th>
                       <th>Criterio</th>
                       <th>Materia 1</th>
                       <th>Requisito</th>
@@ -60,61 +55,35 @@
                   </tr> 
               </thead>
               <tbody> 
-                  <!-- Listamos los usuarios en el sistema -->
+                  <!-- Listamos las correlativas -->
                   <g:each var="c" in="${correlativas}">
                     <tr>
-                        <th scope="row">
-                              <select class="form-control">
-                                  <g:each var="cr" in="${criterios}">
-                                    <g:if test="${cr.caracter == c.criterio}">
-                                      <option value="${cr.caracter}" selected>${cr.texto}</option>    
-                                    </g:if>
-                                    <g:else>
-                                      <option value="${cr.caracter}" >${cr.texto}</option>    
-                                    </g:else>
-                                  </g:each>
-                              </select>
-                        </th>
                         <td>
-                              <select class="form-control">
-                                <g:each var="m" in="${materias}">
-                                  <g:if test="${c.materia.id == m.id}">
-                                    <option value="${m.id}" selected>[${m.nivel}] ${m.nombre}</option>    
-                                  </g:if>
-                                  <g:else>
-                                    <option value="${m.id}">[${m.nivel}] ${m.nombre}</option>
-                                  </g:else>
-                                  
-                                </g:each>
-                              </select>
+                          ${c.id}
                         </td>
-                        <th scope="row">
-                              <select class="form-control">
-                                <g:each var="re" in="${requisitos}">
-                                  <g:if test="${re.caracter == c.criterio}">
-                                    <option value="${re.caracter}" selected>${re.texto}</option>    
-                                  </g:if>
-                                  <g:else>
-                                    <option value="${re.caracter}" >${re.texto}</option>    
-                                  </g:else>
-                                </g:each>
-                              </select>
+                        <th scope="row" onclick="editCorrelativa(${c.id})" >
+                            <g:each var="cr" in="${criterios}">
+                              <g:if test="${cr.caracter == c.criterio}">
+                                  ${cr.texto}
+                              </g:if>
+                            </g:each>
                         </th>
-                        <td>
-                              <select class="form-control">
-                              <g:each var="m" in="${materias}">
-                                <g:if test="${c.materiaCorrelativa.id == m.id}">
-                                  <option value="${m.id}" selected>[${m.nivel}] ${m.nombre}</option>    
+                        <td onclick="editCorrelativa(${c.id})" >
+                            [${c.materia.nivel}] ${c.materia.nombre}
+                        </td>
+                        <th scope="row" onclick="editCorrelativa(${c.id})" >
+                              <g:each var="re" in="${requisitos}">
+                                <g:if test="${re.caracter == c.requisito}">
+                                  ${re.texto}
                                 </g:if>
-                                <g:else>
-                                  <option value="${m.id}">[${m.nivel}] ${m.nombre}</option>
-                                </g:else>
-                                
                               </g:each>
-                          </select>
+                        </th>
+                        <td onclick="editCorrelativa(${c.id})" >
+                            [${c.materiaCorrelativa.nivel}] ${c.materiaCorrelativa.nombre}
+                        
                         </td>
                         <td>
-                          <button class="btn btn-xs btn-danger">
+                          <button onclick="eliminarCorrelativa(${c.id})" class="btn btn-xs btn-danger">
                             Eliminar
                           </button>
                         </td>
@@ -123,17 +92,182 @@
               </tbody> 
           </table> 
 
-
         </div>
         <div class="panel-footer">
-          <button class="btn btn-primary pull-right" ><i class="fa fa-save"></i> Guardar</button>
           <a href="/carrera/editarCarrera?id=${carrera.id}" class="btn btn-warning pull-right"><i class="fa fa-arrow-left"></i> Cancelar</a>
           <br><br>
         </div>
 		</div>
-	
+
+    <!-- Modal de edicion correlativas -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal editar correlativas contenido-->
+        <div class="modal-content modal-success">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" id="titleCorr">Editar Correlatividad #</h4>
+          </div>
+          %{-- Vamos a llenar los select con las materias y toda la onda --}%
+          <div class="modal-body">
+                <label>Criterio:</label>
+                <select id="criterio" class="form-control">
+                    <g:each in="${criterios}">
+                      <option name="criterio" value="${it.caracter}">${it.texto}</option>    
+                    </g:each>  
+                </select>
+                <label>Materia 1:</label>
+                <select id="materia" class="form-control">
+                    <g:each in="${materias}">
+                      <option name="materia1" value="${it.id}">[${it.nivel}] ${it.nombre}</option>    
+                    </g:each>
+                </select>
+                <label>Requisito:</label>
+                <select id="requisito" class="form-control">
+                   <g:each in="${requisitos}">
+                      <option name="requisito" value="${it.caracter}">${it.texto}</option>    
+                    </g:each>  
+                </select>
+                <label>Materia 2:</label>
+                <select id="materiaCorrelativa" class="form-control">
+                    <g:each in="${materias}">
+                      <option name="materia2" value="${it.id}">[${it.nivel}] ${it.nombre}</option>    
+                    </g:each>
+                </select>
+          </div>
+          <div class="modal-footer">
+            <button id="guardar" value="" onclick="guardarCorrelativa()" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Guardar</button>
+            <button class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-arrow-left"></i> Cancelar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
   <g:javascript>
-      alert("BASICAMENTE - Esta parte no esta funcional.")
+      
+      // Bien.... voy a ser sincero....
+      // Me enoje mucho con la vida haciendo esta pantalla, la puta madre.
+      // Honestamente odio la aplicacion del orto que estamos haciendo...
+
+      // Basicamente hacemos que las rows de la tabla tengan un puntero.
+      $("tr").css('cursor','pointer');
+      
+      // Funcion para editar correlatividades.
+      function editCorrelativa(paramId){
+
+        // Basicamente traigo todas las correlatividades.
+        var query = jQuery.parseJSON('${Correlatividad.getAll().encodeAsJSON()}')
+        
+        // Elijo la correlatividad cuyo id es el que paso como parametro.
+        // ese id es el de la correlatividad en la que hice click.
+        // El [0] es por cosas raras de javascript, que se yo.
+        var corr = $.grep(query, function(e){ return e.id == paramId })[0]
+
+        // Lanzamos la ventana modal.
+        $('#myModal').modal('show');
+
+
+        // Ahora me voy a poner a pelotudear con temas graficos....
+        // Esto es un enojo con la vida mal.
+
+        // Recordar que los select ya fueron previamente llenados con materias.
+        // eso lo hice con codigo grails.
+
+        // En la modal busco todos los select cuyo nombre sea "criterio"
+        $( "[name='criterio']" ).each(
+          
+          function() {
+            
+            /*Por cada uno, si el value del select es == al del criterio
+            de la correlativa que quiero modificar, entonces setear
+            para que este SELECCIONADO. de otro modo no voy a ver la materia.*/
+            if($( this ).val() == corr.criterio){
+                $( this ).attr("selected","selected")
+            }
+
+          }
+        )
+        
+        // Misma cuestion que lo anterior, pero con la materia.
+        $( "[name='materia1']" ).each(
+          function() {
+            if($( this ).val() == corr.materia.id){
+                $( this ).attr("selected","selected")
+            }
+          }
+        )
+
+        // Misma cuestion que lo anterior pero con el requisito
+        $( "[name='requisito']" ).each(
+          function() {
+            if($( this ).val() == corr.requisito){
+                $( this ).attr("selected","selected")
+            }
+          }
+        )
+
+        // bla bla bla... pero con la MateriaCorrelativa
+        $( "[name='materia2']" ).each(
+          function() {
+            if($( this ).val() == corr.materiaCorrelativa.id){
+                $( this ).attr("selected","selected")
+            }
+          }
+        )
+
+        // Negrada: Seteamos el valor del boton guardar del modal
+        // con el id de la correlatividad a modificar.
+        $("#guardar").val(corr.id)
+        $("#titleCorr").text("Editar Correlatividad #"+corr.id)
+
+      }
+      
+
+      // Esta funcion la vamos a usar para guardar.
+      function guardarCorrelativa(){
+        
+        // Capturo todos los datos, y los meto en un objeto json.
+        var correlativa = {
+          id: $("#guardar").val()
+          ,criterio: $("#criterio").val()
+          ,materiaId:  $("#materia").val()
+          ,materiaCorrelativaId:  $("#materiaCorrelativa").val()
+          ,requisito:  $("#requisito").val()
+        }
+
+        // tiro el Post y refresco la pantalla.
+        $.post("/correlatividad/guardarCorrelativa", correlativa).done(
+          function(){
+            location.reload()
+          }
+        )
+
+        // Basicamente eso es todo.
+
+      }
+
+      // Movida para eliminar.
+      function eliminarCorrelativa(id){
+        // Capturo todos los datos, y los meto en un objeto json.
+        var correlativa = {
+          id: id
+        }
+
+        if(confirm("Desea Eliminar Correlatividad?")){
+          // tiro el Post y refresco la pantalla.
+          $.post("/correlatividad/eliminarCorrelativa", correlativa).done(
+            function(){
+              alert("Correlativa Eliminada")
+              location.reload()
+            }
+          )  
+        }
+        
+      }
+
   </g:javascript>
 
 </body>

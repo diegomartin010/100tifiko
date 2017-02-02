@@ -15,4 +15,24 @@ class CorrelatividadController {
     		]
     	)
     }
+
+    def guardarCorrelativa(){
+    	
+    	def c = Correlatividad.get(params.id)
+    	c.materia = Materia.get(params.materiaId)
+    	c.materiaCorrelativa = Materia.get(params.materiaCorrelativaId)
+    	c.criterio = params.criterio
+    	c.requisito = params.requisito
+
+    	c.save(flush:true)
+
+    	render(true)
+
+    }
+
+    def eliminarCorrelativa(){
+    	Correlatividad.get(params.id).delete(flush:true)
+    	render(true)
+    }
+
 }

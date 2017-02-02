@@ -42,7 +42,7 @@
 		<div class="panel panel-default">
 				<div class="panel-heading"> <label>Carreras en el sistema</label> </div>
 				<div id="1" class="panel-body">
-           <table class="table">
+           <table class="table table-hover">
               <thead>
                   <tr>
                       <th>ID</th>
@@ -50,13 +50,13 @@
                       <th>Nombre de Carrera</th>
                       <th>Cantidad de Materias</th>
                       <th>Carrera Activa</th>
-                      <th>Acciones</th>
+                      %{-- <th>Acciones</th> --}%
                   </tr> 
               </thead>
               <tbody> 
                   <!-- Listamos los usuarios en el sistema -->
                   <g:each var="carrera" in="${Carrera.list()}">
-                      <tr>
+                      <tr onclick="editarCarrera(${carrera.id})">
                           <th scope="row">
                               ${carrera.id}
                           </th>
@@ -77,11 +77,11 @@
                                 <i class="fa fa-times">
                               </g:else>
                           </td>
-                          <td>
+                          %{-- <td>
                               <a href="/carrera/editarCarrera?id=${carrera.id}" class="btn btn-default">
                                 <i class="fa fa-pencil"></i> Editar
                               </a>
-                          </td>
+                          </td> --}%
                       </tr>
                   </g:each>
               </tbody> 
@@ -90,16 +90,18 @@
         </div>
         <div class="panel-footer">
           <br><br>
-        </body>
+        </div>
 		</div>
 
-		
-	%{-- Logica Javascript --}%
-	<g:javascript src="carrera/carrera.js" />
+  <g:javascript src="carrera/carrera.js" />
+  %{-- Logica Javascript --}%
   <g:javascript>
+    $("tr").css( 'cursor', 'pointer' );
     // Logica para editar una carrera
+    // alert("hola")
     function editarCarrera(id){
-
+      location.href = "/carrera/editarCarrera?id="+id
+      // alert("hola")
     }
   </g:javascript>
 
