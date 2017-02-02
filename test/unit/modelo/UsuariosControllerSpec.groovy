@@ -17,19 +17,9 @@ class UsuariosControllerSpec extends Specification {
     }
 
 
-     void "Test the create action returns the correct model"() {
-
-        when:"The create action is executed"
-        populateValidParams(params)
-            controller.saveNewUser()
-
-        then:"The model is correctly created"
-            
-    }
-
     void "Prueba dar de alta nuevo usuario"() {
 		
-		given: "Se crea un nuevo usuario con datos incorrectos y ya existe un torneo"
+		given: "Se crea un nuevo usuario con datos correctos"
 			def nu = new User([
                   nombre:  'prueba'
                 , apellido: 'probando'
@@ -40,10 +30,10 @@ class UsuariosControllerSpec extends Specification {
                 , enabled: false
             ])
 							
-		when: "Se intenta guardar el equipo en la base de datos"
+		when: "Se intenta guardar el usuario en la base de datos"
 			nu.save(flush: true)
 			
-		then: "Se comprueba la cantidad de equipos guardados en la base de datos"
+		then: "Se comprueba la cantidad de usuarios guardados en la base de datos"
 			User.count() == 1
 	}
 
