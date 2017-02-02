@@ -12,3 +12,10 @@ grails compile (solo la primera vez)
 grails codenarc
 
 ver el archivo generado en :  target/CodeNarcReport.html
+
+
+##Pruebas unitarias (Spock) 
+
+grails test-app UsuariosController
+
+para modificar una prueba >>> test/unit/modelo
