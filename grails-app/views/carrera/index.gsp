@@ -30,12 +30,15 @@
       <div id="1" class="panel-body">
         Cargar archivo json con nueva carrera
         %{-- <span class="label label-warning"> --}%
+          <a href="https://raw.githubusercontent.com/diegomartin010/100tifiko/master/pruebaJSON/jsonVacio.json" target="_blank">
+            Tutorial
+          </a>
           <br>
           <a href="https://raw.githubusercontent.com/diegomartin010/100tifiko/master/pruebaJSON/jsonVacio.json" target="_blank">
             Ejemplo 1: Carrera Vacia.
           </a>
           <br>
-          <a href="https://raw.githubusercontent.com/diegomartin010/100tifiko/master/pruebaJSON/jsonVacio.json" target="_blank">
+          <a href="https://raw.githubusercontent.com/diegomartin010/100tifiko/master/pruebaJSON/CarreraCompleta.json" target="_blank">
             Ejemplo 2: Carrera Completa.
           </a>
         %{-- </span> --}%
