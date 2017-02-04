@@ -29,20 +29,22 @@ class CarreraController {
             )
             
             // Iteracion sobre las materias del json
-            carreraJSON.materias.each { m ->
-                
-                // Se lee del json y se crea 1x1 las materias. Se guarda.
-                def nuevaMateria = new Materia(
-                    nombre: m.nombre,
-                    tipo:   m.tipo,
-                    // K2016AM2 -> Analisis 2, sistemas, plan 2016.
-                    codigo: nuevaCarrera.codigo + m.codigo,
-                    nivel:  m.nivel
-                ).save()
+            if(carreraJSON.materias){
+                carreraJSON.materias.each { m ->
+                    
+                    // Se lee del json y se crea 1x1 las materias. Se guarda.
+                    def nuevaMateria = new Materia(
+                        nombre: m.nombre,
+                        tipo:   m.tipo,
+                        // K2016AM2 -> Analisis 2, sistemas, plan 2016.
+                        codigo: nuevaCarrera.codigo + m.codigo,
+                        nivel:  m.nivel
+                    ).save()
 
-                // Se asignan las materias la carrera nueva.
-                nuevaCarrera.materias.push(nuevaMateria)
+                    // Se asignan las materias la carrera nueva.
+                    nuevaCarrera.materias.push(nuevaMateria)
 
+                }
             }
 
             def codigoCarrera = carreraJSON.codigo + carreraJSON.plan
@@ -51,24 +53,24 @@ class CarreraController {
             def nc = nuevaCarrera.save(flush:true)
 
             // Creamos y guardamos correlatividades
-            carreraJSON.correlatividades.each { c ->
-               
-                def nuevaCorrelatividad = new Correlatividad(
-                   carreraId: nc.id
-                    , carreraCodigo: nc.codigo
-                    // Se busca la materia en la db.
-                    , materia: Materia
-                        .findByCodigo(codigoCarrera + c.codigoMateria)
-                    , criterio: c.criterio
-                    // Se busca la correlativa en la db.
-                    , materiaCorrelativa: Materia.
-                        findByCodigo(codigoCarrera + c.codigoCorrelativa)
-                    , requisito: c.requisito
-                ).save()
+            if(carreraJSON.correlatividades){
+                carreraJSON.correlatividades.each { c ->
+                   
+                    def nuevaCorrelatividad = new Correlatividad(
+                       carreraId: nc.id
+                        , carreraCodigo: nc.codigo
+                        // Se busca la materia en la db.
+                        , materia: Materia
+                            .findByCodigo(codigoCarrera + c.codigoMateria)
+                        , criterio: c.criterio
+                        // Se busca la correlativa en la db.
+                        , materiaCorrelativa: Materia.
+                            findByCodigo(codigoCarrera + c.codigoCorrelativa)
+                        , requisito: c.requisito
+                    ).save()
 
-            }
-
-            
+                }
+            }       
 
             // El controlador devuelve el resultado de la operacion en json
             render(contentType: 'text/json') {result = false}
