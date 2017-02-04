@@ -30,8 +30,8 @@
       <div id="1" class="panel-body">
         Cargar archivo json con nueva carrera
         %{-- <span class="label label-warning"> --}%
-          <a href="https://raw.githubusercontent.com/diegomartin010/100tifiko/master/pruebaJSON/jsonVacio.json" target="_blank">
-            Tutorial
+          <a href="https://github.com/diegomartin010/100tifiko/wiki/Nueva-Carrera-Mediante-JSON" target="_blank">
+            Tutorial uso de JSONs. Github
           </a>
           <br>
           <a href="https://raw.githubusercontent.com/diegomartin010/100tifiko/master/pruebaJSON/jsonVacio.json" target="_blank">
