@@ -1,0 +1,7 @@
+{
+	"nombre"   :"Carrera Ejemplo",
+	"codigo"   :"CE",		
+	"plan"	   : 2016,	
+	"materias" :[],
+	"correlatividades":[]
+}

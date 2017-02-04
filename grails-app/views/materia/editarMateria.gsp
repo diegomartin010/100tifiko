@@ -22,6 +22,7 @@
 				<div class="panel-heading"> 
           <i class = "fa fa-th-list"></i>
           <label>Materia: </label> ${materia.nombre}
+          <button class="btn btn-danger pull-right" onclick="eliminarMateria()">Eliminar</button><br><br>
         </div>
 				<div class="panel-body">
           <div class="col-md-2">
@@ -83,6 +84,32 @@
                 alert( "Materia Guardada" )
               }
             )
+        }
+
+        function eliminarMateria(){
+            if(confirm("Desea Eliminar realmente la materia: '${materia.nombre} ${materia.codigo}?'") ){
+              var materia = {
+                idMateria: "${materia.id}"
+                ,idCarrera: "${cid}"
+              }
+
+              console.log(materia)
+              $.post( "/materia/eliminarMateria", materia )
+              .done(
+                function() {
+                  alert( "Materia Eliminada." )
+                  location.href = "/carrera/editarCarrera?id=${cid}"
+                }
+              )
+              .fail(
+                function() {
+                  alert("Hubo un error al intentar Eliminar.")
+                  location.href = "/carrera/editarCarrera?id=${cid}"
+                }
+              )
+            }
+
+
         }
         
     </g:javascript>

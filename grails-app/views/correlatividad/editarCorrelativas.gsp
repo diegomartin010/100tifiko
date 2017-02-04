@@ -25,6 +25,7 @@
 				<div class="panel-heading"> 
           <i class = "fa fa-th-list"></i>
           <label>Correlatividades de : </label> ${carrera.nombre}
+          <button class="btn btn-default pull-right" data-toggle="modal" data-target="#nuevaCorr">Nueva Correlatividad</button><br><br>
         </div>
 				<div class="panel-body">
            
@@ -141,10 +142,58 @@
             <button class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-arrow-left"></i> Cancelar</button>
           </div>
         </div>
+        %{-- Fin de la judia ventana modal para editar --}%
 
       </div>
     </div>
 
+
+  %{-- Ventana modal --}%
+  <div id="nuevaCorr" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        
+        <!-- Ventana modal para crear nuevas correlatividades-->
+        <div class="modal-content modal-success">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" id="titleCorr">Nueva Correlatividad</h4>
+          </div>
+          %{-- Vamos a llenar los select con las materias y toda la onda --}%
+          <div class="modal-body">
+                <label>Criterio:</label>
+                <select id="nCriterio" class="form-control">
+                    <g:each in="${criterios}">
+                      <option name="criterio" value="${it.caracter}">${it.texto}</option>    
+                    </g:each>  
+                </select>
+                <label>Materia 1:</label>
+                <select id="nMateria" class="form-control">
+                    <g:each in="${materias}">
+                      <option name="materia1" value="${it.id}">[${it.nivel}] ${it.nombre}</option>    
+                    </g:each>
+                </select>
+                <label>Requisito:</label>
+                <select id="nRequisito" class="form-control">
+                   <g:each in="${requisitos}">
+                      <option name="requisito" value="${it.caracter}">${it.texto}</option>    
+                    </g:each>  
+                </select>
+                <label>Materia 2:</label>
+                <select id="nMateriaCorrelativa" class="form-control">
+                    <g:each in="${materias}">
+                      <option name="materia2" value="${it.id}">[${it.nivel}] ${it.nombre}</option>    
+                    </g:each>
+                </select>
+          </div>
+          <div class="modal-footer">
+            <button id="nGuardar" value="" onclick="nuevaCorrelativa(${carrera.id},'${carrera.codigo}')" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Guardar</button>
+            <button class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-arrow-left"></i> Cancelar</button>
+          </div>
+        </div>
+
+
+      </div>
+  </div>
 
   <g:javascript>
       
@@ -265,9 +314,30 @@
             }
           )  
         }
-        
       }
 
+      // Crear una nueva correlativa
+      function nuevaCorrelativa(carreraId, carreraCodigo){
+          
+          // Capturo todos los datos, y los meto en un objeto json.
+          var nuevaCorrelativa = {
+            carreraId: carreraId
+            ,carreraCodigo: carreraCodigo
+            ,criterio: $("#nCriterio").val()
+            ,materiaId:  $("#nMateria").val()
+            ,materiaCorrelativaId:  $("#nMateriaCorrelativa").val()
+            ,requisito:  $("#nRequisito").val()
+          }
+
+          // Ejecuto el controlador
+          $.post("/correlatividad/nuevaCorrelativa", nuevaCorrelativa).done(
+            function(){
+                alert("Nueva Correlatividad Creada")
+                location.reload()
+            }
+          )   
+      }
+      
   </g:javascript>
 
 </body>

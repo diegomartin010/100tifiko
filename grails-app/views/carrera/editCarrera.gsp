@@ -22,7 +22,7 @@
 				<div class="panel-heading"> 
           <i class = "fa fa-th-list"></i>
           <label>Datos de Carrera: </label> ${carrera.codigo} ${carrera.nombre}
-          <button class="btn btn-default pull-right" onclick="nuevaMateria()"><i class="fa fa-arrow-up"></i> Nueva Materia</button>
+          <button class="btn btn-default pull-right" data-toggle="modal" data-target="#nuevaMateria"><i class="fa fa-arrow-up"></i> Nueva Materia</button>
           <a href="/correlatividad/renderCorrelatividades?cid=${carrera.id}" class="btn btn-default pull-right">
             <i class="fa  fa-pencil"></i> Editar Correlativas
           </a>
@@ -98,7 +98,51 @@
           <br><br>
         </div>
 		</div>
+
+
+
+    %{-- Ventana modal Nueva Materia --}%
+    <div id="nuevaMateria" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          
+          <!-- Ventana modal para crear nuevas correlatividades-->
+          <div class="modal-content modal-success">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title" id="titleCorr">Nueva Materia</h4>
+            </div>
+            %{-- Vamos a llenar los select con las materias y toda la onda --}%
+            <div class="modal-body">
+                  
+                  <label>Nombre:</label>
+                  <input id="nombreMateria" class="form-control">
+                  
+                  <label>Codigo de Materia:</label>
+                  <input id="codigoMateria" class="form-control">
+                  
+                  <label>Nivel:</label>
+                  <input id="nivel" class="form-control">
+
+                  <label>Tipo:</label>                          
+                  <select id="tipo" class="form-control">
+                    <option value="O">Obligatoria</option>
+                    <option value="E">Electiva</option>
+                  </select>
+                 
+            </div>
+            <div class="modal-footer">
+              <button value="" onclick="nuevaMateria()" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Guardar</button>
+              <button class="btn btn-warning pull-right" data-dismiss="modal"><i class="fa fa-arrow-left"></i> Cancelar</button>
+            </div>
+          </div>
+
+
+        </div>
+    </div>
 		
+
+
+
     <g:javascript>
       
       $("tr").css("cursor","pointer")
@@ -122,8 +166,24 @@
         )
       }
 
+      // Funcion para guardar materias y esa onda.
       function nuevaMateria(){
-        alert("BASICAMENTE - Esta funcionalidad no anda todavia.")
+        
+        var nuevaMateria = {
+          carreraId: "${carrera.id}"
+          ,nombre: $("#nombreMateria").val()
+          ,nivel: $("#nivel").val()
+          ,codigoMateria: "${carrera.codigo}"+$("#codigoMateria").val()
+          ,tipo: $("#tipo").val()
+        }
+
+        console.log(nuevaMateria)
+        $.post( "/materia/nuevaMateria", nuevaMateria ).done(
+          function() {
+            alert( "Nueva Materia Creada" )
+            location.reload()
+          }
+        )
       }
       
     </g:javascript>

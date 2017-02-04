@@ -39,7 +39,34 @@ class MateriaController {
 
     }
 
-    def nuevaMateria(Integer id, Integer cid){
+    def nuevaMateria(){
     	
+        def nm = new Materia(
+            nombre: params.nombre
+            ,codigo: params.codigoMateria
+            ,tipo: params.tipo
+            ,nivel: params.nivel.toInteger()
+        ).save(flush:true)
+
+        def c = Carrera.get( params.carreraId.toInteger() )
+        c.materias += nm
+
+        c.save(flush:true)
+
+        render(true)
+
+    }
+
+    def eliminarMateria(){
+
+        def c = Carrera.get( params.idCarrera.toInteger() )
+        def m = Materia.get( params.idMateria.toInteger() )
+        
+        c.materias.removeAll{it == m}
+        
+        c.save(flush:true)
+        m.delete(flush:true)
+
+        render(true)
     }
 }

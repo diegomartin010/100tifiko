@@ -4,6 +4,7 @@ class CorrelatividadController {
 
     def index() { }
 
+    // Renderiza la pagina de las correlatividades
     def renderCorrelatividades(Integer cid){
     
     	render(
@@ -16,6 +17,7 @@ class CorrelatividadController {
     	)
     }
 
+    // Guarda una correlatividad actualizada
     def guardarCorrelativa(){
     	
     	def c = Correlatividad.get(params.id)
@@ -30,9 +32,25 @@ class CorrelatividadController {
 
     }
 
+    // Elimina una correlatividad
     def eliminarCorrelativa(){
     	Correlatividad.get(params.id).delete(flush:true)
     	render(true)
+    }
+
+    // Crea una nueva correlatividad
+    def nuevaCorrelativa(){
+        
+        new Correlatividad(
+            carreraId: params.carreraId
+            ,carreraCodigo: params.carreraCodigo
+            ,criterio: params.criterio
+            ,materia: Materia.get(params.materiaId)
+            ,materiaCorrelativa: Materia.get(params.materiaCorrelativaId)
+            ,requisito: params.requisito
+        ).save(flush:true)
+        
+        render(true)
     }
 
 }
