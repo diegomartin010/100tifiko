@@ -2,9 +2,6 @@ package security
 import estats.*
 class GestionCuentasController {
 
-	def index() { 
-
-	}
 	
 	// Envia un mail solicitando al usuario que haga click en un link para activar la cuenta.
 	// http://localhost:8080/GestionCuentas/activarUsuarioMail?usuarioId=1&codigoActivacion=12454

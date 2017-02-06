@@ -2,7 +2,6 @@ package modelo
 
 class CorrelatividadController {
 
-    def index() { }
 
     // Renderiza la pagina de las correlatividades
     def renderCorrelatividades(Integer cid){

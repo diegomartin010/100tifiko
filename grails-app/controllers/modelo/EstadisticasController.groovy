@@ -1,5 +1,4 @@
 package modelo
-import estats.SessionManager
 /**
 * Se encarga de realizar la muestra de las estadisticas.
 */
