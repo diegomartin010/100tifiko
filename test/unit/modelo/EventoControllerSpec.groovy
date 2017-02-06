@@ -10,11 +10,6 @@ import spock.lang.Specification
 @Mock([Evento])
 class EventoControllerSpec extends Specification {
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
 
     void "prueba constraints"() {
 

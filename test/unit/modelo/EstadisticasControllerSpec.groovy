@@ -9,12 +9,5 @@ import spock.lang.Specification
 @TestFor(EstadisticasController)
 class EstadisticasControllerSpec extends Specification {
 
-    def setup() {
-    }
 
-    def cleanup() {
-    }
-
-    void "test something"() {
-    }
 }

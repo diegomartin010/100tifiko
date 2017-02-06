@@ -9,12 +9,4 @@ import spock.lang.Specification
 @TestFor(SimulacionController)
 class SimulacionControllerSpec extends Specification {
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
-
-    void "test something"() {
-    }
 }

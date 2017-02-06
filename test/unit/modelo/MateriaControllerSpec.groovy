@@ -10,11 +10,6 @@ import spock.lang.Specification
 @Mock([Materia])
 class MateriaControllerSpec extends Specification {
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
 
       void "Prueba crear una materia"() {
         
