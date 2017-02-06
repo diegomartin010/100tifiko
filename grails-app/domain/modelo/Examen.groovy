@@ -11,6 +11,16 @@ class Examen {
 		observaciones blank:true, nullable: true
 		materia nullable:false		
     }
+
+    @Override
+    boolean equals(other) {
+        is(other) || (other instanceof Examen && other == this)
+    }
+
+    @Override
+    String toString() {
+        materia
+    }
 	
 	// Examen(Materia mat, Date fech, Integer cal, String obs) {
 	// 	this()
