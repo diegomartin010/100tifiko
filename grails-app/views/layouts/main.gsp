@@ -105,7 +105,6 @@
                             }
                         }  
                         
-                       System.out.println "Catch piola" 
                     }
                      
                     catch(Exception e) {

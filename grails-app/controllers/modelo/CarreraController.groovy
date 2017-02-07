@@ -4,6 +4,10 @@ package modelo
 */
 class CarreraController {
 
+    def index(){
+        render view:"index"
+    }
+
       /**
     * Crea una nueva carrera en el sistema. Este metodo
     * esta hecho muy a lo negro.
