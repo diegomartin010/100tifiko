@@ -6,9 +6,6 @@ class CarreraController {
       /**
     * Renderiza la pagina principal Actualmente no se usa.
     */
-    def index() { }
-
-
     def index(){
         render view:"index"
     }
