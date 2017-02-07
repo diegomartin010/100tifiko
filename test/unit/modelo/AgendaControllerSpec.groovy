@@ -1,6 +1,6 @@
 package modelo
 
-// import grails.test.GrailsUnitTestCase
+import grails.test.GrailsUnitTestCase
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
@@ -10,6 +10,11 @@ import spock.lang.Specification
 @TestFor(AgendaController)
 class AgendaControllerSpec extends Specification {
 
+    def setup() {
+    }
+
+    def cleanup() {
+    }
 
     void testIndex() {
         assert view == "/agenda"

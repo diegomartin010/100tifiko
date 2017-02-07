@@ -1,4 +1,4 @@
-package modelo
+package security
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
@@ -6,8 +6,8 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
-@TestFor(EstadisticasController)
-class EstadisticasControllerSpec extends Specification {
+@TestFor(RestablecerController)
+class RestablecerControllerSpec extends Specification {
 
     def setup() {
     }
