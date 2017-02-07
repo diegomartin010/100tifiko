@@ -1,6 +1,7 @@
 package modelo
 
 import estats.*
+import security.User;
 
 /**
 * @tipo Controlador

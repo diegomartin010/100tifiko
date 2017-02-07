@@ -3,6 +3,11 @@ package modelo
 * Maneja todo el tema relacionado con la creacion de carreras.
 */
 class CarreraController {
+      /**
+    * Renderiza la pagina principal Actualmente no se usa.
+    */
+    def index() { }
+
 
     def index(){
         render view:"index"
