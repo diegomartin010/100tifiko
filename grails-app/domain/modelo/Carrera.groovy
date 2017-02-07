@@ -14,20 +14,5 @@ class Carrera {
     static constraints = {
 		nombre unique: true, blank: false
     }
-	@Override
-	int hashCode() {
-		codigo?.hashCode() ?: 0
-	}
-
-	@Override
-	boolean equals(other) {
-		is(other) || (other instanceof Carrera && other == this)
-	}
-
-	@Override
-	String toString() {
-		username
-	}
-	
+		
 }
-

@@ -1,5 +1,6 @@
 package modelo
 
+import security.User
 import estats.SessionManager
 
 class Correlatividad {
@@ -22,16 +23,6 @@ class Correlatividad {
 	    materia nullable: false
         carreraId nullable: false, blank: false
 	    materiaCorrelativa nullable: false
-    }
-
-    @Override
-    boolean equals(other) {
-        is(other) || (other instanceof Correlatividad && other == this)
-    }
-
-    @Override
-    String toString() {
-        carreraCodigo
     }
 
     def cumpleRequisito(){

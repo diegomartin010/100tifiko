@@ -1,4 +1,5 @@
 package modelo
+import security.User
 import estats.SessionManager
 
 class Materia {
@@ -13,16 +14,6 @@ class Materia {
 		nivel nullable:true, blank:true
 		// o: obligatoria, e:electiva
 		tipo blank: false, nullable:false, inList: ["O","E"]
-    }
-
-    @Override
-    boolean equals(other) {
-        is(other) || (other instanceof Materia && other == this)
-    }
-
-    @Override
-    String toString() {
-        nombre
     }
 
     def getEstado(){

@@ -1,5 +1,7 @@
 package modelo
 
+import security.User
+
 class EstadoAcademico {
     Integer legajo
 	Carrera carrera
@@ -19,16 +21,6 @@ class EstadoAcademico {
 		estadoMaterias nullable: true
 		eventos nullable: true
 		legajo unique: true, blank: false		
-    }
-
-    @Override
-    boolean equals(other) {
-        is(other) || (other instanceof EstadoAcademico && other.legajo == legajo)
-    }
-
-    @Override
-    String toString() {
-        legajo
     }
 
     // Dame todas las materias que puedo cursar, y estan en pendiente.

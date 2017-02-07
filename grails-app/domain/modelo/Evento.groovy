@@ -13,19 +13,4 @@ class Evento {
 		tipo nullable:true, inList: ["E","A"]
 		descripcion nullable:true
     }
-
-    @Override
-    boolean equals(other) {
-        is(other) || (other instanceof Evento && other == this)
-    }
-
-    @Override
-    String toString() {
-        fecha
-    }
-
-    @Override
-	int hashCode() {
-		descripcion?.hashCode() ?: 0
-	}
 }
