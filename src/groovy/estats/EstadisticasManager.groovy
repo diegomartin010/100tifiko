@@ -40,7 +40,7 @@ class EstadisticasManager {
 				descripcion: "# Finales Desaprobados"
 				, valor: getCantidadFinalesDesaprobados()
 				, unidad: "Finales"
-				, color: 'red'
+				, color: getColor(i++)
 			],
 
 			[
@@ -75,7 +75,7 @@ class EstadisticasManager {
 				descripcion: "Porcentaje de Realizacion"
 				, valor: getPorcentajeCarrera()
 				, unidad: "%"
-				, color: 'green'
+				, color: getColor(i++)
 			],
 
 			[

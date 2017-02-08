@@ -28,21 +28,21 @@
         		<% def indicadores = EstadisticasManager.getEstadisticas() %>
         		%{-- Indicador 1 --}%
         		<g:each in="${indicadores}" var="indicador">
-	                <div class="col-lg-6 col-md-6">
+	                <div class="col-lg-3 col-md-3">
 	                    <div class="panel panel-${indicador.color}">
 	                        <div class="panel-heading">
 	                            <div class="row">
 	                                <div class="col-xs-12">
 	                                    <div class="text-left">${indicador.descripcion}:</div>
 	                                    
-	                                    <div class="huge text-center">${indicador.valor}</div>
+	                                    <div class="text-center"><h4>${indicador.valor} ${indicador.unidad}</h4></div>
 	                                </div>
 	                            </div>
-	                            <div class="row">
+	                           %{--  <div class="row">
 	                            	<div class="col-xs-12 text-center">
 	                                    <div>${indicador.unidad}</div>
 		                            </div>
-								</div>
+								</div> --}%
 	                        </div>
 	                    </div>
 	                </div>
