@@ -19,6 +19,7 @@ class EstadisticasManager {
 				, valor: getPromedioConAplazos()
 				, unidad: ""
 				, color: getColor(i++)
+				, formula: "Sumatoria de las notas de todos los examenes, dividido el total de examenes. Los examenes desaprobados, se tienen en cuenta."
 
 			],
 
@@ -27,6 +28,7 @@ class EstadisticasManager {
 				, valor: getPromedioSinAplazos()
 				, unidad: ""
 				, color: getColor(i++)
+				, formula: "Sumatoria de todas las notas de los finales aprobados, dividido el total de examenes aprobados. Los examenes desaprobados, no influyen en este calculo."
 			],
 
 			[
@@ -34,6 +36,7 @@ class EstadisticasManager {
 				, valor: getCantidadMateriasAprobadas()
 				, unidad: "Materias"
 				, color: getColor(i++)
+				, formula: "Cantidad de materias para las cuales se ha cargado un final con nota > 4"
 			],
 
 			[
@@ -41,6 +44,7 @@ class EstadisticasManager {
 				, valor: getCantidadFinalesDesaprobados()
 				, unidad: "Finales"
 				, color: getColor(i++)
+				, formula: "Cantidad de finales cuya nota es < 4."
 			],
 
 			[
@@ -48,6 +52,7 @@ class EstadisticasManager {
 				, valor: getCantidadMateriasEstadoRegular()
 				, unidad: "Materias"
 				, color: getColor(i++)
+				, formula: "Cantidad de materias que el alumno ha regularizado."
 			],
 
 			[
@@ -55,13 +60,15 @@ class EstadisticasManager {
 				, valor: getCantidadMateriasCursaActualmente()
 				, unidad: "Materias"
 				, color: getColor(i++)
+				, formula: "Cantidad de materias que el alumno esta cursando."
 			],
 
 			[
-				descripcion: "# Materias Pendientes"
+				descripcion: "Materias Pendientes"
 				, valor: getCantidadMateriasPendientes()
 				, unidad: "Materias"
 				, color: getColor(i++)
+				, formula: "Cantidad de materias que todavia no han sido aprobadas (Nota de final > 4)."
 			],
 
 			[
@@ -69,6 +76,7 @@ class EstadisticasManager {
 				, valor: getTiempoCarrera()
 				, unidad: "Anios"
 				, color: getColor(i++)
+				, formula: "Diferencia en anios, entre la fecha actual, y la fecha en la que el alumno inicio su carrera."
 			],
 
 			[
@@ -76,6 +84,7 @@ class EstadisticasManager {
 				, valor: getPorcentajeCarrera()
 				, unidad: "%"
 				, color: getColor(i++)
+				, formula: "Cantidad de Materias Aprobadas (nota > 4), dividido la cantidad de materias total de la carrera."
 			],
 
 			[
@@ -83,6 +92,7 @@ class EstadisticasManager {
 				, valor: getTiempoProximoExamen()
 				, unidad: "Dias"
 				, color: getColor(i++)
+				, formula: "Cuantos dias faltan hasta el evento del tipo EXAMEN, mas cercano a la fecha actual, cargado en la agenda."
 			]
 			
 		])

@@ -22,7 +22,7 @@
             </div>
         </div>
 
-
+        	<p>Posicionar arriba de un indicador para ver su descripcion.</p>
         	%{-- Estadisticas --}%
         	<div class="row">
         		<% def indicadores = EstadisticasManager.getEstadisticas() %>
@@ -30,7 +30,7 @@
         		<g:each in="${indicadores}" var="indicador">
 	                <div class="col-lg-3 col-md-3">
 	                    <div class="panel panel-${indicador.color}">
-	                        <div class="panel-heading">
+	                        <div class="panel-heading" data-toggle="tooltip" title="${indicador.formula}">
 	                            <div class="row">
 	                                <div class="col-xs-12">
 	                                    <div class="text-left">${indicador.descripcion}:</div>
@@ -52,5 +52,8 @@
             %{-- Fin estadisticas --}%
 
 	</div>
+<g:javascript>
+ 	$('[data-toggle="tooltip"]').tooltip(); 
+</g:javascript>
 </body>
 </html>
