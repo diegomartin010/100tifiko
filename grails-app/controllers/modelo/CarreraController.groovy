@@ -90,7 +90,7 @@ class CarreraController {
     * @url localhost:8080/carrera/infomacionCarreras
     */
     def informacionCarreras(){
-        def c = Carrera.findAll()
+        def c = Carrera.list().findAll{it.activa == true }
         render(view:'/carrera/carrerasList', model:[carreras:c] )
     }
 

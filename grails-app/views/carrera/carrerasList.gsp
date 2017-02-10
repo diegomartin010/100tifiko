@@ -55,6 +55,9 @@
                             </g:each>
                         </tbody> 
                     </table> 
+                    <g:if test="${!carreras}">
+                        <p>No hay carreras para mostrar.</p>
+                    </g:if>
                 
             </div>
             <!-- ./Panel body -->
