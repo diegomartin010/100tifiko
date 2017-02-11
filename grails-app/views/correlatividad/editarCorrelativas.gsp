@@ -16,11 +16,12 @@
       <div class="col-lg-12">
         <h1 class="page-header">Correlatividades</h1>
       </div>
-    </div>		
+    </div>	
+    <!--	
 	  <a href="/carrera/editarCarrera?id=${carrera.id}" class="btn btn-info">
       <i class = "fa  fa-arrow-left "></i> Editar Carrera
     </a>
-    <br><br>
+    <br><br>-->
 		<div class="panel panel-default">
 				<div class="panel-heading"> 
           <i class = "fa fa-th-list"></i>

@@ -14,10 +14,12 @@
         <h1 class="page-header">Editar Carrera</h1>
       </div>
     </div>		
-	  <a href="/carrera" class="btn btn-info">
+	  <!--
+    <a href="/carrera" class="btn btn-info">
       <i class = "fa  fa-arrow-left "></i> Carreras del Sistema
     </a>
-    <br><br>
+    -->
+    <!--<br><br>-->
 		<div class="panel panel-default">
 				<div class="panel-heading"> 
           <i class = "fa fa-th-list"></i>
