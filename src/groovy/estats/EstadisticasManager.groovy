@@ -15,7 +15,7 @@ class EstadisticasManager {
 		return([
 			
 			[
-				descripcion: 'Promedio Con Aplazos'
+				descripcion: 'Promedio Calculado Con Aplazos'
 				, valor: getPromedioConAplazos()
 				, unidad: ""
 				, color: getColor(i++)
@@ -24,7 +24,7 @@ class EstadisticasManager {
 			],
 
 			[
-				descripcion: "Promedio Sin Aplazos"
+				descripcion: "Promedio Calculado Sin Aplazos"
 				, valor: getPromedioSinAplazos()
 				, unidad: ""
 				, color: getColor(i++)
@@ -32,7 +32,7 @@ class EstadisticasManager {
 			],
 
 			[
-				descripcion: "# Materias Aprobadas"
+				descripcion: "Cantidad de Materias Aprobadas"
 				, valor: getCantidadMateriasAprobadas()
 				, unidad: "Materias"
 				, color: getColor(i++)
@@ -40,7 +40,7 @@ class EstadisticasManager {
 			],
 
 			[
-				descripcion: "# Finales Desaprobados"
+				descripcion: "Cantidad de Finales Desaprobados"
 				, valor: getCantidadFinalesDesaprobados()
 				, unidad: "Finales"
 				, color: getColor(i++)
@@ -48,7 +48,7 @@ class EstadisticasManager {
 			],
 
 			[
-				descripcion: "Materias Regularizadas"
+				descripcion: "Cantidad de Materias Regularizadas"
 				, valor: getCantidadMateriasEstadoRegular()
 				, unidad: "Materias"
 				, color: getColor(i++)
@@ -56,7 +56,7 @@ class EstadisticasManager {
 			],
 
 			[
-				descripcion: "# Materias Cursando"
+				descripcion: "Cantidad de Materias Cursando"
 				, valor: getCantidadMateriasCursaActualmente()
 				, unidad: "Materias"
 				, color: getColor(i++)
@@ -64,7 +64,7 @@ class EstadisticasManager {
 			],
 
 			[
-				descripcion: "Materias Pendientes"
+				descripcion: "Cantidad de Materias Pendientes"
 				, valor: getCantidadMateriasPendientes()
 				, unidad: "Materias"
 				, color: getColor(i++)
@@ -72,7 +72,7 @@ class EstadisticasManager {
 			],
 
 			[
-				descripcion: "Tiempo de Carrera"
+				descripcion: "Hace cuantos años venis cursando la carrera"
 				, valor: getTiempoCarrera()
 				, unidad: "Anios"
 				, color: getColor(i++)
@@ -80,11 +80,11 @@ class EstadisticasManager {
 			],
 
 			[
-				descripcion: "Porcentaje de Realizacion"
+				descripcion: "Porcentaje completado, de la carrera"
 				, valor: getPorcentajeCarrera()
 				, unidad: "%"
 				, color: getColor(i++)
-				, formula: "Cantidad de Materias Aprobadas (nota > 4), dividido la cantidad de materias total de la carrera."
+				, formula: "Basicamente, cuanto completaste de la carrera que cursas. Cantidad de Materias Aprobadas (nota > 4), dividido la cantidad de materias total de la carrera."
 			],
 
 			[

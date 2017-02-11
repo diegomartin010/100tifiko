@@ -7,6 +7,15 @@
 <g:javascript src="estadisticas/estadisticas.js" />
 <meta name="layout" content="main">
 	<title><g:message code="Básicamente estadísticas"/></title>
+	<style type="text/css">
+		.panel-primary {
+		    width:200px;
+		    
+		}
+		.panel-heading{
+			height:100px;
+		}
+	</style>
 </head>
 <body>
 
@@ -28,7 +37,7 @@
         		<% def indicadores = EstadisticasManager.getEstadisticas() %>
         		%{-- Indicador 1 --}%
         		<g:each in="${indicadores}" var="indicador">
-	                <div class="col-lg-3 col-md-3">
+	                <div class="col-xs-3">
 	                    <div class="panel panel-${indicador.color}">
 	                        <div class="panel-heading" data-toggle="tooltip" title="${indicador.formula}">
 	                            <div class="row">
