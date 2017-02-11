@@ -35,7 +35,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Codigo</th>
+                                <th>Código</th>
                                 <th>Tipo</th>
                                 <th>Materia</th>
                                 <th>Regularizando.<br>Habilita a cursar <br>las Materias ...</th>

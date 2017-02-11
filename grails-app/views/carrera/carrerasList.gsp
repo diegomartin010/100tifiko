@@ -31,7 +31,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Codigo</th>
+                                <th>Código</th>
                                 <th>Nombre</th>
                                 <th>Cantidad de Materias</th>
                             </tr> 

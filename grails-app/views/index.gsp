@@ -62,12 +62,12 @@
                                         <div class="col-sm-10">
                                             <i class="fa fa-exclamation-circle"></i> ${examenPasado.evento.descripcion}
                                             <span class=" text-muted small">
-                                                -- Rendido el Dia: (${examenPasado.evento.fecha.format( 'dd/MM/yyy' )}))
+                                                -- Rendido el Día: (${examenPasado.evento.fecha.format( 'dd/MM/yyy' )}))
                                             </span>
                                             </div>
                                         <div class="col-sm-1">
                                             <button class="btn btn-primary btn-xm pull-right" onclick="location.href='/examen'">
-                                               Calificacion
+                                               Calificación
                                             </button>
                                         </div>
                                         <div class="col-sm-1">
@@ -78,7 +78,7 @@
                             </div>
                         </g:each>
                         <g:if test="${examenesProximos.size()==0}">
-                            <p>Usted no registra proximos examenes.</p>
+                            <p>Usted no registra próximos exámenes.</p>
                         </g:if>
 	            		<button class="btn btn-default">Ver Todos</button>
 	            		<!-- <a href="/examen" class="btn btn-default pull-right">Cargar Examen</a> -->
@@ -117,7 +117,7 @@
                             </div>
                         </g:each>
 	            		<g:if test="${alertasProximas.size()==0}">
-                            <p>Usted no registra proximas alertas.</p>
+                            <p>Usted no registra próximas alertas.</p>
                         </g:if>
                         <button class="btn btn-default">Ver Todos</button>
                     </div>

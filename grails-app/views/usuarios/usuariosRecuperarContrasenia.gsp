@@ -63,8 +63,8 @@
                     <div class = "row">
                         
                         <div class="col-md-12">
-                            <p>Para iniciar la recuperacion de su contraseña, escriba su nombre de usuario con el que se ha registrado en el sistema.</p>
-                            <p><b>Consideracion:</b> Si usted ha olvidado su nombre de usuario, va a tener que contactarse con un administrador para que reinicie su contraseña.</p>
+                            <p>Para iniciar la recuperación de su contraseña, escriba su nombre de usuario con el que se ha registrado en el sistema.</p>
+                            <p><b>Consideración:</b> Si usted ha olvidado su nombre de usuario, va a tener que contactarse con un administrador para que reinicie su contraseña.</p>
 
                         </div>
                         

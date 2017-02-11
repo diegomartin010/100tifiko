@@ -30,7 +30,7 @@
               <thead>
                   <tr>
                       <th>ID</th>
-                      <th>Codigo</th>
+                      <th>Código</th>
                       <th>Nombre de Carrera</th>
                       <th>Cantidad de Materias</th>
                       <th>Carrera Activa</th>
@@ -89,7 +89,7 @@
           </a>
           <br>
           <a href="https://raw.githubusercontent.com/diegomartin010/100tifiko/master/pruebaJSON/jsonVacio.json" target="_blank">
-            Ejemplo 1: Carrera Vacia.
+            Ejemplo 1: Carrera Vacía.
           </a>
           <br>
           <a href="https://raw.githubusercontent.com/diegomartin010/100tifiko/master/pruebaJSON/CarreraCompleta.json" target="_blank">

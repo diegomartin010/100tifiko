@@ -63,11 +63,11 @@
                                     <input class="form-control" placeholder="Username"name="username" id = "username" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
+                                    <label>Contraseña</label>
                                     <input class="form-control" placeholder="Password" name="password" id = "password" type="password" value="">
                                 </div>
                                 <div class="form-group">
-                                    <a href="/usuarios/recuperar" >Olvide mi contraseña</a>
+                                    <a href="/usuarios/recuperar" >Olvidé mi contraseña</a>
                                     <a href="/usuarios/newUser"class="pull-right">Nuevo Usuario</a><br>
                                 </div>
                                 <a href="#!" class="btn btn-lg btn-success btn-block" onclick="login()">Iniciar Sesion</a>
