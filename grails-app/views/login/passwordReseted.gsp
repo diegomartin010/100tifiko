@@ -56,7 +56,7 @@
                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Notificacion de Usuario</small>
             </div>
             <div class="panel-body">
-                <p>Su cuenta ha sido activada satisfactoriamente.</p>
+                <p>Su cuenta ha sido activada satisfactoriamente. Se recomienda, por cuestiones de seguridad, vuelva a cambiar su contraseña, desde el menu de usuario.</p>
                 <p>Atte. 100tifiko</p>
             </div>
             <div class="panel-footer">
