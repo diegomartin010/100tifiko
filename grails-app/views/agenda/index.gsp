@@ -17,6 +17,7 @@
 	-->
 	<g:javascript src="jquery/jquery.min.js"/>
 	<g:javascript src="librerias/fullcalendar/dist/fullcalendar.js"/>
+	<g:javascript src="librerias/fullcalendar/dist/lang/es.js"/>
 	<link rel="stylesheet" href="js/librerias/fullcalendar/fullcalendar.css">
 	<g:javascript src="librerias/datejs/date.js" />
 	%{-- Incluir logica javascript  --}%
