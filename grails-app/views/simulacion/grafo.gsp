@@ -119,7 +119,10 @@
                   <span class="label label-default label-xm">Aprobadas</span>
                   <span class="label label-warning label-xm">Cursando</span>
                 </h4>
+
             </p>
+            <p style="color: #10c09b !important">Para desplazarse por el gráfico, hacer clic en él, y arrastrar el cursor.</p>
+            <p style="color: #10c09b !important">Para hacer zoom, girar la rueda del ratón.</p>
             <div id="mynetwork"></div>
         </div>
     </div>

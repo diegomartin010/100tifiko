@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        	<p>Posicionar arriba de un indicador para ver su descripcion.</p>
+        	<p>Posicionar cursor arriba de un indicador para ver su descripción.</p>
         	%{-- Estadisticas --}%
         	<div class="row">
         		<% def indicadores = EstadisticasManager.getEstadisticas() %>

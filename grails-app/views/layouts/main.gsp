@@ -162,10 +162,10 @@
                         <%def u = SessionManager.getCurrentUser()%>
                         <li><a href="/usuarios/modificarDatos"><i class="fa fa-user fa-fw"></i>${u.nombre} ${u.apellido}</a>
                         </li>
-                        <li><a href="/usuarios/modificarDatos"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="/usuarios/modificarDatos"><i class="fa fa-gear fa-fw"></i> Configuración</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="/session/destroySession"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="/session/destroySession"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

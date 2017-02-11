@@ -34,7 +34,7 @@
 				<div class="panel-body">
           <div class="col-md-2">
             <div class="form-group">
-              <label>Codigo</label>
+              <label>Código</label>
               <input class="form-control" value="${carrera.codigo}" disabled>
             </div>  
           </div>
@@ -57,7 +57,7 @@
               <thead>
                   <tr>
                       <th>ID</th>
-                      <th>Codigo</th>
+                      <th>Código</th>
                       <th>Nivel</th>
                       <th>Nombre de Materia</th>
                       <th>Tipo</th>
@@ -119,7 +119,7 @@
                   <label>Nombre:</label>
                   <input id="nombreMateria" class="form-control">
                   
-                  <label>Codigo de Materia:</label>
+                  <label>Código de Materia:</label>
                   <input id="codigoMateria" class="form-control">
                   
                   <label>Nivel:</label>

@@ -78,7 +78,7 @@
                             </div>
                         </g:each>
                         <g:if test="${examenesProximos.size()==0}">
-                            <p>Usted no registra proximos examenes.</p>
+                            <p>Usted no registra próximos exámenes.</p>
                         </g:if>
 	            		<button class="btn btn-default">Ver Todos</button>
 	            		<!-- <a href="/examen" class="btn btn-default pull-right">Cargar Examen</a> -->
@@ -106,7 +106,7 @@
                                         <div class="col-sm-11">
                                             <i class="fa fa fa-calendar"></i> ${alerta.evento.descripcion} <em>(${alerta.evento.fecha.format( 'dd/MM/yyy' )})
                                             <span class=" text-muted small">
-                                                Faltan: (${alerta.diasRestantes} dias)
+                                                Faltan: (${alerta.diasRestantes} días)
                                             </span>
                                         </div>
                                         <div class="col-sm-1">
@@ -117,7 +117,7 @@
                             </div>
                         </g:each>
 	            		<g:if test="${alertasProximas.size()==0}">
-                            <p>Usted no registra proximas alertas.</p>
+                            <p>Usted no registra próximas alertas.</p>
                         </g:if>
                         <button class="btn btn-default">Ver Todos</button>
                     </div>

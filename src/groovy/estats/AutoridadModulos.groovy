@@ -17,7 +17,7 @@ class AutoridadModulos {
 		[
 			[
 				modulo: "index"
-				, titulo: "Index"
+				, titulo: "Inicio"
 				, permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
 				, url:"/"
 				, icono:"fa fa-home fa-fw"
@@ -34,7 +34,7 @@ class AutoridadModulos {
 			]
 			, [
 				modulo: "estadoAcademico"
-				, titulo: "Estado Academico"
+				, titulo: "Estado Académico"
 				// , permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
 				, permisos:["ROLE_ALUMNO"]
 				, url: "/estadoAcademico/verEstado"
@@ -43,7 +43,7 @@ class AutoridadModulos {
 			]
 			, [
 				modulo: "estadisticas"
-				, titulo: "Estadisticas"
+				, titulo: "Estadísticas"
 				// , permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
 				, permisos:["ROLE_ALUMNO"]
 				, url:"/estadisticas"
@@ -52,7 +52,7 @@ class AutoridadModulos {
 			]
 			, [
 				modulo: "examenes"
-				, titulo: "Examenes"
+				, titulo: "Exámenes"
 				// , permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
 				, permisos:["ROLE_ALUMNO"]
 				, url:"/examen"
@@ -98,7 +98,7 @@ class AutoridadModulos {
 			
 			, [
 				modulo: "informacionCarreras"
-				, titulo: "Informacion de Carreras"
+				, titulo: "Información de Carreras"
 				, permisos:["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
 				, url: "/carrera/informacionCarreras"
 				, icono:"fa fa-university"

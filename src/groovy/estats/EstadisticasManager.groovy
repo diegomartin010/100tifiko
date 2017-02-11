@@ -19,7 +19,7 @@ class EstadisticasManager {
 				, valor: getPromedioConAplazos()
 				, unidad: ""
 				, color: getColor(i++)
-				, formula: "Sumatoria de las notas de todos los examenes, dividido el total de examenes. Los examenes desaprobados, se tienen en cuenta."
+				, formula: "Sumatoria de las notas de todos los exámenes, dividido el total de exámenes. Los exámenes desaprobados, se tienen en cuenta."
 
 			],
 
@@ -28,7 +28,7 @@ class EstadisticasManager {
 				, valor: getPromedioSinAplazos()
 				, unidad: ""
 				, color: getColor(i++)
-				, formula: "Sumatoria de todas las notas de los finales aprobados, dividido el total de examenes aprobados. Los examenes desaprobados, no influyen en este calculo."
+				, formula: "Sumatoria de todas las notas de los finales aprobados, dividido el total de exámenes aprobados. Los exámenes desaprobados, no influyen en este cálculo."
 			],
 
 			[
@@ -60,7 +60,7 @@ class EstadisticasManager {
 				, valor: getCantidadMateriasCursaActualmente()
 				, unidad: "Materia/s"
 				, color: getColor(i++)
-				, formula: "Cantidad de materias que el alumno esta cursando."
+				, formula: "Cantidad de materias que el alumno está cursando."
 			],
 
 			[
@@ -72,11 +72,11 @@ class EstadisticasManager {
 			],
 
 			[
-				descripcion: "Hace cuantos años venis cursando la carrera"
+				descripcion: "Hace cuántos años venís cursando la carrera"
 				, valor: getTiempoCarrera()
 				, unidad: "Año/s"
 				, color: getColor(i++)
-				, formula: "Diferencia en años, entre la fecha actual, y la fecha en la que el alumno inicio su carrera."
+				, formula: "Diferencia en años, entre la fecha actual, y la fecha en la que el alumno inició su carrera."
 			],
 
 			[
@@ -84,15 +84,15 @@ class EstadisticasManager {
 				, valor: getPorcentajeCarrera()
 				, unidad: "%"
 				, color: getColor(i++)
-				, formula: "Basicamente, que porcentaje del total (100 %) completaste de la carrera que cursas. Cantidad de Materias Aprobadas (nota > 4), dividido la cantidad de materias total de la carrera."
+				, formula: "Básicamente, qué porcentaje del total (100 %) completaste de la carrera que cursás. Cantidad de Materias Aprobadas (nota > 4), dividido la cantidad de materias total de la carrera."
 			],
 
 			[
-				descripcion: "Tiempo Hasta Proximo Examen"
+				descripcion: "Tiempo Hasta Próximo Exámen"
 				, valor: getTiempoProximoExamen()
 				, unidad: "Dia/s"
 				, color: getColor(i++)
-				, formula: "Cuantos dias faltan hasta el evento del tipo EXAMEN, mas cercano a la fecha actual, cargado en la agenda."
+				, formula: "Cuántos dáas faltan hasta el evento del tipo EXÁMEN, más cercano a la fecha actual, cargado en la agenda."
 			]
 			
 		])

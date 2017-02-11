@@ -24,7 +24,7 @@
 			%{--<form>--}%
 				%{--<div class="container">--}%
 					<div class="panel panel-default">
-						<div class="panel-heading"><i class="fa fa-plus-square"></i> <label>Nuevo examen</label></div>
+						<div class="panel-heading"><i class="fa fa-plus-square"></i> <label>Nuevo Exámen</label></div>
 						<div class="panel-body">
 							<table class="table">
     						<tr>
