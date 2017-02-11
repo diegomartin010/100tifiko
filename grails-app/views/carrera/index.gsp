@@ -24,32 +24,8 @@
     </div>		
 	
     <div class="panel panel-default">
-      <div class="panel-heading">
-        <label>Nueva carrera</label>
-      </div>
-      <div id="1" class="panel-body">
-        Cargar archivo json con nueva carrera
-        %{-- <span class="label label-warning"> --}%
-          <a href="https://github.com/diegomartin010/100tifiko/wiki/Nueva-Carrera-Mediante-JSON" target="_blank">
-            Tutorial uso de JSONs. Github
-          </a>
-          <br>
-          <a href="https://raw.githubusercontent.com/diegomartin010/100tifiko/master/pruebaJSON/jsonVacio.json" target="_blank">
-            Ejemplo 1: Carrera Vacia.
-          </a>
-          <br>
-          <a href="https://raw.githubusercontent.com/diegomartin010/100tifiko/master/pruebaJSON/CarreraCompleta.json" target="_blank">
-            Ejemplo 2: Carrera Completa.
-          </a>
-        %{-- </span> --}%
-        <br><br>
-        <input type="file" id="nuevaCarrera"> 
-      </div>%{-- /panel body --}%
-    </div>%{-- /panel default --}%
-		
-		<div class="panel panel-default">
-				<div class="panel-heading"> <label>Carreras en el sistema</label> </div>
-				<div id="1" class="panel-body">
+        <div class="panel-heading"> <label>Carreras en el sistema</label> </div>
+        <div id="1" class="panel-body">
            <table class="table table-hover">
               <thead>
                   <tr>
@@ -97,9 +73,35 @@
         
         </div>
         <div class="panel-footer">
-          <br><br>
+          <br>
         </div>
-		</div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <label>Nueva carrera</label>
+      </div>
+      <div id="1" class="panel-body">
+        Cargar archivo json con nueva carrera
+        %{-- <span class="label label-warning"> --}%
+          <a href="https://github.com/diegomartin010/100tifiko/wiki/Nueva-Carrera-Mediante-JSON" target="_blank">
+            Tutorial uso de JSONs. Github
+          </a>
+          <br>
+          <a href="https://raw.githubusercontent.com/diegomartin010/100tifiko/master/pruebaJSON/jsonVacio.json" target="_blank">
+            Ejemplo 1: Carrera Vacia.
+          </a>
+          <br>
+          <a href="https://raw.githubusercontent.com/diegomartin010/100tifiko/master/pruebaJSON/CarreraCompleta.json" target="_blank">
+            Ejemplo 2: Carrera Completa.
+          </a>
+        %{-- </span> --}%
+        <br><br>
+        <input type="file" id="nuevaCarrera"> 
+      </div>%{-- /panel body --}%
+    </div>%{-- /panel default --}%
+		
+		
 
   <g:javascript src="carrera/carrera.js" />
   %{-- Logica Javascript --}%

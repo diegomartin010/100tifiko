@@ -24,10 +24,13 @@
             <div class="panel-heading">
                 <i class = "fa fa-th-list"></i>
                 <label>Lista de Usuarios</label>
-                <a href="/usuarios/usuarioNuevoAdmin" class="btn btn-default pull-right">
+                <!--
+                 <a href="/usuarios/usuarioNuevoAdmin" class="btn btn-default pull-right">
                     <i class = "fa  fa-arrow-up"></i>
                     Nuevo Usuario
-                </a><br><br>
+                </a>
+                -->
+                <br>
             </div>
             <div class="panel-body">
                 <table class="table table-hover">
