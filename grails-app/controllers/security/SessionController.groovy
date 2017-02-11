@@ -96,9 +96,12 @@ class SessionController {
 
         // Para usuarios
         def user_route = new File("${route}/ROLE_USER")
-        user_route.eachFile(){
-            slides.user += it.getName()
+        user_route.listFiles().sort{it.name}.each{ f->
+            slides.user += f.name
         }
+        // user_route.eachFile(){
+        //     slides.user += it.getName()
+        // }
 
         // Administradores
         def admin_route = new File("${route}/ROLE_ADMIN")
