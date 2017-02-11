@@ -37,7 +37,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Username</th>
+                            <th>Nombre de usuario</th>
                             <th>Nombre y Apellido</th>
                             <th>e-mail</th>
                             <th>Legajo</th>
