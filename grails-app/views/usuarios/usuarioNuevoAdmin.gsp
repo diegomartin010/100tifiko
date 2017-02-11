@@ -21,7 +21,9 @@
             </div>
         </div>
         <!-- ./row  -->
+        <!--
         <a href="/usuarios" class="btn btn-info"><i class = "fa fa-th-list"></i> Lista de Usuarios</a><br><br>
+        -->
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-database"></i>

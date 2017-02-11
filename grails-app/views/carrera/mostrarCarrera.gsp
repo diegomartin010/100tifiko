@@ -17,12 +17,12 @@
                 <h1 class="page-header"><i class="fa fa-university"></i> Carrera</h1>
             </div>
         </div>
-        <!-- ./row  -->
+        <!-- ./row  
         <a href="/carrera/informacionCarreras" class="btn btn-info">
             <i class = "fa  fa-arrow-left "></i> 
             Lista de Carreras
         </a>
-        <br><br>
+        <br><br> -->
         <div class="panel panel-default">
             <div class="panel-heading">
                 <p>
@@ -90,7 +90,11 @@
             </div>
             <!-- ./Panel body -->
             <div class="panel-footer">
-                <br>
+            <a href="/carrera/informacionCarreras" class="btn btn-warning pull-right">
+            <i class = "fa  fa-arrow-left "></i> 
+            Lista de Carreras
+        </a>
+            <br><br>
             </div>
         </div>
 
