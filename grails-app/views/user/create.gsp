@@ -58,7 +58,7 @@
             <g:textField name="nombre"/></div><br/>
             <div class="fieldcontain"><label>Apellido: </label>
             <g:textField name="apellido"/></div><br/>
-            <div class="fieldcontain"><label>Mail: </label>
+            <div class="fieldcontain"><label>Email: </label>
             <g:textField name="email"/>
             <span class = "em errors" style="display:none" >El email no es válido</span></div><br/>
             </fieldset> 

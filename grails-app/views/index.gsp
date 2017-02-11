@@ -62,12 +62,12 @@
                                         <div class="col-sm-10">
                                             <i class="fa fa-exclamation-circle"></i> ${examenPasado.evento.descripcion}
                                             <span class=" text-muted small">
-                                                -- Rendido el Dia: (${examenPasado.evento.fecha.format( 'dd/MM/yyy' )}))
+                                                -- Rendido el Día: (${examenPasado.evento.fecha.format( 'dd/MM/yyy' )}))
                                             </span>
                                             </div>
                                         <div class="col-sm-1">
                                             <button class="btn btn-primary btn-xm pull-right" onclick="location.href='/examen'">
-                                               Calificacion
+                                               Calificación
                                             </button>
                                         </div>
                                         <div class="col-sm-1">

@@ -64,7 +64,7 @@
                         
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Username</label>
+                                <label>Nombre de usuario</label>
                                 <input class="form-control" id="username" value="">
                             </div>
                         </div>
@@ -99,12 +99,12 @@
                     <div class = "row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Password</label>
+                                <label>Contraseña</label>
                                 <input class="form-control" type='password' id="password" value="">
                             </div>
                        
                             <div class="form-group">
-                                <label>Repetir Password</label>
+                                <label>Repetir contraseña</label>
                                 <input class="form-control" type='password' id="rePassword" value="">
                             </div>
                         </div>

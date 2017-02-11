@@ -38,7 +38,7 @@
                         
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Username</label>
+                                <label>Nombre de usuario</label>
                                 <input class="form-control" id="username" value="${currentUser.username}">
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                         
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Modificar Password</label>
+                                <label>Modificar contraseña</label>
                                 <input class="form-control" type='password' id="password" value="${currentUser.password}">
                             </div>
                         </div>
@@ -84,7 +84,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Repetir Password</label>
+                                <label>Repetir constraseña</label>
                                 <input class="form-control" type='password' id="rePassword" value="${currentUser.password}">
                             </div>
                         </div>

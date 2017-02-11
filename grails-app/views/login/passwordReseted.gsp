@@ -53,14 +53,14 @@
         <!-- ./row  -->
         <div class="panel panel-default">
             <div class="panel-heading">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Notificacion de Usuario</small>
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Notificación de Usuario</small>
             </div>
             <div class="panel-body">
-                <p>Su cuenta ha sido activada satisfactoriamente. Se recomienda, por cuestiones de seguridad, vuelva a cambiar su contraseña, desde el menu de usuario.</p>
+                <p>Su cuenta ha sido activada satisfactoriamente. Se recomienda que por cuestiones de seguridad, vuelva a cambiar su contraseña, desde el menú de usuario.</p>
                 <p>Atte. 100tifiko</p>
             </div>
             <div class="panel-footer">
-                <a href="/" class="btn btn-info" onclick=""><i class="fa fa-arrow-left "></i> Iniciar Sesion</a>
+                <a href="/" class="btn btn-info" onclick=""><i class="fa fa-arrow-left "></i> Iniciar Sesión</a>
                 <br><br>
             </div>
         </div>
