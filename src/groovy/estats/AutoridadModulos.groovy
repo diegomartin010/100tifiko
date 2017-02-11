@@ -70,11 +70,11 @@ class AutoridadModulos {
 			]
 			, [
 				modulo: "simulacion"
-				, titulo: "Simulacion"
+				, titulo: "Eventos y Alarmas"
 				// , permisos: ["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
 				, permisos: ["ROLE_ALUMNO"]
 				, url: "/simulacion"
-				, icono:"fa fa-plane fa-fw"
+				, icono:"fa fa-volume-up"
 				, target:""
 			]
 			, [
