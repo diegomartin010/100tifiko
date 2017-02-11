@@ -68,15 +68,15 @@ class AutoridadModulos {
 				, icono:"fa fa-calendar"
 				, target:""
 			]
-			, [
-				modulo: "simulacion"
-				, titulo: "Eventos y Alarmas"
-				// , permisos: ["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
-				, permisos: ["ROLE_ALUMNO"]
-				, url: "/simulacion"
-				, icono:"fa fa-volume-up"
-				, target:""
-			]
+			// , [
+			// 	modulo: "simulacion"
+			// 	, titulo: "Eventos y Alarmas"
+			// 	// , permisos: ["ROLE_ALUMNO","ROLE_ADMINISTRADOR"]
+			// 	, permisos: ["ROLE_ALUMNO"]
+			// 	, url: "/simulacion"
+			// 	, icono:"fa fa-volume-up"
+			// 	, target:""
+			// ]
 			, [
 				modulo: "simulacion"
 				, titulo: "Correlatividades"
