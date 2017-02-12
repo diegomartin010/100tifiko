@@ -37,6 +37,8 @@ class ExamenController {
         user.save(flush:true)
         println("desp de eliminar: "+user.estadoAcademico.examenes.size())
 
+        render(true)
+
     }
 
     def getExamenes(){

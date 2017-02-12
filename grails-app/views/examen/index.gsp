@@ -1,11 +1,14 @@
 <%@ page import="estats.SessionManager" %>
 <%@ page import="estats.AutoridadModulos" %>
+<%@ page import="modelo.*" %>
+<%@ page import="estats.*" %>
+<%@ page import="security.*" %>
 <%def modulo_nombre = "examenes"%>
 <%def modulo = AutoridadModulos.getByName(modulo_nombre)%>
 <!DOCTYPE html>
 <html>
 <head>
-	<g:javascript src="examen/examen.js" /> 
+	%{-- <g:javascript src="examen/examen.js" />  --}%
 	<g:javascript src="jquery/jquery-ui.js"/>
 	<g:javascript src="jquery/jquery-ui.css"/>
     <meta name="layout" content="main">
@@ -66,14 +69,96 @@
   	%{--</div>--}%
 
   <!-- Table -->
-  <table id="letable" class="table">
-    <tr>
-    	<th>Fecha</th>
-    	<th>Materia</th>
-    	<th>Nota</th>
-  	</tr>
-  		%{-- acá debería poner para cargar la tabla desde los arrays --}%
-    </table>
+  	<table class="table table-hover">
+      	<thead>
+        	<tr>
+              	<th>ID</th>
+              	<th>Fecha</th>
+              	<th>Materia</th>
+              	<th>Código de Materia</th>
+              	<th>Nota</th>
+              	<th>Acciones</th>
+          	</tr> 
+        </thead>
+        <tbody> 
+	        <g:each in="${SessionManager.getCurrentUser().estadoAcademico.examenes}">
+		        <tr>
+		            <th scope="row">
+		             	${it.id}
+		            </th>
+	              	<td>
+	                  ${it.fecha.format('dd/MM/yyyy')}
+	              	</td>
+	              	<td>
+	                  [${it.materia.nivel}] ${it.materia.nombre}
+	              	</td>
+	              	<td>
+	                  ${it.materia.codigo}
+	              	</td>
+	              	<td>
+	                  ${it.calificacion}
+	              	</td>
+	              	<td>
+	                  <button class="btn btn-danger btn-xs" onclick="eliminar(${it.id})">Eliminar</button>
+	              	</td>
+		        </tr>
+		    </g:each>
+      </tbody> 
+    </table> 
   </div>
+
+  <g:javascript>
+  //js Usado en "/views/examen/index.gsp"
+
+		function eliminar(idmovida){
+			$.post("examen/eliminarExamen",{
+				id: idmovida
+			}).done(function(){
+				location.reload();	
+			}).fail(function(){
+				alert("No se pudo eliminar el Exámen. Intente nuevamente mas tarde.")
+			})
+			
+		}
+
+		//genero la lista del dropdown de materias
+		$.post( "/estadoAcademico/getMateriasByEstado", {
+	        estado: "R"
+	    }).done(function(d) {
+	    	$.each(d, function (index,mat){
+	        	var sel = document.getElementById("idmateria");
+			    var opt = document.createElement("option");
+			    opt.innerHTML = mat.nombre;
+			    opt.value = mat.nombre;
+			    sel.appendChild(opt);
+	    	})
+	    });
+
+		function guardarexamen(){						
+		    //agrego funcionalidad para almacenar el examen.
+		    $.post( "/examen/guardar",{
+			    fecha: $("#datepicker").val(),
+				materia: $("#idmateria").val(),
+				nota: $("#idnota").val()
+		    }).done(function(){
+		    	location.reload();	
+		    }).fail(function(){
+		    	alert("Error al cargar Exámen. Verifique que los campos sean correctos, o intente nuevamente mas tarde.")
+		    })
+			
+		};
+		$( function() {
+   	
+			// Se bloquean las fechas posteriores al dia de la fecha.
+		    $( "#datepicker" ).datepicker({
+		    	maxDate: new Date() 
+		    });
+
+
+		    $( "#anim" ).on( "change", function() {
+		    	$( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
+		    });
+ 		});
+  </g:javascript>
 </body>
 </html>
