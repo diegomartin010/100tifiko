@@ -10,13 +10,13 @@
 	<script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
 	<!-- ojo estos 3 -->
 
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.js"></script>
 	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 	<!-- ya está arriba
 	<g:javascript src="librerias/fullcalendar/moment.min.js"/>
 	-->
 	<g:javascript src="jquery/jquery.min.js"/>
 	<g:javascript src="librerias/fullcalendar/dist/fullcalendar.js"/>
+	<g:javascript src="librerias/fullcalendar/dist/lang/es.js"/>
 	<link rel="stylesheet" href="js/librerias/fullcalendar/fullcalendar.css">
 	<g:javascript src="librerias/datejs/date.js" />
 	%{-- Incluir logica javascript  --}%
@@ -49,14 +49,14 @@
 
 
 <!-- Modal Crear-->
-<div id="myModal" class="modal" role="dialog">
+<div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Ingrese los datos del evento</h4>
+        <h4 class="modal-title"><i class="fa fa-plus"></i> Nuevo Evento</h4>
       </div>
       <div class="modal-body">
 			         <form>
@@ -79,7 +79,8 @@
 					</form>
       </div>
       <div class="modal-footer">
-        <button type="button" onClick="saracho2()" class="btn btn-default" data-dismiss="modal">Guardar Evento</button>
+        <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-arrow-left"></i> Cancelar</button>
+        <button type="button" onClick="saracho2()" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-save"></i> Guardar</button>
       </div>
     </div>
 
@@ -87,16 +88,17 @@
 </div>
 
 <!-- Modal Modificar o Eliminar-->
-<div id="modalModif" class="modal" role="dialog">
+<div id="modalModif" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modificar evento seleccionado</h4>
+        <h4 class="modal-title"> <i class="fa fa-pencil"></i> Modificar o Eliminar Evento</h4>
       </div>
       <div class="modal-body">
+      <button type="button" onClick="saracho4()" class="btn btn-danger pull-right " data-dismiss="modal"><i class="glyphicon glyphicon-trash"></i> Eliminar Evento</button><br><br>
 			         <form>
 			  			<div class="form-group">
 						    <label for="nombre">Nombre del evento:</label>
@@ -119,10 +121,12 @@
 						    <input type="text" class="form-control" id="datepicker2" placeholder="Fecha">
 						  </div>
 					</form>
+
       </div>
       <div class="modal-footer">
-        <button type="button" onClick="saracho3()" class="btn btn-default" data-dismiss="modal">Modificar Evento</button>
-        <button type="button" onClick="saracho4()" class="btn btn-default" data-dismiss="modal">Eliminar Evento </button>
+        <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-arrow-left"></i> Cancelar</button>
+        <button type="button" onClick="saracho3()" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-save"></i> Modificar</button>
+
         <input type="hidden" id="params3">
       </div>
     </div>
