@@ -121,8 +121,8 @@
                 </h4>
 
             </p>
-            <p style="color: #10c09b !important">Para desplazarse por el gráfico, hacer clic en él, y arrastrar el cursor.</p>
-            <p style="color: #10c09b !important">Para hacer zoom, girar la rueda del ratón.</p>
+            <p class="pull-right">Desplazamiento: Clic y arrastrar cursor. Zoom: Girar la rueda del ratón.</p>
+            %{-- <p class="pull-right">Para hacer zoom, girar la rueda del ratón.</p> --}%
             <div id="mynetwork"></div>
         </div>
     </div>
