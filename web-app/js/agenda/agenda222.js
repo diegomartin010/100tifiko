@@ -7,8 +7,13 @@ $(document).ready(function() {
 	    dayClick: function(date, jsEvent, view) {
 			myCalendar.fullCalendar();
 			//ejecuto la modal
+			if( date < new Date() ){
+				alert("Elija una fecha posterior a la fecha actual.")	
+			}else{
+				saracho(date, jsEvent, view);
+
+			}
 			//var lacomitiva = fechaDecente(date);
-			saracho(date, jsEvent, view);
 			//$('#myModal').modal('show'); 
 			//console.log("este es el formato fecha del FullCalendar: "+date);
 		/*	var uid =  Math.floor(Math.random() *10000000);
