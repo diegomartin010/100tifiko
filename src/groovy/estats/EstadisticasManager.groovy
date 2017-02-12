@@ -102,7 +102,7 @@ class EstadisticasManager {
 	static def getColor(int i){
 		// Paleta de colores.
 		def colores = [
-			'primary'
+			'info'
 			// ,'green'
 			// ,'yellow'
 			// ,'red'

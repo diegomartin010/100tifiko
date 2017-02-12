@@ -8,7 +8,7 @@
 <meta name="layout" content="main">
 	<title><g:message code="Básicamente estadísticas"/></title>
 	<style type="text/css">
-		.panel-primary {
+		.panel {
 		    width:200px;
 		    
 		}
@@ -44,7 +44,7 @@
 	                                <div class="col-xs-12">
 	                                    <div class="text-left">${indicador.descripcion}:</div>
 	                                    
-	                                    <div class="text-center"><h4>${indicador.valor} ${indicador.unidad}</h4></div>
+	                                    <div class="text-left"><h4>${indicador.valor} ${indicador.unidad}</h4></div>
 	                                </div>
 	                            </div>
 	                           %{--  <div class="row">
