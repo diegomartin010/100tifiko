@@ -114,11 +114,11 @@ function saracho3(){
 	console.log(auxfecha);
 	var fechabien = cambiarMesPorDia(auxfecha);
 	console.log("fecha bien");
-	alert(auxfecha);
-	alert(fechabien);
+	//alert(auxfecha);
+	//alert(fechabien);
 	var unixtime = Date.parse(auxfecha).getTime();
 	console.log("fecha unixtime");
-	alert(unixtime);
+	//alert(unixtime);
 	var uid =  Math.floor(Math.random() *10000000);
 	var myEvent = {
 		id: uid,
@@ -133,6 +133,7 @@ function saracho3(){
 	//fecha = vhorno;
 	guardarevento(myEvent, fechabien);
 	//elimino
+	alert("el evento se ha modificado satisfactoriamente");
 	saracho4();
 	location.href = "/agenda"
 };
