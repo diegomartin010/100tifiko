@@ -3,6 +3,7 @@
 $(document).ready(function() {
 	//$('#myModal').modal('show');
 	var myCalendar = $('#calendar');
+
 	$('#calendar').fullCalendar({
 	    dayClick: function(date, jsEvent, view) {
 			myCalendar.fullCalendar();
@@ -13,24 +14,6 @@ $(document).ready(function() {
 				saracho(date, jsEvent, view);
 
 			}
-			//var lacomitiva = fechaDecente(date);
-			//$('#myModal').modal('show'); 
-			//console.log("este es el formato fecha del FullCalendar: "+date);
-		/*	var uid =  Math.floor(Math.random() *10000000);
-			var myEvent = {
-				id: uid,
-				title: eventname,
-				allDay: true,
-				start: date,
-				end: date
-			};
-			//console.log("ID: "+myEvent.id);
-			myCalendar.fullCalendar('renderEvent', myEvent);
-			//convierto el formato de la fecha
-			//console.log("fecha UNIX INGRESO: "+date);
-			fecha = timeConverter(date);
-			//console.log("fecha: "+fecha);
-			guardarevento(myEvent, fecha); */
 		},
 		//Clickeando eventos se los elimina
 		eventClick: function(calEvent, jsEvent, view) {
@@ -46,12 +29,21 @@ $(document).ready(function() {
      		//myCalendar.fullCalendar('removeEvents',[calEvent._id]);
      		//eliminarEvento(calEvent.id);
         }
-   		
    	});
 });
 $(document).ready(function() {
 	cargarEventos();
 });
+
+//defino una tropimovida
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 
 /* FALTA ELIMINAR / MODIFICAR EVENTOS
 $(document).ready(function(){
@@ -133,7 +125,11 @@ function saracho3(){
 	//fecha = vhorno;
 	guardarevento(myEvent, fechabien);
 	//elimino
-	alert("el evento se ha modificado satisfactoriamente");
+	//alert("el evento se ha modificado satisfactoriamente");
+	sleep(500);
+	if(1){}
+		else{(alert("hardcode solutions"));
+	}
 	saracho4();
 	location.href = "/agenda"
 };
@@ -202,7 +198,7 @@ function cargarEventos(){
 				end: unixtime,
 				resourceEditable: true
 			};
-		myCalendar.fullCalendar('renderEvent', myEvent);
+		myCalendar.fullCalendar('renderEvent', myEvent, true);
 		});
 	});
 }
