@@ -48,28 +48,5 @@ class UsuariosControllerSpec extends Specification {
             view == '/usuarios/usuariosRecuperarContrasenia'
     }
 
-   
-
-
-    void "Prueba error crear un usuario con credenciales erroneas"() {
-
-
-        given:"Se crea mal al usuario"
-            def nu = new User([
-                      nombre: ''  
-                    , apellido: ''
-                    , email: 123
-                    , username: ''
-                    , password: ''
-                    , codigoActivacion: ''
-                    , enabled: false
-                ])
-
-        when:"Se intenta guardar"
-            nu.save(flush: true)
-
-        then:"Lanza una excepcion"            
-            Exception e
-    }
 }
 

@@ -7,14 +7,9 @@ import spock.lang.Specification
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
 @TestFor(MateriaController)
-@Mock([Materia])
+@Mock([Materia,Carrera])
 class MateriaControllerSpec extends Specification {
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
 
       void "Prueba crear una materia"() {
         
@@ -33,4 +28,18 @@ class MateriaControllerSpec extends Specification {
         then: "Se comprueba la cantidad de materias guardadas en la base de datos"
             Materia.count() == 1
     }
+
+
+
+    void "Prueba metodo mostrar materia"(){
+
+        when: "Llamo al método mostrarMateria"
+            controller.mostrarMateria()
+
+        then: "Se verifica que el modelo exista"
+        !model.materia
+
+    }
+
+
 }
