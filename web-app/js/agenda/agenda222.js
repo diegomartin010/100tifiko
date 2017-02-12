@@ -220,7 +220,7 @@ function eliminarEvento(idEvento){
 
 //esto es para el datepicker
 $( function() {
-	$( "#datepicker2" ).datepicker({
+	$( "#datepicker2" ).datepicker({minDate: new Date()
     });
     $( "#anim" ).on( "change", function() {
     	$( "#datepicker2" ).datepicker( "option", "showAnim", $( this ).val() );

@@ -98,7 +98,7 @@
         <h4 class="modal-title"> <i class="fa fa-pencil"></i> Modificar o Eliminar Evento</h4>
       </div>
       <div class="modal-body">
-      <button type="button" onClick="saracho4()" class="btn btn-danger pull-right " data-dismiss="modal"><i class="glyphicon glyphicon-trash"></i> Eliminar Evento</button><br><br>
+      <!--<button type="button" onClick="saracho4()" class="btn btn-danger pull-right " data-dismiss="modal"><i class="glyphicon glyphicon-trash"></i> Eliminar Evento</button><br> --><br> 
 			         <form>
 			  			<div class="form-group">
 						    <label for="nombre">Nombre del evento:</label>
@@ -124,8 +124,10 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-arrow-left"></i> Cancelar</button>
-        <button type="button" onClick="saracho3()" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-save"></i> Modificar</button>
+      <button type="button" onClick="saracho3()" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-save pull-right"></i> Modificar</button>
+      	<button type="button" onClick="saracho4()" class="btn btn-danger " data-dismiss="modal"><i class="glyphicon glyphicon-trash"></i> Eliminar Evento</button>
+        <button type="button" class="btn btn-warning pull-left" data-dismiss="modal"><i class="fa fa-arrow-left"></i> Cancelar</button>
+        
 
         <input type="hidden" id="params3">
       </div>
