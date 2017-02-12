@@ -89,6 +89,7 @@ class AgendaController {
         user.estadoAcademico.eventos.remove(eventoAEliminar)
         user.estadoAcademico.save(flush:true)
         user.save(flush:true)
+        eventoAEliminar.delete(flush:true)
         println("cantidad de eventos desp de eliminar: "+user.estadoAcademico.eventos.size())
         render("ok")
     }
