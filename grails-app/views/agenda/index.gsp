@@ -37,8 +37,10 @@
         </div>
 			<form>
 				<div class="container">
-					<div class="col-md-8">	
+					<div class="col-md-8">
+						
 						<div id="calendar" class="fc fc-unthemed fc-ltr"></div>
+					
 						<div id="datepicker"></div>
 					</div>
 				</div>
