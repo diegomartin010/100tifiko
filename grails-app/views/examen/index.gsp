@@ -26,6 +26,9 @@
         %{-- ./row --}%
 			%{--<form>--}%
 				%{--<div class="container">--}%
+				<div  class="hidden alert alert-danger">
+  					<strong>Error</strong> al cargar Exámen. Verifique que los campos sean correctos.
+				</div>
 					<div class="panel panel-default">
 						<div class="panel-heading"><i class="fa fa-plus-square"></i> <label>Nuevo Exámen</label></div>
 						<div class="panel-body">
@@ -143,7 +146,7 @@
 		    }).done(function(){
 		    	location.reload();	
 		    }).fail(function(){
-		    	alert("Error al cargar Exámen. Verifique que los campos sean correctos, o intente nuevamente mas tarde.")
+		    	$(".alert-danger").removeClass('hidden')
 		    })
 			
 		};
