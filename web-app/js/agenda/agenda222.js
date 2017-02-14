@@ -159,9 +159,9 @@ function timeConverter(UNIX_timestamp){
 	var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
 	var year = a.getFullYear();
 	var month = months[a.getMonth()];
-	if ((a.getDate()==28 && month==02) ||
-		(a.getDate()==30 && month==04,06,09,11) ||
-		(a.getDate()==31 && month==01,03,05,07,08,10,12)){
+	if (((a.getDate()==28) && (month==02)) ||
+		((a.getDate()==30) && (month==04,06,09,11)) ||
+		((a.getDate()==31) && (month==01,03,05,07,08,10,12))){
 		month++;
 		date=1;
 	}
