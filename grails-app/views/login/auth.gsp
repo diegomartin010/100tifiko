@@ -55,6 +55,9 @@
                     <div class="panel-heading">
                         <h3 class="panel-title"><a href="/"><asset:image width="170" src="logos/logo.png" alt="Grails"/></a></h3>
                     </div>
+                    <div class="hidden alert alert-danger">
+                    <strong>Error</strong> El usuario y la contraseña ingresados, son incorrectos.
+                    </div>
                     <div class="panel-body">
                         <form role="form">
                             <fieldset>
@@ -120,7 +123,7 @@
                         }
                         
                    }else{
-                        alert("El usuario y la contraseña ingresados, son incorrectos.");
+                        $(".alert-danger").removeClass('hidden')
                    }
                 }
             );
