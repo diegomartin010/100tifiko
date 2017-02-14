@@ -12,6 +12,12 @@ class EstadisticasManager {
 		// variable que se va a usar para elegir el color.
 		def i = 0
 
+		def u = SessionManager.getCurrentUser()
+		def eacad = u.estadoAcademico
+		def carrera = eacad.carrera
+		def materias = carrera.materias
+
+
 		return([
 			
 			[
@@ -76,7 +82,7 @@ class EstadisticasManager {
 				, valor: getTiempoCarrera()
 				, unidad: "Año/s"
 				, color: getColor(i++)
-				, formula: "Diferencia en años, entre la fecha actual, y la fecha en la que el alumno inició su carrera."
+				, formula: "Diferencia en años, entre la fecha actual, y la fecha en la que el alumno inició su carrera. \n\n\nIniciaste la carrera ${carrera.nombre}, el dia: \n ${eacad.fechaInicio.format('dd/MM/yyyy')}"
 			],
 
 			[
@@ -84,16 +90,16 @@ class EstadisticasManager {
 				, valor: getPorcentajeCarrera()
 				, unidad: "%"
 				, color: getColor(i++)
-				, formula: "Básicamente, qué porcentaje del total (100 %) completaste de la carrera que cursás. Cantidad de Materias Aprobadas (nota > 4), dividido la cantidad de materias total de la carrera."
+				, formula: "Básicamente, qué porcentaje del total (100 %) completaste de la carrera ${carrera.nombre}. Se calcula como cantidad de Materias Aprobadas (nota > 4), dividido la cantidad de materias total de la carrera. Total de Materias en ${carrera.nombre}: ${materias.size()}"
 			],
 
-			[
-				descripcion: "Tiempo Hasta Próximo Exámen"
-				, valor: getTiempoProximoExamen()
-				, unidad: "Dia/s"
-				, color: getColor(i++)
-				, formula: "Cuántos dáas faltan hasta el evento del tipo EXÁMEN, más cercano a la fecha actual, cargado en la agenda."
-			]
+			// [
+			// 	descripcion: "Tiempo Hasta Próximo Exámen"
+			// 	, valor: getTiempoProximoExamen()
+			// 	, unidad: "Dia/s"
+			// 	, color: getColor(i++)
+			// 	, formula: "Cuántos dáas faltan hasta el evento del tipo EXÁMEN, más cercano a la fecha actual, cargado en la agenda."
+			// ]
 			
 		])
 
@@ -201,7 +207,7 @@ class EstadisticasManager {
 		// fecha actual hardcode 2.
 		Date dateTo = new Date()
 		// Date dateTo = Date.parse("yyyy-MM-dd", "2013-01-01")
-		return (int)((dateTo - dateFrom)/365).toDouble().round(0) +1
+		return ((dateTo - dateFrom)/365).toDouble().round(1)
 	}
 
 	// Devuelve el porcentaje de la carrera.

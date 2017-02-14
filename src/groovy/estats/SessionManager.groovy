@@ -19,10 +19,10 @@ class SessionManager {
 		// def currUsr = User.get(1)
 		def session = WebUtils.retrieveGrailsWebRequest().getSession();
 		// setUser(User.get(1))
-		def u = session["CURRENT_USER"]
+		def uid = session["CURRENT_USER"]
 		// println("ID del loco logueado ${u.id}")
-		if(u){
-			return User.get(u.id)
+		if(uid){
+			return User.get(uid)
 		}else{
 			return null
 		}
@@ -84,7 +84,7 @@ class SessionManager {
 	static def setUser(User usuario){
 		// Capturamos la sesion actualmente en grails.
 		def session = WebUtils.retrieveGrailsWebRequest().getSession();
-		session["CURRENT_USER"] = usuario
+		session["CURRENT_USER"] = usuario.id
 	}
 
 	static def getCodigoActivacion(){
