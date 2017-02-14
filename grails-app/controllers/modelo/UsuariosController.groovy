@@ -39,7 +39,7 @@ class UsuariosController {
 
         }
         catch(Exception e) {
-           
+            0/0;
             render(contentType: 'text/json') {[
                   result: false
                 , mensaje: "ERROR!.<br>El usuario no ha podido ser registrado.<br>Pruebe con otros datos, o intente nuevamente mas tarde."

@@ -65,13 +65,13 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Nombre de usuario</label>
-                                <input class="form-control" id="username" value="">
+                                <input class="form-control" id="username" value="godoy">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Email</label>
-                                <input class="form-control" id="email" value="">
+                                <input class="form-control" id="email" value="diegomartin010@gmail.com">
                             </div>
                         </div>
                         <div class="col-md-1">
@@ -84,13 +84,13 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Nombre</label>
-                                <input class="form-control" id="nombre" value="">
+                                <input class="form-control" id="nombre" value="CRISTINA">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Apellido</label>
-                                <input class="form-control" id="apellido" value="">
+                                <input class="form-control" id="apellido" value="GODOY">
                             </div>
                         </div>
                         <div class="col-md-1">
@@ -100,12 +100,12 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Contraseña</label>
-                                <input class="form-control" type='password' id="password" value="">
+                                <input class="form-control" type='password' id="password" value="123">
                             </div>
                        
                             <div class="form-group">
                                 <label>Repetir contraseña</label>
-                                <input class="form-control" type='password' id="rePassword" value="">
+                                <input class="form-control" type='password' id="rePassword" value="123">
                             </div>
                         </div>
                         <div class="col-md-1">
@@ -139,7 +139,10 @@
                         }
                     )
                     .done(function( data ) {
-                        $("#mensaje").append("<div class='alert alert-danger'><p>"+data.mensaje+"</p></div>").hide().show('fast')
+                        $("#mensaje").append("<div class='alert alert-success'><p>"+data.mensaje+"</p></div>").hide().show('fast')
+                    })
+                    .fail(function( data ) {
+                        $("#mensaje").append("<div class='alert alert-danger'><p>ERROR!.<br>El usuario no ha podido ser registrado.<br>Pruebe con otros datos, o intente nuevamente mas tarde.</p></div>").hide().show('fast')
                     });  
 
                

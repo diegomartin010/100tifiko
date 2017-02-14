@@ -12,7 +12,7 @@
 	<img src="https://raw.githubusercontent.com/diegomartin010/100tifiko/master/grails-app/assets/images/logos/logo.png">
 	<h2>Staff de 100tifiko.</h2>
 	<h4>Nuevo Usuario.</h4>
-	<p>Señor <b><i>${usuario.nombre} ${usuario.apellido}</i></b></p>
+	<p>Señor/a <b><i>${usuario.nombre} ${usuario.apellido}</i></b></p>
 	<p>Used se ha registrado en la plataforma 100tifiko, con los siguientes datos:</p>
 	<p>----------------------------------------------</p>
 	<h2>Username: ${usuario.username}</h2>

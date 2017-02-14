@@ -10,7 +10,7 @@
 	<h2>Staff de 100tifiko.</h2>
 	<h4>Reinicio de Contraseña.</h4>
 	<p>
-		Señor <b><i>${usuario.nombre} ${usuario.apellido}</i></b>
+		Señor/a <b><i>${usuario.nombre} ${usuario.apellido}</i></b>
 		Se ha procedido a realizar el reseteo de su contraseña, y cuestiones de seguridad, su cuenta ha sido bloqueada.
 	</p>
 	<p>Usted puede ingresar al sistema utilizando los siguientes datos.</p>
