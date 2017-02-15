@@ -13,7 +13,7 @@ class GraphManager {
 				permitida: "#5cb85c",
 				cursando: "#ffb733" ,
 				regular: "#2e9fff",
-				aprobada: "#B5B5B5",
+				aprobada: "blue",
 				finalAlerta: "#5cb85c",
 				// finalAlerta: "#933",
 				finalBloqueado: "#d9534f",
