@@ -1,3 +1,9 @@
+#Grails Metadata file
+#Fri Apr 29 15:00:55 ART 2016
+app.grails.version=2.4.4
+app.name=100tifiko
+app.version=0.1
+
 ![alt tag](https://github.com/diegomartin010/100tifiko/blob/master/grails-app/assets/images/logos/logo.png)
 
 ###Basicamente, llevamos la productividad de los estudiantes, a niveles nunca antes vistos. 
